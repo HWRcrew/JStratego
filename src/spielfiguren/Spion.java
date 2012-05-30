@@ -8,6 +8,5 @@ package spielfiguren;
  *
  * @author sebastiangrosse
  */
-public class Spion {
-	
+public class Spion extends Spielfigur {
 }

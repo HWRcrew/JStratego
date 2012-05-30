@@ -8,6 +8,6 @@ package spielfiguren;
  *
  * @author sebastiangrosse
  */
-public class Mineur {
+public class Mineur extends Spielfigur{
 	
 }

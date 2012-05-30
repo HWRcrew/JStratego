@@ -8,6 +8,6 @@ package spielfiguren;
  *
  * @author sebastiangrosse
  */
-public class Unteroffizier {
+public class Unteroffizier extends Spielfigur{
 	
 }

@@ -8,6 +8,6 @@ package spielfiguren;
  *
  * @author sebastiangrosse
  */
-public class Aufklaerer {
+public class Aufklaerer extends Spielfigur{
 	
 }

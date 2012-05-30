@@ -8,6 +8,6 @@ package spielfiguren;
  *
  * @author sebastiangrosse
  */
-public class General {
+public class General extends Spielfigur{
 	
 }

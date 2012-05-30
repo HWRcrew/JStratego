@@ -8,6 +8,6 @@ package spielfiguren;
  *
  * @author sebastiangrosse
  */
-public class Fahne {
+public class Fahne extends Spielfigur{
 	
 }

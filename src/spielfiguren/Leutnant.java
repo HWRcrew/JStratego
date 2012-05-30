@@ -8,6 +8,6 @@ package spielfiguren;
  *
  * @author sebastiangrosse
  */
-public class Leutnant {
+public class Leutnant extends Spielfigur{
 	
 }
