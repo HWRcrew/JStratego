@@ -5,6 +5,7 @@
 package spielfiguren;
 
 import com.sun.tools.javac.util.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,8 +14,8 @@ import com.sun.tools.javac.util.List;
 public class Spielfigur {
 
 	private String name;
-	private List<Spielfigur> beatenby;
 	private boolean movable;
+	private ArrayList<String> beatenby;
 
 	/**
 	 * @return the name
@@ -31,20 +32,6 @@ public class Spielfigur {
 	}
 
 	/**
-	 * @return the beatenby
-	 */
-	public List<Spielfigur> getBeatenby() {
-		return beatenby;
-	}
-
-	/**
-	 * @param beatenby the beatenby to set
-	 */
-	public void setBeatenby(List<Spielfigur> beatenby) {
-		this.beatenby = beatenby;
-	}
-
-	/**
 	 * @return the movable
 	 */
 	public boolean isMovable() {
@@ -56,5 +43,19 @@ public class Spielfigur {
 	 */
 	public void setMovable(boolean movable) {
 		this.movable = movable;
+	}
+
+	/**
+	 * @return the beatenby
+	 */
+	public ArrayList<String> getBeatenby() {
+		return beatenby;
+	}
+
+	/**
+	 * @param beatenby the beatenby to set
+	 */
+	public void setBeatenby(ArrayList<String> beatenby) {
+		this.beatenby = beatenby;
 	}
 }
