@@ -13,7 +13,7 @@ public abstract class Piece {
     //List beatenBy = new LinkedList();
     List<Liste> beatenby = new ArrayList<Liste>();
    
-    public static void main(String[] args){
+    public void main(String[] args){
        int i = 123;
        beatenby.add(i, null);
        
