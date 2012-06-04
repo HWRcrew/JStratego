@@ -6,6 +6,7 @@ package pieces;
 
 /**
  *
+ * 
  * @author Tim
  */
 public class Liste {
