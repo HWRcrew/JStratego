@@ -3,16 +3,23 @@
  * and open the template in the editor.
  */
 package pieces;
-import java.util.List;
+import java.util.*;
 
 /**
  *
  * @author sebastiangrosse
  */
 public abstract class Piece {
-    List<Liste> beatenBy;
-
+    //List beatenBy = new LinkedList();
+    List<Liste> beatenby = new ArrayList<Liste>();
+   
+    public static void main(String[] args){
+       int i = 123;
+       beatenby.add(i, null);
+       
+    }
     
+        
     
     
 
