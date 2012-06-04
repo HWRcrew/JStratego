@@ -9,5 +9,5 @@ package pieces;
  * @author sebastiangrosse
  */
 public class Bomb extends Piece{
-	
+
 }
