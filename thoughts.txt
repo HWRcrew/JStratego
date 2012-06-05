@@ -1,0 +1,16 @@
+Eigenschaften einer Spielfigur:
+static - Name
+static - Beschreibung
+static - Liste der mächtigeren Figuren
+- Farbe(Rot/Blau)
+static - Bild(Link zur Bild-Datei für spätere Verwendung im GUI)
+- verdeckt?
+- beweglich?
+- Beweglichkeit (Aufklärer)
+- lebendig?
+---------
+Der Link zum Bild sollte static sein. 
+Man wird die Farbe anhand eines Randes um das Bild herum erkennen.
+So muss nur ein Bild pro Spielfigur gespeichert werden.
+Die Farbe ist nicht static, da die Objekte diese bei ihrer Erzeugung übergeben bekommen.
+Die Objekte werden zu Beginn eines neuen Spiels erzeugt.
