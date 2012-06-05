@@ -8,6 +8,6 @@ package pieces;
  *
  * @author sebastiangrosse
  */
-public class Flag extends Piece{
-	
+public class Flag extends Piece {
+	// TODO beatenby-Liste erstellen und füllen.
 }

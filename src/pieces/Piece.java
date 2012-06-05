@@ -3,24 +3,22 @@
  * and open the template in the editor.
  */
 package pieces;
-import java.util.*;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author sebastiangrosse
  */
 public abstract class Piece {
-    //List beatenBy = new LinkedList();
-    List<Liste> beatenby = new ArrayList<Liste>();
-   
-    public void main(String[] args){
-       int i = 123;
-       beatenby.add(i, null);
-       
-    }
-    
-        
-    
-    
 
+	static private String NAME;
+	static private String DESCRIPTION;
+	static private ArrayList<String> BEATENBY;
+
+	public Piece(String name, String description, ArrayList<String> beatenby) {
+		NAME = name;
+		DESCRIPTION = description;
+		BEATENBY = beatenby;
+	}
 }
