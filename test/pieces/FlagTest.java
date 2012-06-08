@@ -32,8 +32,17 @@ public class FlagTest {
 	public void tearDown() {
 	}
 
+	/**
+	 * Test of isWinner method, of class Flag.
+	 */
 	@Test
-	public void testSomeMethod() {
+	public void testIsWinner() {
+		System.out.println("isWinner");
+		Object attacker = null;
+		Flag instance = null;
+		boolean expResult = false;
+		boolean result = instance.isWinner(attacker);
+		assertEquals(expResult, result);
 		// TODO review the generated test code and remove the default call to fail.
 		fail("The test case is a prototype.");
 	}

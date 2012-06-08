@@ -12,8 +12,13 @@ import java.util.ArrayList;
  */
 public class Flag extends Piece {
 
-	public Flag(String name, String description, ArrayList<String> beatenby, String c, String iurl) {
-		super(name, description, beatenby, c, iurl);
+	public Flag(Color color, boolean alive, boolean covered) {
+		super(color, alive, covered);
+		description = "Die Flagge muss zum Sieg des Spiels erobert werden. Sie muss bis aufs Letzte verteidigt werden.";
+		name = "Flagge";
+		motion = Motion.UNMOVABLE;
+		imgurl = "";
+		beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
 		beatenby.add("General");
 		beatenby.add("Colonel");
@@ -26,5 +31,13 @@ public class Flag extends Piece {
 		beatenby.add("Spy");
 		beatenby.add("Bomb");
 	}
-	// TODO beatenby-Liste erstellen und füllen.
+
+	@Override
+	public boolean isWinner(Object attacker) {
+		if (Flag.beatenby.contains(attacker.getClass().toString())) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }
