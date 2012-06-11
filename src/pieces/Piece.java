@@ -31,10 +31,16 @@ public abstract class Piece {
 	/**
 	 * Method to give back the Winner of a Conflict between two pieces
 	 *
-	 * @param attacker
+	 * @param challenger
 	 * @return true if attacked Piece wins the fight
 	 */
-	public abstract boolean isWinner(Object attacker);
+	public abstract boolean isWinner(Object challenger);
+	/**
+	 * Method to simulate a fight between two pieces.
+	 * @param attacker
+	 * @param defender 
+	 */
+	public abstract void fight(Object attacker, Object defender);
 
 	/**
 	 * Enumeration for Color-Attribute Choose between RED and BLUE

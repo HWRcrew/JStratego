@@ -33,8 +33,8 @@ public class Flag extends Piece {
 	}
 
 	@Override
-	public boolean isWinner(Object attacker) {
-		if (Flag.beatenby.contains(attacker.getClass().toString())) {
+	public boolean isWinner(Object challenger) {
+		if (Flag.beatenby.contains(challenger.getClass().toString())) {
 			return false;
 		} else {
 			return true;
