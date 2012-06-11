@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package pieces;
+package jstratego.pieces;
 
 import java.util.ArrayList;
 
@@ -10,13 +10,14 @@ import java.util.ArrayList;
  *
  * @author sebastiangrosse
  */
-public class Flag extends Piece {
+public class Scout extends Piece {
 
-	public Flag(Color color, boolean alive, boolean covered) {
+	public Scout(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		description = "Die Flagge muss zum Sieg des Spiels erobert werden. Sie muss bis aufs Letzte verteidigt werden.";
-		name = "Flagge";
-		motion = Motion.UNMOVABLE;
+		// TODO description
+		description = "";
+		name = "Aufklärer";
+		motion = Motion.SUPERMOVABLE;
 		imgurl = "";
 		beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
@@ -28,13 +29,12 @@ public class Flag extends Piece {
 		beatenby.add("Sergeant");
 		beatenby.add("Miner");
 		beatenby.add("Scout");
-		beatenby.add("Spy");
 		beatenby.add("Bomb");
 	}
 
 	@Override
-	public boolean isWinner(Object challenger) {
-		if (Flag.beatenby.contains(challenger.getClass().toString())) {
+	public boolean isWinnerAgainst(Object challenger) {
+		if (Scout.beatenby.contains(challenger.getClass().toString())) {
 			return false;
 		} else {
 			return true;

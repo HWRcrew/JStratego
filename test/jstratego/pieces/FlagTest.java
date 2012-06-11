@@ -1,14 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package pieces;
+package jstratego.pieces;
 
 import org.junit.*;
 import static org.junit.Assert.*;
 
 /**
- *
+ * Testclass for attacks on the flag;
  * @author sebastiangrosse
  */
 public class FlagTest {
@@ -18,6 +14,7 @@ public class FlagTest {
 
 	@BeforeClass
 	public static void setUpClass() throws Exception {
+		
 	}
 
 	@AfterClass
@@ -26,6 +23,8 @@ public class FlagTest {
 	
 	@Before
 	public void setUp() {
+		Major major = new Major(Color.RED, true, true);
+		
 	}
 	
 	@After
@@ -33,17 +32,16 @@ public class FlagTest {
 	}
 
 	/**
-	 * Test of isWinner method, of class Flag.
+	 * Test of isWinnerAgainst method, of class Flag.
 	 */
 	@Test
-	public void testIsWinner() {
-		System.out.println("isWinner");
-		Object attacker = null;
-		Flag instance = null;
-		boolean expResult = false;
-		boolean result = instance.isWinner(attacker);
+	public void testIsWinnerAgainst() {
+		System.out.println("isWinnerAgainst");
+		Object challenger = new Major(Color.BLUE, true, true);
+		Flag instance = new Flag(Color.RED, true, true);
+		boolean expResult = true;
+		boolean result = instance.isWinnerAgainst(challenger);
 		assertEquals(expResult, result);
 		// TODO review the generated test code and remove the default call to fail.
-		fail("The test case is a prototype.");
 	}
 }
