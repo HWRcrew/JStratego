@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jstratego.pieces;
 
 import java.util.ArrayList;
@@ -10,7 +6,7 @@ import java.util.ArrayList;
  *
  * @author sebastiangrosse
  */
-public class Captain extends Piece{
+public class Captain extends Piece {
 
 	public Captain(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
@@ -27,15 +23,4 @@ public class Captain extends Piece{
 		beatenby.add("Captain");
 		beatenby.add("Bomb");
 	}
-
-	@Override
-	public boolean isWinnerAgainst(Object challenger) {
-		if (Captain.beatenby.contains(challenger.getClass().toString())) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-	
-	
 }

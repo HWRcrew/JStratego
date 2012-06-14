@@ -11,7 +11,7 @@ public abstract class Piece {
 
 	public static String name;
 	public static String description;
-	public static ArrayList<String> beatenby;
+	public ArrayList<String> beatenby;
 	public static Motion motion;
 	public static String imgurl;
 	public Color color;
@@ -25,10 +25,30 @@ public abstract class Piece {
 	}
 
 	/**
-	 * Method to give back the Winner of a Conflict between two pieces
+	 * Method to prove if a piece loses against another piece. This is only
+	 * a one-way solution. it doesn't prove that the other piece will lose
+	 * in the other direction
 	 *
 	 * @param challenger
-	 * @return true if attacked Piece wins the fight
+	 * @return true if the piece wins the fight against the challenging the
+	 * piece
 	 */
-	public abstract boolean isWinnerAgainst(Object challenger);
+	public boolean isLoserAgainst(Piece challenger) {
+		String c = challenger.getClass().getSimpleName().toString();
+		return beatenby.contains(c);
+	}
+
+	public void fightAgainst(Piece defender) {
+		if (this.getClass() == defender.getClass()) {
+			this.alive = false;
+			defender.alive = false;
+		}
+		if (this.isLoserAgainst(defender)) {
+			defender.alive = false;
+		}
+		if (!this.isLoserAgainst(defender)) {
+			this.alive = false;
+		}
+		//TODO complete Method
+	}
 }

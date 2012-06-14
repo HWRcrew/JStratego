@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jstratego.pieces;
 
 import java.util.ArrayList;
@@ -31,14 +27,5 @@ public class Flag extends Piece {
 		beatenby.add("Scout");
 		beatenby.add("Spy");
 		beatenby.add("Bomb");
-	}
-
-	@Override
-	public boolean isWinnerAgainst(Object challenger) {
-		if (Flag.beatenby.contains(challenger.getClass().getName())) {
-			return false;
-		} else {
-			return true;
-		}
 	}
 }

@@ -15,7 +15,7 @@ public class Spy extends Piece {
 		motion = Motion.MOVABLE;
 		// TODO add imageurl
 		imgurl = "";
-		beatenby = new ArrayList<String>();
+		this.beatenby = new ArrayList<String>();
 		beatenby.add("General");
 		beatenby.add("Colonel");
 		beatenby.add("Major");
@@ -26,14 +26,5 @@ public class Spy extends Piece {
 		beatenby.add("Scout");
 		beatenby.add("Spy");
 		beatenby.add("Bomb");
-	}
-
-	@Override
-	public boolean isWinnerAgainst(Object challenger) {
-		if (Spy.beatenby.contains(challenger.getClass().toString())) {
-			return false;
-		} else {
-			return true;
-		}
 	}
 }

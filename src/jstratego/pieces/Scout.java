@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package jstratego.pieces;
 
 import java.util.ArrayList;
@@ -19,7 +15,7 @@ public class Scout extends Piece {
 		name = "Aufklärer";
 		motion = Motion.SUPERMOVABLE;
 		imgurl = "";
-		beatenby = new ArrayList<String>();
+		this.beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
 		beatenby.add("General");
 		beatenby.add("Colonel");
@@ -30,14 +26,5 @@ public class Scout extends Piece {
 		beatenby.add("Miner");
 		beatenby.add("Scout");
 		beatenby.add("Bomb");
-	}
-
-	@Override
-	public boolean isWinnerAgainst(Object challenger) {
-		if (Scout.beatenby.contains(challenger.getClass().toString())) {
-			return false;
-		} else {
-			return true;
-		}
 	}
 }

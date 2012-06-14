@@ -25,13 +25,4 @@ public class Sergeant extends Piece {
 		beatenby.add("Sergeant");
 		beatenby.add("Bomb");
 	}
-
-	@Override
-	public boolean isWinnerAgainst(Object challenger) {
-		if (Sergeant.beatenby.contains(challenger.getClass().toString())) {
-			return false;
-		} else {
-			return true;
-		}
-	}
 }
