@@ -15,6 +15,7 @@ public class PieceTest {
 
 	public PieceTest() {
 	}
+
 	@After
 	public void tearDown() {
 	}
@@ -73,7 +74,6 @@ public class PieceTest {
 		expResult = false;
 		result = instance.isLoserAgainst(challenger);
 		assertEquals(expResult, result);
-		// TODO review the generated test code and remove the default call to fail.
 	}
 
 	/**
