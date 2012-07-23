@@ -1,4 +1,4 @@
-package jstratego.pieces;
+package jstratego.logic.pieces;
 
 import java.util.ArrayList;
 
@@ -6,22 +6,20 @@ import java.util.ArrayList;
  *
  * @author sebastiangrosse
  */
-public class Miner extends Piece {
+public class Major extends Piece {
 
-	public Miner(Color color, boolean alive, boolean covered) {
+	public Major(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
+		// TODO descr. + name
 		description = "";
-		name = "Mineur";
-		motion = Motion.UNMOVABLE;
+		name = "";
+		Major.motion = Motion.MOVABLE;
 		imgurl = "";
 		this.beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
 		beatenby.add("General");
 		beatenby.add("Colonel");
 		beatenby.add("Major");
-		beatenby.add("Captain");
-		beatenby.add("Lieutenant");
-		beatenby.add("Sergeant");
-		beatenby.add("Miner");
+		beatenby.add("Bomb");
 	}
 }

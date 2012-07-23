@@ -1,4 +1,4 @@
-package jstratego.pieces;
+package jstratego.logic.pieces;
 
 import java.util.ArrayList;
 

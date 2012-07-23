@@ -1,4 +1,4 @@
-package jstratego.pieces;
+package jstratego.logic.pieces;
 
 import java.util.ArrayList;
 
@@ -6,18 +6,18 @@ import java.util.ArrayList;
  *
  * @author sebastiangrosse
  */
-public class Marshal extends Piece {
+public class General extends Piece {
 
-	public Marshal(Color color, boolean alive, boolean covered) {
+	public General(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		// TODO descr + name
+		// TODO description & name
 		description = "";
 		name = "";
 		motion = Motion.MOVABLE;
 		imgurl = "";
 		this.beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
-		beatenby.add("Spy");
+		beatenby.add("General");
 		beatenby.add("Bomb");
 	}
 }

@@ -1,4 +1,4 @@
-package jstratego.pieces;
+package jstratego.logic.pieces;
 
 import java.util.ArrayList;
 
@@ -6,25 +6,26 @@ import java.util.ArrayList;
  *
  * @author sebastiangrosse
  */
-public class Scout extends Piece {
+public class Spy extends Piece {
 
-	public Scout(Color color, boolean alive, boolean covered) {
+	public Spy(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		// TODO description
-		description = "";
-		name = "Aufklärer";
-		motion = Motion.SUPERMOVABLE;
+		description = "Der Spion hat die besondere Eigenschaft, den Feldmarschall zu schlagen, wenn der Spion die angreifende Figur ist.";
+		name = "Spion";
+		motion = Motion.MOVABLE;
+		// TODO add imageurl
 		imgurl = "";
 		this.beatenby = new ArrayList<String>();
-		beatenby.add("Marshal");
 		beatenby.add("General");
 		beatenby.add("Colonel");
 		beatenby.add("Major");
+		beatenby.add("Marshal");
 		beatenby.add("Captain");
 		beatenby.add("Lieutenant");
 		beatenby.add("Sergeant");
 		beatenby.add("Miner");
 		beatenby.add("Scout");
+		beatenby.add("Spy");
 		beatenby.add("Bomb");
 	}
 }

@@ -1,6 +1,6 @@
-package jstratego.game;
+package jstratego.logic.game;
 
-import jstratego.pieces.Piece;
+import jstratego.logic.pieces.Piece;
 
 /**
  *

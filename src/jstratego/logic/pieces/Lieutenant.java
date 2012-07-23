@@ -1,4 +1,4 @@
-package jstratego.pieces;
+package jstratego.logic.pieces;
 
 import java.util.ArrayList;
 
@@ -6,11 +6,11 @@ import java.util.ArrayList;
  *
  * @author sebastiangrosse
  */
-public class Colonel extends Piece {
+public class Lieutenant extends Piece {
 
-	public Colonel(Color color, boolean alive, boolean covered) {
+	public Lieutenant(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		// TODO german description
+		// TODO description German + name
 		description = "";
 		name = "";
 		motion = Motion.MOVABLE;
@@ -19,6 +19,9 @@ public class Colonel extends Piece {
 		beatenby.add("Marshal");
 		beatenby.add("General");
 		beatenby.add("Colonel");
+		beatenby.add("Major");
+		beatenby.add("Captain");
+		beatenby.add("Lieutenant");
 		beatenby.add("Bomb");
 	}
 }

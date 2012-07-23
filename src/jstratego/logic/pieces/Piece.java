@@ -1,4 +1,4 @@
-package jstratego.pieces;
+package jstratego.logic.pieces;
 
 import java.util.ArrayList;
 
@@ -33,22 +33,21 @@ public abstract class Piece {
 	 * @return true if the piece wins the fight against the challenging the
 	 * piece
 	 */
-	public boolean isLoserAgainst(Piece challenger) {
+	public boolean isBeatenBy(Piece challenger) {
 		String c = challenger.getClass().getSimpleName().toString();
 		return beatenby.contains(c);
 	}
 
-	public void fightAgainst(Piece defender) {
+	public void fightAgainst(Piece defender) throws NullPointerException{
 		if (this.getClass() == defender.getClass()) {
 			this.alive = false;
 			defender.alive = false;
 		}
-		if (this.isLoserAgainst(defender)) {
+		if (defender.isBeatenBy(this)) {
 			defender.alive = false;
 		}
-		if (!this.isLoserAgainst(defender)) {
+		if (!defender.isBeatenBy(this)) {
 			this.alive = false;
 		}
-		//TODO complete Method
 	}
 }

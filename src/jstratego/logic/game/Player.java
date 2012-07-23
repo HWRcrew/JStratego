@@ -1,7 +1,7 @@
-package jstratego.game;
+package jstratego.logic.game;
 
-import jstratego.pieces.Color;
-import jstratego.pieces.Piece;
+import jstratego.logic.pieces.Color;
+import jstratego.logic.pieces.Piece;
 
 /**
  *

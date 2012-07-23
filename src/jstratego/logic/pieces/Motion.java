@@ -1,4 +1,4 @@
-package jstratego.pieces;
+package jstratego.logic.pieces;
 
 /**
  * Enumeration for Motion-Attribute Choose between MOVABLE, UNMOVABLE(Flags and

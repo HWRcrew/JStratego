@@ -1,4 +1,4 @@
-package jstratego.game;
+package jstratego.logic.game;
 
 /**
  *
@@ -6,6 +6,6 @@ package jstratego.game;
  */
 public class Game {
 
-	public Player Playmove;
+	public Player PlayerWithMove;
 
 }
