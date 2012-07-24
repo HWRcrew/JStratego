@@ -137,5 +137,23 @@ public class PieceTest {
 		assertEquals(expResult, defender.alive);
 		expResult = true;
 		assertEquals(expResult, instance.alive);
+		
+		System.out.println("marshal fights against marshal!");
+		defender = marshal;
+		instance = marshal;
+		instance.fightAgainst(defender);
+		expResult = false;
+		assertEquals(expResult, defender.alive);
+		expResult = false;
+		assertEquals(expResult, instance.alive);
+		
+		System.out.println("miner fights against miner!");
+		defender = miner;
+		instance = miner;
+		instance.fightAgainst(defender);
+		expResult = false;
+		assertEquals(expResult, defender.alive);
+		expResult = false;
+		assertEquals(expResult, instance.alive);
 	}
 }

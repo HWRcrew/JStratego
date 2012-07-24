@@ -11,5 +11,5 @@ public class Player {
 
 	public String name;
 	public Color playerColor;
-	Piece[] pieces = new Piece[40];//TODO ???
+	Piece[] pieces = new Piece[40];
 }

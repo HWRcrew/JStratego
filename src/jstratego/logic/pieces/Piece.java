@@ -38,6 +38,12 @@ public abstract class Piece {
 		return beatenby.contains(c);
 	}
 
+	/**
+	 * Method to let pieces fight against each other and set the loser
+	 * !alive
+	 * @param defender
+	 * @throws NullPointerException
+	 */
 	public void fightAgainst(Piece defender) throws NullPointerException{
 		if (this.getClass() == defender.getClass()) {
 			this.alive = false;
