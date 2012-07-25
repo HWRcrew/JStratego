@@ -25,8 +25,13 @@ public class Field {
 	 */
 	public void setPiece(Piece piece) {
 		if (this != null) {
-			this.piece.fightAgainst(piece);
+			piece.fightAgainst(this.piece);
 		}
-		this.piece = piece;
+		if (piece.alive) {
+			this.piece = piece;
+		}
+		if (!this.piece.alive && !piece.alive) {
+			this.piece = null;
+		}
 	}
 }

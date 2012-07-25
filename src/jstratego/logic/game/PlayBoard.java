@@ -1,9 +1,8 @@
 package jstratego.logic.game;
 
-import jstratego.logic.pieces.Piece;
-
 /**
- * logical representation of the playboard
+ * logical representation for the playboard
+ *
  * @author sebastiangrosse
  */
 public class PlayBoard {
@@ -25,11 +24,20 @@ public class PlayBoard {
 		board[7][6] = new Field(null, true);
 		board[8][5] = new Field(null, true);
 		board[8][6] = new Field(null, true);
+		setFields();
 	}
 
-	public void setField(Piece piece, int x, int y) {
-		if (board[x][y] == null || !board[x][y].blocked) {
-			board[x][y] = new Field(piece, false);
+	/**
+	 * this Method is iterating through the board-Array initializing new
+	 * Field Objects
+	 */
+	final void setFields() {
+		for (int x = 0; x < 10; x++) {
+			for (int y = 0; y < 10; y++) {
+				if (!board[x][y].blocked) {
+					board[x][y] = new Field(null, false);
+				}
+			}
 		}
 	}
 }

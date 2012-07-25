@@ -8,4 +8,9 @@ package jstratego.logic.game;
 public class Game {
 
 	public Player playerWithMove;
+	//TODO Spielphase am Game festhalten?
+	/*
+	 * Am Spiel könnte man die Phasen festhalten wie Verteilung der Figuren, 
+	 * Wechsel des Zugs(ausblenden der Figuren), Spielerzug, Entscheidungskampf
+	 */
 }
