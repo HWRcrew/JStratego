@@ -13,7 +13,7 @@ public class Major extends Piece {
 		// TODO descr. + name
 		description = "";
 		name = "";
-		Major.motion = Motion.MOVABLE;
+		motion = Motion.MOVABLE;
 		imgurl = "";
 		this.beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");

@@ -1,6 +1,8 @@
 package jstratego.logic.game;
 
-import jstratego.logic.pieces.Piece;
+import java.util.ArrayList;
+import java.util.List;
+import jstratego.logic.pieces.*;
 
 /**
  * Field is representing a Field on the Playboard. Pieces are referenced here.
@@ -26,6 +28,8 @@ public class Field {
 	public void setPiece(Piece piece) {
 		if (this != null) {
 			piece.fightAgainst(this.piece);
+		}else{
+			this.piece = piece;
 		}
 		if (piece.alive) {
 			this.piece = piece;
@@ -33,5 +37,19 @@ public class Field {
 		if (!this.piece.alive && !piece.alive) {
 			this.piece = null;
 		}
+	}
+	List<Field> reachableFields(){
+		List<Field> fields;
+		fields = new ArrayList<Field>();
+		if(this.piece.motion == Motion.MOVABLE){
+			//TODO
+		}
+		if(this.piece.motion == Motion.SUPERMOVABLE){
+			//TODO
+		}
+		if(this.piece.motion == Motion.UNMOVABLE){
+			fields.clear();
+		}
+		return fields;
 	}
 }

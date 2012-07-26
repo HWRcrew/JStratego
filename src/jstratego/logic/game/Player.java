@@ -4,7 +4,7 @@ import jstratego.logic.pieces.Color;
 import jstratego.logic.pieces.Piece;
 
 /**
- *
+ * Representation a Stratego-Player.
  * @author sebastiangrosse
  */
 public class Player {

@@ -12,8 +12,8 @@ public abstract class Piece {
 	public static String name;
 	public static String description;
 	public ArrayList<String> beatenby;
-	public static Motion motion;
 	public static String imgurl;
+	public Motion motion;
 	public Color color;
 	public boolean alive;
 	public boolean covered;
