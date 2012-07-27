@@ -1,7 +1,5 @@
 package jstratego.logic.game;
 
-import java.util.ArrayList;
-import java.util.List;
 import jstratego.logic.pieces.*;
 
 /**
@@ -13,10 +11,14 @@ public class Field {
 
 	Piece piece;
 	boolean blocked;
+	int x;
+	int y;
 
-	public Field(Piece piece, boolean blocked) {
+	public Field(Piece piece, boolean blocked, int x, int y) {
 		this.piece = piece;
 		this.blocked = blocked;
+		this.x = x;
+		this.y = y;
 	}
 
 	/**
@@ -28,7 +30,7 @@ public class Field {
 	public void setPiece(Piece piece) {
 		if (this != null) {
 			piece.fightAgainst(this.piece);
-		}else{
+		} else {
 			this.piece = piece;
 		}
 		if (piece.alive) {
@@ -37,19 +39,5 @@ public class Field {
 		if (!this.piece.alive && !piece.alive) {
 			this.piece = null;
 		}
-	}
-	List<Field> reachableFields(){
-		List<Field> fields;
-		fields = new ArrayList<Field>();
-		if(this.piece.motion == Motion.MOVABLE){
-			//TODO
-		}
-		if(this.piece.motion == Motion.SUPERMOVABLE){
-			//TODO
-		}
-		if(this.piece.motion == Motion.UNMOVABLE){
-			fields.clear();
-		}
-		return fields;
 	}
 }

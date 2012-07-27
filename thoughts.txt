@@ -10,7 +10,5 @@ static - Bild(Link zur Bild-Datei für spätere Verwendung im GUI)
 - lebendig?
 ---------
 Der Link zum Bild sollte static sein. 
-Man wird die Farbe anhand eines Randes um das Bild herum erkennen.
-So muss nur ein Bild pro Spielfigur gespeichert werden.
 Die Farbe ist nicht static, da die Objekte diese bei ihrer Erzeugung übergeben bekommen.
-Die Objekte werden zu Beginn eines neuen Spiels erzeugt.
+Die Objekte der Figuren werden zu Beginn eines neuen Spiels erzeugt.

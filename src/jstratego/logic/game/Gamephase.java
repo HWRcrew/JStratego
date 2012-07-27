@@ -10,6 +10,6 @@ package jstratego.logic.game;
  * @author sebastiangrosse
  */
 public enum Gamephase {
-	
-	START, VERTEILUNG, MOVE, FIGHT
+
+	SETUPred, SETUPblue, CHANGE, END, MOVEred, MOVEblue
 }

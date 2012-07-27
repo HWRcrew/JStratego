@@ -1,0 +1,12 @@
+Englisch = Deutsch = Anzahl pro Spieler
+Flag = Flagge
+Bomb = Bombe
+Marshall = Feldmarshall
+General = General
+Colonel =
+Captain =
+Lieutenant =
+Major =
+Miner = Mineur
+Scout = Aufklärer
+...
