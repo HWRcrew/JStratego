@@ -8,6 +8,8 @@ package jstratego.gui.game;
  *
  * @author Tim
  */
+//TODO Labels in F00, F01 ... umbenennen
+
 public class Board extends javax.swing.JFrame {
 
     /**
@@ -668,6 +670,7 @@ public class Board extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel43, gridBagConstraints);
 
+        jLabel44.setBackground(new java.awt.Color(51, 0, 204));
         jLabel44.setText("See");
         jLabel44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel44.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1377,9 +1380,9 @@ public class Board extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(35, 35, 35)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

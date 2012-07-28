@@ -13,8 +13,6 @@ public class Lieutenant extends Piece {
 		description = "Der Leutnant liegt mit seiner Stärke im Mittelfeld der Figuren.";
 		name = "Leutnant";
 		motion = Motion.MOVABLE;
-                //TODO add imgurl
-		imgurl = "";
 		beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
 		beatenby.add("General");

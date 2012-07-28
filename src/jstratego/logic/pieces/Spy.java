@@ -13,8 +13,6 @@ public class Spy extends Piece {
 		description = "Der Spion hat die besondere Eigenschaft, den Feldmarschall zu schlagen, wenn der Spion die angreifende Figur ist.";
 		name = "Spion";
 		motion = Motion.MOVABLE;
-		// TODO add imgurl
-		imgurl = "";
 		this.beatenby = new ArrayList<String>();
 		beatenby.add("General");
 		beatenby.add("Colonel");

@@ -13,8 +13,6 @@ public class General extends Piece {
 		description = "Der General ist die zwetstärkste Figur im Spiel.";
 		name = "General";
 		motion = Motion.MOVABLE;
-                //TODO add imgurl
-		imgurl = "";
 		this.beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
 		beatenby.add("General");

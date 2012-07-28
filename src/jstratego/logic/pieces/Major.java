@@ -13,8 +13,6 @@ public class Major extends Piece {
 		description = "Der Major liegt mit seiner Stärke im oberen Drittel der Spielfiguren.";
 		name = "Major";
 		motion = Motion.MOVABLE;
-                //TODO add imgurl
-		imgurl = "";
 		this.beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
 		beatenby.add("General");

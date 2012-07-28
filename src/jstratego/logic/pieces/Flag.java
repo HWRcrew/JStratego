@@ -13,8 +13,6 @@ public class Flag extends Piece {
 		description = "Die Flagge muss zum Sieg des Spiels erobert werden. Sie muss bis aufs Letzte verteidigt werden.";
 		name = "Flagge";
 		motion = Motion.UNMOVABLE;
-		// TODO add imgurl
-		imgurl = "";
 		beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
 		beatenby.add("General");

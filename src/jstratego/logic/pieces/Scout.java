@@ -13,8 +13,6 @@ public class Scout extends Piece {
 		description = "Der Aufklärer kann nicht durch seine Stärke überzeugen, dafür aber mehrere Felder weit ziehen.";
 		name = "Aufklärer";
 		motion = Motion.SUPERMOVABLE;
-                //TODO add imgurl
-		imgurl = "";
 		this.beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
 		beatenby.add("General");

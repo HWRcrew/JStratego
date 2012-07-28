@@ -13,8 +13,6 @@ public class Colonel extends Piece {
 		description = "Der Oberst besitzt den dritthöchsten Rang der Spielfiguren.";
 		name = "Oberst";
 		motion = Motion.MOVABLE;
-                //TODO add imgurl
-		imgurl = "";
 		beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
 		beatenby.add("General");
