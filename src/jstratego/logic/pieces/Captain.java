@@ -13,7 +13,6 @@ public class Captain extends Piece {
 		description = "Der Hauptmann liegt mit seiner Stärke im oberen Drittel der Spielfiguren.";
 		name = "Hauptmann";
 		motion = Motion.MOVABLE ;
-                //TODO add imgurl
 		beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
 		beatenby.add("General");
