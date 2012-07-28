@@ -10,10 +10,10 @@ public class Spy extends Piece {
 
 	public Spy(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		description = "Der Spion hat die besondere Eigenschaft, den Feldmarschall zu schlagen, wenn der Spion die angreifende Figur ist. Jeder Spieler besitzt 1 Spion.";
+		description = "Der Spion hat die besondere Eigenschaft, den Feldmarschall zu schlagen, wenn der Spion die angreifende Figur ist.";
 		name = "Spion";
 		motion = Motion.MOVABLE;
-		// TODO add imageurl
+		// TODO add imgurl
 		imgurl = "";
 		this.beatenby = new ArrayList<String>();
 		beatenby.add("General");
