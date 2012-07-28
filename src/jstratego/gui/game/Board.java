@@ -1,3 +1,4 @@
+// TODO Border von Panels entfernen (am Ende)
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -130,1270 +131,1650 @@ public class Board extends javax.swing.JFrame {
         jLabel98 = new javax.swing.JLabel();
         jLabel99 = new javax.swing.JLabel();
         jLabel100 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel102 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel138 = new javax.swing.JLabel();
+        jLabel139 = new javax.swing.JLabel();
+        jLabel143 = new javax.swing.JLabel();
+        jLabel113 = new javax.swing.JLabel();
+        jLabel137 = new javax.swing.JLabel();
+        jLabel144 = new javax.swing.JLabel();
+        jLabel118 = new javax.swing.JLabel();
+        jLabel120 = new javax.swing.JLabel();
+        jLabel135 = new javax.swing.JLabel();
+        jLabel142 = new javax.swing.JLabel();
+        jLabel105 = new javax.swing.JLabel();
+        jLabel124 = new javax.swing.JLabel();
+        jLabel140 = new javax.swing.JLabel();
+        jLabel119 = new javax.swing.JLabel();
+        jLabel141 = new javax.swing.JLabel();
+        jLabel121 = new javax.swing.JLabel();
+        jLabel123 = new javax.swing.JLabel();
+        jLabel136 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel112 = new javax.swing.JLabel();
+        jLabel129 = new javax.swing.JLabel();
+        jLabel134 = new javax.swing.JLabel();
+        jLabel133 = new javax.swing.JLabel();
+        jLabel128 = new javax.swing.JLabel();
+        jLabel101 = new javax.swing.JLabel();
+        jLabel106 = new javax.swing.JLabel();
+        jLabel122 = new javax.swing.JLabel();
+        jLabel125 = new javax.swing.JLabel();
+        jLabel131 = new javax.swing.JLabel();
+        jLabel127 = new javax.swing.JLabel();
+        jLabel126 = new javax.swing.JLabel();
+        jLabel132 = new javax.swing.JLabel();
+        jLabel108 = new javax.swing.JLabel();
+        jLabel103 = new javax.swing.JLabel();
+        jLabel104 = new javax.swing.JLabel();
+        jLabel130 = new javax.swing.JLabel();
+        jLabel107 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/game/test.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel1.setBackground(java.awt.Color.white);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel1.setMaximumSize(new java.awt.Dimension(200, 200));
-        jLabel1.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel1.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel1.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel1.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel1.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
         jPanel1.add(jLabel1, gridBagConstraints);
 
-        jLabel2.setText("jLabel1");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel2.setBackground(java.awt.Color.white);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel2.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel2.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel2.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel2.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel2.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel2.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPanel1.add(jLabel2, gridBagConstraints);
 
-        jLabel3.setText("jLabel1");
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel3.setBackground(java.awt.Color.white);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel3.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel3.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel3.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel3.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel3.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel3.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPanel1.add(jLabel3, gridBagConstraints);
 
-        jLabel4.setText("jLabel1");
-        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel4.setBackground(java.awt.Color.white);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel4.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel4.setMinimumSize(new java.awt.Dimension(50, 50));
+        jLabel4.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel4.setMinimumSize(new java.awt.Dimension(70, 70));
         jLabel4.setName("");
-        jLabel4.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel4.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPanel1.add(jLabel4, gridBagConstraints);
 
-        jLabel5.setText("jLabel1");
-        jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel5.setBackground(java.awt.Color.white);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel5.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel5.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel5.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel5.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel5.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel5.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPanel1.add(jLabel5, gridBagConstraints);
 
-        jLabel7.setText("jLabel1");
-        jLabel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel7.setBackground(java.awt.Color.white);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel7.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel7.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel7.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel7.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel7.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel7.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPanel1.add(jLabel7, gridBagConstraints);
 
-        jLabel8.setText("jLabel1");
-        jLabel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel8.setBackground(java.awt.Color.white);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel8.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel8.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel8.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel8.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel8.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel8.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPanel1.add(jLabel8, gridBagConstraints);
 
-        jLabel6.setText("jLabel1");
-        jLabel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel6.setBackground(java.awt.Color.white);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel6.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel6.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel6.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel6.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel6.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPanel1.add(jLabel6, gridBagConstraints);
 
-        jLabel10.setText("jLabel1");
-        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel10.setBackground(java.awt.Color.white);
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel10.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel10.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel10.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel10.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel10.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel10.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 10);
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 5);
         jPanel1.add(jLabel10, gridBagConstraints);
 
-        jLabel9.setText("jLabel1");
-        jLabel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel9.setBackground(java.awt.Color.white);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel9.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel9.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel9.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel9.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel9.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel9.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
         jPanel1.add(jLabel9, gridBagConstraints);
 
-        jLabel11.setText("jLabel1");
-        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel11.setBackground(java.awt.Color.white);
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel11.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel11.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel11.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel11.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel11.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel11.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         jPanel1.add(jLabel11, gridBagConstraints);
 
-        jLabel12.setText("jLabel1");
-        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel12.setBackground(java.awt.Color.white);
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel12.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel12.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel12.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel12.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel12.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel12.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel12, gridBagConstraints);
 
-        jLabel13.setText("jLabel1");
-        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel13.setBackground(java.awt.Color.white);
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel13.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel13.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel13.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel13.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel13.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel13.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel13, gridBagConstraints);
 
-        jLabel14.setText("jLabel1");
-        jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel14.setBackground(java.awt.Color.white);
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel14.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel14.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel14.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel14.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel14.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel14.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel14, gridBagConstraints);
 
-        jLabel15.setText("jLabel1");
-        jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel15.setBackground(java.awt.Color.white);
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel15.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel15.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel15.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel15.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel15.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel15.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel15, gridBagConstraints);
 
-        jLabel16.setText("jLabel1");
-        jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel16.setBackground(java.awt.Color.white);
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel16.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel16.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel16.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel16.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel16.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel16.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel16, gridBagConstraints);
 
-        jLabel17.setText("jLabel1");
-        jLabel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel17.setBackground(java.awt.Color.white);
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel17.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel17.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel17.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel17.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel17.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel17.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel17, gridBagConstraints);
 
-        jLabel18.setText("jLabel1");
-        jLabel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel18.setBackground(java.awt.Color.white);
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel18.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel18.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel18.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel18.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel18.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel18.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel18, gridBagConstraints);
 
-        jLabel19.setText("jLabel1");
-        jLabel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel19.setBackground(java.awt.Color.white);
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel19.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel19.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel19.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel19.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel19.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel19.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
         jPanel1.add(jLabel19, gridBagConstraints);
 
-        jLabel20.setText("jLabel1");
-        jLabel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel20.setBackground(java.awt.Color.white);
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel20.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel20.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel20.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel20.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel20.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel20.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel20, gridBagConstraints);
 
-        jLabel21.setText("jLabel1");
-        jLabel21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel21.setBackground(java.awt.Color.white);
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel21.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel21.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel21.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel21.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel21.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel21.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel21, gridBagConstraints);
 
-        jLabel22.setText("jLabel1");
-        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel22.setBackground(java.awt.Color.white);
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel22.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel22.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel22.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel22.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel22.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel22.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel22, gridBagConstraints);
 
-        jLabel23.setText("jLabel1");
-        jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel23.setBackground(java.awt.Color.white);
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel23.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel23.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel23.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel23.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel23.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel23.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel23, gridBagConstraints);
 
-        jLabel24.setText("jLabel1");
-        jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel24.setBackground(java.awt.Color.white);
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel24.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel24.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel24.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel24.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel24.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel24.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel24, gridBagConstraints);
 
-        jLabel25.setText("jLabel1");
-        jLabel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel25.setBackground(java.awt.Color.white);
+        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel25.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel25.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel25.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel25.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel25.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel25.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel25, gridBagConstraints);
 
-        jLabel26.setText("jLabel1");
-        jLabel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel26.setBackground(java.awt.Color.white);
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel26.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel26.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel26.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel26.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel26.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel26.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel26, gridBagConstraints);
 
-        jLabel27.setText("jLabel1");
-        jLabel27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel27.setBackground(java.awt.Color.white);
+        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel27.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel27.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel27.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel27.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel27.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel27.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         jPanel1.add(jLabel27, gridBagConstraints);
 
-        jLabel28.setText("jLabel1");
-        jLabel28.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel28.setBackground(java.awt.Color.white);
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel28.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel28.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel28.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel28.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel28.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel28.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel28, gridBagConstraints);
 
-        jLabel29.setText("jLabel1");
-        jLabel29.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel29.setBackground(java.awt.Color.white);
+        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel29.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel29.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel29.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel29.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel29.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel29.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
         jPanel1.add(jLabel29, gridBagConstraints);
 
-        jLabel30.setText("jLabel1");
-        jLabel30.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel30.setBackground(java.awt.Color.white);
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel30.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel30.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel30.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel30.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel30.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel30.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel30, gridBagConstraints);
 
-        jLabel31.setText("jLabel1");
-        jLabel31.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel31.setBackground(java.awt.Color.white);
+        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel31.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel31.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel31.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel31.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel31.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel31.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
         jPanel1.add(jLabel31, gridBagConstraints);
 
-        jLabel32.setText("jLabel1");
-        jLabel32.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel32.setBackground(java.awt.Color.white);
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel32.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel32.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel32.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel32.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel32.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel32.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel32.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         jPanel1.add(jLabel32, gridBagConstraints);
 
-        jLabel33.setText("jLabel1");
-        jLabel33.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel33.setBackground(java.awt.Color.white);
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel33.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel33.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel33.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel33.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel33.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel33.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel33.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel33, gridBagConstraints);
 
-        jLabel34.setText("jLabel1");
-        jLabel34.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel34.setBackground(java.awt.Color.white);
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel34.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel34.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel34.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel34.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel34.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel34.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel34.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel34, gridBagConstraints);
 
-        jLabel35.setText("jLabel1");
-        jLabel35.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel35.setBackground(java.awt.Color.white);
+        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel35.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel35.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel35.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel35.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel35.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel35.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel35.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel35, gridBagConstraints);
 
-        jLabel36.setText("jLabel1");
-        jLabel36.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel36.setBackground(java.awt.Color.white);
+        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel36.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel36.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel36.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel36.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel36.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel36.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel36.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel36, gridBagConstraints);
 
-        jLabel37.setText("jLabel1");
-        jLabel37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel37.setBackground(java.awt.Color.white);
+        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel37.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel37.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel37.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel37.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel37.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel37.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel37.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel37, gridBagConstraints);
 
-        jLabel38.setText("jLabel1");
-        jLabel38.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel38.setBackground(java.awt.Color.white);
+        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel38.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel38.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel38.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel38.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel38.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel38.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel38.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel38, gridBagConstraints);
 
-        jLabel39.setText("jLabel1");
-        jLabel39.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel39.setBackground(java.awt.Color.white);
+        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel39.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel39.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel39.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel39.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel39.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel39.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel39.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel39, gridBagConstraints);
 
-        jLabel40.setText("jLabel1");
-        jLabel40.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel40.setBackground(java.awt.Color.white);
+        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel40.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel40.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel40.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel40.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel40.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel40.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel40.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel40, gridBagConstraints);
 
-        jLabel41.setText("jLabel1");
-        jLabel41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel41.setBackground(java.awt.Color.white);
+        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel41.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel41.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel41.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel41.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel41.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel41.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel41.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel41, gridBagConstraints);
 
-        jLabel42.setText("jLabel1");
-        jLabel42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel42.setBackground(java.awt.Color.white);
+        jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel42.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel42.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel42.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel42.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel42.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel42.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel42.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel42, gridBagConstraints);
 
-        jLabel43.setText("See");
-        jLabel43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel43.setBackground(java.awt.Color.white);
+        jLabel43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel43.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel43.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel43.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel43.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel43.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel43.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel43.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel43, gridBagConstraints);
 
-        jLabel44.setBackground(new java.awt.Color(51, 0, 204));
-        jLabel44.setText("See");
-        jLabel44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel44.setBackground(java.awt.Color.white);
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel44.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel44.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel44.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel44.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel44.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel44.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel44.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel44, gridBagConstraints);
 
-        jLabel45.setText("See");
-        jLabel45.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel45.setBackground(java.awt.Color.white);
+        jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel45.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel45.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel45.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel45.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel45.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel45.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel45.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel45, gridBagConstraints);
 
-        jLabel46.setText("jLabel1");
-        jLabel46.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel46.setBackground(java.awt.Color.white);
+        jLabel46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel46.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel46.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel46.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel46.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel46.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel46.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel46.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel46, gridBagConstraints);
 
-        jLabel47.setText("jLabel1");
-        jLabel47.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel47.setBackground(java.awt.Color.white);
+        jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel47.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel47.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel47.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel47.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel47.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel47.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel47.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
         jPanel1.add(jLabel47, gridBagConstraints);
 
-        jLabel48.setText("jLabel1");
-        jLabel48.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel48.setBackground(java.awt.Color.white);
+        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel48.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel48.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel48.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel48.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel48.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel48.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel48.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel48, gridBagConstraints);
 
-        jLabel49.setText("See");
-        jLabel49.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel49.setBackground(java.awt.Color.white);
+        jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel49.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel49.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel49.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel49.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel49.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel49.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel49.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel49, gridBagConstraints);
 
-        jLabel50.setText("jLabel1");
-        jLabel50.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel50.setBackground(java.awt.Color.white);
+        jLabel50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel50.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel50.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel50.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel50.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel50.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel50.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel50.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         jPanel1.add(jLabel50, gridBagConstraints);
 
-        jLabel51.setText("See");
-        jLabel51.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel51.setBackground(java.awt.Color.white);
+        jLabel51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel51.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel51.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel51.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel51.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel51.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel51.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel51.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel51, gridBagConstraints);
 
-        jLabel52.setText("jLabel1");
-        jLabel52.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel52.setBackground(java.awt.Color.white);
+        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel52.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel52.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel52.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel52.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel52.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel52.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel52.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel52, gridBagConstraints);
 
-        jLabel53.setText("jLabel1");
-        jLabel53.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel53.setBackground(java.awt.Color.white);
+        jLabel53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel53.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel53.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel53.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel53.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel53.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel53.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel53.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel53, gridBagConstraints);
 
-        jLabel54.setText("jLabel1");
-        jLabel54.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel54.setBackground(java.awt.Color.white);
+        jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel54.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel54.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel54.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel54.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel54.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel54.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel54.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel54, gridBagConstraints);
 
-        jLabel55.setText("See");
-        jLabel55.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel55.setBackground(java.awt.Color.white);
+        jLabel55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel55.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel55.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel55.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel55.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel55.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel55.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel55.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel55, gridBagConstraints);
 
-        jLabel56.setText("jLabel1");
-        jLabel56.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel56.setBackground(java.awt.Color.white);
+        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel56.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel56.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel56.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel56.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel56.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel56.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel56.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         jPanel1.add(jLabel56, gridBagConstraints);
 
-        jLabel57.setText("jLabel1");
-        jLabel57.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel57.setBackground(java.awt.Color.white);
+        jLabel57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel57.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel57.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel57.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel57.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel57.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel57.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel57.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel57, gridBagConstraints);
 
-        jLabel58.setText("See");
-        jLabel58.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel58.setBackground(java.awt.Color.white);
+        jLabel58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel58.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel58.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel58.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel58.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel58.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel58.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel58.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel58, gridBagConstraints);
 
-        jLabel59.setText("jLabel1");
-        jLabel59.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel59.setBackground(java.awt.Color.white);
+        jLabel59.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel59.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel59.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel59.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel59.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel59.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel59.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel59.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
         jPanel1.add(jLabel59, gridBagConstraints);
 
-        jLabel60.setText("See");
-        jLabel60.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel60.setBackground(java.awt.Color.white);
+        jLabel60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel60.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel60.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel60.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel60.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel60.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel60.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel60.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel60, gridBagConstraints);
 
-        jLabel61.setText("jLabel1");
-        jLabel61.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel61.setBackground(java.awt.Color.white);
+        jLabel61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel61.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel61.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel61.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel61.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel61.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel61.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel61.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel61, gridBagConstraints);
 
-        jLabel62.setText("jLabel1");
-        jLabel62.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel62.setBackground(java.awt.Color.white);
+        jLabel62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel62.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel62.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel62.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel62.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel62.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel62.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel62.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel62, gridBagConstraints);
 
-        jLabel63.setText("jLabel1");
-        jLabel63.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel63.setBackground(java.awt.Color.white);
+        jLabel63.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel63.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel63.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel63.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel63.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel63.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel63.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel63.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
         jPanel1.add(jLabel63, gridBagConstraints);
 
-        jLabel64.setText("jLabel1");
-        jLabel64.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel64.setBackground(java.awt.Color.white);
+        jLabel64.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel64.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel64.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel64.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel64.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel64.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel64.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel64.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         jPanel1.add(jLabel64, gridBagConstraints);
 
-        jLabel65.setText("jLabel1");
-        jLabel65.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel65.setBackground(java.awt.Color.white);
+        jLabel65.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel65.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel65.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel65.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel65.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel65.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel65.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel65.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel65, gridBagConstraints);
 
-        jLabel66.setText("jLabel1");
-        jLabel66.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel66.setBackground(java.awt.Color.white);
+        jLabel66.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel66.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel66.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel66.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel66.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel66.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel66.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel66.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel66, gridBagConstraints);
 
-        jLabel67.setText("jLabel1");
-        jLabel67.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel67.setBackground(java.awt.Color.white);
+        jLabel67.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel67.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel67.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel67.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel67.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel67.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel67.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel67.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel67, gridBagConstraints);
 
-        jLabel68.setText("jLabel1");
-        jLabel68.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel68.setBackground(java.awt.Color.white);
+        jLabel68.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel68.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel68.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel68.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel68.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel68.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel68.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel68.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel68, gridBagConstraints);
 
-        jLabel69.setText("jLabel1");
-        jLabel69.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel69.setBackground(java.awt.Color.white);
+        jLabel69.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel69.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel69.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel69.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel69.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel69.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel69.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel69.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel69, gridBagConstraints);
 
-        jLabel70.setText("jLabel1");
-        jLabel70.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel70.setBackground(java.awt.Color.white);
+        jLabel70.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel70.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel70.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel70.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel70.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel70.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel70.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel70.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel70, gridBagConstraints);
 
-        jLabel71.setText("jLabel1");
-        jLabel71.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel71.setBackground(java.awt.Color.white);
+        jLabel71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel71.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel71.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel71.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel71.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel71.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel71.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel71.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel71, gridBagConstraints);
 
-        jLabel72.setText("jLabel1");
-        jLabel72.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel72.setBackground(java.awt.Color.white);
+        jLabel72.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel72.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel72.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel72.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel72.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel72.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel72.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel72.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel72, gridBagConstraints);
 
-        jLabel73.setText("jLabel1");
-        jLabel73.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel73.setBackground(java.awt.Color.white);
+        jLabel73.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel73.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel73.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel73.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel73.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel73.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel73.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel73.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel73, gridBagConstraints);
 
-        jLabel74.setText("jLabel1");
-        jLabel74.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel74.setBackground(java.awt.Color.white);
+        jLabel74.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel74.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel74.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel74.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel74.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel74.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel74.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel74.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel74, gridBagConstraints);
 
-        jLabel75.setText("jLabel1");
-        jLabel75.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel75.setBackground(java.awt.Color.white);
+        jLabel75.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel75.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel75.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel75.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel75.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel75.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel75.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel75.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel75, gridBagConstraints);
 
-        jLabel76.setText("jLabel1");
-        jLabel76.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel76.setBackground(java.awt.Color.white);
+        jLabel76.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel76.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel76.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel76.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel76.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel76.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel76.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel76.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel76, gridBagConstraints);
 
-        jLabel77.setText("jLabel1");
-        jLabel77.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel77.setBackground(java.awt.Color.white);
+        jLabel77.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel77.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel77.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel77.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel77.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel77.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel77.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel77.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel77, gridBagConstraints);
 
-        jLabel78.setText("jLabel1");
-        jLabel78.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel78.setBackground(java.awt.Color.white);
+        jLabel78.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel78.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel78.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel78.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel78.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel78.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel78.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel78.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         jPanel1.add(jLabel78, gridBagConstraints);
 
-        jLabel79.setText("jLabel1");
-        jLabel79.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel79.setBackground(java.awt.Color.white);
+        jLabel79.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel79.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel79.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel79.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel79.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel79.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel79.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel79.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel79, gridBagConstraints);
 
-        jLabel80.setText("jLabel1");
-        jLabel80.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel80.setBackground(java.awt.Color.white);
+        jLabel80.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel80.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel80.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel80.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel80.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel80.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel80.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel80.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel80, gridBagConstraints);
 
-        jLabel81.setText("jLabel1");
-        jLabel81.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel81.setBackground(java.awt.Color.white);
+        jLabel81.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel81.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel81.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel81.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel81.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel81.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel81.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel81.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
         jPanel1.add(jLabel81, gridBagConstraints);
 
-        jLabel82.setText("jLabel1");
-        jLabel82.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel82.setBackground(java.awt.Color.white);
+        jLabel82.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel82.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel82.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel82.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel82.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel82.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel82.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel82.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
         jPanel1.add(jLabel82, gridBagConstraints);
 
-        jLabel83.setText("jLabel1");
-        jLabel83.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel83.setBackground(java.awt.Color.white);
+        jLabel83.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel83.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel83.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel83.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel83.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel83.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel83.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel83.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
         jPanel1.add(jLabel83, gridBagConstraints);
 
-        jLabel84.setText("jLabel1");
-        jLabel84.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel84.setBackground(java.awt.Color.white);
+        jLabel84.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel84.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel84.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel84.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel84.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel84.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel84.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel84.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
         jPanel1.add(jLabel84, gridBagConstraints);
 
-        jLabel85.setText("jLabel1");
-        jLabel85.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel85.setBackground(java.awt.Color.white);
+        jLabel85.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel85.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel85.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel85.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel85.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel85.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel85.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel85.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel85, gridBagConstraints);
 
-        jLabel86.setText("jLabel1");
-        jLabel86.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel86.setBackground(java.awt.Color.white);
+        jLabel86.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel86.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel86.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel86.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel86.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel86.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel86.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel86.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
         jPanel1.add(jLabel86, gridBagConstraints);
 
-        jLabel87.setText("jLabel1");
-        jLabel87.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel87.setBackground(java.awt.Color.white);
+        jLabel87.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel87.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel87.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel87.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel87.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel87.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel87.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel87.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel87, gridBagConstraints);
 
-        jLabel88.setText("jLabel1");
-        jLabel88.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel88.setBackground(java.awt.Color.white);
+        jLabel88.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel88.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel88.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel88.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel88.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel88.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel88.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel88.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
         jPanel1.add(jLabel88, gridBagConstraints);
 
-        jLabel89.setText("jLabel1");
-        jLabel89.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel89.setBackground(java.awt.Color.white);
+        jLabel89.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel89.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel89.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel89.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel89.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel89.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel89.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel89.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 10);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
         jPanel1.add(jLabel89, gridBagConstraints);
 
-        jLabel90.setText("jLabel1");
-        jLabel90.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel90.setBackground(java.awt.Color.white);
+        jLabel90.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel90.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel90.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel90.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel90.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel90.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel90.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel90.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 5);
         jPanel1.add(jLabel90, gridBagConstraints);
 
-        jLabel91.setText("jLabel1");
-        jLabel91.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel91.setBackground(java.awt.Color.white);
+        jLabel91.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel91.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel91.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel91.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel91.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel91.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel91.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel91.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
         jPanel1.add(jLabel91, gridBagConstraints);
 
-        jLabel92.setText("jLabel1");
-        jLabel92.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel92.setBackground(java.awt.Color.white);
+        jLabel92.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel92.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel92.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel92.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel92.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel92.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel92.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel92.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel92, gridBagConstraints);
 
-        jLabel93.setText("jLabel1");
-        jLabel93.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel93.setBackground(java.awt.Color.white);
+        jLabel93.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel93.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel93.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel93.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel93.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel93.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel93.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel93.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel93, gridBagConstraints);
 
-        jLabel94.setText("jLabel1");
-        jLabel94.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel94.setBackground(java.awt.Color.white);
+        jLabel94.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel94.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel94.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel94.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel94.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel94.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel94.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel94.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
         jPanel1.add(jLabel94, gridBagConstraints);
 
-        jLabel95.setText("jLabel1");
-        jLabel95.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel95.setBackground(java.awt.Color.white);
+        jLabel95.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel95.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel95.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel95.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel95.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel95.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel95.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel95.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel95, gridBagConstraints);
 
-        jLabel96.setText("jLabel1");
-        jLabel96.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel96.setBackground(java.awt.Color.white);
+        jLabel96.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel96.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel96.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel96.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel96.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel96.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel96.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel96.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
         jPanel1.add(jLabel96, gridBagConstraints);
 
-        jLabel97.setText("jLabel1");
-        jLabel97.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel97.setBackground(java.awt.Color.white);
+        jLabel97.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel97.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel97.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel97.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel97.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel97.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel97.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel97.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 5, 5, 0);
         jPanel1.add(jLabel97, gridBagConstraints);
 
-        jLabel98.setText("jLabel1");
-        jLabel98.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel98.setBackground(java.awt.Color.white);
+        jLabel98.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel98.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel98.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel98.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel98.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel98.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel98.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel98.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel98, gridBagConstraints);
 
-        jLabel99.setText("jLabel1");
-        jLabel99.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel99.setBackground(java.awt.Color.white);
+        jLabel99.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel99.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel99.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel99.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel99.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel99.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel99.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel99.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         jPanel1.add(jLabel99, gridBagConstraints);
 
-        jLabel100.setText("jLabel1");
-        jLabel100.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel100.setBackground(java.awt.Color.white);
+        jLabel100.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
         jLabel100.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel100.setMaximumSize(new java.awt.Dimension(50, 50));
-        jLabel100.setMinimumSize(new java.awt.Dimension(50, 50));
-        jLabel100.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel100.setMaximumSize(new java.awt.Dimension(70, 70));
+        jLabel100.setMinimumSize(new java.awt.Dimension(70, 70));
+        jLabel100.setPreferredSize(new java.awt.Dimension(70, 70));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
         jPanel1.add(jLabel100, gridBagConstraints);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setPreferredSize(new java.awt.Dimension(394, 712));
+
+        jLabel102.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel102.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel102.setText("Logo");
+        jLabel102.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jButton1.setText("Zug ausführen");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jButton2.setText("Neues Spiel starten");
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel138.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel138.setText("zu platzieren:");
+
+        jLabel139.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        jLabel139.setText("Feldmarschall");
+
+        jLabel143.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        jLabel143.setText("Feldmarschall");
+
+        jLabel113.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+
+        jLabel137.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        jLabel137.setText("Feldmarschall");
+
+        jLabel144.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel144.setText("zu platzieren:");
+
+        jLabel118.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+
+        jLabel120.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+
+        jLabel135.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        jLabel135.setText("Feldmarschall");
+
+        jLabel142.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel142.setText("zu platzieren:");
+
+        jLabel105.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+
+        jLabel124.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel124.setText("zu platzieren:");
+
+        jLabel140.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel140.setText("zu platzieren:");
+
+        jLabel119.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+
+        jLabel141.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        jLabel141.setText("Feldmarschall");
+
+        jLabel121.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+
+        jLabel123.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        jLabel123.setText("Feldmarschall");
+
+        jLabel136.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel136.setText("zu platzieren:");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel121)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel123)
+                            .addComponent(jLabel124)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel113)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel135)
+                            .addComponent(jLabel136)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel120)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel137)
+                            .addComponent(jLabel138)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel105)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel139)
+                            .addComponent(jLabel140)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel119)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel141)
+                            .addComponent(jLabel142)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel118)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel143)
+                            .addComponent(jLabel144))))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel121)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel123)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel124)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel113)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel135)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel136)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel120)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel137)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel138)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel105)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel139)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel140)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel119)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel141)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel142)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel118)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel143)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel144)))
+                .addContainerGap())
+        );
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel112.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+
+        jLabel129.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        jLabel129.setText("Feldmarschall");
+
+        jLabel134.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel134.setText("zu platzieren:");
+
+        jLabel133.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        jLabel133.setText("Feldmarschall");
+
+        jLabel128.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel128.setText("zu platzieren:");
+
+        jLabel101.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+
+        jLabel106.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+
+        jLabel122.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel122.setText("zu platzieren:");
+
+        jLabel125.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        jLabel125.setText("Feldmarschall");
+
+        jLabel131.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        jLabel131.setText("Feldmarschall");
+
+        jLabel127.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        jLabel127.setText("Feldmarschall");
+
+        jLabel126.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel126.setText("zu platzieren:");
+
+        jLabel132.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel132.setText("zu platzieren:");
+
+        jLabel108.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        jLabel108.setText("Feldmarschall");
+
+        jLabel103.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+
+        jLabel104.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+
+        jLabel130.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel130.setText("zu platzieren:");
+
+        jLabel107.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel101)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel108)
+                            .addComponent(jLabel122)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel112)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel125)
+                            .addComponent(jLabel126)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel103)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel127)
+                            .addComponent(jLabel128)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel104)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel129)
+                            .addComponent(jLabel130)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel107)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel131)
+                            .addComponent(jLabel132)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel106)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel133)
+                            .addComponent(jLabel134))))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel101)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel108)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel122)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel112)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel125)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel126)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel103)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel127)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel128)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel104)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel129)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel130)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel107)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel131)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel132)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel106)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel133)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel134)))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel102, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel102, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1435,15 +1816,55 @@ public class Board extends javax.swing.JFrame {
                 new Board().setVisible(true);
             }
         });
+        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
+    private javax.swing.JLabel jLabel101;
+    private javax.swing.JLabel jLabel102;
+    private javax.swing.JLabel jLabel103;
+    private javax.swing.JLabel jLabel104;
+    private javax.swing.JLabel jLabel105;
+    private javax.swing.JLabel jLabel106;
+    private javax.swing.JLabel jLabel107;
+    private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel112;
+    private javax.swing.JLabel jLabel113;
+    private javax.swing.JLabel jLabel118;
+    private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel120;
+    private javax.swing.JLabel jLabel121;
+    private javax.swing.JLabel jLabel122;
+    private javax.swing.JLabel jLabel123;
+    private javax.swing.JLabel jLabel124;
+    private javax.swing.JLabel jLabel125;
+    private javax.swing.JLabel jLabel126;
+    private javax.swing.JLabel jLabel127;
+    private javax.swing.JLabel jLabel128;
+    private javax.swing.JLabel jLabel129;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel130;
+    private javax.swing.JLabel jLabel131;
+    private javax.swing.JLabel jLabel132;
+    private javax.swing.JLabel jLabel133;
+    private javax.swing.JLabel jLabel134;
+    private javax.swing.JLabel jLabel135;
+    private javax.swing.JLabel jLabel136;
+    private javax.swing.JLabel jLabel137;
+    private javax.swing.JLabel jLabel138;
+    private javax.swing.JLabel jLabel139;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel140;
+    private javax.swing.JLabel jLabel141;
+    private javax.swing.JLabel jLabel142;
+    private javax.swing.JLabel jLabel143;
+    private javax.swing.JLabel jLabel144;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -1538,5 +1959,8 @@ public class Board extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
