@@ -49,6 +49,7 @@ public class PlayBoard {
 		List<Field> fields;
 		fields = new ArrayList<Field>();
 		Field field = board[x][y];
+		//TODO parametrisierbarer Algorithmus, der die möglichen Felder für Bewegungen in einer Liste ablegt. Der Parameter gibt die maximale Schrittweite an. maximum ist 9
 		if (field.piece.motion == Motion.MOVABLE) {
 			try {
 				if ((board[x + 1][y].piece == null || board[x + 1][y].piece.color != field.piece.color) && !board[x + 1][y].blocked) {
