@@ -10,7 +10,7 @@ public class Miner extends Piece {
 
 	public Miner(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		description = "";
+		description = "Mineure können als einzige Figuren Bomben aus dem Spiel nehmen.";
 		name = "Mineur";
 		motion = Motion.UNMOVABLE;
 		imgurl = "";

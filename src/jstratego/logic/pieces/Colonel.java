@@ -10,10 +10,10 @@ public class Colonel extends Piece {
 
 	public Colonel(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		// TODO german description
-		description = "";
-		name = "";
+		description = "Der Oberst besitzt den dritthöchsten Rang der Spielfiguren.";
+		name = "Oberst";
 		motion = Motion.MOVABLE;
+                //TODO add imgurl
 		imgurl = "";
 		beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");

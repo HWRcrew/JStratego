@@ -10,10 +10,10 @@ public class Captain extends Piece {
 
 	public Captain(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		// TODO description and Name in German
 		description = "Der Hauptmann liegt mit seiner Stärke im oberen Drittel der Spielfiguren.";
 		name = "Hauptmann";
-		motion = Motion.MOVABLE;
+		motion = Motion.MOVABLE ;
+                //TODO add imgurl
 		imgurl = "";
 		beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");

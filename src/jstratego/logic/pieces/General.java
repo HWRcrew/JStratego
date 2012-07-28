@@ -10,10 +10,10 @@ public class General extends Piece {
 
 	public General(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		// TODO description & name
-		description = "";
-		name = "";
+		description = "Der General ist die zwetstärkste Figur im Spiel.";
+		name = "General";
 		motion = Motion.MOVABLE;
+                //TODO add imgurl
 		imgurl = "";
 		this.beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");

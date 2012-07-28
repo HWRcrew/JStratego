@@ -10,10 +10,10 @@ public class Lieutenant extends Piece {
 
 	public Lieutenant(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		// TODO description German + name
-		description = "";
-		name = "";
+		description = "Der Leutnant liegt mit seiner Stärke im Mittelfeld der Figuren.";
+		name = "Leutnant";
 		motion = Motion.MOVABLE;
+                //TODO add imgurl
 		imgurl = "";
 		beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
