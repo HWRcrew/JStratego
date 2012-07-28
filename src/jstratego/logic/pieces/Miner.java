@@ -13,7 +13,6 @@ public class Miner extends Piece {
 		description = "Mineure können als einzige Figuren Bomben aus dem Spiel nehmen.";
 		name = "Mineur";
 		motion = Motion.UNMOVABLE;
-		imgurl = "";
 		this.beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
 		beatenby.add("General");

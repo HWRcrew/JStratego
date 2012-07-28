@@ -14,7 +14,6 @@ public class Captain extends Piece {
 		name = "Hauptmann";
 		motion = Motion.MOVABLE ;
                 //TODO add imgurl
-		imgurl = "";
 		beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
 		beatenby.add("General");

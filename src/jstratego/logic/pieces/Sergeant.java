@@ -13,8 +13,6 @@ public class Sergeant extends Piece {
 		description = "Der Unteroffizier liegt mit seiner Stärke im unteren Drittel der Figuren.";
 		name = "Unteroffizier";
 		motion = Motion.MOVABLE;
-		// TODO add imgurl
-		imgurl = "";
 		beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
 		beatenby.add("General");

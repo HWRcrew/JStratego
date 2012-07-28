@@ -13,8 +13,6 @@ public class Marshal extends Piece {
 		description = "Der Feldmarschall ist die stärkste Figur im Spiel. Spione stellen für ihn allerdings eine große Gefahr dar.";
 		name = "Feldmarschall";
 		motion = Motion.MOVABLE;
-                //TODO add imgurl
-		imgurl = "";
 		this.beatenby = new ArrayList<String>();
 		beatenby.add("Marshal");
 		beatenby.add("Spy");
