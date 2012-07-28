@@ -28,16 +28,18 @@ public class Field {
 	 * @param piece
 	 */
 	public void setPiece(Piece piece) {
-		if (this != null) {
-			piece.fightAgainst(this.piece);
-		} else {
-			this.piece = piece;
-		}
-		if (piece.alive) {
-			this.piece = piece;
-		}
-		if (!this.piece.alive && !piece.alive) {
-			this.piece = null;
+		if (!this.blocked) {
+			if (this != null) {
+				piece.fightAgainst(this.piece);
+			} else {
+				this.piece = piece;
+			}
+			if (piece.alive) {
+				this.piece = piece;
+			}
+			if (!this.piece.alive && !piece.alive) {
+				this.piece = null;
+			}
 		}
 	}
 }
