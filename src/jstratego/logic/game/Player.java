@@ -25,6 +25,15 @@ public class Player {
 		this.pieces.add(new Spy(this.playerColor, true, false));
 		this.pieces.add(new Marshal(this.playerColor, true, false));
 		this.pieces.add(new General(this.playerColor, true, false));
-		//TODO add all pieces for a player
+		this.pieces.add(new Captain(this.playerColor, true, false));
+                this.pieces.add(new Colonel(this.playerColor, true, false));
+                this.pieces.add(new Lieutenant(this.playerColor, true, false));
+                this.pieces.add(new Major(this.playerColor, true, false));
+                this.pieces.add(new Miner(this.playerColor, true, false));
+                this.pieces.add(new Scout(this.playerColor, true, false));
+                this.pieces.add(new Sergeant(this.playerColor, true, false));
+                this.pieces.add(new Bomb(this.playerColor, true, false));
+                
+                //TODO add all pieces for a player
 	}
 }
