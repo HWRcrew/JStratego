@@ -1,6 +1,5 @@
 package jstratego;
 
-import jstratego.gui.game.PlayBoard;
 import jstratego.gui.game.StartScreen;
 
 /**

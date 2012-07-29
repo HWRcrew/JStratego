@@ -5,6 +5,7 @@
 package jstratego.gui.game;
 
 import javax.swing.text.BadLocationException;
+import jstratego.logic.game.Game;
 
 /**
  *
@@ -38,7 +39,7 @@ public class StartScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         labelInfo1.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        labelInfo1.setText("Spieler 1 (blau) - Bitte Namen eingeben:");
+        labelInfo1.setText("Spieler 1 (rot) - Bitte Namen eingeben:");
 
         buttonStart.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         buttonStart.setText("Neues Spiel starten");
@@ -69,7 +70,7 @@ public class StartScreen extends javax.swing.JFrame {
         });
 
         labelInfo2.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        labelInfo2.setText("Spieler 2 (rot) - Bitte Namen eingeben:");
+        labelInfo2.setText("Spieler 2 (blau) - Bitte Namen eingeben:");
 
         txtRed.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         txtRed.setText("2342");
@@ -164,6 +165,8 @@ public class StartScreen extends javax.swing.JFrame {
 
     private void buttonStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonStartMouseClicked
         // TODO add your handling code here:
+        Game game = new jstratego.logic.game.Game();
+        game.playerWithMove.name = txtRed.getText();
         jstratego.gui.game.PlayBoard.main(null);
         setVisible(false);
     }//GEN-LAST:event_buttonStartMouseClicked
