@@ -44,6 +44,34 @@ public class PlayBoard {
 			}
 		}
 	}
+	public void blockFieldsForSetup(){
+		board[4][0].blocked = true;
+		board[4][1].blocked = true;
+		board[4][4].blocked = true;
+		board[4][5].blocked = true;
+		board[4][8].blocked = true;
+		board[4][9].blocked = true;
+		board[5][0].blocked = true;
+		board[5][1].blocked = true;
+		board[5][4].blocked = true;
+		board[5][5].blocked = true;
+		board[5][8].blocked = true;
+		board[5][9].blocked = true;
+	}
+	public void unblockFieldsForSetup(){
+		board[4][0].blocked = false;
+		board[4][1].blocked = false;
+		board[4][4].blocked = false;
+		board[4][5].blocked = false;
+		board[4][8].blocked = false;
+		board[4][9].blocked = false;
+		board[5][0].blocked = false;
+		board[5][1].blocked = false;
+		board[5][4].blocked = false;
+		board[5][5].blocked = false;
+		board[5][8].blocked = false;
+		board[5][9].blocked = false;
+	}
 
 	/**
 	 * this Mathod return a list of all reachable Fields für a piece on a

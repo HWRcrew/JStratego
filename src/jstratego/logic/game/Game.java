@@ -8,12 +8,37 @@ import jstratego.logic.pieces.Color;
  * @author sebastiangrosse
  */
 public class Game {
-
+	
 	public Player playerWithMove;
 	public Gamephase gamephase;
-
+	public PlayBoard playBoard;
+	
 	public Game() {
 		this.playerWithMove = new Player(null, Color.RED);
 		this.gamephase = Gamephase.SETUPred;
+	}
+	
+	public void switchGamephase(Gamephase gamephase) {
+		switch (gamephase) {
+			case SETUPred:
+				this.gamephase = gamephase;
+				this.playBoard.blockFieldsForSetup();
+				break;
+			case SETUPblue:
+				this.gamephase = gamephase;
+				this.playBoard.blockFieldsForSetup();
+				break;
+			case CHANGE:
+			case MOVEred:
+				this.gamephase = gamephase;
+				this.playBoard.unblockFieldsForSetup();
+				break;
+			case MOVEblue:
+				this.gamephase = gamephase;
+				this.playBoard.unblockFieldsForSetup();
+				break;
+			case END:
+			default:
+		}
 	}
 }
