@@ -18,6 +18,7 @@ public class Player {
 	public Player(String name, Color playerColor) {
 		this.name = name;
 		this.playerColor = playerColor;
+		handoutPieces();
 	}
 
 	private void handoutPieces() {
