@@ -23,21 +23,21 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="panelGame" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel2" pref="417" max="32767" attributes="0"/>
+              <Component id="panelInfoArea" min="-2" pref="417" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="panelGame" alignment="0" min="-2" pref="714" max="-2" attributes="0"/>
+          <Component id="panelInfoArea" alignment="0" min="-2" pref="714" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="panelGame">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1651,7 +1651,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="panelInfoArea">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1666,59 +1666,62 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="labelBannerInfoArea" min="-2" pref="415" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelPlayer" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="panelInfoAreaLeft" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="panelInfoAreaRight" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="buttonRestart" alignment="0" max="32767" attributes="0"/>
+                              <Component id="buttonSet" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jLabel102" alignment="0" min="-2" pref="395" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel102" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="labelBannerInfoArea" min="-2" pref="107" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="labelPlayer" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="panelInfoAreaRight" min="-2" max="-2" attributes="0"/>
+                      <Component id="panelInfoAreaLeft" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="46" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="buttonSet" min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="buttonRestart" min="-2" pref="34" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel102">
+        <Component class="javax.swing.JLabel" name="labelBannerInfoArea">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Trebuchet MS" size="18" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Logo"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
-              </Border>
-            </Property>
+            <Property name="text" type="java.lang.String" value="Platzhalter"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="buttonSet">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Trebuchet MS" size="18" style="1"/>
@@ -1726,18 +1729,27 @@
             <Property name="text" type="java.lang.String" value="Zug ausf&#xfc;hren"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSetActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="buttonRestart">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Trebuchet MS" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Neues Spiel starten"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[155, 29]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[155, 29]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[155, 29]"/>
+            </Property>
           </Properties>
         </Component>
-        <Container class="javax.swing.JPanel" name="jPanel3">
+        <Container class="javax.swing.JPanel" name="panelInfoAreaRight">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1753,51 +1765,51 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel121" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelLieutenantIcon" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel123" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel124" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelLieutenantName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelLieutenantPlace" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel113" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelSergeantIcon" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel135" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel136" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelSergeantName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelSergeantPlace" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel120" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelMinerIcon" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel137" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel138" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelMinerName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelMinerPlace" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel105" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelScoutIcon" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel139" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel140" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelScoutName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelScoutPlace" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel119" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelSpyIcon" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel141" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel142" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelSpyName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelSpyPlace" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel118" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelBombIcon" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel143" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel144" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelBombName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelBombPlace" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1810,56 +1822,56 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel121" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelLieutenantIcon" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel123" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelLieutenantName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jLabel124" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelLieutenantPlace" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel113" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelSergeantIcon" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel135" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelSergeantName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jLabel136" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelSergeantPlace" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel120" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelMinerIcon" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel137" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelMinerName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jLabel138" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelMinerPlace" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel105" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelScoutIcon" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel139" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelScoutName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jLabel140" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelScoutPlace" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel119" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelSpyIcon" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel141" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelSpyName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jLabel142" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelSpyPlace" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel118" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelBombIcon" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel143" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelBombName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jLabel144" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelBombPlace" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1868,7 +1880,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel138">
+            <Component class="javax.swing.JLabel" name="labelMinerPlace">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="14" style="0"/>
@@ -1876,38 +1888,38 @@
                 <Property name="text" type="java.lang.String" value="zu platzieren:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel139">
+            <Component class="javax.swing.JLabel" name="labelScoutName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="16" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Feldmarschall"/>
+                <Property name="text" type="java.lang.String" value="Aufkl&#xe4;rer"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel143">
+            <Component class="javax.swing.JLabel" name="labelBombName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="16" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Feldmarschall"/>
+                <Property name="text" type="java.lang.String" value="Bombe"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel113">
+            <Component class="javax.swing.JLabel" name="labelSergeantIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/jstratego/gui/img/missing.png"/>
+                  <Image iconType="3" name="/jstratego/gui/img/sergeant_blue.png"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel137">
+            <Component class="javax.swing.JLabel" name="labelMinerName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="16" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Feldmarschall"/>
+                <Property name="text" type="java.lang.String" value="Mineur"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel144">
+            <Component class="javax.swing.JLabel" name="labelBombPlace">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="14" style="0"/>
@@ -1915,29 +1927,29 @@
                 <Property name="text" type="java.lang.String" value="zu platzieren:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel118">
+            <Component class="javax.swing.JLabel" name="labelBombIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/jstratego/gui/img/missing.png"/>
+                  <Image iconType="3" name="/jstratego/gui/img/bomb_blue.png"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel120">
+            <Component class="javax.swing.JLabel" name="labelMinerIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/jstratego/gui/img/missing.png"/>
+                  <Image iconType="3" name="/jstratego/gui/img/miner_blue.png"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel135">
+            <Component class="javax.swing.JLabel" name="labelSergeantName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="16" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Feldmarschall"/>
+                <Property name="text" type="java.lang.String" value="Unteroffizier"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel142">
+            <Component class="javax.swing.JLabel" name="labelSpyPlace">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="14" style="0"/>
@@ -1945,14 +1957,14 @@
                 <Property name="text" type="java.lang.String" value="zu platzieren:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel105">
+            <Component class="javax.swing.JLabel" name="labelScoutIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/jstratego/gui/img/missing.png"/>
+                  <Image iconType="3" name="/jstratego/gui/img/scout_blue.png"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel124">
+            <Component class="javax.swing.JLabel" name="labelLieutenantPlace">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="14" style="0"/>
@@ -1960,7 +1972,7 @@
                 <Property name="text" type="java.lang.String" value="zu platzieren:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel140">
+            <Component class="javax.swing.JLabel" name="labelScoutPlace">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="14" style="0"/>
@@ -1968,37 +1980,37 @@
                 <Property name="text" type="java.lang.String" value="zu platzieren:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel119">
+            <Component class="javax.swing.JLabel" name="labelSpyIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/jstratego/gui/img/missing.png"/>
+                  <Image iconType="3" name="/jstratego/gui/img/spy_blue.png"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel141">
+            <Component class="javax.swing.JLabel" name="labelSpyName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="16" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Feldmarschall"/>
+                <Property name="text" type="java.lang.String" value="Spion"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel121">
+            <Component class="javax.swing.JLabel" name="labelLieutenantIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/jstratego/gui/img/missing.png"/>
+                  <Image iconType="3" name="/jstratego/gui/img/lieutenant_blue.png"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel123">
+            <Component class="javax.swing.JLabel" name="labelLieutenantName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="16" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Feldmarschall"/>
+                <Property name="text" type="java.lang.String" value="Leutnant"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel136">
+            <Component class="javax.swing.JLabel" name="labelSergeantPlace">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="14" style="0"/>
@@ -2008,7 +2020,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel4">
+        <Container class="javax.swing.JPanel" name="panelInfoAreaLeft">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -2024,51 +2036,51 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel101" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelFlagIcon" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel108" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel122" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelFlagName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelFlagPlace" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel112" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelMarshalIcon" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel125" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel126" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelMarshalName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelMarshalPlace" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel103" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelGeneralIcon" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel127" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel128" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelGeneralName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelGeneralPlace" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel104" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelColonelIcon" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel129" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel130" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelColonelName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelColonelPlace" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel107" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelMajorIcon" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel131" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel132" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelMajorName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelMajorPlace" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel106" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelCaptainIcon" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel133" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel134" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelCaptainName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelCaptainPlace" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -2081,56 +2093,56 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel101" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelFlagIcon" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel108" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelFlagName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jLabel122" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelFlagPlace" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel112" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelMarshalIcon" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel125" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelMarshalName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jLabel126" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelMarshalPlace" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel103" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelGeneralIcon" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel127" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelGeneralName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jLabel128" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelGeneralPlace" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel104" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelColonelIcon" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel129" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelColonelName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jLabel130" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelColonelPlace" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel107" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelMajorIcon" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel131" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelMajorName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jLabel132" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelMajorPlace" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel106" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelCaptainIcon" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel133" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelCaptainName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                              <Component id="jLabel134" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelCaptainPlace" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -2139,22 +2151,22 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel112">
+            <Component class="javax.swing.JLabel" name="labelMarshalIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/jstratego/gui/img/missing.png"/>
+                  <Image iconType="3" name="/jstratego/gui/img/marshal_blue.png"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel129">
+            <Component class="javax.swing.JLabel" name="labelColonelName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="16" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Feldmarschall"/>
+                <Property name="text" type="java.lang.String" value="Oberst"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel134">
+            <Component class="javax.swing.JLabel" name="labelCaptainPlace">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="14" style="0"/>
@@ -2162,15 +2174,15 @@
                 <Property name="text" type="java.lang.String" value="zu platzieren:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel133">
+            <Component class="javax.swing.JLabel" name="labelCaptainName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="16" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Feldmarschall"/>
+                <Property name="text" type="java.lang.String" value="Hauptmann"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel128">
+            <Component class="javax.swing.JLabel" name="labelGeneralPlace">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="14" style="0"/>
@@ -2178,21 +2190,21 @@
                 <Property name="text" type="java.lang.String" value="zu platzieren:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel101">
+            <Component class="javax.swing.JLabel" name="labelFlagIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/jstratego/gui/img/missing.png"/>
+                  <Image iconType="3" name="/jstratego/gui/img/flag_blue.png"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel106">
+            <Component class="javax.swing.JLabel" name="labelCaptainIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/jstratego/gui/img/missing.png"/>
+                  <Image iconType="3" name="/jstratego/gui/img/captain_blue.png"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel122">
+            <Component class="javax.swing.JLabel" name="labelFlagPlace">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="14" style="0"/>
@@ -2200,7 +2212,7 @@
                 <Property name="text" type="java.lang.String" value="zu platzieren:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel125">
+            <Component class="javax.swing.JLabel" name="labelMarshalName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="16" style="0"/>
@@ -2208,23 +2220,23 @@
                 <Property name="text" type="java.lang.String" value="Feldmarschall"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel131">
+            <Component class="javax.swing.JLabel" name="labelMajorName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="16" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Feldmarschall"/>
+                <Property name="text" type="java.lang.String" value="Major"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel127">
+            <Component class="javax.swing.JLabel" name="labelGeneralName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="16" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Feldmarschall"/>
+                <Property name="text" type="java.lang.String" value="General"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel126">
+            <Component class="javax.swing.JLabel" name="labelMarshalPlace">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="14" style="0"/>
@@ -2232,7 +2244,7 @@
                 <Property name="text" type="java.lang.String" value="zu platzieren:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel132">
+            <Component class="javax.swing.JLabel" name="labelMajorPlace">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="14" style="0"/>
@@ -2240,29 +2252,29 @@
                 <Property name="text" type="java.lang.String" value="zu platzieren:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel108">
+            <Component class="javax.swing.JLabel" name="labelFlagName">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="16" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Feldmarschall"/>
+                <Property name="text" type="java.lang.String" value="Flagge"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel103">
+            <Component class="javax.swing.JLabel" name="labelGeneralIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/jstratego/gui/img/missing.png"/>
+                  <Image iconType="3" name="/jstratego/gui/img/general_blue.png"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel104">
+            <Component class="javax.swing.JLabel" name="labelColonelIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/jstratego/gui/img/missing.png"/>
+                  <Image iconType="3" name="/jstratego/gui/img/colonel_blue.png"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel130">
+            <Component class="javax.swing.JLabel" name="labelColonelPlace">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="14" style="0"/>
@@ -2270,15 +2282,23 @@
                 <Property name="text" type="java.lang.String" value="zu platzieren:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel107">
+            <Component class="javax.swing.JLabel" name="labelMajorIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/jstratego/gui/img/missing.png"/>
+                  <Image iconType="3" name="/jstratego/gui/img/major_blue.png"/>
                 </Property>
               </Properties>
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="labelPlayer">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Trebuchet MS" size="16" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Spieler am Zug: XX Maximall&#xe4;nge beachten XXXXXXXX"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

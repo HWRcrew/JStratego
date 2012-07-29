@@ -9,8 +9,6 @@ package jstratego.gui.game;
  *
  * @author Tim
  */
-//TODO Labels in F00, F01 ... umbenennen
-
 public class PlayBoard extends javax.swing.JFrame {
 
     /**
@@ -30,7 +28,7 @@ public class PlayBoard extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel1 = new javax.swing.JPanel();
+        panelGame = new javax.swing.JPanel();
         f00 = new javax.swing.JLabel();
         f01 = new javax.swing.JLabel();
         f02 = new javax.swing.JLabel();
@@ -131,53 +129,54 @@ public class PlayBoard extends javax.swing.JFrame {
         f86 = new javax.swing.JLabel();
         f85 = new javax.swing.JLabel();
         f91 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel102 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel138 = new javax.swing.JLabel();
-        jLabel139 = new javax.swing.JLabel();
-        jLabel143 = new javax.swing.JLabel();
-        jLabel113 = new javax.swing.JLabel();
-        jLabel137 = new javax.swing.JLabel();
-        jLabel144 = new javax.swing.JLabel();
-        jLabel118 = new javax.swing.JLabel();
-        jLabel120 = new javax.swing.JLabel();
-        jLabel135 = new javax.swing.JLabel();
-        jLabel142 = new javax.swing.JLabel();
-        jLabel105 = new javax.swing.JLabel();
-        jLabel124 = new javax.swing.JLabel();
-        jLabel140 = new javax.swing.JLabel();
-        jLabel119 = new javax.swing.JLabel();
-        jLabel141 = new javax.swing.JLabel();
-        jLabel121 = new javax.swing.JLabel();
-        jLabel123 = new javax.swing.JLabel();
-        jLabel136 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel112 = new javax.swing.JLabel();
-        jLabel129 = new javax.swing.JLabel();
-        jLabel134 = new javax.swing.JLabel();
-        jLabel133 = new javax.swing.JLabel();
-        jLabel128 = new javax.swing.JLabel();
-        jLabel101 = new javax.swing.JLabel();
-        jLabel106 = new javax.swing.JLabel();
-        jLabel122 = new javax.swing.JLabel();
-        jLabel125 = new javax.swing.JLabel();
-        jLabel131 = new javax.swing.JLabel();
-        jLabel127 = new javax.swing.JLabel();
-        jLabel126 = new javax.swing.JLabel();
-        jLabel132 = new javax.swing.JLabel();
-        jLabel108 = new javax.swing.JLabel();
-        jLabel103 = new javax.swing.JLabel();
-        jLabel104 = new javax.swing.JLabel();
-        jLabel130 = new javax.swing.JLabel();
-        jLabel107 = new javax.swing.JLabel();
+        panelInfoArea = new javax.swing.JPanel();
+        labelBannerInfoArea = new javax.swing.JLabel();
+        buttonSet = new javax.swing.JButton();
+        buttonRestart = new javax.swing.JButton();
+        panelInfoAreaRight = new javax.swing.JPanel();
+        labelMinerPlace = new javax.swing.JLabel();
+        labelScoutName = new javax.swing.JLabel();
+        labelBombName = new javax.swing.JLabel();
+        labelSergeantIcon = new javax.swing.JLabel();
+        labelMinerName = new javax.swing.JLabel();
+        labelBombPlace = new javax.swing.JLabel();
+        labelBombIcon = new javax.swing.JLabel();
+        labelMinerIcon = new javax.swing.JLabel();
+        labelSergeantName = new javax.swing.JLabel();
+        labelSpyPlace = new javax.swing.JLabel();
+        labelScoutIcon = new javax.swing.JLabel();
+        labelLieutenantPlace = new javax.swing.JLabel();
+        labelScoutPlace = new javax.swing.JLabel();
+        labelSpyIcon = new javax.swing.JLabel();
+        labelSpyName = new javax.swing.JLabel();
+        labelLieutenantIcon = new javax.swing.JLabel();
+        labelLieutenantName = new javax.swing.JLabel();
+        labelSergeantPlace = new javax.swing.JLabel();
+        panelInfoAreaLeft = new javax.swing.JPanel();
+        labelMarshalIcon = new javax.swing.JLabel();
+        labelColonelName = new javax.swing.JLabel();
+        labelCaptainPlace = new javax.swing.JLabel();
+        labelCaptainName = new javax.swing.JLabel();
+        labelGeneralPlace = new javax.swing.JLabel();
+        labelFlagIcon = new javax.swing.JLabel();
+        labelCaptainIcon = new javax.swing.JLabel();
+        labelFlagPlace = new javax.swing.JLabel();
+        labelMarshalName = new javax.swing.JLabel();
+        labelMajorName = new javax.swing.JLabel();
+        labelGeneralName = new javax.swing.JLabel();
+        labelMarshalPlace = new javax.swing.JLabel();
+        labelMajorPlace = new javax.swing.JLabel();
+        labelFlagName = new javax.swing.JLabel();
+        labelGeneralIcon = new javax.swing.JLabel();
+        labelColonelIcon = new javax.swing.JLabel();
+        labelColonelPlace = new javax.swing.JLabel();
+        labelMajorIcon = new javax.swing.JLabel();
+        labelPlayer = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        panelGame.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelGame.setLayout(new java.awt.GridBagLayout());
 
         f00.setBackground(java.awt.Color.white);
         f00.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -187,7 +186,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 0, 0);
-        jPanel1.add(f00, gridBagConstraints);
+        panelGame.add(f00, gridBagConstraints);
 
         f01.setBackground(java.awt.Color.white);
         f01.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -197,7 +196,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        jPanel1.add(f01, gridBagConstraints);
+        panelGame.add(f01, gridBagConstraints);
 
         f02.setBackground(java.awt.Color.white);
         f02.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -207,7 +206,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        jPanel1.add(f02, gridBagConstraints);
+        panelGame.add(f02, gridBagConstraints);
 
         f03.setBackground(java.awt.Color.white);
         f03.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -218,7 +217,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        jPanel1.add(f03, gridBagConstraints);
+        panelGame.add(f03, gridBagConstraints);
 
         f04.setBackground(java.awt.Color.white);
         f04.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -228,7 +227,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        jPanel1.add(f04, gridBagConstraints);
+        panelGame.add(f04, gridBagConstraints);
 
         f06.setBackground(java.awt.Color.white);
         f06.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -238,7 +237,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        jPanel1.add(f06, gridBagConstraints);
+        panelGame.add(f06, gridBagConstraints);
 
         f07.setBackground(java.awt.Color.white);
         f07.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -248,7 +247,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        jPanel1.add(f07, gridBagConstraints);
+        panelGame.add(f07, gridBagConstraints);
 
         f05.setBackground(java.awt.Color.white);
         f05.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -258,7 +257,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        jPanel1.add(f05, gridBagConstraints);
+        panelGame.add(f05, gridBagConstraints);
 
         f09.setBackground(java.awt.Color.white);
         f09.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -268,7 +267,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 5);
-        jPanel1.add(f09, gridBagConstraints);
+        panelGame.add(f09, gridBagConstraints);
 
         f08.setBackground(java.awt.Color.white);
         f08.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -278,7 +277,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(5, 0, 0, 0);
-        jPanel1.add(f08, gridBagConstraints);
+        panelGame.add(f08, gridBagConstraints);
 
         f10.setBackground(java.awt.Color.white);
         f10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -288,7 +287,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        jPanel1.add(f10, gridBagConstraints);
+        panelGame.add(f10, gridBagConstraints);
 
         f15.setBackground(java.awt.Color.white);
         f15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -297,7 +296,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f15, gridBagConstraints);
+        panelGame.add(f15, gridBagConstraints);
 
         f14.setBackground(java.awt.Color.white);
         f14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -306,7 +305,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f14, gridBagConstraints);
+        panelGame.add(f14, gridBagConstraints);
 
         f13.setBackground(java.awt.Color.white);
         f13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -315,7 +314,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f13, gridBagConstraints);
+        panelGame.add(f13, gridBagConstraints);
 
         f12.setBackground(java.awt.Color.white);
         f12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -324,7 +323,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f12, gridBagConstraints);
+        panelGame.add(f12, gridBagConstraints);
 
         f11.setBackground(java.awt.Color.white);
         f11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -333,7 +332,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f11, gridBagConstraints);
+        panelGame.add(f11, gridBagConstraints);
 
         f17.setBackground(java.awt.Color.white);
         f17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -342,7 +341,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f17, gridBagConstraints);
+        panelGame.add(f17, gridBagConstraints);
 
         f16.setBackground(java.awt.Color.white);
         f16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -351,7 +350,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f16, gridBagConstraints);
+        panelGame.add(f16, gridBagConstraints);
 
         f19.setBackground(java.awt.Color.white);
         f19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -361,7 +360,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
-        jPanel1.add(f19, gridBagConstraints);
+        panelGame.add(f19, gridBagConstraints);
 
         f18.setBackground(java.awt.Color.white);
         f18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -370,7 +369,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f18, gridBagConstraints);
+        panelGame.add(f18, gridBagConstraints);
 
         f37.setBackground(java.awt.Color.white);
         f37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -379,7 +378,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f37, gridBagConstraints);
+        panelGame.add(f37, gridBagConstraints);
 
         f38.setBackground(java.awt.Color.white);
         f38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -388,7 +387,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f38, gridBagConstraints);
+        panelGame.add(f38, gridBagConstraints);
 
         f32.setBackground(java.awt.Color.white);
         f32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -397,7 +396,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f32, gridBagConstraints);
+        panelGame.add(f32, gridBagConstraints);
 
         f31.setBackground(java.awt.Color.white);
         f31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -406,7 +405,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f31, gridBagConstraints);
+        panelGame.add(f31, gridBagConstraints);
 
         f34.setBackground(java.awt.Color.white);
         f34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -415,7 +414,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f34, gridBagConstraints);
+        panelGame.add(f34, gridBagConstraints);
 
         f33.setBackground(java.awt.Color.white);
         f33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -424,7 +423,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f33, gridBagConstraints);
+        panelGame.add(f33, gridBagConstraints);
 
         f30.setBackground(java.awt.Color.white);
         f30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -434,7 +433,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        jPanel1.add(f30, gridBagConstraints);
+        panelGame.add(f30, gridBagConstraints);
 
         f35.setBackground(java.awt.Color.white);
         f35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -443,7 +442,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f35, gridBagConstraints);
+        panelGame.add(f35, gridBagConstraints);
 
         f29.setBackground(java.awt.Color.white);
         f29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -453,7 +452,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
-        jPanel1.add(f29, gridBagConstraints);
+        panelGame.add(f29, gridBagConstraints);
 
         f28.setBackground(java.awt.Color.white);
         f28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -462,7 +461,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f28, gridBagConstraints);
+        panelGame.add(f28, gridBagConstraints);
 
         f39.setBackground(java.awt.Color.white);
         f39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -472,7 +471,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
-        jPanel1.add(f39, gridBagConstraints);
+        panelGame.add(f39, gridBagConstraints);
 
         f20.setBackground(java.awt.Color.white);
         f20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -482,7 +481,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        jPanel1.add(f20, gridBagConstraints);
+        panelGame.add(f20, gridBagConstraints);
 
         f36.setBackground(java.awt.Color.white);
         f36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -491,7 +490,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f36, gridBagConstraints);
+        panelGame.add(f36, gridBagConstraints);
 
         f25.setBackground(java.awt.Color.white);
         f25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -500,7 +499,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f25, gridBagConstraints);
+        panelGame.add(f25, gridBagConstraints);
 
         f24.setBackground(java.awt.Color.white);
         f24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -509,7 +508,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f24, gridBagConstraints);
+        panelGame.add(f24, gridBagConstraints);
 
         f23.setBackground(java.awt.Color.white);
         f23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -518,7 +517,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f23, gridBagConstraints);
+        panelGame.add(f23, gridBagConstraints);
 
         f22.setBackground(java.awt.Color.white);
         f22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -527,7 +526,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f22, gridBagConstraints);
+        panelGame.add(f22, gridBagConstraints);
 
         f21.setBackground(java.awt.Color.white);
         f21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -536,7 +535,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f21, gridBagConstraints);
+        panelGame.add(f21, gridBagConstraints);
 
         f27.setBackground(java.awt.Color.white);
         f27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -545,7 +544,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f27, gridBagConstraints);
+        panelGame.add(f27, gridBagConstraints);
 
         f26.setBackground(java.awt.Color.white);
         f26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -554,7 +553,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f26, gridBagConstraints);
+        panelGame.add(f26, gridBagConstraints);
 
         f44.setBackground(java.awt.Color.white);
         f44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -563,7 +562,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f44, gridBagConstraints);
+        panelGame.add(f44, gridBagConstraints);
 
         f41.setBackground(java.awt.Color.white);
         f41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -572,7 +571,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f41, gridBagConstraints);
+        panelGame.add(f41, gridBagConstraints);
 
         f47.setBackground(java.awt.Color.white);
         f47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -581,7 +580,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f47, gridBagConstraints);
+        panelGame.add(f47, gridBagConstraints);
 
         f42.setBackground(java.awt.Color.white);
         f42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -590,7 +589,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f42, gridBagConstraints);
+        panelGame.add(f42, gridBagConstraints);
 
         f56.setBackground(java.awt.Color.white);
         f56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -599,7 +598,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f56, gridBagConstraints);
+        panelGame.add(f56, gridBagConstraints);
 
         f54.setBackground(java.awt.Color.white);
         f54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -608,7 +607,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f54, gridBagConstraints);
+        panelGame.add(f54, gridBagConstraints);
 
         f59.setBackground(java.awt.Color.white);
         f59.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -618,7 +617,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
-        jPanel1.add(f59, gridBagConstraints);
+        panelGame.add(f59, gridBagConstraints);
 
         f51.setBackground(java.awt.Color.white);
         f51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -627,7 +626,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f51, gridBagConstraints);
+        panelGame.add(f51, gridBagConstraints);
 
         f57.setBackground(java.awt.Color.white);
         f57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -636,7 +635,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f57, gridBagConstraints);
+        panelGame.add(f57, gridBagConstraints);
 
         f50.setBackground(java.awt.Color.white);
         f50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -646,7 +645,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        jPanel1.add(f50, gridBagConstraints);
+        panelGame.add(f50, gridBagConstraints);
 
         f46.setBackground(java.awt.Color.white);
         f46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -655,7 +654,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f46, gridBagConstraints);
+        panelGame.add(f46, gridBagConstraints);
 
         f45.setBackground(java.awt.Color.white);
         f45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -664,7 +663,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f45, gridBagConstraints);
+        panelGame.add(f45, gridBagConstraints);
 
         f58.setBackground(java.awt.Color.white);
         f58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -673,7 +672,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f58, gridBagConstraints);
+        panelGame.add(f58, gridBagConstraints);
 
         f48.setBackground(java.awt.Color.white);
         f48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -682,7 +681,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f48, gridBagConstraints);
+        panelGame.add(f48, gridBagConstraints);
 
         f52.setBackground(java.awt.Color.white);
         f52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -691,7 +690,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f52, gridBagConstraints);
+        panelGame.add(f52, gridBagConstraints);
 
         f40.setBackground(java.awt.Color.white);
         f40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -701,7 +700,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        jPanel1.add(f40, gridBagConstraints);
+        panelGame.add(f40, gridBagConstraints);
 
         f55.setBackground(java.awt.Color.white);
         f55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -710,7 +709,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f55, gridBagConstraints);
+        panelGame.add(f55, gridBagConstraints);
 
         f53.setBackground(java.awt.Color.white);
         f53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -719,7 +718,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f53, gridBagConstraints);
+        panelGame.add(f53, gridBagConstraints);
 
         f49.setBackground(java.awt.Color.white);
         f49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -729,7 +728,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
-        jPanel1.add(f49, gridBagConstraints);
+        panelGame.add(f49, gridBagConstraints);
 
         f43.setBackground(java.awt.Color.white);
         f43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -738,7 +737,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f43, gridBagConstraints);
+        panelGame.add(f43, gridBagConstraints);
 
         f76.setBackground(java.awt.Color.white);
         f76.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -747,7 +746,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f76, gridBagConstraints);
+        panelGame.add(f76, gridBagConstraints);
 
         f65.setBackground(java.awt.Color.white);
         f65.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -756,7 +755,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f65, gridBagConstraints);
+        panelGame.add(f65, gridBagConstraints);
 
         f79.setBackground(java.awt.Color.white);
         f79.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -766,7 +765,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
-        jPanel1.add(f79, gridBagConstraints);
+        panelGame.add(f79, gridBagConstraints);
 
         f60.setBackground(java.awt.Color.white);
         f60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -776,7 +775,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        jPanel1.add(f60, gridBagConstraints);
+        panelGame.add(f60, gridBagConstraints);
 
         f62.setBackground(java.awt.Color.white);
         f62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -785,7 +784,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f62, gridBagConstraints);
+        panelGame.add(f62, gridBagConstraints);
 
         f64.setBackground(java.awt.Color.white);
         f64.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -794,7 +793,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f64, gridBagConstraints);
+        panelGame.add(f64, gridBagConstraints);
 
         f63.setBackground(java.awt.Color.white);
         f63.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -803,7 +802,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f63, gridBagConstraints);
+        panelGame.add(f63, gridBagConstraints);
 
         f84.setBackground(java.awt.Color.white);
         f84.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -812,7 +811,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f84, gridBagConstraints);
+        panelGame.add(f84, gridBagConstraints);
 
         f66.setBackground(java.awt.Color.white);
         f66.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -821,7 +820,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f66, gridBagConstraints);
+        panelGame.add(f66, gridBagConstraints);
 
         f67.setBackground(java.awt.Color.white);
         f67.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -830,7 +829,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f67, gridBagConstraints);
+        panelGame.add(f67, gridBagConstraints);
 
         f61.setBackground(java.awt.Color.white);
         f61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -839,7 +838,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f61, gridBagConstraints);
+        panelGame.add(f61, gridBagConstraints);
 
         f77.setBackground(java.awt.Color.white);
         f77.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -848,7 +847,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f77, gridBagConstraints);
+        panelGame.add(f77, gridBagConstraints);
 
         f78.setBackground(java.awt.Color.white);
         f78.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -857,7 +856,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f78, gridBagConstraints);
+        panelGame.add(f78, gridBagConstraints);
 
         f72.setBackground(java.awt.Color.white);
         f72.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -866,7 +865,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f72, gridBagConstraints);
+        panelGame.add(f72, gridBagConstraints);
 
         f71.setBackground(java.awt.Color.white);
         f71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -875,7 +874,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f71, gridBagConstraints);
+        panelGame.add(f71, gridBagConstraints);
 
         f74.setBackground(java.awt.Color.white);
         f74.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -884,7 +883,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f74, gridBagConstraints);
+        panelGame.add(f74, gridBagConstraints);
 
         f73.setBackground(java.awt.Color.white);
         f73.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -893,7 +892,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f73, gridBagConstraints);
+        panelGame.add(f73, gridBagConstraints);
 
         f70.setBackground(java.awt.Color.white);
         f70.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -903,7 +902,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        jPanel1.add(f70, gridBagConstraints);
+        panelGame.add(f70, gridBagConstraints);
 
         f75.setBackground(java.awt.Color.white);
         f75.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -912,7 +911,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f75, gridBagConstraints);
+        panelGame.add(f75, gridBagConstraints);
 
         f68.setBackground(java.awt.Color.white);
         f68.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -921,7 +920,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f68, gridBagConstraints);
+        panelGame.add(f68, gridBagConstraints);
 
         f69.setBackground(java.awt.Color.white);
         f69.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -931,7 +930,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
-        jPanel1.add(f69, gridBagConstraints);
+        panelGame.add(f69, gridBagConstraints);
 
         f95.setBackground(java.awt.Color.white);
         f95.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -941,7 +940,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
-        jPanel1.add(f95, gridBagConstraints);
+        panelGame.add(f95, gridBagConstraints);
 
         f80.setBackground(java.awt.Color.white);
         f80.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -951,7 +950,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
-        jPanel1.add(f80, gridBagConstraints);
+        panelGame.add(f80, gridBagConstraints);
 
         f92.setBackground(java.awt.Color.white);
         f92.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -961,7 +960,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
-        jPanel1.add(f92, gridBagConstraints);
+        panelGame.add(f92, gridBagConstraints);
 
         f88.setBackground(java.awt.Color.white);
         f88.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -970,7 +969,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f88, gridBagConstraints);
+        panelGame.add(f88, gridBagConstraints);
 
         f98.setBackground(java.awt.Color.white);
         f98.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -980,7 +979,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
-        jPanel1.add(f98, gridBagConstraints);
+        panelGame.add(f98, gridBagConstraints);
 
         f83.setBackground(java.awt.Color.white);
         f83.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -989,7 +988,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f83, gridBagConstraints);
+        panelGame.add(f83, gridBagConstraints);
 
         f93.setBackground(java.awt.Color.white);
         f93.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -999,7 +998,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
-        jPanel1.add(f93, gridBagConstraints);
+        panelGame.add(f93, gridBagConstraints);
 
         f89.setBackground(java.awt.Color.white);
         f89.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -1009,7 +1008,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
-        jPanel1.add(f89, gridBagConstraints);
+        panelGame.add(f89, gridBagConstraints);
 
         f99.setBackground(java.awt.Color.white);
         f99.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -1019,7 +1018,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 5);
-        jPanel1.add(f99, gridBagConstraints);
+        panelGame.add(f99, gridBagConstraints);
 
         f94.setBackground(java.awt.Color.white);
         f94.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -1029,7 +1028,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
-        jPanel1.add(f94, gridBagConstraints);
+        panelGame.add(f94, gridBagConstraints);
 
         f87.setBackground(java.awt.Color.white);
         f87.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -1038,7 +1037,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f87, gridBagConstraints);
+        panelGame.add(f87, gridBagConstraints);
 
         f81.setBackground(java.awt.Color.white);
         f81.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -1047,7 +1046,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f81, gridBagConstraints);
+        panelGame.add(f81, gridBagConstraints);
 
         f96.setBackground(java.awt.Color.white);
         f96.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -1057,7 +1056,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
-        jPanel1.add(f96, gridBagConstraints);
+        panelGame.add(f96, gridBagConstraints);
 
         f82.setBackground(java.awt.Color.white);
         f82.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -1066,7 +1065,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f82, gridBagConstraints);
+        panelGame.add(f82, gridBagConstraints);
 
         f97.setBackground(java.awt.Color.white);
         f97.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -1076,7 +1075,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
-        jPanel1.add(f97, gridBagConstraints);
+        panelGame.add(f97, gridBagConstraints);
 
         f90.setBackground(java.awt.Color.white);
         f90.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -1086,7 +1085,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 5, 5, 0);
-        jPanel1.add(f90, gridBagConstraints);
+        panelGame.add(f90, gridBagConstraints);
 
         f86.setBackground(java.awt.Color.white);
         f86.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -1095,7 +1094,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f86, gridBagConstraints);
+        panelGame.add(f86, gridBagConstraints);
 
         f85.setBackground(java.awt.Color.white);
         f85.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -1104,7 +1103,7 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        jPanel1.add(f85, gridBagConstraints);
+        panelGame.add(f85, gridBagConstraints);
 
         f91.setBackground(java.awt.Color.white);
         f91.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
@@ -1114,344 +1113,355 @@ public class PlayBoard extends javax.swing.JFrame {
         gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
-        jPanel1.add(f91, gridBagConstraints);
+        panelGame.add(f91, gridBagConstraints);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.setPreferredSize(new java.awt.Dimension(394, 712));
+        panelInfoArea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelInfoArea.setPreferredSize(new java.awt.Dimension(394, 712));
 
-        jLabel102.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel102.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel102.setText("Logo");
-        jLabel102.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        labelBannerInfoArea.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        labelBannerInfoArea.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelBannerInfoArea.setText("Platzhalter");
 
-        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jButton1.setText("Zug ausführen");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonSet.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        buttonSet.setText("Zug ausführen");
+        buttonSet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonSetActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jButton2.setText("Neues Spiel starten");
+        buttonRestart.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        buttonRestart.setText("Neues Spiel starten");
+        buttonRestart.setMaximumSize(new java.awt.Dimension(155, 29));
+        buttonRestart.setMinimumSize(new java.awt.Dimension(155, 29));
+        buttonRestart.setPreferredSize(new java.awt.Dimension(155, 29));
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelInfoAreaRight.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel138.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel138.setText("zu platzieren:");
+        labelMinerPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelMinerPlace.setText("zu platzieren:");
 
-        jLabel139.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        jLabel139.setText("Feldmarschall");
+        labelScoutName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        labelScoutName.setText("Aufklärer");
 
-        jLabel143.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        jLabel143.setText("Feldmarschall");
+        labelBombName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        labelBombName.setText("Bombe");
 
-        jLabel113.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+        labelSergeantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/sergeant_blue.png"))); // NOI18N
 
-        jLabel137.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        jLabel137.setText("Feldmarschall");
+        labelMinerName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        labelMinerName.setText("Mineur");
 
-        jLabel144.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel144.setText("zu platzieren:");
+        labelBombPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelBombPlace.setText("zu platzieren:");
 
-        jLabel118.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+        labelBombIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/bomb_blue.png"))); // NOI18N
 
-        jLabel120.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+        labelMinerIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/miner_blue.png"))); // NOI18N
 
-        jLabel135.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        jLabel135.setText("Feldmarschall");
+        labelSergeantName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        labelSergeantName.setText("Unteroffizier");
 
-        jLabel142.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel142.setText("zu platzieren:");
+        labelSpyPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelSpyPlace.setText("zu platzieren:");
 
-        jLabel105.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+        labelScoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/scout_blue.png"))); // NOI18N
 
-        jLabel124.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel124.setText("zu platzieren:");
+        labelLieutenantPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelLieutenantPlace.setText("zu platzieren:");
 
-        jLabel140.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel140.setText("zu platzieren:");
+        labelScoutPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelScoutPlace.setText("zu platzieren:");
 
-        jLabel119.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+        labelSpyIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/spy_blue.png"))); // NOI18N
 
-        jLabel141.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        jLabel141.setText("Feldmarschall");
+        labelSpyName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        labelSpyName.setText("Spion");
 
-        jLabel121.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
+        labelLieutenantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/lieutenant_blue.png"))); // NOI18N
 
-        jLabel123.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        jLabel123.setText("Feldmarschall");
+        labelLieutenantName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        labelLieutenantName.setText("Leutnant");
 
-        jLabel136.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel136.setText("zu platzieren:");
+        labelSergeantPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelSergeantPlace.setText("zu platzieren:");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelInfoAreaRightLayout = new javax.swing.GroupLayout(panelInfoAreaRight);
+        panelInfoAreaRight.setLayout(panelInfoAreaRightLayout);
+        panelInfoAreaRightLayout.setHorizontalGroup(
+            panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel121)
+                .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
+                        .addComponent(labelLieutenantIcon)
                         .addGap(6, 6, 6)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel123)
-                            .addComponent(jLabel124)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel113)
+                        .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelLieutenantName)
+                            .addComponent(labelLieutenantPlace)))
+                    .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
+                        .addComponent(labelSergeantIcon)
                         .addGap(6, 6, 6)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel135)
-                            .addComponent(jLabel136)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel120)
+                        .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelSergeantName)
+                            .addComponent(labelSergeantPlace)))
+                    .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
+                        .addComponent(labelMinerIcon)
                         .addGap(6, 6, 6)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel137)
-                            .addComponent(jLabel138)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel105)
+                        .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelMinerName)
+                            .addComponent(labelMinerPlace)))
+                    .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
+                        .addComponent(labelScoutIcon)
                         .addGap(6, 6, 6)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel139)
-                            .addComponent(jLabel140)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel119)
+                        .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelScoutName)
+                            .addComponent(labelScoutPlace)))
+                    .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
+                        .addComponent(labelSpyIcon)
                         .addGap(6, 6, 6)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel141)
-                            .addComponent(jLabel142)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel118)
+                        .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelSpyName)
+                            .addComponent(labelSpyPlace)))
+                    .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
+                        .addComponent(labelBombIcon)
                         .addGap(6, 6, 6)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel143)
-                            .addComponent(jLabel144))))
+                        .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelBombName)
+                            .addComponent(labelBombPlace))))
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        panelInfoAreaRightLayout.setVerticalGroup(
+            panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel121)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel123)
+                .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelLieutenantIcon)
+                    .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
+                        .addComponent(labelLieutenantName)
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel124)))
+                        .addComponent(labelLieutenantPlace)))
                 .addGap(6, 6, 6)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel113)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel135)
+                .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelSergeantIcon)
+                    .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
+                        .addComponent(labelSergeantName)
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel136)))
+                        .addComponent(labelSergeantPlace)))
                 .addGap(6, 6, 6)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel120)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel137)
+                .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelMinerIcon)
+                    .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
+                        .addComponent(labelMinerName)
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel138)))
+                        .addComponent(labelMinerPlace)))
                 .addGap(6, 6, 6)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel105)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel139)
+                .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelScoutIcon)
+                    .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
+                        .addComponent(labelScoutName)
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel140)))
+                        .addComponent(labelScoutPlace)))
                 .addGap(6, 6, 6)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel119)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel141)
+                .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelSpyIcon)
+                    .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
+                        .addComponent(labelSpyName)
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel142)))
+                        .addComponent(labelSpyPlace)))
                 .addGap(6, 6, 6)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel118)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel143)
+                .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelBombIcon)
+                    .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
+                        .addComponent(labelBombName)
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel144)))
-                .addContainerGap())
-        );
-
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel112.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
-
-        jLabel129.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        jLabel129.setText("Feldmarschall");
-
-        jLabel134.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel134.setText("zu platzieren:");
-
-        jLabel133.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        jLabel133.setText("Feldmarschall");
-
-        jLabel128.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel128.setText("zu platzieren:");
-
-        jLabel101.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
-
-        jLabel106.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
-
-        jLabel122.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel122.setText("zu platzieren:");
-
-        jLabel125.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        jLabel125.setText("Feldmarschall");
-
-        jLabel131.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        jLabel131.setText("Feldmarschall");
-
-        jLabel127.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        jLabel127.setText("Feldmarschall");
-
-        jLabel126.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel126.setText("zu platzieren:");
-
-        jLabel132.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel132.setText("zu platzieren:");
-
-        jLabel108.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        jLabel108.setText("Feldmarschall");
-
-        jLabel103.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
-
-        jLabel104.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
-
-        jLabel130.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel130.setText("zu platzieren:");
-
-        jLabel107.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/missing.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel101)
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel108)
-                            .addComponent(jLabel122)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel112)
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel125)
-                            .addComponent(jLabel126)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel103)
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel127)
-                            .addComponent(jLabel128)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel104)
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel129)
-                            .addComponent(jLabel130)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel107)
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel131)
-                            .addComponent(jLabel132)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel106)
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel133)
-                            .addComponent(jLabel134))))
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel101)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel108)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel122)))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel112)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel125)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel126)))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel103)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel127)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel128)))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel104)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel129)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel130)))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel107)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel131)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel132)))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel106)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel133)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel134)))
+                        .addComponent(labelBombPlace)))
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panelInfoAreaLeft.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        labelMarshalIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/marshal_blue.png"))); // NOI18N
+
+        labelColonelName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        labelColonelName.setText("Oberst");
+
+        labelCaptainPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelCaptainPlace.setText("zu platzieren:");
+
+        labelCaptainName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        labelCaptainName.setText("Hauptmann");
+
+        labelGeneralPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelGeneralPlace.setText("zu platzieren:");
+
+        labelFlagIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/flag_blue.png"))); // NOI18N
+
+        labelCaptainIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/captain_blue.png"))); // NOI18N
+
+        labelFlagPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelFlagPlace.setText("zu platzieren:");
+
+        labelMarshalName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        labelMarshalName.setText("Feldmarschall");
+
+        labelMajorName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        labelMajorName.setText("Major");
+
+        labelGeneralName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        labelGeneralName.setText("General");
+
+        labelMarshalPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelMarshalPlace.setText("zu platzieren:");
+
+        labelMajorPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelMajorPlace.setText("zu platzieren:");
+
+        labelFlagName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        labelFlagName.setText("Flagge");
+
+        labelGeneralIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/general_blue.png"))); // NOI18N
+
+        labelColonelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/colonel_blue.png"))); // NOI18N
+
+        labelColonelPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelColonelPlace.setText("zu platzieren:");
+
+        labelMajorIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/major_blue.png"))); // NOI18N
+
+        javax.swing.GroupLayout panelInfoAreaLeftLayout = new javax.swing.GroupLayout(panelInfoAreaLeft);
+        panelInfoAreaLeft.setLayout(panelInfoAreaLeftLayout);
+        panelInfoAreaLeftLayout.setHorizontalGroup(
+            panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel102, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
+                        .addComponent(labelFlagIcon)
+                        .addGap(6, 6, 6)
+                        .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelFlagName)
+                            .addComponent(labelFlagPlace)))
+                    .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
+                        .addComponent(labelMarshalIcon)
+                        .addGap(6, 6, 6)
+                        .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelMarshalName)
+                            .addComponent(labelMarshalPlace)))
+                    .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
+                        .addComponent(labelGeneralIcon)
+                        .addGap(6, 6, 6)
+                        .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelGeneralName)
+                            .addComponent(labelGeneralPlace)))
+                    .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
+                        .addComponent(labelColonelIcon)
+                        .addGap(6, 6, 6)
+                        .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelColonelName)
+                            .addComponent(labelColonelPlace)))
+                    .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
+                        .addComponent(labelMajorIcon)
+                        .addGap(6, 6, 6)
+                        .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelMajorName)
+                            .addComponent(labelMajorPlace)))
+                    .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
+                        .addComponent(labelCaptainIcon)
+                        .addGap(6, 6, 6)
+                        .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelCaptainName)
+                            .addComponent(labelCaptainPlace))))
+                .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panelInfoAreaLeftLayout.setVerticalGroup(
+            panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel102, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelFlagIcon)
+                    .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
+                        .addComponent(labelFlagName)
+                        .addGap(6, 6, 6)
+                        .addComponent(labelFlagPlace)))
+                .addGap(6, 6, 6)
+                .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelMarshalIcon)
+                    .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
+                        .addComponent(labelMarshalName)
+                        .addGap(6, 6, 6)
+                        .addComponent(labelMarshalPlace)))
+                .addGap(6, 6, 6)
+                .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelGeneralIcon)
+                    .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
+                        .addComponent(labelGeneralName)
+                        .addGap(6, 6, 6)
+                        .addComponent(labelGeneralPlace)))
+                .addGap(6, 6, 6)
+                .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelColonelIcon)
+                    .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
+                        .addComponent(labelColonelName)
+                        .addGap(6, 6, 6)
+                        .addComponent(labelColonelPlace)))
+                .addGap(6, 6, 6)
+                .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelMajorIcon)
+                    .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
+                        .addComponent(labelMajorName)
+                        .addGap(6, 6, 6)
+                        .addComponent(labelMajorPlace)))
+                .addGap(6, 6, 6)
+                .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelCaptainIcon)
+                    .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
+                        .addComponent(labelCaptainName)
+                        .addGap(6, 6, 6)
+                        .addComponent(labelCaptainPlace)))
+                .addContainerGap())
+        );
+
+        labelPlayer.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
+        labelPlayer.setText("Spieler am Zug: XX Maximallänge beachten XXXXXXXX");
+
+        javax.swing.GroupLayout panelInfoAreaLayout = new javax.swing.GroupLayout(panelInfoArea);
+        panelInfoArea.setLayout(panelInfoAreaLayout);
+        panelInfoAreaLayout.setHorizontalGroup(
+            panelInfoAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInfoAreaLayout.createSequentialGroup()
+                .addComponent(labelBannerInfoArea, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(panelInfoAreaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelInfoAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelPlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelInfoAreaLayout.createSequentialGroup()
+                        .addGroup(panelInfoAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelInfoAreaLayout.createSequentialGroup()
+                                .addComponent(panelInfoAreaLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(panelInfoAreaRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(buttonRestart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonSet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        panelInfoAreaLayout.setVerticalGroup(
+            panelInfoAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelInfoAreaLayout.createSequentialGroup()
+                .addComponent(labelBannerInfoArea, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelPlayer)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelInfoAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelInfoAreaRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelInfoAreaLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonSet, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(buttonRestart, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1459,22 +1469,22 @@ public class PlayBoard extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelGame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE))
+                .addComponent(panelInfoArea, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelGame, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelInfoArea, javax.swing.GroupLayout.PREFERRED_SIZE, 714, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSetActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonSetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1516,9 +1526,11 @@ public class PlayBoard extends javax.swing.JFrame {
                 new PlayBoard().setVisible(true);
             }
         });
-        
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonRestart;
+    private javax.swing.JButton buttonSet;
     private javax.swing.JLabel f00;
     private javax.swing.JLabel f01;
     private javax.swing.JLabel f02;
@@ -1619,48 +1631,47 @@ public class PlayBoard extends javax.swing.JFrame {
     private javax.swing.JLabel f97;
     private javax.swing.JLabel f98;
     private javax.swing.JLabel f99;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel101;
-    private javax.swing.JLabel jLabel102;
-    private javax.swing.JLabel jLabel103;
-    private javax.swing.JLabel jLabel104;
-    private javax.swing.JLabel jLabel105;
-    private javax.swing.JLabel jLabel106;
-    private javax.swing.JLabel jLabel107;
-    private javax.swing.JLabel jLabel108;
-    private javax.swing.JLabel jLabel112;
-    private javax.swing.JLabel jLabel113;
-    private javax.swing.JLabel jLabel118;
-    private javax.swing.JLabel jLabel119;
-    private javax.swing.JLabel jLabel120;
-    private javax.swing.JLabel jLabel121;
-    private javax.swing.JLabel jLabel122;
-    private javax.swing.JLabel jLabel123;
-    private javax.swing.JLabel jLabel124;
-    private javax.swing.JLabel jLabel125;
-    private javax.swing.JLabel jLabel126;
-    private javax.swing.JLabel jLabel127;
-    private javax.swing.JLabel jLabel128;
-    private javax.swing.JLabel jLabel129;
-    private javax.swing.JLabel jLabel130;
-    private javax.swing.JLabel jLabel131;
-    private javax.swing.JLabel jLabel132;
-    private javax.swing.JLabel jLabel133;
-    private javax.swing.JLabel jLabel134;
-    private javax.swing.JLabel jLabel135;
-    private javax.swing.JLabel jLabel136;
-    private javax.swing.JLabel jLabel137;
-    private javax.swing.JLabel jLabel138;
-    private javax.swing.JLabel jLabel139;
-    private javax.swing.JLabel jLabel140;
-    private javax.swing.JLabel jLabel141;
-    private javax.swing.JLabel jLabel142;
-    private javax.swing.JLabel jLabel143;
-    private javax.swing.JLabel jLabel144;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel labelBannerInfoArea;
+    private javax.swing.JLabel labelBombIcon;
+    private javax.swing.JLabel labelBombName;
+    private javax.swing.JLabel labelBombPlace;
+    private javax.swing.JLabel labelCaptainIcon;
+    private javax.swing.JLabel labelCaptainName;
+    private javax.swing.JLabel labelCaptainPlace;
+    private javax.swing.JLabel labelColonelIcon;
+    private javax.swing.JLabel labelColonelName;
+    private javax.swing.JLabel labelColonelPlace;
+    private javax.swing.JLabel labelFlagIcon;
+    private javax.swing.JLabel labelFlagName;
+    private javax.swing.JLabel labelFlagPlace;
+    private javax.swing.JLabel labelGeneralIcon;
+    private javax.swing.JLabel labelGeneralName;
+    private javax.swing.JLabel labelGeneralPlace;
+    private javax.swing.JLabel labelLieutenantIcon;
+    private javax.swing.JLabel labelLieutenantName;
+    private javax.swing.JLabel labelLieutenantPlace;
+    private javax.swing.JLabel labelMajorIcon;
+    private javax.swing.JLabel labelMajorName;
+    private javax.swing.JLabel labelMajorPlace;
+    private javax.swing.JLabel labelMarshalIcon;
+    private javax.swing.JLabel labelMarshalName;
+    private javax.swing.JLabel labelMarshalPlace;
+    private javax.swing.JLabel labelMinerIcon;
+    private javax.swing.JLabel labelMinerName;
+    private javax.swing.JLabel labelMinerPlace;
+    private javax.swing.JLabel labelPlayer;
+    private javax.swing.JLabel labelScoutIcon;
+    private javax.swing.JLabel labelScoutName;
+    private javax.swing.JLabel labelScoutPlace;
+    private javax.swing.JLabel labelSergeantIcon;
+    private javax.swing.JLabel labelSergeantName;
+    private javax.swing.JLabel labelSergeantPlace;
+    private javax.swing.JLabel labelSpyIcon;
+    private javax.swing.JLabel labelSpyName;
+    private javax.swing.JLabel labelSpyPlace;
+    private javax.swing.JPanel panelGame;
+    private javax.swing.JPanel panelInfoArea;
+    private javax.swing.JPanel panelInfoAreaLeft;
+    private javax.swing.JPanel panelInfoAreaRight;
     // End of variables declaration//GEN-END:variables
 }
