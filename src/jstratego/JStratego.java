@@ -1,5 +1,8 @@
 package jstratego;
 
+import jstratego.gui.game.PlayBoard;
+import jstratego.gui.game.StartScreen;
+
 /**
  *
  * @author sebastiangrosse
@@ -11,5 +14,6 @@ public class JStratego {
 	 */
 	public static void main(String[] args) {
 		// TODO code application logic here
+            StartScreen.main(args);
 	}
 }
