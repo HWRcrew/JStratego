@@ -70,7 +70,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Trebuchet MS" size="16" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Spieler 1 (blau) - Bitte Namen eingeben:"/>
+        <Property name="text" type="java.lang.String" value="Spieler 1 (rot) - Bitte Namen eingeben:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="buttonStart">
@@ -106,7 +106,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Trebuchet MS" size="16" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Spieler 2 (rot) - Bitte Namen eingeben:"/>
+        <Property name="text" type="java.lang.String" value="Spieler 2 (blau) - Bitte Namen eingeben:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtRed">

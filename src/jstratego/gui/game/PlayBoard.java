@@ -5,6 +5,8 @@
  */
 package jstratego.gui.game;
 
+import jstratego.logic.pieces.Color;
+
 /**
  *
  * @author Tim
@@ -16,10 +18,78 @@ public class PlayBoard extends javax.swing.JFrame {
      */
     public PlayBoard() {
         this.setContentPane(new BackgroundPanel());
-        
         setResizable(false);
         initComponents();
+        placementLabelVisible(false);
     }
+
+    public final void placementLabelVisible(boolean value) {
+
+        labelFlagPlace.setVisible(value);
+        labelMarshalPlace.setVisible(value);
+        labelGeneralPlace.setVisible(value);
+        labelColonelPlace.setVisible(value);
+        labelMajorPlace.setVisible(value);
+        labelCaptainPlace.setVisible(value);
+        labelLieutenantPlace.setVisible(value);
+        labelSergeantPlace.setVisible(value);
+        labelMinerPlace.setVisible(value);
+        labelScoutPlace.setVisible(value);
+        labelSpyPlace.setVisible(value);
+        labelBombPlace.setVisible(value);
+
+        labelFlagNumber.setVisible(value);
+        labelMarshalNumber.setVisible(value);
+        labelGeneralNumber.setVisible(value);
+        labelColonelNumber.setVisible(value);
+        labelMajorNumber.setVisible(value);
+        labelCaptainNumber.setVisible(value);
+        labelLieutenantNumber.setVisible(value);
+        labelSergeantNumber.setVisible(value);
+        labelMinerNumber.setVisible(value);
+        labelScoutNumber.setVisible(value);
+        labelSpyNumber.setVisible(value);
+        labelBombNumber.setVisible(value);
+    } //sets additional information label visible
+
+    public void preparePlacement() {
+
+        int[] numberOfPieces = {1, 1, 1, 2, 3, 4, 4, 4, 5, 8, 1, 6};
+
+        placementLabelVisible(true);
+
+        labelFlagNumber.setText(String.valueOf(numberOfPieces[0]));
+        labelMarshalNumber.setText(String.valueOf(numberOfPieces[1]));
+        labelGeneralNumber.setText(String.valueOf(numberOfPieces[2]));
+        labelColonelNumber.setText(String.valueOf(numberOfPieces[3]));
+        labelMajorNumber.setText(String.valueOf(numberOfPieces[4]));
+        labelCaptainNumber.setText(String.valueOf(numberOfPieces[5]));
+        labelLieutenantNumber.setText(String.valueOf(numberOfPieces[6]));
+        labelSergeantNumber.setText(String.valueOf(numberOfPieces[7]));
+        labelMinerNumber.setText(String.valueOf(numberOfPieces[8]));
+        labelScoutNumber.setText(String.valueOf(numberOfPieces[9]));
+        labelSpyNumber.setText(String.valueOf(numberOfPieces[10]));
+        labelBombNumber.setText(String.valueOf(numberOfPieces[11]));
+    } //resets piece-counter for placing
+
+    public void setIconColor(jstratego.logic.pieces.Color playerColor) {
+
+        String path = ("_" + playerColor + ".png");
+
+        labelFlagIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "flag" + path)));
+        labelMarshalIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "marshal" + path)));
+        labelGeneralIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "general" + path)));
+        labelColonelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "colonel" + path)));
+        labelMajorIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "major" + path)));
+        labelCaptainIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "captain" + path)));
+        labelLieutenantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "lieutenant" + path)));
+        labelSergeantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "sergeant" + path)));
+        labelMinerIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "miner" + path)));
+        labelScoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "scout" + path)));
+        labelSpyIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "spy" + path)));
+        labelBombIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "bomb" + path)));
+
+    } //changes color of icons in info-area
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -155,6 +225,12 @@ public class PlayBoard extends javax.swing.JFrame {
         labelLieutenantIcon = new javax.swing.JLabel();
         labelLieutenantName = new javax.swing.JLabel();
         labelSergeantPlace = new javax.swing.JLabel();
+        labelLieutenantNumber = new javax.swing.JLabel();
+        labelSergeantNumber = new javax.swing.JLabel();
+        labelMinerNumber = new javax.swing.JLabel();
+        labelScoutNumber = new javax.swing.JLabel();
+        labelSpyNumber = new javax.swing.JLabel();
+        labelBombNumber = new javax.swing.JLabel();
         panelInfoAreaLeft = new javax.swing.JPanel();
         labelMarshalIcon = new javax.swing.JLabel();
         labelColonelName = new javax.swing.JLabel();
@@ -174,6 +250,12 @@ public class PlayBoard extends javax.swing.JFrame {
         labelColonelIcon = new javax.swing.JLabel();
         labelColonelPlace = new javax.swing.JLabel();
         labelMajorIcon = new javax.swing.JLabel();
+        labelFlagNumber = new javax.swing.JLabel();
+        labelMarshalNumber = new javax.swing.JLabel();
+        labelGeneralNumber = new javax.swing.JLabel();
+        labelColonelNumber = new javax.swing.JLabel();
+        labelMajorNumber = new javax.swing.JLabel();
+        labelCaptainNumber = new javax.swing.JLabel();
         labelPlayer = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1204,6 +1286,30 @@ public class PlayBoard extends javax.swing.JFrame {
         labelSergeantPlace.setForeground(new java.awt.Color(255, 255, 0));
         labelSergeantPlace.setText("zu platzieren:");
 
+        labelLieutenantNumber.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelLieutenantNumber.setForeground(new java.awt.Color(255, 255, 0));
+        labelLieutenantNumber.setText("jLabel1");
+
+        labelSergeantNumber.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelSergeantNumber.setForeground(new java.awt.Color(255, 255, 0));
+        labelSergeantNumber.setText("jLabel2");
+
+        labelMinerNumber.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelMinerNumber.setForeground(new java.awt.Color(255, 255, 0));
+        labelMinerNumber.setText("jLabel3");
+
+        labelScoutNumber.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelScoutNumber.setForeground(new java.awt.Color(255, 255, 0));
+        labelScoutNumber.setText("jLabel4");
+
+        labelSpyNumber.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelSpyNumber.setForeground(new java.awt.Color(255, 255, 0));
+        labelSpyNumber.setText("jLabel5");
+
+        labelBombNumber.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelBombNumber.setForeground(new java.awt.Color(255, 255, 0));
+        labelBombNumber.setText("jLabel6");
+
         javax.swing.GroupLayout panelInfoAreaRightLayout = new javax.swing.GroupLayout(panelInfoAreaRight);
         panelInfoAreaRight.setLayout(panelInfoAreaRightLayout);
         panelInfoAreaRightLayout.setHorizontalGroup(
@@ -1216,37 +1322,43 @@ public class PlayBoard extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelLieutenantName)
-                            .addComponent(labelLieutenantPlace)))
+                            .addComponent(labelLieutenantPlace)
+                            .addComponent(labelLieutenantNumber)))
                     .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
                         .addComponent(labelSergeantIcon)
                         .addGap(6, 6, 6)
                         .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelSergeantName)
-                            .addComponent(labelSergeantPlace)))
+                            .addComponent(labelSergeantPlace)
+                            .addComponent(labelSergeantNumber)))
                     .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
                         .addComponent(labelMinerIcon)
                         .addGap(6, 6, 6)
                         .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelMinerName)
-                            .addComponent(labelMinerPlace)))
+                            .addComponent(labelMinerPlace)
+                            .addComponent(labelMinerNumber)))
                     .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
                         .addComponent(labelScoutIcon)
                         .addGap(6, 6, 6)
                         .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelScoutName)
-                            .addComponent(labelScoutPlace)))
+                            .addComponent(labelScoutPlace)
+                            .addComponent(labelScoutNumber)))
                     .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
                         .addComponent(labelSpyIcon)
                         .addGap(6, 6, 6)
                         .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelSpyName)
-                            .addComponent(labelSpyPlace)))
+                            .addComponent(labelSpyPlace)
+                            .addComponent(labelSpyNumber)))
                     .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
                         .addComponent(labelBombIcon)
                         .addGap(6, 6, 6)
                         .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelBombName)
-                            .addComponent(labelBombPlace))))
+                            .addComponent(labelBombPlace)
+                            .addComponent(labelBombNumber))))
                 .addContainerGap())
         );
         panelInfoAreaRightLayout.setVerticalGroup(
@@ -1258,45 +1370,58 @@ public class PlayBoard extends javax.swing.JFrame {
                     .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
                         .addComponent(labelLieutenantName)
                         .addGap(6, 6, 6)
-                        .addComponent(labelLieutenantPlace)))
+                        .addComponent(labelLieutenantPlace)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelLieutenantNumber)))
                 .addGap(6, 6, 6)
                 .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelSergeantIcon)
                     .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
                         .addComponent(labelSergeantName)
                         .addGap(6, 6, 6)
-                        .addComponent(labelSergeantPlace)))
+                        .addComponent(labelSergeantPlace)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelSergeantNumber)))
                 .addGap(6, 6, 6)
                 .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelMinerIcon)
                     .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
                         .addComponent(labelMinerName)
                         .addGap(6, 6, 6)
-                        .addComponent(labelMinerPlace)))
+                        .addComponent(labelMinerPlace)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelMinerNumber)))
                 .addGap(6, 6, 6)
                 .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelScoutIcon)
                     .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
                         .addComponent(labelScoutName)
                         .addGap(6, 6, 6)
-                        .addComponent(labelScoutPlace)))
+                        .addComponent(labelScoutPlace)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelScoutNumber)))
                 .addGap(6, 6, 6)
                 .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelSpyIcon)
                     .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
                         .addComponent(labelSpyName)
                         .addGap(6, 6, 6)
-                        .addComponent(labelSpyPlace)))
+                        .addComponent(labelSpyPlace)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelSpyNumber)))
                 .addGap(6, 6, 6)
                 .addGroup(panelInfoAreaRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelBombIcon)
                     .addGroup(panelInfoAreaRightLayout.createSequentialGroup()
                         .addComponent(labelBombName)
                         .addGap(6, 6, 6)
-                        .addComponent(labelBombPlace)))
+                        .addComponent(labelBombPlace)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelBombNumber)))
                 .addContainerGap())
         );
 
+        panelInfoAreaLeft.setBackground(new java.awt.Color(0, 0, 0));
         panelInfoAreaLeft.setForeground(new java.awt.Color(255, 255, 0));
         panelInfoAreaLeft.setOpaque(false);
 
@@ -1360,6 +1485,30 @@ public class PlayBoard extends javax.swing.JFrame {
 
         labelMajorIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/major_blue.png"))); // NOI18N
 
+        labelFlagNumber.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelFlagNumber.setForeground(new java.awt.Color(255, 255, 0));
+        labelFlagNumber.setText("jLabel1");
+
+        labelMarshalNumber.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelMarshalNumber.setForeground(new java.awt.Color(255, 255, 0));
+        labelMarshalNumber.setText("jLabel1");
+
+        labelGeneralNumber.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelGeneralNumber.setForeground(new java.awt.Color(255, 255, 0));
+        labelGeneralNumber.setText("jLabel1");
+
+        labelColonelNumber.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelColonelNumber.setForeground(new java.awt.Color(255, 255, 0));
+        labelColonelNumber.setText("jLabel2");
+
+        labelMajorNumber.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelMajorNumber.setForeground(new java.awt.Color(255, 255, 0));
+        labelMajorNumber.setText("jLabel3");
+
+        labelCaptainNumber.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        labelCaptainNumber.setForeground(new java.awt.Color(255, 255, 0));
+        labelCaptainNumber.setText("jLabel4");
+
         javax.swing.GroupLayout panelInfoAreaLeftLayout = new javax.swing.GroupLayout(panelInfoAreaLeft);
         panelInfoAreaLeft.setLayout(panelInfoAreaLeftLayout);
         panelInfoAreaLeftLayout.setHorizontalGroup(
@@ -1372,37 +1521,43 @@ public class PlayBoard extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelFlagName)
-                            .addComponent(labelFlagPlace)))
+                            .addComponent(labelFlagPlace)
+                            .addComponent(labelFlagNumber)))
                     .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
                         .addComponent(labelMarshalIcon)
                         .addGap(6, 6, 6)
                         .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelMarshalName)
-                            .addComponent(labelMarshalPlace)))
+                            .addComponent(labelMarshalPlace)
+                            .addComponent(labelMarshalNumber)))
                     .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
                         .addComponent(labelGeneralIcon)
                         .addGap(6, 6, 6)
                         .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelGeneralName)
-                            .addComponent(labelGeneralPlace)))
+                            .addComponent(labelGeneralPlace)
+                            .addComponent(labelGeneralNumber)))
                     .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
                         .addComponent(labelColonelIcon)
                         .addGap(6, 6, 6)
                         .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelColonelName)
-                            .addComponent(labelColonelPlace)))
+                            .addComponent(labelColonelPlace)
+                            .addComponent(labelColonelNumber)))
                     .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
                         .addComponent(labelMajorIcon)
                         .addGap(6, 6, 6)
                         .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelMajorName)
-                            .addComponent(labelMajorPlace)))
+                            .addComponent(labelMajorPlace)
+                            .addComponent(labelMajorNumber)))
                     .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
                         .addComponent(labelCaptainIcon)
                         .addGap(6, 6, 6)
                         .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelCaptainName)
-                            .addComponent(labelCaptainPlace))))
+                            .addComponent(labelCaptainPlace)
+                            .addComponent(labelCaptainNumber))))
                 .addContainerGap())
         );
         panelInfoAreaLeftLayout.setVerticalGroup(
@@ -1414,42 +1569,54 @@ public class PlayBoard extends javax.swing.JFrame {
                     .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
                         .addComponent(labelFlagName)
                         .addGap(6, 6, 6)
-                        .addComponent(labelFlagPlace)))
+                        .addComponent(labelFlagPlace)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelFlagNumber)))
                 .addGap(6, 6, 6)
                 .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelMarshalIcon)
                     .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
                         .addComponent(labelMarshalName)
                         .addGap(6, 6, 6)
-                        .addComponent(labelMarshalPlace)))
+                        .addComponent(labelMarshalPlace)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelMarshalNumber)))
                 .addGap(6, 6, 6)
                 .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelGeneralIcon)
                     .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
                         .addComponent(labelGeneralName)
                         .addGap(6, 6, 6)
-                        .addComponent(labelGeneralPlace)))
+                        .addComponent(labelGeneralPlace)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelGeneralNumber)))
                 .addGap(6, 6, 6)
                 .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelColonelIcon)
                     .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
                         .addComponent(labelColonelName)
                         .addGap(6, 6, 6)
-                        .addComponent(labelColonelPlace)))
+                        .addComponent(labelColonelPlace)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelColonelNumber)))
                 .addGap(6, 6, 6)
                 .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelMajorIcon)
                     .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
                         .addComponent(labelMajorName)
                         .addGap(6, 6, 6)
-                        .addComponent(labelMajorPlace)))
+                        .addComponent(labelMajorPlace)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelMajorNumber)))
                 .addGap(6, 6, 6)
                 .addGroup(panelInfoAreaLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelCaptainIcon)
                     .addGroup(panelInfoAreaLeftLayout.createSequentialGroup()
                         .addComponent(labelCaptainName)
                         .addGap(6, 6, 6)
-                        .addComponent(labelCaptainPlace)))
+                        .addComponent(labelCaptainPlace)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelCaptainNumber)))
                 .addContainerGap())
         );
 
@@ -1516,6 +1683,9 @@ public class PlayBoard extends javax.swing.JFrame {
 
     private void buttonSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSetActionPerformed
         // TODO add your handling code here:
+        // TODO wieder entfernen!
+        preparePlacement();
+        setIconColor(Color.RED);
     }//GEN-LAST:event_buttonSetActionPerformed
 
     private void f34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f34MouseClicked
@@ -1676,40 +1846,52 @@ public class PlayBoard extends javax.swing.JFrame {
     private javax.swing.JLabel labelBannerInfoArea;
     private javax.swing.JLabel labelBombIcon;
     private javax.swing.JLabel labelBombName;
+    private javax.swing.JLabel labelBombNumber;
     private javax.swing.JLabel labelBombPlace;
     private javax.swing.JLabel labelCaptainIcon;
     private javax.swing.JLabel labelCaptainName;
+    private javax.swing.JLabel labelCaptainNumber;
     private javax.swing.JLabel labelCaptainPlace;
     private javax.swing.JLabel labelColonelIcon;
     private javax.swing.JLabel labelColonelName;
+    private javax.swing.JLabel labelColonelNumber;
     private javax.swing.JLabel labelColonelPlace;
     private javax.swing.JLabel labelFlagIcon;
     private javax.swing.JLabel labelFlagName;
+    private javax.swing.JLabel labelFlagNumber;
     private javax.swing.JLabel labelFlagPlace;
     private javax.swing.JLabel labelGeneralIcon;
     private javax.swing.JLabel labelGeneralName;
+    private javax.swing.JLabel labelGeneralNumber;
     private javax.swing.JLabel labelGeneralPlace;
     private javax.swing.JLabel labelLieutenantIcon;
     private javax.swing.JLabel labelLieutenantName;
+    private javax.swing.JLabel labelLieutenantNumber;
     private javax.swing.JLabel labelLieutenantPlace;
     private javax.swing.JLabel labelMajorIcon;
     private javax.swing.JLabel labelMajorName;
+    private javax.swing.JLabel labelMajorNumber;
     private javax.swing.JLabel labelMajorPlace;
     private javax.swing.JLabel labelMarshalIcon;
     private javax.swing.JLabel labelMarshalName;
+    private javax.swing.JLabel labelMarshalNumber;
     private javax.swing.JLabel labelMarshalPlace;
     private javax.swing.JLabel labelMinerIcon;
     private javax.swing.JLabel labelMinerName;
+    private javax.swing.JLabel labelMinerNumber;
     private javax.swing.JLabel labelMinerPlace;
     private javax.swing.JLabel labelPlayer;
     private javax.swing.JLabel labelScoutIcon;
     private javax.swing.JLabel labelScoutName;
+    private javax.swing.JLabel labelScoutNumber;
     private javax.swing.JLabel labelScoutPlace;
     private javax.swing.JLabel labelSergeantIcon;
     private javax.swing.JLabel labelSergeantName;
+    private javax.swing.JLabel labelSergeantNumber;
     private javax.swing.JLabel labelSergeantPlace;
     private javax.swing.JLabel labelSpyIcon;
     private javax.swing.JLabel labelSpyName;
+    private javax.swing.JLabel labelSpyNumber;
     private javax.swing.JLabel labelSpyPlace;
     private javax.swing.JPanel panelGame;
     private javax.swing.JPanel panelInfoArea;
