@@ -3,6 +3,7 @@ package jstratego.logic.game;
 import java.util.ArrayList;
 import java.util.List;
 import jstratego.logic.pieces.Motion;
+import jstratego.logic.pieces.Piece;
 
 /**
  * logical representation for the playboard
@@ -44,7 +45,12 @@ public class PlayBoard {
 			}
 		}
 	}
-	public void blockFieldsForSetup(){
+
+	/**
+	 * this Method blocks the Fields in the middle to ensure, there is no
+	 * figure placed on Setup
+	 */
+	public void blockFieldsForSetup() {
 		board[4][0].blocked = true;
 		board[4][1].blocked = true;
 		board[4][4].blocked = true;
@@ -58,7 +64,10 @@ public class PlayBoard {
 		board[5][8].blocked = true;
 		board[5][9].blocked = true;
 	}
-	public void unblockFieldsForSetup(){
+	/**
+	 * this Method unblocks the Fields in the middle.
+	 */
+	public void unblockFieldsForSetup() {
 		board[4][0].blocked = false;
 		board[4][1].blocked = false;
 		board[4][4].blocked = false;
@@ -71,6 +80,34 @@ public class PlayBoard {
 		board[5][5].blocked = false;
 		board[5][8].blocked = false;
 		board[5][9].blocked = false;
+	}
+	/**
+	 * covers the pieces of the selected player
+	 * @param player 
+	 */
+	public void coverPiecesForPlayer(Player player){
+		for(int i=0; i<=9; i++){
+			for(int j=0; j<=9; j++){
+				Piece tmpPiece = board[i][j].piece;
+				if(tmpPiece.color.equals(player.playerColor)){
+					tmpPiece.covered = true;
+				}
+			}
+		}
+	}
+	/**
+	 * uncovers the pieces of the selected player
+	 * @param player 
+	 */
+	public void uncoverPiecesForPlayer(Player player){
+		for(int i=0; i<=9; i++){
+			for(int j=0; j<=9; j++){
+				Piece tmpPiece = board[i][j].piece;
+				if(tmpPiece.color.equals(player.playerColor)){
+					tmpPiece.covered = false;
+				}
+			}
+		}
 	}
 
 	/**

@@ -42,4 +42,5 @@ public class Field {
 			}
 		}
 	}
+	//TODO Wie erhalte ich eine Piece aus der Liste des Spielers?
 }
