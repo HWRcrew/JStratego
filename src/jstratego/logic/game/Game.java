@@ -14,9 +14,9 @@ public class Game {
 	public Gamephase gamephase;
 	public PlayBoard playBoard;
 
-	public Game() {
-		this.playerWithMove = new Player(null, Color.RED);
-		this.otherPlayer = new Player(null, Color.BLUE);
+	public Game(String namePlayerRed, String namePlayerBlue) {
+		this.playerWithMove = new Player(namePlayerRed, Color.RED);
+		this.otherPlayer = new Player(namePlayerBlue, Color.BLUE);
 		this.gamephase = Gamephase.SETUPred;
 	}
 	//TODO noch nicht fertig
