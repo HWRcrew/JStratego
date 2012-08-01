@@ -13,16 +13,22 @@ public class Game {
 	public Player otherPlayer;
 	public Gamephase gamephase;
 	public PlayBoard playBoard;
+	public GameResult gameResult;
 
 	public Game(String namePlayerRed, String namePlayerBlue) {
 		this.playerWithMove = new Player(namePlayerRed, Color.RED);
 		this.otherPlayer = new Player(namePlayerBlue, Color.BLUE);
 		this.gamephase = Gamephase.SETUPred;
 	}
-	//TODO noch nicht fertig
+	//TODO Wo findet fightAgainst statt? bei setPiece
+	/*
+	 * Ich muss mir irgendwo merken, was gemacht wird und beim Ausführen die
+	 * Schritte auswerten - GUI - Übergang zu Change-phase
+	 */
 
 	/**
-	 * Prepares everything for the next Gamephase
+	 * Prepares everything for the next Gamephase and includes the check for
+	 * an indifferent ending.
 	 *
 	 * @param gamephase
 	 */
@@ -40,6 +46,12 @@ public class Game {
 				break;
 			case CHANGE:
 				this.playBoard.coverPiecesForPlayer(playerWithMove);
+				//TODO Abfrage nach Spielende
+				if (this.playBoard.onlyBombsAndFlags() == true) {
+					this.gamephase = Gamephase.END;
+					this.gameResult = GameResult.INDIFFERENT;
+					break;
+				}
 				switchPlayer();
 				this.gamephase = gamephase;
 				break;
@@ -54,11 +66,13 @@ public class Game {
 				this.playBoard.unblockFieldsForSetup();
 				break;
 			case END:
+				this.gamephase = gamephase;
 				break;
 			default:
 				break;
 		}
 	}
+
 	public void switchPlayer() {
 		Player tmpPlayer = otherPlayer;
 		otherPlayer = playerWithMove;

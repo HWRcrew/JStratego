@@ -45,9 +45,40 @@ public class PlayBoard {
 			}
 		}
 	}
+	/**
+	 * returns true if there are only Flags and Bombs left.
+	 * @return 
+	 */
+	public boolean onlyBombsAndFlags() {
+		ArrayList<String> movablePieces = new ArrayList<String>();
+		movablePieces.add("Marshal");
+		movablePieces.add("General");
+		movablePieces.add("Colonel");
+		movablePieces.add("Major");
+		movablePieces.add("Captain");
+		movablePieces.add("Lieutenant");
+		movablePieces.add("Sergeant");
+		movablePieces.add("Miner");
+		movablePieces.add("Scout");
+		movablePieces.add("Spy");
+		for (int i = 0; i <= 9; i++) {
+			for (int j = 0; j <= 9; j++) {
+				Piece tmpPiece = this.board[i][j].piece;
+				if (tmpPiece != null) {
+					String tmpPieceString = tmpPiece.getClass().getSimpleName().toString();
+					for (int a = 0; a <= movablePieces.size(); a++) {
+						if (movablePieces.contains(tmpPieceString)) {
+							return false;
+						}
+					}
+				}
+			}
+		}
+		return true;
+	}
 
 	/**
-	 * this Method blocks the Fields in the middle to ensure, there is no
+	 * this Method blocks the Fields in the middle to ensure, that there is no
 	 * figure placed on Setup
 	 */
 	public void blockFieldsForSetup() {
@@ -64,6 +95,7 @@ public class PlayBoard {
 		board[5][8].blocked = true;
 		board[5][9].blocked = true;
 	}
+
 	/**
 	 * this Method unblocks the Fields in the middle.
 	 */
@@ -81,29 +113,33 @@ public class PlayBoard {
 		board[5][8].blocked = false;
 		board[5][9].blocked = false;
 	}
+
 	/**
 	 * covers the pieces of the selected player
-	 * @param player 
+	 *
+	 * @param player
 	 */
-	public void coverPiecesForPlayer(Player player){
-		for(int i=0; i<=9; i++){
-			for(int j=0; j<=9; j++){
+	public void coverPiecesForPlayer(Player player) {
+		for (int i = 0; i <= 9; i++) {
+			for (int j = 0; j <= 9; j++) {
 				Piece tmpPiece = board[i][j].piece;
-				if(tmpPiece.color.equals(player.playerColor)){
+				if (tmpPiece.color.equals(player.playerColor)) {
 					tmpPiece.covered = true;
 				}
 			}
 		}
 	}
+
 	/**
 	 * uncovers the pieces of the selected player
-	 * @param player 
+	 *
+	 * @param player
 	 */
-	public void uncoverPiecesForPlayer(Player player){
-		for(int i=0; i<=9; i++){
-			for(int j=0; j<=9; j++){
+	public void uncoverPiecesForPlayer(Player player) {
+		for (int i = 0; i <= 9; i++) {
+			for (int j = 0; j <= 9; j++) {
 				Piece tmpPiece = board[i][j].piece;
-				if(tmpPiece.color.equals(player.playerColor)){
+				if (tmpPiece.color.equals(player.playerColor)) {
 					tmpPiece.covered = false;
 				}
 			}
