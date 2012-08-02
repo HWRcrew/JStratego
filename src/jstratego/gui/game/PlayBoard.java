@@ -5,6 +5,8 @@
  */
 package jstratego.gui.game;
 
+import jstratego.logic.game.Game;
+import jstratego.logic.game.Player;
 import jstratego.logic.pieces.Color;
 
 /**
@@ -17,12 +19,16 @@ public class PlayBoard extends javax.swing.JFrame {
      * Creates new form Board
      */
     public PlayBoard() {
-        this.setContentPane(new BackgroundPanel());
+        this.setContentPane(new BackgroundPanelMain());
         setResizable(false);
         initComponents();
         placementLabelVisible(false);
     }
 
+    public static void PlayGame(Game game) {
+    }
+
+    //sets additional information labels visible, important during piece placing
     public final void placementLabelVisible(boolean value) {
 
         labelFlagPlace.setVisible(value);
@@ -50,8 +56,9 @@ public class PlayBoard extends javax.swing.JFrame {
         labelScoutNumber.setVisible(value);
         labelSpyNumber.setVisible(value);
         labelBombNumber.setVisible(value);
-    } //sets additional information label visible
+    }
 
+    //resets piece-counter for placing
     public void preparePlacement() {
 
         int[] numberOfPieces = {1, 1, 1, 2, 3, 4, 4, 4, 5, 8, 1, 6};
@@ -70,8 +77,9 @@ public class PlayBoard extends javax.swing.JFrame {
         labelScoutNumber.setText(String.valueOf(numberOfPieces[9]));
         labelSpyNumber.setText(String.valueOf(numberOfPieces[10]));
         labelBombNumber.setText(String.valueOf(numberOfPieces[11]));
-    } //resets piece-counter for placing
+    }
 
+    //changes color of icons in info-area
     public void setIconColor(jstratego.logic.pieces.Color playerColor) {
 
         String path = ("_" + playerColor + ".png");
@@ -89,7 +97,23 @@ public class PlayBoard extends javax.swing.JFrame {
         labelSpyIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "spy" + path)));
         labelBombIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "bomb" + path)));
 
-    } //changes color of icons in info-area
+    }
+
+    public void updateGamePanel(Game game) {//soll alle Felder der GUI aktualisieren
+
+        String field = "";
+        String tempField = "";
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                field = "f" + Integer.toString(i) + Integer.toString(j);
+                if (!game.playBoard.board[i][j].blocked) {
+                    tempField.concat(game.playBoard.board[i][j].piece.name);
+
+                }
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1701,7 +1725,7 @@ public class PlayBoard extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(Game game) {
         /*
          * Set the Nimbus look and feel
          */
@@ -1739,6 +1763,7 @@ public class PlayBoard extends javax.swing.JFrame {
             }
         });
 
+        PlayGame(game);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonRestart;

@@ -15,11 +15,11 @@ import javax.swing.JPanel;
  *
  * @author Tim
  */
-public class BackgroundPanel extends JPanel {
+public class BackgroundPanelStart extends JPanel {
 
     Image img;
 
-    public BackgroundPanel() {
+    public BackgroundPanelStart() {
         loadImage();
     }
 
@@ -36,7 +36,7 @@ public class BackgroundPanel extends JPanel {
     }
 
     public void loadImage() {
-        String filename = "/jstratego/gui/img/background.png";
+        String filename = "/jstratego/gui/img/start.png";
         try {
             URL url = getClass().getResource(filename);
             img = ImageIO.read(url);
