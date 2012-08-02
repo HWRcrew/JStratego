@@ -9,64 +9,67 @@ import jstratego.logic.pieces.Color;
  */
 public class Game {
 
-	public Player playerWithMove;
-	public Player otherPlayer;
-	public Gamephase gamephase;
 	public PlayBoard playBoard;
-	public GameResult gameResult;
+	public GameState gameState;
 
 	public Game(String namePlayerRed, String namePlayerBlue) {
-		this.playerWithMove = new Player(namePlayerRed, Color.RED);
-		this.otherPlayer = new Player(namePlayerBlue, Color.BLUE);
-		this.gamephase = Gamephase.SETUPred;
+		this.gameState.setPlayerWithMove(new Player(namePlayerRed, Color.RED));
+		this.gameState.setOtherPlayer(new Player(namePlayerBlue, Color.BLUE));
+		this.gameState.setCurrentGamephase(Gamephase.SETUPred);
 	}
-	//TODO Wo findet fightAgainst statt? bei setPiece
+
+	//TODO Wo findet fightAgainst statt? bei setPiece letzte kämpfer merken!
 	/*
 	 * Ich muss mir irgendwo merken, was gemacht wird und beim Ausführen die
 	 * Schritte auswerten - GUI - Übergang zu Change-phase
 	 */
-
 	/**
 	 * Prepares everything for the next Gamephase and includes the check for
 	 * an indifferent ending.
 	 *
 	 * @param gamephase
 	 */
+	//TODO die GUI muss entsprechend auf die Gamephase reagieren
+	//TODO setprevious gamephase
 	public void switchGamephase(Gamephase gamephase) {
 		switch (gamephase) {
 			case SETUPred:
-				this.playBoard.uncoverPiecesForPlayer(playerWithMove);
-				this.gamephase = gamephase;
+				this.playBoard.uncoverPiecesForPlayer(gameState.getPlayerWithMove());
+				this.gameState.setCurrentGamephase(gamephase);
 				this.playBoard.blockFieldsForSetup();
 				break;
 			case SETUPblue:
-				this.playBoard.uncoverPiecesForPlayer(playerWithMove);
-				this.gamephase = gamephase;
+				this.playBoard.uncoverPiecesForPlayer(gameState.getPlayerWithMove());
+				this.gameState.setCurrentGamephase(gamephase);
 				this.playBoard.blockFieldsForSetup();
 				break;
 			case CHANGE:
-				this.playBoard.coverPiecesForPlayer(playerWithMove);
+				this.playBoard.coverPiecesForPlayer(gameState.getPlayerWithMove());
 				//TODO Abfrage nach Spielende
+				//TODO Beim Change sollen, Figuren angezeigt werden, die gekämpft haben. Extra Flag?
+				/*
+				 * Extra Referenz auf die zwei fighting pieces?
+				 */
 				if (this.playBoard.onlyBombsAndFlags() == true) {
-					this.gamephase = Gamephase.END;
-					this.gameResult = GameResult.INDIFFERENT;
+					this.gameState.setCurrentGamephase(Gamephase.END);
+					this.gameState.setGameResult(GameResult.INDIFFERENT);
 					break;
 				}
 				switchPlayer();
-				this.gamephase = gamephase;
+				this.gameState.setCurrentGamephase(gamephase);
 				break;
 			case MOVEred:
-				this.playBoard.uncoverPiecesForPlayer(playerWithMove);
-				this.gamephase = gamephase;
+				this.playBoard.uncoverPiecesForPlayer(this.gameState.getPlayerWithMove());
+				this.gameState.setCurrentGamephase(gamephase);
 				this.playBoard.unblockFieldsForSetup();
 				break;
 			case MOVEblue:
-				this.playBoard.uncoverPiecesForPlayer(playerWithMove);
-				this.gamephase = gamephase;
+				this.playBoard.uncoverPiecesForPlayer(this.gameState.getPlayerWithMove());
+				this.gameState.setCurrentGamephase(gamephase);
 				this.playBoard.unblockFieldsForSetup();
 				break;
 			case END:
-				this.gamephase = gamephase;
+				this.gameState.setCurrentGamephase(gamephase);
 				break;
 			default:
 				break;
@@ -74,8 +77,8 @@ public class Game {
 	}
 
 	public void switchPlayer() {
-		Player tmpPlayer = otherPlayer;
-		otherPlayer = playerWithMove;
-		playerWithMove = tmpPlayer;
+		Player tmpPlayer = gameState.getOtherPlayer();
+		gameState.setOtherPlayer(gameState.getPlayerWithMove());
+		gameState.setPlayerWithMove(tmpPlayer);
 	}
 }

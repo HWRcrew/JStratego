@@ -12,7 +12,6 @@ public abstract class Piece {
 	public static String name;
 	public static String description;
 	public ArrayList<String> beatenby;
-	public static String imgurl;
 	public Motion motion;
 	public Color color;
 	public boolean alive;
@@ -55,5 +54,6 @@ public abstract class Piece {
 		if (!defender.isBeatenBy(this)) {
 			this.alive = false;
 		}
+		//TODO Fighters to GameState
 	}
 }
