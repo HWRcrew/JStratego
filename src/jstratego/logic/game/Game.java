@@ -35,6 +35,7 @@ public class Game {
 		switch (gamephase) {
 			case SETUPred:
 				this.playBoard.uncoverPiecesForPlayer(gameState.getPlayerWithMove());
+				this.gameState.setLastGamephase(gameState.getCurrentGamephase());
 				this.gameState.setCurrentGamephase(gamephase);
 				this.playBoard.blockFieldsForSetup();
 				break;
@@ -47,15 +48,14 @@ public class Game {
 				this.playBoard.coverPiecesForPlayer(gameState.getPlayerWithMove());
 				//TODO Abfrage nach Spielende
 				//TODO Beim Change sollen, Figuren angezeigt werden, die gekämpft haben. Extra Flag?
-				/*
-				 * Extra Referenz auf die zwei fighting pieces?
-				 */
 				if (this.playBoard.onlyBombsAndFlags() == true) {
+					this.gameState.setLastGamephase(gameState.getCurrentGamephase());
 					this.gameState.setCurrentGamephase(Gamephase.END);
 					this.gameState.setGameResult(GameResult.INDIFFERENT);
 					break;
 				}
 				switchPlayer();
+				this.gameState.setLastGamephase(this.gameState.getCurrentGamephase());
 				this.gameState.setCurrentGamephase(gamephase);
 				break;
 			case MOVEred:

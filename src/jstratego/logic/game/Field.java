@@ -42,6 +42,9 @@ public class Field {
 			}
 		}
 	}
+	public Piece getPiece(){
+		return this.piece;
+	}
 	//TODO Piece aus Liste des Spielers entfernen, wenn auf Feld platziert?
 	//TODO Wie erhalte ich eine Piece aus der Liste des Spielers?
 }
