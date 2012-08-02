@@ -49,6 +49,7 @@ public class PlayBoard {
 	 * returns true if there are only Flags and Bombs left.
 	 * @return 
 	 */
+	//TODO t
 	public boolean onlyBombsAndFlags() {
 		ArrayList<String> movablePieces = new ArrayList<String>();
 		movablePieces.add("Marshal");
@@ -119,6 +120,7 @@ public class PlayBoard {
 	 *
 	 * @param player
 	 */
+	//TODO stattdessen liste mit akt figuren
 	public void coverPiecesForPlayer(Player player) {
 		for (int i = 0; i <= 9; i++) {
 			for (int j = 0; j <= 9; j++) {

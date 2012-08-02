@@ -29,7 +29,7 @@ public class Field {
 	 */
 	public void setPiece(Piece piece) {
 		if (!this.blocked) {
-			if (this != null) {
+			if (this.piece != null) {
 				piece.fightAgainst(this.piece);
 			} else {
 				this.piece = piece;
@@ -42,5 +42,6 @@ public class Field {
 			}
 		}
 	}
+	//TODO Piece aus Liste des Spielers entfernen, wenn auf Feld platziert?
 	//TODO Wie erhalte ich eine Piece aus der Liste des Spielers?
 }
