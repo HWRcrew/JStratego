@@ -9,10 +9,10 @@ import jstratego.logic.pieces.*;
  */
 public class Field {
 
-	Piece piece;
-	boolean blocked;
-	int x;
-	int y;
+	public Piece piece;
+	public boolean blocked;
+	public int x;
+	public int y;
 
 	public Field(Piece piece, boolean blocked, int x, int y) {
 		this.piece = piece;

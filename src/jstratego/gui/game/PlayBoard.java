@@ -101,7 +101,7 @@ public class PlayBoard extends javax.swing.JFrame {
 
     }
 
-    public void updateGamePanel(Game game) {//soll alle Felder der GUI aktualisieren
+  /**  public void updateGamePanel(Game game) {//soll alle Felder der GUI aktualisieren
 //TODO find solution
 
         Component[] fields = panelGame.getComponents();
@@ -132,11 +132,12 @@ public class PlayBoard extends javax.swing.JFrame {
                     //test.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));;
                 }
 
-            }**/
+            }
 
         }
     }
 
+    **/
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
