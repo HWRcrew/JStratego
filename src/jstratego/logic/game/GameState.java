@@ -19,10 +19,11 @@ public class GameState {
 	private Player otherPlayer;
 	private Gamephase currentGamephase;
 	private Gamephase lastGamephase;
+	private Gamephase nextGamephase;
 	private Piece challenger;
 	private Piece defender;
 	private GameResult gameResult;
-	private Field lastMovedField;
+	private Field lastField;
 
 	/**
 	 * @return the playerWithMove
@@ -123,16 +124,30 @@ public class GameState {
 	}
 
 	/**
-	 * @return the lastMovedField
+	 * @return the lastField
 	 */
-	public Field getLastMovedField() {
-		return lastMovedField;
+	public Field getLastField() {
+		return lastField;
 	}
 
 	/**
-	 * @param lastMovedField the lastMovedField to set
+	 * @param lastField the lastMovedField to set
 	 */
-	public void setLastMovedField(Field lastMovedField) {
-		this.lastMovedField = lastMovedField;
+	public void setLastField(Field lastField) {
+		this.lastField = lastField;
+	}
+
+	/**
+	 * @return the nextGamephase
+	 */
+	public Gamephase getNextGamephase() {
+		return nextGamephase;
+	}
+
+	/**
+	 * @param nextGamephase the nextGamephase to set
+	 */
+	public void setNextGamephase(Gamephase nextGamephase) {
+		this.nextGamephase = nextGamephase;
 	}
 }

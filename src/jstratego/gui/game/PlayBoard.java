@@ -107,8 +107,9 @@ public class PlayBoard extends javax.swing.JFrame {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 field = "f" + Integer.toString(i) + Integer.toString(j);
-                if (!game.playBoard.board[i][j].blocked) {
-                    tempField.concat(game.playBoard.board[i][j].piece.name);
+		if(!game.playBoard.board[1][2].isBlocked())
+                if (!game.playBoard.board[i][j].isBlocked()) {
+                    tempField.concat(game.playBoard.board[i][j].getPiece().name);
 
                 }
             }

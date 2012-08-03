@@ -1671,7 +1671,7 @@
                   <Component id="labelBannerInfoArea" min="-2" pref="107" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="labelPlayer" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="8" max="32767" attributes="0"/>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="panelInfoAreaLeft" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="panelInfoAreaRight" alignment="1" min="-2" max="-2" attributes="0"/>

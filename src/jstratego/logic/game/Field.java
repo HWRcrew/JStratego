@@ -9,10 +9,10 @@ import jstratego.logic.pieces.*;
  */
 public class Field {
 
-	Piece piece;
-	boolean blocked;
-	int x;
-	int y;
+	private Piece piece;
+	private boolean blocked;
+	private int x;
+	private int y;
 
 	public Field(Piece piece, boolean blocked, int x, int y) {
 		this.piece = piece;
@@ -28,7 +28,7 @@ public class Field {
 	 * @param piece
 	 */
 	public void setPiece(Piece piece) {
-		if (!this.blocked) {
+		if (!this.isBlocked()) {
 			if (this.piece != null) {
 				piece.fightAgainst(this.piece);
 			} else {
@@ -45,6 +45,49 @@ public class Field {
 	public Piece getPiece(){
 		return this.piece;
 	}
+	
 	//TODO Piece aus Liste des Spielers entfernen, wenn auf Feld platziert?
 	//TODO Wie erhalte ich eine Piece aus der Liste des Spielers?
+
+	/**
+	 * @return the blocked
+	 */
+	public boolean isBlocked() {
+		return blocked;
+	}
+
+	/**
+	 * @param blocked the blocked to set
+	 */
+	public void setBlocked(boolean blocked) {
+		this.blocked = blocked;
+	}
+
+	/**
+	 * @return the x
+	 */
+	public int getX() {
+		return x;
+	}
+
+	/**
+	 * @param x the x to set
+	 */
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	/**
+	 * @return the y
+	 */
+	public int getY() {
+		return y;
+	}
+
+	/**
+	 * @param y the y to set
+	 */
+	public void setY(int y) {
+		this.y = y;
+	}
 }
