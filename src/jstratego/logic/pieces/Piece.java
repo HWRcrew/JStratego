@@ -57,6 +57,5 @@ public abstract class Piece {
 		}
 		gameState.setChallenger(this);
 		gameState.setDefender(defender);
-		//TODO Fighters to GameState
 	}
 }

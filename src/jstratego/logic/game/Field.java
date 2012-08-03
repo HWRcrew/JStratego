@@ -27,10 +27,10 @@ public class Field {
 	 *
 	 * @param piece
 	 */
-	public void setPiece(Piece piece) {
+	public void setPiece(Piece piece, GameState gameState) {
 		if (!this.isBlocked()) {
 			if (this.piece != null) {
-				piece.fightAgainst(this.piece, null);
+				piece.fightAgainst(this.piece, gameState);
 			} else {
 				this.piece = piece;
 			}

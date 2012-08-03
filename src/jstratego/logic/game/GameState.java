@@ -19,7 +19,6 @@ public class GameState {
 	private Player otherPlayer;
 	private Gamephase currentGamephase;
 	private Gamephase lastGamephase;
-	private Gamephase nextGamephase;
 	private Piece challenger;
 	private Piece defender;
 	private GameResult gameResult;
@@ -135,19 +134,5 @@ public class GameState {
 	 */
 	public void setLastField(Field lastField) {
 		this.lastField = lastField;
-	}
-
-	/**
-	 * @return the nextGamephase
-	 */
-	public Gamephase getNextGamephase() {
-		return nextGamephase;
-	}
-
-	/**
-	 * @param nextGamephase the nextGamephase to set
-	 */
-	public void setNextGamephase(Gamephase nextGamephase) {
-		this.nextGamephase = nextGamephase;
 	}
 }

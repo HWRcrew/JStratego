@@ -19,6 +19,7 @@ public class Game {
 	}
 
 	//TODO Wo findet fightAgainst statt? bei setPiece letzte kämpfer merken!
+	//TODO nextgamestate ist nicht erforderlich brauche extra switchmethode die entscheidet welche die nächste phase ist!
 	/**
 	 * Prepares everything for the next Gamephase and includes the check for
 	 * an indifferent ending.
@@ -34,13 +35,11 @@ public class Game {
 				this.playBoard.uncoverPiecesForPlayer(gameState.getPlayerWithMove());
 				this.gameState.setLastGamephase(gameState.getCurrentGamephase());
 				this.gameState.setCurrentGamephase(gamephase);
-				this.gameState.setNextGamephase(Gamephase.SETUPblue);
 				this.playBoard.blockFieldsForSetup();
 				break;
 			case SETUPblue:
 				this.playBoard.uncoverPiecesForPlayer(gameState.getPlayerWithMove());
 				this.gameState.setCurrentGamephase(gamephase);
-				this.gameState.setNextGamephase(Gamephase.MOVEred);
 				this.playBoard.blockFieldsForSetup();
 				break;
 			case CHANGE:
