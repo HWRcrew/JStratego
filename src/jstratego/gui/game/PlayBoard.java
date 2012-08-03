@@ -5,9 +5,11 @@
  */
 package jstratego.gui.game;
 
+import java.awt.Component;
+import java.util.ArrayList;
+import javax.swing.JLabel;
 import jstratego.logic.game.Game;
-import jstratego.logic.game.Player;
-import jstratego.logic.pieces.Color;
+import jstratego.logic.pieces.*;
 
 /**
  *
@@ -100,18 +102,38 @@ public class PlayBoard extends javax.swing.JFrame {
     }
 
     public void updateGamePanel(Game game) {//soll alle Felder der GUI aktualisieren
+//TODO find solution
 
-        String field = "";
-        String tempField = "";
+        Component[] fields = panelGame.getComponents();
+        String tempName = "";
+        String pieceType = "";
+        String pieceColor = "";
+               
+        int x = 0;
+        int y = 0;
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                field = "f" + Integer.toString(i) + Integer.toString(j);
-                if (!game.playBoard.board[i][j].blocked) {
-                    tempField.concat(game.playBoard.board[i][j].piece.name);
 
-                }
+        for (int i = 0; i <= (fields.length - 1); i++) {
+            tempName = fields[i].getName();
+            x  = tempName.charAt(1);
+            y = tempName.charAt(2);     //TODO tauschen, wenn board verdreht ist
+            
+            if(game.playBoard.board[x][y] == null){
+                fields[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));
+                
             }
+            pieceType = game.playBoard.board[x][y].getPiece().getClass().toString();
+            pieceColor = game.playBoard.board[x][y].getPiece().color.toString();
+                        
+            /**{
+                if (!game.playBoard.board[i][j].blocked) {
+                    //tempField.concat(game.playBoard.board[i][j].getPiece().name + "_");
+                    //tempField.concat(game.playBoard.board[i][j].piece.color.toString() + ".png");
+                    //test.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));;
+                }
+
+            }**/
+
         }
     }
 
@@ -1740,6 +1762,8 @@ public class PlayBoard extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
+
                 }
             }
         } catch (ClassNotFoundException ex) {
