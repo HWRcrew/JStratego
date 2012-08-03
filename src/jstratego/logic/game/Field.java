@@ -30,7 +30,7 @@ public class Field {
 	public void setPiece(Piece piece) {
 		if (!this.isBlocked()) {
 			if (this.piece != null) {
-				piece.fightAgainst(this.piece);
+				piece.fightAgainst(this.piece, null);
 			} else {
 				this.piece = piece;
 			}

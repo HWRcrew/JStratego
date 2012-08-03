@@ -105,7 +105,7 @@ public class PieceTest {
 		System.out.println("general fights against bomb!");
 		Piece defender = bomb;
 		Piece instance = general;
-		instance.fightAgainst(defender);
+		instance.fightAgainst(defender, null);
 		boolean expResult = true;
 		assertEquals(expResult, defender.alive);
 		expResult = false;
@@ -114,7 +114,7 @@ public class PieceTest {
 		System.out.println("major fights against bomb!");
 		defender = bomb;
 		instance = major;
-		instance.fightAgainst(defender);
+		instance.fightAgainst(defender, null);
 		expResult = true;
 		assertEquals(expResult, defender.alive);
 		expResult = false;
@@ -123,7 +123,7 @@ public class PieceTest {
 		System.out.println("spy fights against marshal!");
 		defender = marshal;
 		instance = spy;
-		instance.fightAgainst(defender);
+		instance.fightAgainst(defender, null);
 		expResult = false;
 		assertEquals(expResult, defender.alive);
 		expResult = true;
@@ -132,7 +132,7 @@ public class PieceTest {
 		System.out.println("miner fights against bomb!");
 		defender = bomb;
 		instance = miner;
-		instance.fightAgainst(defender);
+		instance.fightAgainst(defender, null);
 		expResult = false;
 		assertEquals(expResult, defender.alive);
 		expResult = true;
@@ -141,7 +141,7 @@ public class PieceTest {
 		System.out.println("marshal fights against marshal!");
 		defender = marshal;
 		instance = marshal;
-		instance.fightAgainst(defender);
+		instance.fightAgainst(defender, null);
 		expResult = false;
 		assertEquals(expResult, defender.alive);
 		expResult = false;
@@ -150,7 +150,7 @@ public class PieceTest {
 		System.out.println("miner fights against miner!");
 		defender = miner;
 		instance = miner;
-		instance.fightAgainst(defender);
+		instance.fightAgainst(defender, null);
 		expResult = false;
 		assertEquals(expResult, defender.alive);
 		expResult = false;
