@@ -267,7 +267,7 @@ public class PlayBoard extends javax.swing.JFrame {
         for (int x = 0; x <= 9; x++) {
             for (int y = 0; y <= 9; y++) {
                 if (!currentGame.playBoard.board[x][y].isBlocked()) {
-                    if (currentGame.playBoard.board[x][y] == null) {
+                    if (currentGame.playBoard.board[x][y].getPiece() == null) {
                         fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));
                     } else {
                         pieceType = currentGame.playBoard.board[x][y].getPiece().name;
@@ -352,8 +352,8 @@ public class PlayBoard extends javax.swing.JFrame {
                 }
             } else {
                 if (field.getName().startsWith("f") && pieceToPlace != null) {
-                    int x = field.getName().charAt(1);
-                    int y = field.getName().charAt(2);
+                    int x = Integer.parseInt(field.getName().substring(1, 2));
+                    int y = Integer.parseInt(field.getName().substring(2));
                     try {
                         currentGame.playBoard.board[x][y].setPiece(pieceToPlace, null);
                     } catch (Exception ex) {
