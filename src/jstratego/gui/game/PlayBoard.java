@@ -1,14 +1,46 @@
-// TODO Logo auf Background verkleinern
+//TODO Kommentare richten
+//TODO siehe comment
+/**
+ * Spiel wird gestartet; -> Gamephase SetupRed; Spieler Rot platziert seine
+ * Figuren (Klick auf Label im Infobereich, danach Auswahl "Standort"); dabei
+ * Counter pro Figur runterzählen; Zusatz: Spieler platziert Figur auf bereits
+ * belegtem Feld: alte Figur geht zurück; Achtung: Platzierung nur in den 4
+ * oberen Reihen
+ *
+ * Spieler Rot beendet per Button seine Platzierung; -> Gamepahse Change, da
+ * dort auch nur alle Figuren verdeckt werden. Figuren von Spieler Rot werden
+ * verdeckt; Spieler Blau beginnt durch Klick auf Button Platzierung; Iconfarbe
+ * auf blau ändern; Counter zurücksetzen; Platzierung analog Spieler Rot; ->
+ * Gamephase Change;
+ *
+ * Spieler Rot beginnt mit Klick auf Button das eigentliche Spiel; Auswahl
+ * Figur, holen von Liste erreichbarer Felder; wenn 0: Fehlermeldung, sonst
+ * anzeigen der Felder durch roten Rahmen; Spieler wählt Zielfeld; wenn Zielfeld
+ * erreichbar, Setzen der Figur, eventuell Kampf, sonst Fehlermeldung;
+ *
+ * -> Gamephase Change. Verdecken aller Figuren. Zuletzt bewegte wird mit Rahmen
+ * markiert; nach Kampf: beteiligte Figuren, egal ob Angreifer oder Verteidiger,
+ * werden aufgedeckt gelassen. Spieler Blau beginnt mit Klick auf Button seinen
+ * Spielzug. Erst jetzt "löschen" der unterlegenen Figur. Entfernen des
+ * zuletzt-bewegt-Rahmens. Analog Spieler Rot;
+ *
+ * Wiederholen, bis Flagge besiegt wird oder nur stationäre Figuren vorhanden
+ * sind.
+ *
+ * Anzeige MsgBox Spieler x hat gewonnen. Aufdecken aller verbliebenen Figuren.
+ * Aktionsbutton grau.
+ *
+ * Dauerhaft: Button Neues Spiel: Abfrage durch MsgBox, danach Aufrufen
+ * Startbildschirm zwecks Namenseingabe.
+ */
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package jstratego.gui.game;
 
-import java.awt.Component;
-import java.util.ArrayList;
 import javax.swing.JLabel;
-import jstratego.logic.game.Game;
+import jstratego.logic.game.*;
 import jstratego.logic.pieces.*;
 
 /**
@@ -16,6 +48,8 @@ import jstratego.logic.pieces.*;
  * @author Tim
  */
 public class PlayBoard extends javax.swing.JFrame {
+
+    static Game currentGame = null;
 
     /**
      * Creates new form Board
@@ -27,7 +61,8 @@ public class PlayBoard extends javax.swing.JFrame {
         placementLabelVisible(false);
     }
 
-    public static void PlayGame(Game game) {
+    public static void PlayGame() {
+        //TODO Ablaufsteuerung. Auslesen des GameState, entsprechender Aufruf der anderen Methoden
     }
 
     //sets additional information labels visible, important during piece placing
@@ -61,7 +96,7 @@ public class PlayBoard extends javax.swing.JFrame {
     }
 
     //resets piece-counter for placing
-    public void preparePlacement() {
+    public int[] preparePlacement() {
 
         int[] numberOfPieces = {1, 1, 1, 2, 3, 4, 4, 4, 5, 8, 1, 6};
 
@@ -79,10 +114,12 @@ public class PlayBoard extends javax.swing.JFrame {
         labelScoutNumber.setText(String.valueOf(numberOfPieces[9]));
         labelSpyNumber.setText(String.valueOf(numberOfPieces[10]));
         labelBombNumber.setText(String.valueOf(numberOfPieces[11]));
+
+        return numberOfPieces;
     }
 
     //changes color of icons in info-area
-    public void setIconColor(jstratego.logic.pieces.Color playerColor) {
+    public void setIconColor(Color playerColor) {
 
         String path = ("_" + playerColor + ".png");
 
@@ -101,49 +138,157 @@ public class PlayBoard extends javax.swing.JFrame {
 
     }
 
-  /**  public void updateGamePanel(Game game) {//soll alle Felder der GUI aktualisieren
-//TODO find solution
-
-        Component[] fields = panelGame.getComponents();
-        String tempName = "";
+    public void setFieldIcon(JLabel field) {
+        String iconName = "";
         String pieceType = "";
         String pieceColor = "";
-               
-        int x = 0;
-        int y = 0;
+        int x = field.getName().charAt(1);//TODO tauschen, wenn board verdreht ist
+        int y = field.getName().charAt(2);
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                field = "f" + Integer.toString(i) + Integer.toString(j);
-		if(!game.playBoard.board[1][2].isBlocked())
-                if (!game.playBoard.board[i][j].isBlocked()) {
-                    tempField.concat(game.playBoard.board[i][j].getPiece().name);
-
-        for (int i = 0; i <= (fields.length - 1); i++) {
-            tempName = fields[i].getName();
-            x  = tempName.charAt(1);
-            y = tempName.charAt(2);     //TODO tauschen, wenn board verdreht ist
-            
-            if(game.playBoard.board[x][y] == null){
-                fields[i].setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));
-                
+        if (!currentGame.playBoard.board[x][y].isBlocked()) {
+            if (currentGame.playBoard.board[x][y] == null) {
+                field.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));
+            } else {
+                pieceType = currentGame.playBoard.board[x][y].getPiece().getClass().toString();
+                pieceColor = currentGame.playBoard.board[x][y].getPiece().color.toString();
+                iconName = "/jstratego/gui/img/" + pieceType.toLowerCase() + "_" + pieceColor.toLowerCase() + ".png";
+                field.setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
             }
-            pieceType = game.playBoard.board[x][y].getPiece().getClass().toString();
-            pieceColor = game.playBoard.board[x][y].getPiece().color.toString();
-                        
-            /**{
-                if (!game.playBoard.board[i][j].blocked) {
-                    //tempField.concat(game.playBoard.board[i][j].getPiece().name + "_");
-                    //tempField.concat(game.playBoard.board[i][j].piece.color.toString() + ".png");
-                    //test.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));;
-                }
-
-            }
-
         }
     }
 
-    **/
+    public void updateGamePanel() {
+        setFieldIcon(f00);
+        setFieldIcon(f01);
+        setFieldIcon(f02);
+        setFieldIcon(f03);
+        setFieldIcon(f04);
+        setFieldIcon(f05);
+        setFieldIcon(f06);
+        setFieldIcon(f07);
+        setFieldIcon(f08);
+        setFieldIcon(f09);
+        setFieldIcon(f10);
+        setFieldIcon(f11);
+        setFieldIcon(f12);
+        setFieldIcon(f13);
+        setFieldIcon(f14);
+        setFieldIcon(f15);
+        setFieldIcon(f16);
+        setFieldIcon(f17);
+        setFieldIcon(f18);
+        setFieldIcon(f19);
+        setFieldIcon(f20);
+        setFieldIcon(f21);
+        setFieldIcon(f22);
+        setFieldIcon(f23);
+        setFieldIcon(f24);
+        setFieldIcon(f25);
+        setFieldIcon(f26);
+        setFieldIcon(f27);
+        setFieldIcon(f28);
+        setFieldIcon(f29);
+        setFieldIcon(f30);
+        setFieldIcon(f31);
+        setFieldIcon(f32);
+        setFieldIcon(f33);
+        setFieldIcon(f34);
+        setFieldIcon(f35);
+        setFieldIcon(f36);
+        setFieldIcon(f37);
+        setFieldIcon(f38);
+        setFieldIcon(f39);
+        setFieldIcon(f40);
+        setFieldIcon(f41);//lakes skipped
+        setFieldIcon(f44);
+        setFieldIcon(f45);
+        setFieldIcon(f48);
+        setFieldIcon(f49);
+        setFieldIcon(f50);
+        setFieldIcon(f51);
+        setFieldIcon(f54);
+        setFieldIcon(f55);
+        setFieldIcon(f58);
+        setFieldIcon(f59);
+        setFieldIcon(f60);
+        setFieldIcon(f61);
+        setFieldIcon(f62);
+        setFieldIcon(f63);
+        setFieldIcon(f64);
+        setFieldIcon(f65);
+        setFieldIcon(f66);
+        setFieldIcon(f67);
+        setFieldIcon(f68);
+        setFieldIcon(f69);
+        setFieldIcon(f70);
+        setFieldIcon(f71);
+        setFieldIcon(f72);
+        setFieldIcon(f73);
+        setFieldIcon(f74);
+        setFieldIcon(f75);
+        setFieldIcon(f76);
+        setFieldIcon(f77);
+        setFieldIcon(f78);
+        setFieldIcon(f79);
+        setFieldIcon(f80);
+        setFieldIcon(f81);
+        setFieldIcon(f82);
+        setFieldIcon(f83);
+        setFieldIcon(f84);
+        setFieldIcon(f85);
+        setFieldIcon(f86);
+        setFieldIcon(f87);
+        setFieldIcon(f88);
+        setFieldIcon(f89);
+        setFieldIcon(f90);
+        setFieldIcon(f91);
+        setFieldIcon(f92);
+        setFieldIcon(f93);
+        setFieldIcon(f94);
+        setFieldIcon(f95);
+        setFieldIcon(f96);
+        setFieldIcon(f97);
+        setFieldIcon(f98);
+        setFieldIcon(f99);
+    }
+
+    public void figurePlacement(Player player, Field[][] field) {
+
+        setIconColor(player.playerColor);
+        preparePlacement();
+        //TODO fortsetzen
+
+    }
+
+    public void showReachable(boolean value) {
+        //TODO fortsetzen
+    }
+
+    public void callMove(JLabel field) {
+
+        if (currentGame.gameState.getCurrentGamephase().equals(jstratego.logic.game.Gamephase.SETUPblue)
+                || currentGame.gameState.getCurrentGamephase().equals(jstratego.logic.game.Gamephase.SETUPred)) {
+            //TODO auf Setup-Methode umleiten
+        } else {
+            if (currentGame.gameState.getCurrentGamephase().equals(jstratego.logic.game.Gamephase.MOVEblue)
+                    || currentGame.gameState.getCurrentGamephase().equals(jstratego.logic.game.Gamephase.MOVEred)) {
+                {
+                    int x = field.getName().charAt(1);
+                    int y = field.getName().charAt(2);
+
+                    if (currentGame.gameState.getChallenger() == null) {
+                        currentGame.gameState.setChallenger(currentGame.playBoard.board[x][y].getPiece());
+                    } else {
+                        currentGame.gameState.setDefender(currentGame.playBoard.board[x][y].getPiece());
+                    }
+                }
+            } else {
+                //TODO Klick auf Feld bei Spielerwechsel abfangen
+            }//end if move
+
+        }//end if setup
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -319,6 +464,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f00.setBackground(java.awt.Color.white);
         f00.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f00.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f00.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f00MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -329,6 +479,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f01.setBackground(java.awt.Color.white);
         f01.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f01.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f01.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f01MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -339,6 +494,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f02.setBackground(java.awt.Color.white);
         f02.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f02.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f02.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f02MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -350,6 +510,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f03.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f03.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         f03.setName("");
+        f03.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f03MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -360,6 +525,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f04.setBackground(java.awt.Color.white);
         f04.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f04.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f04.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f04MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
@@ -370,6 +540,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f06.setBackground(java.awt.Color.white);
         f06.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f06.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f06.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f06MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
@@ -380,6 +555,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f07.setBackground(java.awt.Color.white);
         f07.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f07.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f07.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f07MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 0;
@@ -390,6 +570,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f05.setBackground(java.awt.Color.white);
         f05.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f05.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f05.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f05MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
@@ -400,6 +585,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f09.setBackground(java.awt.Color.white);
         f09.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f09.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f09.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f09MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 0;
@@ -410,6 +600,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f08.setBackground(java.awt.Color.white);
         f08.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f08.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f08.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f08MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 0;
@@ -420,6 +615,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f10.setBackground(java.awt.Color.white);
         f10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f10MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -430,6 +630,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f15.setBackground(java.awt.Color.white);
         f15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f15MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 1;
@@ -439,6 +644,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f14.setBackground(java.awt.Color.white);
         f14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f14MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
@@ -448,6 +658,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f13.setBackground(java.awt.Color.white);
         f13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f13MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
@@ -457,6 +672,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f12.setBackground(java.awt.Color.white);
         f12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f12MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
@@ -466,6 +686,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f11.setBackground(java.awt.Color.white);
         f11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f11MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -475,6 +700,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f17.setBackground(java.awt.Color.white);
         f17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f17MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 1;
@@ -484,6 +714,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f16.setBackground(java.awt.Color.white);
         f16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f16MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 1;
@@ -493,6 +728,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f19.setBackground(java.awt.Color.white);
         f19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f19MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 1;
@@ -503,6 +743,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f18.setBackground(java.awt.Color.white);
         f18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f18MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 1;
@@ -512,6 +757,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f37.setBackground(java.awt.Color.white);
         f37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f37.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f37.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f37MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 3;
@@ -521,6 +771,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f38.setBackground(java.awt.Color.white);
         f38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f38.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f38.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f38MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 3;
@@ -530,6 +785,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f32.setBackground(java.awt.Color.white);
         f32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f32.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f32MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -539,6 +799,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f31.setBackground(java.awt.Color.white);
         f31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f31MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -576,6 +841,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f30.setBackground(java.awt.Color.white);
         f30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f30MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -586,6 +856,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f35.setBackground(java.awt.Color.white);
         f35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f35.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f35.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f35MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 3;
@@ -595,6 +870,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f29.setBackground(java.awt.Color.white);
         f29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f29MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 2;
@@ -605,6 +885,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f28.setBackground(java.awt.Color.white);
         f28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f28MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 2;
@@ -614,6 +899,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f39.setBackground(java.awt.Color.white);
         f39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f39.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f39.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f39MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 3;
@@ -624,6 +914,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f20.setBackground(java.awt.Color.white);
         f20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f20MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -634,6 +929,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f36.setBackground(java.awt.Color.white);
         f36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f36.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f36.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f36MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 3;
@@ -643,6 +943,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f25.setBackground(java.awt.Color.white);
         f25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f25MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 2;
@@ -652,6 +957,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f24.setBackground(java.awt.Color.white);
         f24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f24MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
@@ -661,6 +971,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f23.setBackground(java.awt.Color.white);
         f23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f23MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
@@ -670,6 +985,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f22.setBackground(java.awt.Color.white);
         f22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f22MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -679,6 +999,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f21.setBackground(java.awt.Color.white);
         f21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f21MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -688,6 +1013,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f27.setBackground(java.awt.Color.white);
         f27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f27MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 2;
@@ -697,6 +1027,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f26.setBackground(java.awt.Color.white);
         f26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f26MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
@@ -706,6 +1041,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f44.setBackground(java.awt.Color.white);
         f44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f44.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f44.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f44MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
@@ -715,6 +1055,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f41.setBackground(java.awt.Color.white);
         f41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f41.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f41.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f41MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -748,6 +1093,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f54.setBackground(java.awt.Color.white);
         f54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f54.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f54.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f54MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 5;
@@ -757,6 +1107,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f59.setBackground(java.awt.Color.white);
         f59.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f59.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f59.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f59MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 5;
@@ -767,6 +1122,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f51.setBackground(java.awt.Color.white);
         f51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f51.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f51.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f51MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
@@ -784,6 +1144,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f50.setBackground(java.awt.Color.white);
         f50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f50.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f50.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f50MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -802,6 +1167,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f45.setBackground(java.awt.Color.white);
         f45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f45.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f45.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f45MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 4;
@@ -811,6 +1181,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f58.setBackground(java.awt.Color.white);
         f58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f58.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f58.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f58MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 5;
@@ -820,6 +1195,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f48.setBackground(java.awt.Color.white);
         f48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f48.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f48.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f48MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 4;
@@ -837,6 +1217,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f40.setBackground(java.awt.Color.white);
         f40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f40.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f40.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f40MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -847,6 +1232,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f55.setBackground(java.awt.Color.white);
         f55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f55.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f55.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f55MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 5;
@@ -864,6 +1254,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f49.setBackground(java.awt.Color.white);
         f49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f49.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f49.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f49MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 4;
@@ -882,6 +1277,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f76.setBackground(java.awt.Color.white);
         f76.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f76.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f76.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f76MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 7;
@@ -891,6 +1291,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f65.setBackground(java.awt.Color.white);
         f65.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f65.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f65.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f65MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 6;
@@ -900,6 +1305,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f79.setBackground(java.awt.Color.white);
         f79.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f79.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f79.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f79MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 7;
@@ -910,6 +1320,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f60.setBackground(java.awt.Color.white);
         f60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f60.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f60.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f60MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -920,6 +1335,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f62.setBackground(java.awt.Color.white);
         f62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f62.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f62.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f62MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
@@ -929,6 +1349,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f64.setBackground(java.awt.Color.white);
         f64.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f64.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f64.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f64MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
@@ -938,6 +1363,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f63.setBackground(java.awt.Color.white);
         f63.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f63.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f63.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f63MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
@@ -947,6 +1377,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f84.setBackground(java.awt.Color.white);
         f84.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f84.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f84.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f84MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
@@ -956,6 +1391,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f66.setBackground(java.awt.Color.white);
         f66.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f66.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f66.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f66MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 6;
@@ -965,6 +1405,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f67.setBackground(java.awt.Color.white);
         f67.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f67.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f67.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f67MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 6;
@@ -974,6 +1419,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f61.setBackground(java.awt.Color.white);
         f61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f61.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f61.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f61MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -983,6 +1433,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f77.setBackground(java.awt.Color.white);
         f77.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f77.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f77.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f77MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 7;
@@ -992,6 +1447,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f78.setBackground(java.awt.Color.white);
         f78.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f78.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f78.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f78MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 7;
@@ -1001,6 +1461,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f72.setBackground(java.awt.Color.white);
         f72.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f72.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f72.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f72MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
@@ -1010,6 +1475,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f71.setBackground(java.awt.Color.white);
         f71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f71.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f71.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f71MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
@@ -1019,6 +1489,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f74.setBackground(java.awt.Color.white);
         f74.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f74.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f74.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f74MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 7;
@@ -1028,6 +1503,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f73.setBackground(java.awt.Color.white);
         f73.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f73.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f73.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f73MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 7;
@@ -1037,6 +1517,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f70.setBackground(java.awt.Color.white);
         f70.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f70.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f70.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f70MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -1047,6 +1532,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f75.setBackground(java.awt.Color.white);
         f75.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f75.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f75.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f75MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 7;
@@ -1056,6 +1546,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f68.setBackground(java.awt.Color.white);
         f68.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f68.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f68.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f68MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 6;
@@ -1065,6 +1560,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f69.setBackground(java.awt.Color.white);
         f69.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f69.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f69.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f69MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 6;
@@ -1075,6 +1575,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f95.setBackground(java.awt.Color.white);
         f95.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f95.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f95.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f95MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 9;
@@ -1085,6 +1590,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f80.setBackground(java.awt.Color.white);
         f80.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f80.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f80.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f80MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -1095,6 +1605,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f92.setBackground(java.awt.Color.white);
         f92.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f92.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f92.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f92MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 9;
@@ -1105,6 +1620,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f88.setBackground(java.awt.Color.white);
         f88.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f88.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f88.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f88MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 8;
@@ -1114,6 +1634,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f98.setBackground(java.awt.Color.white);
         f98.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f98.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f98.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f98MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 9;
@@ -1124,6 +1649,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f83.setBackground(java.awt.Color.white);
         f83.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f83.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f83.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f83MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 8;
@@ -1133,6 +1663,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f93.setBackground(java.awt.Color.white);
         f93.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f93.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f93.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f93MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 9;
@@ -1143,6 +1678,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f89.setBackground(java.awt.Color.white);
         f89.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f89.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f89.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f89MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 8;
@@ -1153,6 +1693,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f99.setBackground(java.awt.Color.white);
         f99.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f99.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f99.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f99MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 9;
@@ -1163,6 +1708,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f94.setBackground(java.awt.Color.white);
         f94.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f94.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f94.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f94MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 9;
@@ -1173,6 +1723,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f87.setBackground(java.awt.Color.white);
         f87.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f87.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f87.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f87MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 8;
@@ -1182,6 +1737,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f81.setBackground(java.awt.Color.white);
         f81.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f81.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f81.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f81MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
@@ -1191,6 +1751,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f96.setBackground(java.awt.Color.white);
         f96.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f96.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f96.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f96MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 9;
@@ -1201,6 +1766,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f82.setBackground(java.awt.Color.white);
         f82.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f82.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f82.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f82MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
@@ -1210,6 +1780,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f97.setBackground(java.awt.Color.white);
         f97.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f97.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f97.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f97MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 9;
@@ -1220,6 +1795,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f90.setBackground(java.awt.Color.white);
         f90.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f90.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f90.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f90MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 9;
@@ -1230,6 +1810,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f86.setBackground(java.awt.Color.white);
         f86.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f86.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f86.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f86MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 8;
@@ -1239,6 +1824,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f85.setBackground(java.awt.Color.white);
         f85.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f85.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f85.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f85MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 8;
@@ -1248,6 +1838,11 @@ public class PlayBoard extends javax.swing.JFrame {
         f91.setBackground(java.awt.Color.white);
         f91.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f91.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f91.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                f91MouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 9;
@@ -1261,7 +1856,7 @@ public class PlayBoard extends javax.swing.JFrame {
         labelBannerInfoArea.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         labelBannerInfoArea.setForeground(new java.awt.Color(255, 255, 0));
         labelBannerInfoArea.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        labelBannerInfoArea.setText("Platzhalter (Logo wird noch kleiner gemacht)");
+        labelBannerInfoArea.setText(" ");
 
         buttonSet.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         buttonSet.setText("Zug ausführen");
@@ -1741,15 +2336,375 @@ public class PlayBoard extends javax.swing.JFrame {
         setIconColor(Color.RED);
     }//GEN-LAST:event_buttonSetActionPerformed
 
+//<editor-fold defaultstate="collapsed" desc=" MouseClickedEvents of all labels in game panel ">
     private void f34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f34MouseClicked
-        // TODO add your handling code here:
-        System.out.println("f34");
+        callMove(f34);
     }//GEN-LAST:event_f34MouseClicked
 
     private void f33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f33MouseClicked
-        // TODO add your handling code here:
-        System.out.println("f33");
+        callMove(f33);
     }//GEN-LAST:event_f33MouseClicked
+
+    private void f00MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f00MouseClicked
+        callMove(f00);
+    }//GEN-LAST:event_f00MouseClicked
+
+    private void f01MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f01MouseClicked
+        callMove(f01);
+    }//GEN-LAST:event_f01MouseClicked
+
+    private void f02MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f02MouseClicked
+        callMove(f02);
+    }//GEN-LAST:event_f02MouseClicked
+
+    private void f03MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f03MouseClicked
+        callMove(f03);
+    }//GEN-LAST:event_f03MouseClicked
+
+    private void f04MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f04MouseClicked
+        callMove(f04);
+    }//GEN-LAST:event_f04MouseClicked
+
+    private void f05MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f05MouseClicked
+        callMove(f05);
+    }//GEN-LAST:event_f05MouseClicked
+
+    private void f06MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f06MouseClicked
+        callMove(f06);
+    }//GEN-LAST:event_f06MouseClicked
+
+    private void f07MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f07MouseClicked
+        callMove(f07);
+    }//GEN-LAST:event_f07MouseClicked
+
+    private void f08MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f08MouseClicked
+        callMove(f08);
+    }//GEN-LAST:event_f08MouseClicked
+
+    private void f09MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f09MouseClicked
+        callMove(f09);
+    }//GEN-LAST:event_f09MouseClicked
+
+    private void f10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f10MouseClicked
+        callMove(f10);
+    }//GEN-LAST:event_f10MouseClicked
+
+    private void f11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f11MouseClicked
+        callMove(f11);
+    }//GEN-LAST:event_f11MouseClicked
+
+    private void f12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f12MouseClicked
+        callMove(f12);
+    }//GEN-LAST:event_f12MouseClicked
+
+    private void f13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f13MouseClicked
+        callMove(f13);
+    }//GEN-LAST:event_f13MouseClicked
+
+    private void f14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f14MouseClicked
+        callMove(f14);
+    }//GEN-LAST:event_f14MouseClicked
+
+    private void f15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f15MouseClicked
+        callMove(f15);
+    }//GEN-LAST:event_f15MouseClicked
+
+    private void f16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f16MouseClicked
+        callMove(f16);
+    }//GEN-LAST:event_f16MouseClicked
+
+    private void f17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f17MouseClicked
+        callMove(f17);
+    }//GEN-LAST:event_f17MouseClicked
+
+    private void f18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f18MouseClicked
+        callMove(f18);
+    }//GEN-LAST:event_f18MouseClicked
+
+    private void f19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f19MouseClicked
+        callMove(f19);
+    }//GEN-LAST:event_f19MouseClicked
+
+    private void f20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f20MouseClicked
+        callMove(f20);
+    }//GEN-LAST:event_f20MouseClicked
+
+    private void f21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f21MouseClicked
+        callMove(f21);
+    }//GEN-LAST:event_f21MouseClicked
+
+    private void f22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f22MouseClicked
+        callMove(f22);
+    }//GEN-LAST:event_f22MouseClicked
+
+    private void f23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f23MouseClicked
+        callMove(f23);
+    }//GEN-LAST:event_f23MouseClicked
+
+    private void f24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f24MouseClicked
+        callMove(f24);
+    }//GEN-LAST:event_f24MouseClicked
+
+    private void f25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f25MouseClicked
+        callMove(f25);
+    }//GEN-LAST:event_f25MouseClicked
+
+    private void f26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f26MouseClicked
+        callMove(f26);
+    }//GEN-LAST:event_f26MouseClicked
+
+    private void f27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f27MouseClicked
+        callMove(f27);
+    }//GEN-LAST:event_f27MouseClicked
+
+    private void f28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f28MouseClicked
+        callMove(f28);
+    }//GEN-LAST:event_f28MouseClicked
+
+    private void f29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f29MouseClicked
+        callMove(f29);
+    }//GEN-LAST:event_f29MouseClicked
+
+    private void f30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f30MouseClicked
+        callMove(f30);
+    }//GEN-LAST:event_f30MouseClicked
+
+    private void f31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f31MouseClicked
+        callMove(f31);
+    }//GEN-LAST:event_f31MouseClicked
+
+    private void f32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f32MouseClicked
+        callMove(f32);
+    }//GEN-LAST:event_f32MouseClicked
+
+    private void f35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f35MouseClicked
+        callMove(f35);
+    }//GEN-LAST:event_f35MouseClicked
+
+    private void f36MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f36MouseClicked
+        callMove(f36);
+    }//GEN-LAST:event_f36MouseClicked
+
+    private void f37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f37MouseClicked
+        callMove(f37);
+    }//GEN-LAST:event_f37MouseClicked
+
+    private void f38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f38MouseClicked
+        callMove(f38);
+    }//GEN-LAST:event_f38MouseClicked
+
+    private void f39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f39MouseClicked
+        callMove(f39);
+    }//GEN-LAST:event_f39MouseClicked
+
+    private void f40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f40MouseClicked
+        callMove(f40);
+    }//GEN-LAST:event_f40MouseClicked
+
+    private void f41MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f41MouseClicked
+        callMove(f41);
+    }//GEN-LAST:event_f41MouseClicked
+
+    private void f44MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f44MouseClicked
+        callMove(f44);
+    }//GEN-LAST:event_f44MouseClicked
+
+    private void f45MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f45MouseClicked
+        callMove(f45);
+    }//GEN-LAST:event_f45MouseClicked
+
+    private void f48MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f48MouseClicked
+        callMove(f48);
+    }//GEN-LAST:event_f48MouseClicked
+
+    private void f49MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f49MouseClicked
+        callMove(f49);
+    }//GEN-LAST:event_f49MouseClicked
+
+    private void f50MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f50MouseClicked
+        callMove(f50);
+    }//GEN-LAST:event_f50MouseClicked
+
+    private void f51MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f51MouseClicked
+        callMove(f51);
+    }//GEN-LAST:event_f51MouseClicked
+
+    private void f54MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f54MouseClicked
+        callMove(f54);
+    }//GEN-LAST:event_f54MouseClicked
+
+    private void f55MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f55MouseClicked
+        callMove(f55);
+    }//GEN-LAST:event_f55MouseClicked
+
+    private void f58MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f58MouseClicked
+        callMove(f58);
+    }//GEN-LAST:event_f58MouseClicked
+
+    private void f59MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f59MouseClicked
+        callMove(f59);
+    }//GEN-LAST:event_f59MouseClicked
+
+    private void f60MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f60MouseClicked
+        callMove(f60);
+    }//GEN-LAST:event_f60MouseClicked
+
+    private void f61MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f61MouseClicked
+        callMove(f61);
+    }//GEN-LAST:event_f61MouseClicked
+
+    private void f62MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f62MouseClicked
+        callMove(f62);
+    }//GEN-LAST:event_f62MouseClicked
+
+    private void f63MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f63MouseClicked
+        callMove(f63);
+    }//GEN-LAST:event_f63MouseClicked
+
+    private void f64MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f64MouseClicked
+        callMove(f64);
+    }//GEN-LAST:event_f64MouseClicked
+
+    private void f65MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f65MouseClicked
+        callMove(f65);
+    }//GEN-LAST:event_f65MouseClicked
+
+    private void f66MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f66MouseClicked
+        callMove(f66);
+    }//GEN-LAST:event_f66MouseClicked
+
+    private void f67MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f67MouseClicked
+        callMove(f67);
+    }//GEN-LAST:event_f67MouseClicked
+
+    private void f68MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f68MouseClicked
+        callMove(f68);
+    }//GEN-LAST:event_f68MouseClicked
+
+    private void f69MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f69MouseClicked
+        callMove(f69);
+    }//GEN-LAST:event_f69MouseClicked
+
+    private void f70MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f70MouseClicked
+        callMove(f70);
+    }//GEN-LAST:event_f70MouseClicked
+
+    private void f71MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f71MouseClicked
+        callMove(f71);
+    }//GEN-LAST:event_f71MouseClicked
+
+    private void f72MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f72MouseClicked
+        callMove(f72);
+    }//GEN-LAST:event_f72MouseClicked
+
+    private void f73MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f73MouseClicked
+        callMove(f73);
+    }//GEN-LAST:event_f73MouseClicked
+
+    private void f74MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f74MouseClicked
+        callMove(f74);
+    }//GEN-LAST:event_f74MouseClicked
+
+    private void f75MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f75MouseClicked
+        callMove(f75);
+    }//GEN-LAST:event_f75MouseClicked
+
+    private void f76MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f76MouseClicked
+        callMove(f76);
+    }//GEN-LAST:event_f76MouseClicked
+
+    private void f77MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f77MouseClicked
+        callMove(f77);
+    }//GEN-LAST:event_f77MouseClicked
+
+    private void f78MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f78MouseClicked
+        callMove(f78);
+    }//GEN-LAST:event_f78MouseClicked
+
+    private void f79MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f79MouseClicked
+        callMove(f79);
+    }//GEN-LAST:event_f79MouseClicked
+
+    private void f80MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f80MouseClicked
+        callMove(f80);
+    }//GEN-LAST:event_f80MouseClicked
+
+    private void f81MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f81MouseClicked
+        callMove(f81);
+    }//GEN-LAST:event_f81MouseClicked
+
+    private void f82MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f82MouseClicked
+        callMove(f82);
+    }//GEN-LAST:event_f82MouseClicked
+
+    private void f83MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f83MouseClicked
+        callMove(f83);
+    }//GEN-LAST:event_f83MouseClicked
+
+    private void f84MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f84MouseClicked
+        callMove(f84);
+    }//GEN-LAST:event_f84MouseClicked
+
+    private void f85MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f85MouseClicked
+        callMove(f85);
+    }//GEN-LAST:event_f85MouseClicked
+
+    private void f86MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f86MouseClicked
+        callMove(f86);
+    }//GEN-LAST:event_f86MouseClicked
+
+    private void f87MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f87MouseClicked
+        callMove(f87);
+    }//GEN-LAST:event_f87MouseClicked
+
+    private void f88MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f88MouseClicked
+        callMove(f88);
+    }//GEN-LAST:event_f88MouseClicked
+
+    private void f89MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f89MouseClicked
+        callMove(f89);
+    }//GEN-LAST:event_f89MouseClicked
+
+    private void f90MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f90MouseClicked
+        callMove(f90);
+    }//GEN-LAST:event_f90MouseClicked
+
+    private void f91MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f91MouseClicked
+        callMove(f91);
+    }//GEN-LAST:event_f91MouseClicked
+
+    private void f92MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f92MouseClicked
+        callMove(f92);
+    }//GEN-LAST:event_f92MouseClicked
+
+    private void f93MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f93MouseClicked
+        callMove(f93);
+    }//GEN-LAST:event_f93MouseClicked
+
+    private void f94MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f94MouseClicked
+        callMove(f94);
+    }//GEN-LAST:event_f94MouseClicked
+
+    private void f95MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f95MouseClicked
+        callMove(f95);
+    }//GEN-LAST:event_f95MouseClicked
+
+    private void f96MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f96MouseClicked
+        callMove(f96);
+    }//GEN-LAST:event_f96MouseClicked
+
+    private void f97MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f97MouseClicked
+        callMove(f97);
+    }//GEN-LAST:event_f97MouseClicked
+
+    private void f98MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f98MouseClicked
+        callMove(f98);
+    }//GEN-LAST:event_f98MouseClicked
+
+    private void f99MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f99MouseClicked
+        callMove(f99);
+    }//GEN-LAST:event_f99MouseClicked
+//</editor-fold>
 
     /**
      * @param args the command line arguments
@@ -1769,6 +2724,8 @@ public class PlayBoard extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
+
 
 
                 }
@@ -1793,8 +2750,8 @@ public class PlayBoard extends javax.swing.JFrame {
                 new PlayBoard().setVisible(true);
             }
         });
-
-        PlayGame(game);
+        currentGame = game;
+        PlayGame();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonRestart;
