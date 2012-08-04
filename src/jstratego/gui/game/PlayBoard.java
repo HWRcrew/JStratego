@@ -1,4 +1,3 @@
-//TODO Kommentare richten
 //TODO siehe comment
 /**
  * Spiel wird gestartet; -> Gamephase SetupRed; Spieler Rot platziert seine
@@ -39,8 +38,9 @@
  */
 package jstratego.gui.game;
 
-import java.awt.TrayIcon;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
@@ -62,151 +62,150 @@ public class PlayBoard extends javax.swing.JFrame {
     static JLabel[][] fieldArray = new JLabel[10][10];
     static Border highlighted = new LineBorder(java.awt.Color.red, 3, false);
     static int[] figureCounter = null;
-    static Piece[] pieceTypes = new Piece[12]; //TODO löschen
     static Piece pieceToPlace = null;
 
-	/**
-	 * Creates new form Board
-	 */
-	public PlayBoard() {
-		this.setContentPane(new BackgroundPanelMain());
-		setResizable(false);
-		initComponents();
-		fillFieldArray();
-		placementLabelVisible(false);
-	}
+    /**
+     * Creates new form Board
+     */
+    public PlayBoard() {
+        this.setContentPane(new BackgroundPanelMain());
+        setResizable(false);
+        initComponents();
+        fillFieldArray();
+        placementLabelVisible(false);
+    }
 
-	public final void fillFieldArray() {
-		fieldArray[0][0] = f00;
-		fieldArray[0][1] = f01;
-		fieldArray[0][2] = f02;
-		fieldArray[0][3] = f03;
-		fieldArray[0][4] = f04;
-		fieldArray[0][5] = f05;
-		fieldArray[0][6] = f06;
-		fieldArray[0][7] = f07;
-		fieldArray[0][8] = f08;
-		fieldArray[0][9] = f09;
-		fieldArray[1][0] = f10;
-		fieldArray[1][1] = f11;
-		fieldArray[1][2] = f12;
-		fieldArray[1][3] = f13;
-		fieldArray[1][4] = f14;
-		fieldArray[1][5] = f15;
-		fieldArray[1][6] = f16;
-		fieldArray[1][7] = f17;
-		fieldArray[1][8] = f18;
-		fieldArray[1][9] = f19;
-		fieldArray[2][0] = f20;
-		fieldArray[2][1] = f21;
-		fieldArray[2][2] = f22;
-		fieldArray[2][3] = f23;
-		fieldArray[2][4] = f24;
-		fieldArray[2][5] = f25;
-		fieldArray[2][6] = f26;
-		fieldArray[2][7] = f27;
-		fieldArray[2][8] = f28;
-		fieldArray[2][9] = f29;
-		fieldArray[3][0] = f30;
-		fieldArray[3][1] = f31;
-		fieldArray[3][2] = f32;
-		fieldArray[3][3] = f33;
-		fieldArray[3][4] = f34;
-		fieldArray[3][5] = f35;
-		fieldArray[3][6] = f36;
-		fieldArray[3][7] = f37;
-		fieldArray[3][8] = f38;
-		fieldArray[3][9] = f39;
-		fieldArray[4][0] = f40;
-		fieldArray[4][1] = f41;//lakes skipped
-		fieldArray[4][4] = f44;
-		fieldArray[4][5] = f45;
-		fieldArray[4][8] = f48;
-		fieldArray[4][9] = f49;
-		fieldArray[5][0] = f50;
-		fieldArray[5][1] = f51;
-		fieldArray[5][4] = f54;
-		fieldArray[5][5] = f55;
-		fieldArray[5][8] = f58;
-		fieldArray[5][9] = f59;
-		fieldArray[6][0] = f60;
-		fieldArray[6][1] = f61;
-		fieldArray[6][2] = f62;
-		fieldArray[6][3] = f63;
-		fieldArray[6][4] = f64;
-		fieldArray[6][5] = f65;
-		fieldArray[6][6] = f66;
-		fieldArray[6][7] = f67;
-		fieldArray[6][8] = f68;
-		fieldArray[6][9] = f69;
-		fieldArray[7][0] = f70;
-		fieldArray[7][1] = f71;
-		fieldArray[7][2] = f72;
-		fieldArray[7][3] = f73;
-		fieldArray[7][4] = f74;
-		fieldArray[7][5] = f75;
-		fieldArray[7][6] = f76;
-		fieldArray[7][7] = f77;
-		fieldArray[7][8] = f78;
-		fieldArray[7][9] = f79;
-		fieldArray[8][0] = f80;
-		fieldArray[8][1] = f81;
-		fieldArray[8][2] = f82;
-		fieldArray[8][3] = f83;
-		fieldArray[8][4] = f84;
-		fieldArray[8][5] = f85;
-		fieldArray[8][6] = f86;
-		fieldArray[8][7] = f87;
-		fieldArray[8][8] = f88;
-		fieldArray[8][9] = f89;
-		fieldArray[9][0] = f90;
-		fieldArray[9][1] = f91;
-		fieldArray[9][2] = f92;
-		fieldArray[9][3] = f93;
-		fieldArray[9][4] = f94;
-		fieldArray[9][5] = f95;
-		fieldArray[9][6] = f96;
-		fieldArray[9][7] = f97;
-		fieldArray[9][8] = f98;
-		fieldArray[9][9] = f99;
-	}
+    public final void fillFieldArray() {
+        fieldArray[0][0] = f00;
+        fieldArray[0][1] = f01;
+        fieldArray[0][2] = f02;
+        fieldArray[0][3] = f03;
+        fieldArray[0][4] = f04;
+        fieldArray[0][5] = f05;
+        fieldArray[0][6] = f06;
+        fieldArray[0][7] = f07;
+        fieldArray[0][8] = f08;
+        fieldArray[0][9] = f09;
+        fieldArray[1][0] = f10;
+        fieldArray[1][1] = f11;
+        fieldArray[1][2] = f12;
+        fieldArray[1][3] = f13;
+        fieldArray[1][4] = f14;
+        fieldArray[1][5] = f15;
+        fieldArray[1][6] = f16;
+        fieldArray[1][7] = f17;
+        fieldArray[1][8] = f18;
+        fieldArray[1][9] = f19;
+        fieldArray[2][0] = f20;
+        fieldArray[2][1] = f21;
+        fieldArray[2][2] = f22;
+        fieldArray[2][3] = f23;
+        fieldArray[2][4] = f24;
+        fieldArray[2][5] = f25;
+        fieldArray[2][6] = f26;
+        fieldArray[2][7] = f27;
+        fieldArray[2][8] = f28;
+        fieldArray[2][9] = f29;
+        fieldArray[3][0] = f30;
+        fieldArray[3][1] = f31;
+        fieldArray[3][2] = f32;
+        fieldArray[3][3] = f33;
+        fieldArray[3][4] = f34;
+        fieldArray[3][5] = f35;
+        fieldArray[3][6] = f36;
+        fieldArray[3][7] = f37;
+        fieldArray[3][8] = f38;
+        fieldArray[3][9] = f39;
+        fieldArray[4][0] = f40;
+        fieldArray[4][1] = f41;//lakes skipped
+        fieldArray[4][4] = f44;
+        fieldArray[4][5] = f45;
+        fieldArray[4][8] = f48;
+        fieldArray[4][9] = f49;
+        fieldArray[5][0] = f50;
+        fieldArray[5][1] = f51;
+        fieldArray[5][4] = f54;
+        fieldArray[5][5] = f55;
+        fieldArray[5][8] = f58;
+        fieldArray[5][9] = f59;
+        fieldArray[6][0] = f60;
+        fieldArray[6][1] = f61;
+        fieldArray[6][2] = f62;
+        fieldArray[6][3] = f63;
+        fieldArray[6][4] = f64;
+        fieldArray[6][5] = f65;
+        fieldArray[6][6] = f66;
+        fieldArray[6][7] = f67;
+        fieldArray[6][8] = f68;
+        fieldArray[6][9] = f69;
+        fieldArray[7][0] = f70;
+        fieldArray[7][1] = f71;
+        fieldArray[7][2] = f72;
+        fieldArray[7][3] = f73;
+        fieldArray[7][4] = f74;
+        fieldArray[7][5] = f75;
+        fieldArray[7][6] = f76;
+        fieldArray[7][7] = f77;
+        fieldArray[7][8] = f78;
+        fieldArray[7][9] = f79;
+        fieldArray[8][0] = f80;
+        fieldArray[8][1] = f81;
+        fieldArray[8][2] = f82;
+        fieldArray[8][3] = f83;
+        fieldArray[8][4] = f84;
+        fieldArray[8][5] = f85;
+        fieldArray[8][6] = f86;
+        fieldArray[8][7] = f87;
+        fieldArray[8][8] = f88;
+        fieldArray[8][9] = f89;
+        fieldArray[9][0] = f90;
+        fieldArray[9][1] = f91;
+        fieldArray[9][2] = f92;
+        fieldArray[9][3] = f93;
+        fieldArray[9][4] = f94;
+        fieldArray[9][5] = f95;
+        fieldArray[9][6] = f96;
+        fieldArray[9][7] = f97;
+        fieldArray[9][8] = f98;
+        fieldArray[9][9] = f99;
+    }
 
-	public static void PlayGame() {
-		//TODO Ablaufsteuerung. Auslesen des GameState, entsprechender Aufruf der anderen Methoden
-	}
+    public static void PlayGame() {
+        //TODO Ablaufsteuerung. Auslesen des GameState, entsprechender Aufruf der anderen Methoden
+    }
 
-	/**
-	 * Sets additional information labels visible or hides them. Important
-	 * before and after figure placing.
-	 */
-	public final void placementLabelVisible(boolean value) {
+    /**
+     * Sets additional information labels visible or hides them. Important
+     * before and after figure placing.
+     */
+    public final void placementLabelVisible(boolean value) {
 
-		labelFlagPlace.setVisible(value);
-		labelMarshalPlace.setVisible(value);
-		labelGeneralPlace.setVisible(value);
-		labelColonelPlace.setVisible(value);
-		labelMajorPlace.setVisible(value);
-		labelCaptainPlace.setVisible(value);
-		labelLieutenantPlace.setVisible(value);
-		labelSergeantPlace.setVisible(value);
-		labelMinerPlace.setVisible(value);
-		labelScoutPlace.setVisible(value);
-		labelSpyPlace.setVisible(value);
-		labelBombPlace.setVisible(value);
+        labelFlagPlace.setVisible(value);
+        labelMarshalPlace.setVisible(value);
+        labelGeneralPlace.setVisible(value);
+        labelColonelPlace.setVisible(value);
+        labelMajorPlace.setVisible(value);
+        labelCaptainPlace.setVisible(value);
+        labelLieutenantPlace.setVisible(value);
+        labelSergeantPlace.setVisible(value);
+        labelMinerPlace.setVisible(value);
+        labelScoutPlace.setVisible(value);
+        labelSpyPlace.setVisible(value);
+        labelBombPlace.setVisible(value);
 
-		labelFlagNumber.setVisible(value);
-		labelMarshalNumber.setVisible(value);
-		labelGeneralNumber.setVisible(value);
-		labelColonelNumber.setVisible(value);
-		labelMajorNumber.setVisible(value);
-		labelCaptainNumber.setVisible(value);
-		labelLieutenantNumber.setVisible(value);
-		labelSergeantNumber.setVisible(value);
-		labelMinerNumber.setVisible(value);
-		labelScoutNumber.setVisible(value);
-		labelSpyNumber.setVisible(value);
-		labelBombNumber.setVisible(value);
-	}
+        labelFlagNumber.setVisible(value);
+        labelMarshalNumber.setVisible(value);
+        labelGeneralNumber.setVisible(value);
+        labelColonelNumber.setVisible(value);
+        labelMajorNumber.setVisible(value);
+        labelCaptainNumber.setVisible(value);
+        labelLieutenantNumber.setVisible(value);
+        labelSergeantNumber.setVisible(value);
+        labelMinerNumber.setVisible(value);
+        labelScoutNumber.setVisible(value);
+        labelSpyNumber.setVisible(value);
+        labelBombNumber.setVisible(value);
+    }
 
     /**
      * Resets figures-placed-counter and shows information label, using
@@ -218,7 +217,7 @@ public class PlayBoard extends javax.swing.JFrame {
 
         figureCounter = new int[]{1, 1, 1, 2, 3, 4, 4, 4, 5, 8, 1, 6};
 
-		placementLabelVisible(true);
+        placementLabelVisible(true);
 
         labelFlagNumber.setText(String.valueOf(figureCounter[0]));
         labelMarshalNumber.setText(String.valueOf(figureCounter[1]));
@@ -234,54 +233,54 @@ public class PlayBoard extends javax.swing.JFrame {
         labelBombNumber.setText(String.valueOf(figureCounter[11]));
     }
 
-	/**
-	 * Changes color of icons in infoarea to fit current player.
-	 */
-	public void setInfoIconColor(Color playerColor) {
+    /**
+     * Changes color of icons in infoarea to fit current player.
+     */
+    public void setInfoIconColor(Color playerColor) {
 
-		String path = ("_" + playerColor + ".png");
+        String path = ("_" + playerColor + ".png");
 
-		labelFlagIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "flag" + path)));
-		labelMarshalIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "marshal" + path)));
-		labelGeneralIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "general" + path)));
-		labelColonelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "colonel" + path)));
-		labelMajorIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "major" + path)));
-		labelCaptainIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "captain" + path)));
-		labelLieutenantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "lieutenant" + path)));
-		labelSergeantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "sergeant" + path)));
-		labelMinerIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "miner" + path)));
-		labelScoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "scout" + path)));
-		labelSpyIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "spy" + path)));
-		labelBombIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "bomb" + path)));
+        labelFlagIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "flag" + path)));
+        labelMarshalIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "marshal" + path)));
+        labelGeneralIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "general" + path)));
+        labelColonelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "colonel" + path)));
+        labelMajorIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "major" + path)));
+        labelCaptainIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "captain" + path)));
+        labelLieutenantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "lieutenant" + path)));
+        labelSergeantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "sergeant" + path)));
+        labelMinerIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "miner" + path)));
+        labelScoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "scout" + path)));
+        labelSpyIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "spy" + path)));
+        labelBombIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "bomb" + path)));
 
-	}
+    }
 
-	/**
-	 * Reads piece from board in current game and sets icon of corresponding
-	 * field.
-	 */
-	public void updateIcons() {
-		String iconName = "";
-		String pieceType = "";
-		String pieceColor = "";
+    /**
+     * Reads piece from board in current game and sets icon of corresponding
+     * field.
+     */
+    public void updateIcons() {
+        String iconName = "";
+        String pieceType = "";
+        String pieceColor = "";
 
-		for (int x = 0; x <= 9; x++) {
-			for (int y = 0; y <= 9; y++) {
-				if (!currentGame.playBoard.board[x][y].isBlocked()) {
-					if (currentGame.playBoard.board[x][y] == null) {
-						fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));
-					} else {
-						pieceType = currentGame.playBoard.board[x][y].getPiece().getClass().toString();
-						pieceColor = currentGame.playBoard.board[x][y].getPiece().color.toString();
-						iconName = "/jstratego/gui/img/" + pieceType.toLowerCase() + "_" + pieceColor.toLowerCase() + ".png";
-						fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
-					}
-				}
-			}
-		}
+        for (int x = 0; x <= 9; x++) {
+            for (int y = 0; y <= 9; y++) {
+                if (!currentGame.playBoard.board[x][y].isBlocked()) {
+                    if (currentGame.playBoard.board[x][y] == null) {
+                        fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));
+                    } else {
+                        pieceType = currentGame.playBoard.board[x][y].getPiece().name;
+                        pieceColor = currentGame.playBoard.board[x][y].getPiece().color.toString();
+                        iconName = "/jstratego/gui/img/" + pieceType.toLowerCase() + "_" + pieceColor.toLowerCase() + ".png";
+                        fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
+                    }
+                }
+            }
+        }
 
 
-	}
+    }
 
     public void resetBorders() {
         for (int x = 0; x <= 9; x++) {
@@ -295,14 +294,14 @@ public class PlayBoard extends javax.swing.JFrame {
 
         setInfoIconColor(currentGame.gameState.getPlayerWithMove().playerColor);
         preparePlacement();
+        //TODO fortsetzen -- Steuerung der Platzierung -- läuft in callMove weiter
 
-		setInfoIconColor(player.playerColor);
-		preparePlacement();
-		//TODO fortsetzen -- Steuerung der Platzierung
+    }
 
-	}
+    public void showReachable(Field start) {
 
-	public void showReachable(Field start) {
+        int x = 0;
+        int y = 0;
 
         List<Field> reachableFields = currentGame.playBoard.reachableFields(start);
         if (reachableFields.isEmpty()) {
@@ -314,26 +313,19 @@ public class PlayBoard extends javax.swing.JFrame {
                 fieldArray[x][y].setBorder(highlighted);
             }
 
-		List<Field> reachableFields = currentGame.playBoard.reachableFields(start);
-		if (reachableFields.isEmpty()) {
-			//TODO msg andere Figur wählen
-		} else {
-			for (int i = 0; i < reachableFields.size(); i++) {
-				x = reachableFields.get(i).getX();
-				y = reachableFields.get(i).getY();
-				fieldArray[x][y].setBorder(highlighted);
-			}
+        }
+    }
 
-		}
-	}
+    public void callMove(JLabel field) {
 
-        if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.SETUPblue)
-                || currentGame.gameState.getCurrentGamephase().equals(Gamephase.SETUPred)) {
-            if (!field.getName().startsWith("f") && pieceToPlace == null) {
-                String pieceName = field.getName().substring(5, field.getName().length() - 4);
+        if ((currentGame.gameState.getCurrentGamephase() == jstratego.logic.game.Gamephase.SETUPblue)
+                || (currentGame.gameState.getCurrentGamephase() == jstratego.logic.game.Gamephase.SETUPred)) {
+            if (!(field.getName().length() == 3) && pieceToPlace == null) {
+                String pieceName = field.getName();
                 Color tempColor = currentGame.gameState.getPlayerWithMove().playerColor;
 
                 if (pieceName.equalsIgnoreCase("Flag")) {
+                    System.out.println("neue Flagge");
                     pieceToPlace = new Flag(tempColor, true, false);
                 } else if (pieceName.equalsIgnoreCase("Marshal")) {
                     pieceToPlace = new Marshal(tempColor, true, false);
@@ -362,7 +354,12 @@ public class PlayBoard extends javax.swing.JFrame {
                 if (field.getName().startsWith("f") && pieceToPlace != null) {
                     int x = field.getName().charAt(1);
                     int y = field.getName().charAt(2);
-                    currentGame.playBoard.board[x][y].setPiece(pieceToPlace, null);
+                    try {
+                        currentGame.playBoard.board[x][y].setPiece(pieceToPlace, null);
+                    } catch (Exception ex) {
+                    }
+                    
+                    updateIcons();
                 }
             }
 
@@ -374,35 +371,25 @@ public class PlayBoard extends javax.swing.JFrame {
                     int x = field.getName().charAt(1);
                     int y = field.getName().charAt(2);
 
-		if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.SETUPblue)
-			|| currentGame.gameState.getCurrentGamephase().equals(Gamephase.SETUPred)) {
-			//TODO auf Setup-Methode umleiten
-		} else {
-			if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.MOVEblue)
-				|| currentGame.gameState.getCurrentGamephase().equals(Gamephase.MOVEred)) {
-				{
-					int x = field.getName().charAt(1);
-					int y = field.getName().charAt(2);
+                    if (currentGame.gameState.getChallenger() == null) {
+                        currentGame.gameState.setChallenger(currentGame.playBoard.board[x][y].getPiece());
+                    } else {
+                        currentGame.gameState.setDefender(currentGame.playBoard.board[x][y].getPiece());
+                    }
+                }
+            } else {
+                //TODO Klick auf Feld bei Spielerwechsel abfangen
+            }//end if move
 
-					if (currentGame.gameState.getChallenger() == null) {
-						currentGame.gameState.setChallenger(currentGame.playBoard.board[x][y].getPiece());
-					} else {
-						currentGame.gameState.setDefender(currentGame.playBoard.board[x][y].getPiece());
-					}
-				}
-			} else {
-				//TODO Klick auf Feld bei Spielerwechsel abfangen
-			}//end if move
+        }//end if setup
+    }
 
-		}//end if setup
-	}
-
-	/**
-	 * This method is called from within the constructor to initialize the
-	 * form. WARNING: Do NOT modify this code. The content of this method is
-	 * always regenerated by the Form Editor.
-	 */
-	@SuppressWarnings("unchecked")
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
@@ -572,6 +559,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f00.setBackground(java.awt.Color.white);
         f00.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f00.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f00.setName("f00");
         f00.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f00MouseClicked(evt);
@@ -587,6 +575,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f01.setBackground(java.awt.Color.white);
         f01.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f01.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f01.setName("f01");
         f01.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f01MouseClicked(evt);
@@ -602,6 +591,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f02.setBackground(java.awt.Color.white);
         f02.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f02.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f02.setName("f02");
         f02.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f02MouseClicked(evt);
@@ -617,7 +607,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f03.setBackground(java.awt.Color.white);
         f03.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f03.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        f03.setName("");
+        f03.setName("f03");
         f03.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f03MouseClicked(evt);
@@ -633,6 +623,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f04.setBackground(java.awt.Color.white);
         f04.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f04.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f04.setName("f04");
         f04.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f04MouseClicked(evt);
@@ -648,6 +639,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f06.setBackground(java.awt.Color.white);
         f06.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f06.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f06.setName("f06");
         f06.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f06MouseClicked(evt);
@@ -663,6 +655,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f07.setBackground(java.awt.Color.white);
         f07.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f07.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f07.setName("f07");
         f07.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f07MouseClicked(evt);
@@ -678,6 +671,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f05.setBackground(java.awt.Color.white);
         f05.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f05.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f05.setName("f05");
         f05.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f05MouseClicked(evt);
@@ -693,6 +687,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f09.setBackground(java.awt.Color.white);
         f09.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f09.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f09.setName("f09");
         f09.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f09MouseClicked(evt);
@@ -708,6 +703,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f08.setBackground(java.awt.Color.white);
         f08.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f08.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f08.setName("f08");
         f08.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f08MouseClicked(evt);
@@ -723,6 +719,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f10.setBackground(java.awt.Color.white);
         f10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f10.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f10.setName("f10");
         f10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f10MouseClicked(evt);
@@ -738,6 +735,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f15.setBackground(java.awt.Color.white);
         f15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f15.setName("f15");
         f15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f15MouseClicked(evt);
@@ -752,6 +750,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f14.setBackground(java.awt.Color.white);
         f14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f14.setName("f14");
         f14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f14MouseClicked(evt);
@@ -766,6 +765,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f13.setBackground(java.awt.Color.white);
         f13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f13.setName("f13");
         f13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f13MouseClicked(evt);
@@ -780,6 +780,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f12.setBackground(java.awt.Color.white);
         f12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f12.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f12.setName("f12");
         f12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f12MouseClicked(evt);
@@ -794,6 +795,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f11.setBackground(java.awt.Color.white);
         f11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f11.setName("f11");
         f11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f11MouseClicked(evt);
@@ -808,6 +810,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f17.setBackground(java.awt.Color.white);
         f17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f17.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f17.setName("f17");
         f17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f17MouseClicked(evt);
@@ -822,6 +825,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f16.setBackground(java.awt.Color.white);
         f16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f16.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f16.setName("f16");
         f16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f16MouseClicked(evt);
@@ -836,6 +840,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f19.setBackground(java.awt.Color.white);
         f19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f19.setName("f19");
         f19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f19MouseClicked(evt);
@@ -851,6 +856,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f18.setBackground(java.awt.Color.white);
         f18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f18.setName("f18");
         f18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f18MouseClicked(evt);
@@ -865,6 +871,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f37.setBackground(java.awt.Color.white);
         f37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f37.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f37.setName("f37");
         f37.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f37MouseClicked(evt);
@@ -879,6 +886,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f38.setBackground(java.awt.Color.white);
         f38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f38.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f38.setName("f38");
         f38.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f38MouseClicked(evt);
@@ -893,6 +901,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f32.setBackground(java.awt.Color.white);
         f32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f32.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f32.setName("f32");
         f32.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f32MouseClicked(evt);
@@ -907,6 +916,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f31.setBackground(java.awt.Color.white);
         f31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f31.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f31.setName("f31");
         f31.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f31MouseClicked(evt);
@@ -921,6 +931,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f34.setBackground(java.awt.Color.white);
         f34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f34.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f34.setName("f34");
         f34.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f34MouseClicked(evt);
@@ -935,6 +946,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f33.setBackground(java.awt.Color.white);
         f33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f33.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f33.setName("f33");
         f33.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f33MouseClicked(evt);
@@ -949,6 +961,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f30.setBackground(java.awt.Color.white);
         f30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f30.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f30.setName("f30");
         f30.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f30MouseClicked(evt);
@@ -964,6 +977,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f35.setBackground(java.awt.Color.white);
         f35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f35.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f35.setName("f35");
         f35.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f35MouseClicked(evt);
@@ -978,6 +992,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f29.setBackground(java.awt.Color.white);
         f29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f29.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f29.setName("f29");
         f29.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f29MouseClicked(evt);
@@ -993,6 +1008,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f28.setBackground(java.awt.Color.white);
         f28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f28.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f28.setName("f28");
         f28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f28MouseClicked(evt);
@@ -1007,6 +1023,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f39.setBackground(java.awt.Color.white);
         f39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f39.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f39.setName("f39");
         f39.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f39MouseClicked(evt);
@@ -1022,6 +1039,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f20.setBackground(java.awt.Color.white);
         f20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f20.setName("f20");
         f20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f20MouseClicked(evt);
@@ -1037,6 +1055,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f36.setBackground(java.awt.Color.white);
         f36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f36.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f36.setName("f36");
         f36.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f36MouseClicked(evt);
@@ -1051,6 +1070,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f25.setBackground(java.awt.Color.white);
         f25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f25.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f25.setName("f25");
         f25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f25MouseClicked(evt);
@@ -1065,6 +1085,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f24.setBackground(java.awt.Color.white);
         f24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f24.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f24.setName("f24");
         f24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f24MouseClicked(evt);
@@ -1079,6 +1100,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f23.setBackground(java.awt.Color.white);
         f23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f23.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f23.setName("f23");
         f23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f23MouseClicked(evt);
@@ -1093,6 +1115,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f22.setBackground(java.awt.Color.white);
         f22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f22.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f22.setName("f22");
         f22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f22MouseClicked(evt);
@@ -1107,6 +1130,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f21.setBackground(java.awt.Color.white);
         f21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f21.setName("f21");
         f21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f21MouseClicked(evt);
@@ -1121,6 +1145,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f27.setBackground(java.awt.Color.white);
         f27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f27.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f27.setName("f27");
         f27.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f27MouseClicked(evt);
@@ -1135,6 +1160,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f26.setBackground(java.awt.Color.white);
         f26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f26.setName("f26");
         f26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f26MouseClicked(evt);
@@ -1149,6 +1175,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f44.setBackground(java.awt.Color.white);
         f44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f44.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f44.setName("f44");
         f44.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f44MouseClicked(evt);
@@ -1163,6 +1190,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f41.setBackground(java.awt.Color.white);
         f41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f41.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f41.setName("f41");
         f41.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f41MouseClicked(evt);
@@ -1201,6 +1229,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f54.setBackground(java.awt.Color.white);
         f54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f54.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f54.setName("f54");
         f54.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f54MouseClicked(evt);
@@ -1215,6 +1244,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f59.setBackground(java.awt.Color.white);
         f59.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f59.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f59.setName("f59");
         f59.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f59MouseClicked(evt);
@@ -1230,6 +1260,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f51.setBackground(java.awt.Color.white);
         f51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f51.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f51.setName("f51");
         f51.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f51MouseClicked(evt);
@@ -1252,6 +1283,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f50.setBackground(java.awt.Color.white);
         f50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f50.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f50.setName("f50");
         f50.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f50MouseClicked(evt);
@@ -1275,6 +1307,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f45.setBackground(java.awt.Color.white);
         f45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f45.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f45.setName("f45");
         f45.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f45MouseClicked(evt);
@@ -1289,6 +1322,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f58.setBackground(java.awt.Color.white);
         f58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f58.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f58.setName("f58");
         f58.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f58MouseClicked(evt);
@@ -1303,6 +1337,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f48.setBackground(java.awt.Color.white);
         f48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f48.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f48.setName("f48");
         f48.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f48MouseClicked(evt);
@@ -1325,6 +1360,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f40.setBackground(java.awt.Color.white);
         f40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f40.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f40.setName("f40");
         f40.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f40MouseClicked(evt);
@@ -1340,6 +1376,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f55.setBackground(java.awt.Color.white);
         f55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f55.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f55.setName("f55");
         f55.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f55MouseClicked(evt);
@@ -1362,6 +1399,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f49.setBackground(java.awt.Color.white);
         f49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f49.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f49.setName("f49");
         f49.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f49MouseClicked(evt);
@@ -1385,6 +1423,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f76.setBackground(java.awt.Color.white);
         f76.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f76.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f76.setName("f76");
         f76.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f76MouseClicked(evt);
@@ -1399,6 +1438,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f65.setBackground(java.awt.Color.white);
         f65.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f65.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f65.setName("f65");
         f65.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f65MouseClicked(evt);
@@ -1413,6 +1453,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f79.setBackground(java.awt.Color.white);
         f79.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f79.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f79.setName("f79");
         f79.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f79MouseClicked(evt);
@@ -1428,6 +1469,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f60.setBackground(java.awt.Color.white);
         f60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f60.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f60.setName("f60");
         f60.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f60MouseClicked(evt);
@@ -1443,6 +1485,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f62.setBackground(java.awt.Color.white);
         f62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f62.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f62.setName("f62");
         f62.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f62MouseClicked(evt);
@@ -1457,6 +1500,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f64.setBackground(java.awt.Color.white);
         f64.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f64.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f64.setName("f64");
         f64.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f64MouseClicked(evt);
@@ -1471,6 +1515,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f63.setBackground(java.awt.Color.white);
         f63.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f63.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f63.setName("f63");
         f63.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f63MouseClicked(evt);
@@ -1485,6 +1530,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f84.setBackground(java.awt.Color.white);
         f84.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f84.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f84.setName("f84");
         f84.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f84MouseClicked(evt);
@@ -1499,6 +1545,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f66.setBackground(java.awt.Color.white);
         f66.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f66.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f66.setName("f66");
         f66.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f66MouseClicked(evt);
@@ -1513,6 +1560,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f67.setBackground(java.awt.Color.white);
         f67.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f67.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f67.setName("f67");
         f67.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f67MouseClicked(evt);
@@ -1527,6 +1575,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f61.setBackground(java.awt.Color.white);
         f61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f61.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f61.setName("f61");
         f61.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f61MouseClicked(evt);
@@ -1541,6 +1590,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f77.setBackground(java.awt.Color.white);
         f77.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f77.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f77.setName("f77");
         f77.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f77MouseClicked(evt);
@@ -1555,6 +1605,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f78.setBackground(java.awt.Color.white);
         f78.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f78.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f78.setName("f78");
         f78.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f78MouseClicked(evt);
@@ -1569,6 +1620,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f72.setBackground(java.awt.Color.white);
         f72.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f72.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f72.setName("f72");
         f72.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f72MouseClicked(evt);
@@ -1583,6 +1635,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f71.setBackground(java.awt.Color.white);
         f71.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f71.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f71.setName("f71");
         f71.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f71MouseClicked(evt);
@@ -1597,6 +1650,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f74.setBackground(java.awt.Color.white);
         f74.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f74.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f74.setName("f74");
         f74.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f74MouseClicked(evt);
@@ -1611,6 +1665,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f73.setBackground(java.awt.Color.white);
         f73.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f73.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f73.setName("f73");
         f73.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f73MouseClicked(evt);
@@ -1625,6 +1680,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f70.setBackground(java.awt.Color.white);
         f70.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f70.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f70.setName("f70");
         f70.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f70MouseClicked(evt);
@@ -1640,6 +1696,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f75.setBackground(java.awt.Color.white);
         f75.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f75.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f75.setName("f75");
         f75.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f75MouseClicked(evt);
@@ -1654,6 +1711,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f68.setBackground(java.awt.Color.white);
         f68.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f68.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f68.setName("f68");
         f68.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f68MouseClicked(evt);
@@ -1668,6 +1726,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f69.setBackground(java.awt.Color.white);
         f69.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f69.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f69.setName("f69");
         f69.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f69MouseClicked(evt);
@@ -1683,6 +1742,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f95.setBackground(java.awt.Color.white);
         f95.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f95.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f95.setName("f95");
         f95.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f95MouseClicked(evt);
@@ -1698,6 +1758,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f80.setBackground(java.awt.Color.white);
         f80.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f80.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f80.setName("f80");
         f80.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f80MouseClicked(evt);
@@ -1713,6 +1774,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f92.setBackground(java.awt.Color.white);
         f92.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f92.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f92.setName("f92");
         f92.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f92MouseClicked(evt);
@@ -1728,6 +1790,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f88.setBackground(java.awt.Color.white);
         f88.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f88.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f88.setName("f88");
         f88.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f88MouseClicked(evt);
@@ -1742,6 +1805,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f98.setBackground(java.awt.Color.white);
         f98.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f98.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f98.setName("f98");
         f98.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f98MouseClicked(evt);
@@ -1757,6 +1821,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f83.setBackground(java.awt.Color.white);
         f83.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f83.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f83.setName("f83");
         f83.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f83MouseClicked(evt);
@@ -1771,6 +1836,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f93.setBackground(java.awt.Color.white);
         f93.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f93.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f93.setName("f93");
         f93.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f93MouseClicked(evt);
@@ -1786,6 +1852,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f89.setBackground(java.awt.Color.white);
         f89.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f89.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f89.setName("f89");
         f89.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f89MouseClicked(evt);
@@ -1801,6 +1868,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f99.setBackground(java.awt.Color.white);
         f99.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f99.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f99.setName("f99");
         f99.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f99MouseClicked(evt);
@@ -1816,6 +1884,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f94.setBackground(java.awt.Color.white);
         f94.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f94.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f94.setName("f94");
         f94.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f94MouseClicked(evt);
@@ -1831,6 +1900,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f87.setBackground(java.awt.Color.white);
         f87.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f87.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f87.setName("f87");
         f87.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f87MouseClicked(evt);
@@ -1845,6 +1915,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f81.setBackground(java.awt.Color.white);
         f81.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f81.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f81.setName("f81");
         f81.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f81MouseClicked(evt);
@@ -1859,6 +1930,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f96.setBackground(java.awt.Color.white);
         f96.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f96.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f96.setName("f96");
         f96.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f96MouseClicked(evt);
@@ -1874,6 +1946,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f82.setBackground(java.awt.Color.white);
         f82.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f82.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f82.setName("f82");
         f82.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f82MouseClicked(evt);
@@ -1888,6 +1961,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f97.setBackground(java.awt.Color.white);
         f97.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f97.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f97.setName("f97");
         f97.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f97MouseClicked(evt);
@@ -1903,6 +1977,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f90.setBackground(java.awt.Color.white);
         f90.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f90.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f90.setName("f90");
         f90.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f90MouseClicked(evt);
@@ -1918,6 +1993,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f86.setBackground(java.awt.Color.white);
         f86.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f86.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f86.setName("f86");
         f86.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f86MouseClicked(evt);
@@ -1932,6 +2008,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f85.setBackground(java.awt.Color.white);
         f85.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f85.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f85.setName("f85");
         f85.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f85MouseClicked(evt);
@@ -1946,6 +2023,7 @@ public class PlayBoard extends javax.swing.JFrame {
         f91.setBackground(java.awt.Color.white);
         f91.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png"))); // NOI18N
         f91.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        f91.setName("f91");
         f91.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 f91MouseClicked(evt);
@@ -2000,6 +2078,7 @@ public class PlayBoard extends javax.swing.JFrame {
         labelBombName.setText("Bombe");
 
         labelSergeantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/sergeant_blue.png"))); // NOI18N
+        labelSergeantIcon.setName("sergeant");
 
         labelMinerName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         labelMinerName.setForeground(new java.awt.Color(255, 255, 0));
@@ -2010,8 +2089,10 @@ public class PlayBoard extends javax.swing.JFrame {
         labelBombPlace.setText("zu platzieren:");
 
         labelBombIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/bomb_blue.png"))); // NOI18N
+        labelBombIcon.setName("bomb");
 
         labelMinerIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/miner_blue.png"))); // NOI18N
+        labelMinerIcon.setName("miner");
 
         labelSergeantName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         labelSergeantName.setForeground(new java.awt.Color(255, 255, 0));
@@ -2022,6 +2103,7 @@ public class PlayBoard extends javax.swing.JFrame {
         labelSpyPlace.setText("zu platzieren:");
 
         labelScoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/scout_blue.png"))); // NOI18N
+        labelScoutIcon.setName("scout");
 
         labelLieutenantPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         labelLieutenantPlace.setForeground(new java.awt.Color(255, 255, 0));
@@ -2032,12 +2114,14 @@ public class PlayBoard extends javax.swing.JFrame {
         labelScoutPlace.setText("zu platzieren:");
 
         labelSpyIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/spy_blue.png"))); // NOI18N
+        labelSpyIcon.setName("spy");
 
         labelSpyName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         labelSpyName.setForeground(new java.awt.Color(255, 255, 0));
         labelSpyName.setText("Spion");
 
         labelLieutenantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/lieutenant_blue.png"))); // NOI18N
+        labelLieutenantIcon.setName("lieutenant");
 
         labelLieutenantName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         labelLieutenantName.setForeground(new java.awt.Color(255, 255, 0));
@@ -2187,6 +2271,12 @@ public class PlayBoard extends javax.swing.JFrame {
         panelInfoAreaLeft.setOpaque(false);
 
         labelMarshalIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/marshal_blue.png"))); // NOI18N
+        labelMarshalIcon.setName("marshal");
+        labelMarshalIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelMarshalIconMouseClicked(evt);
+            }
+        });
 
         labelColonelName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         labelColonelName.setForeground(new java.awt.Color(255, 255, 0));
@@ -2205,8 +2295,15 @@ public class PlayBoard extends javax.swing.JFrame {
         labelGeneralPlace.setText("zu platzieren:");
 
         labelFlagIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/flag_blue.png"))); // NOI18N
+        labelFlagIcon.setName("flag");
+        labelFlagIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelFlagIconMouseClicked(evt);
+            }
+        });
 
         labelCaptainIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/captain_blue.png"))); // NOI18N
+        labelCaptainIcon.setName("captain");
 
         labelFlagPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         labelFlagPlace.setForeground(new java.awt.Color(255, 255, 0));
@@ -2237,14 +2334,22 @@ public class PlayBoard extends javax.swing.JFrame {
         labelFlagName.setText("Flagge");
 
         labelGeneralIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/general_blue.png"))); // NOI18N
+        labelGeneralIcon.setName("general");
+        labelGeneralIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelGeneralIconMouseClicked(evt);
+            }
+        });
 
         labelColonelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/colonel_blue.png"))); // NOI18N
+        labelColonelIcon.setName("colonel");
 
         labelColonelPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         labelColonelPlace.setForeground(new java.awt.Color(255, 255, 0));
         labelColonelPlace.setText("zu platzieren:");
 
         labelMajorIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/major_blue.png"))); // NOI18N
+        labelMajorIcon.setName("major");
 
         labelFlagNumber.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         labelFlagNumber.setForeground(new java.awt.Color(255, 255, 0));
@@ -2443,438 +2548,451 @@ public class PlayBoard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSetActionPerformed
-	    // TODO add your handling code here:
+        System.out.println(f00.getName());
     }//GEN-LAST:event_buttonSetActionPerformed
 
 //<editor-fold defaultstate="collapsed" desc=" MouseClickedEvents of all labels in game panel ">
     private void f34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f34MouseClicked
-	    callMove(f34);
+        callMove(f34);
     }//GEN-LAST:event_f34MouseClicked
 
     private void f33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f33MouseClicked
-	    callMove(f33);
+        callMove(f33);
     }//GEN-LAST:event_f33MouseClicked
 
     private void f00MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f00MouseClicked
-	    callMove(f00);
+        callMove(f00);
     }//GEN-LAST:event_f00MouseClicked
 
     private void f01MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f01MouseClicked
-	    callMove(f01);
+        callMove(f01);
     }//GEN-LAST:event_f01MouseClicked
 
     private void f02MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f02MouseClicked
-	    callMove(f02);
+        callMove(f02);
     }//GEN-LAST:event_f02MouseClicked
 
     private void f03MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f03MouseClicked
-	    callMove(f03);
+        callMove(f03);
     }//GEN-LAST:event_f03MouseClicked
 
     private void f04MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f04MouseClicked
-	    callMove(f04);
+        callMove(f04);
     }//GEN-LAST:event_f04MouseClicked
 
     private void f05MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f05MouseClicked
-	    callMove(f05);
+        callMove(f05);
     }//GEN-LAST:event_f05MouseClicked
 
     private void f06MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f06MouseClicked
-	    callMove(f06);
+        callMove(f06);
     }//GEN-LAST:event_f06MouseClicked
 
     private void f07MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f07MouseClicked
-	    callMove(f07);
+        callMove(f07);
     }//GEN-LAST:event_f07MouseClicked
 
     private void f08MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f08MouseClicked
-	    callMove(f08);
+        callMove(f08);
     }//GEN-LAST:event_f08MouseClicked
 
     private void f09MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f09MouseClicked
-	    callMove(f09);
+        callMove(f09);
     }//GEN-LAST:event_f09MouseClicked
 
     private void f10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f10MouseClicked
-	    callMove(f10);
+        callMove(f10);
     }//GEN-LAST:event_f10MouseClicked
 
     private void f11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f11MouseClicked
-	    callMove(f11);
+        callMove(f11);
     }//GEN-LAST:event_f11MouseClicked
 
     private void f12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f12MouseClicked
-	    callMove(f12);
+        callMove(f12);
     }//GEN-LAST:event_f12MouseClicked
 
     private void f13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f13MouseClicked
-	    callMove(f13);
+        callMove(f13);
     }//GEN-LAST:event_f13MouseClicked
 
     private void f14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f14MouseClicked
-	    callMove(f14);
+        callMove(f14);
     }//GEN-LAST:event_f14MouseClicked
 
     private void f15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f15MouseClicked
-	    callMove(f15);
+        callMove(f15);
     }//GEN-LAST:event_f15MouseClicked
 
     private void f16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f16MouseClicked
-	    callMove(f16);
+        callMove(f16);
     }//GEN-LAST:event_f16MouseClicked
 
     private void f17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f17MouseClicked
-	    callMove(f17);
+        callMove(f17);
     }//GEN-LAST:event_f17MouseClicked
 
     private void f18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f18MouseClicked
-	    callMove(f18);
+        callMove(f18);
     }//GEN-LAST:event_f18MouseClicked
 
     private void f19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f19MouseClicked
-	    callMove(f19);
+        callMove(f19);
     }//GEN-LAST:event_f19MouseClicked
 
     private void f20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f20MouseClicked
-	    callMove(f20);
+        callMove(f20);
     }//GEN-LAST:event_f20MouseClicked
 
     private void f21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f21MouseClicked
-	    callMove(f21);
+        callMove(f21);
     }//GEN-LAST:event_f21MouseClicked
 
     private void f22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f22MouseClicked
-	    callMove(f22);
+        callMove(f22);
     }//GEN-LAST:event_f22MouseClicked
 
     private void f23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f23MouseClicked
-	    callMove(f23);
+        callMove(f23);
     }//GEN-LAST:event_f23MouseClicked
 
     private void f24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f24MouseClicked
-	    callMove(f24);
+        callMove(f24);
     }//GEN-LAST:event_f24MouseClicked
 
     private void f25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f25MouseClicked
-	    callMove(f25);
+        callMove(f25);
     }//GEN-LAST:event_f25MouseClicked
 
     private void f26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f26MouseClicked
-	    callMove(f26);
+        callMove(f26);
     }//GEN-LAST:event_f26MouseClicked
 
     private void f27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f27MouseClicked
-	    callMove(f27);
+        callMove(f27);
     }//GEN-LAST:event_f27MouseClicked
 
     private void f28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f28MouseClicked
-	    callMove(f28);
+        callMove(f28);
     }//GEN-LAST:event_f28MouseClicked
 
     private void f29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f29MouseClicked
-	    callMove(f29);
+        callMove(f29);
     }//GEN-LAST:event_f29MouseClicked
 
     private void f30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f30MouseClicked
-	    callMove(f30);
+        callMove(f30);
     }//GEN-LAST:event_f30MouseClicked
 
     private void f31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f31MouseClicked
-	    callMove(f31);
+        callMove(f31);
     }//GEN-LAST:event_f31MouseClicked
 
     private void f32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f32MouseClicked
-	    callMove(f32);
+        callMove(f32);
     }//GEN-LAST:event_f32MouseClicked
 
     private void f35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f35MouseClicked
-	    callMove(f35);
+        callMove(f35);
     }//GEN-LAST:event_f35MouseClicked
 
     private void f36MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f36MouseClicked
-	    callMove(f36);
+        callMove(f36);
     }//GEN-LAST:event_f36MouseClicked
 
     private void f37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f37MouseClicked
-	    callMove(f37);
+        callMove(f37);
     }//GEN-LAST:event_f37MouseClicked
 
     private void f38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f38MouseClicked
-	    callMove(f38);
+        callMove(f38);
     }//GEN-LAST:event_f38MouseClicked
 
     private void f39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f39MouseClicked
-	    callMove(f39);
+        callMove(f39);
     }//GEN-LAST:event_f39MouseClicked
 
     private void f40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f40MouseClicked
-	    callMove(f40);
+        callMove(f40);
     }//GEN-LAST:event_f40MouseClicked
 
     private void f41MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f41MouseClicked
-	    callMove(f41);
+        callMove(f41);
     }//GEN-LAST:event_f41MouseClicked
 
     private void f44MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f44MouseClicked
-	    callMove(f44);
+        callMove(f44);
     }//GEN-LAST:event_f44MouseClicked
 
     private void f45MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f45MouseClicked
-	    callMove(f45);
+        callMove(f45);
     }//GEN-LAST:event_f45MouseClicked
 
     private void f48MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f48MouseClicked
-	    callMove(f48);
+        callMove(f48);
     }//GEN-LAST:event_f48MouseClicked
 
     private void f49MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f49MouseClicked
-	    callMove(f49);
+        callMove(f49);
     }//GEN-LAST:event_f49MouseClicked
 
     private void f50MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f50MouseClicked
-	    callMove(f50);
+        callMove(f50);
     }//GEN-LAST:event_f50MouseClicked
 
     private void f51MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f51MouseClicked
-	    callMove(f51);
+        callMove(f51);
     }//GEN-LAST:event_f51MouseClicked
 
     private void f54MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f54MouseClicked
-	    callMove(f54);
+        callMove(f54);
     }//GEN-LAST:event_f54MouseClicked
 
     private void f55MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f55MouseClicked
-	    callMove(f55);
+        callMove(f55);
     }//GEN-LAST:event_f55MouseClicked
 
     private void f58MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f58MouseClicked
-	    callMove(f58);
+        callMove(f58);
     }//GEN-LAST:event_f58MouseClicked
 
     private void f59MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f59MouseClicked
-	    callMove(f59);
+        callMove(f59);
     }//GEN-LAST:event_f59MouseClicked
 
     private void f60MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f60MouseClicked
-	    callMove(f60);
+        callMove(f60);
     }//GEN-LAST:event_f60MouseClicked
 
     private void f61MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f61MouseClicked
-	    callMove(f61);
+        callMove(f61);
     }//GEN-LAST:event_f61MouseClicked
 
     private void f62MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f62MouseClicked
-	    callMove(f62);
+        callMove(f62);
     }//GEN-LAST:event_f62MouseClicked
 
     private void f63MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f63MouseClicked
-	    callMove(f63);
+        callMove(f63);
     }//GEN-LAST:event_f63MouseClicked
 
     private void f64MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f64MouseClicked
-	    callMove(f64);
+        callMove(f64);
     }//GEN-LAST:event_f64MouseClicked
 
     private void f65MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f65MouseClicked
-	    callMove(f65);
+        callMove(f65);
     }//GEN-LAST:event_f65MouseClicked
 
     private void f66MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f66MouseClicked
-	    callMove(f66);
+        callMove(f66);
     }//GEN-LAST:event_f66MouseClicked
 
     private void f67MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f67MouseClicked
-	    callMove(f67);
+        callMove(f67);
     }//GEN-LAST:event_f67MouseClicked
 
     private void f68MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f68MouseClicked
-	    callMove(f68);
+        callMove(f68);
     }//GEN-LAST:event_f68MouseClicked
 
     private void f69MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f69MouseClicked
-	    callMove(f69);
+        callMove(f69);
     }//GEN-LAST:event_f69MouseClicked
 
     private void f70MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f70MouseClicked
-	    callMove(f70);
+        callMove(f70);
     }//GEN-LAST:event_f70MouseClicked
 
     private void f71MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f71MouseClicked
-	    callMove(f71);
+        callMove(f71);
     }//GEN-LAST:event_f71MouseClicked
 
     private void f72MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f72MouseClicked
-	    callMove(f72);
+        callMove(f72);
     }//GEN-LAST:event_f72MouseClicked
 
     private void f73MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f73MouseClicked
-	    callMove(f73);
+        callMove(f73);
     }//GEN-LAST:event_f73MouseClicked
 
     private void f74MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f74MouseClicked
-	    callMove(f74);
+        callMove(f74);
     }//GEN-LAST:event_f74MouseClicked
 
     private void f75MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f75MouseClicked
-	    callMove(f75);
+        callMove(f75);
     }//GEN-LAST:event_f75MouseClicked
 
     private void f76MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f76MouseClicked
-	    callMove(f76);
+        callMove(f76);
     }//GEN-LAST:event_f76MouseClicked
 
     private void f77MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f77MouseClicked
-	    callMove(f77);
+        callMove(f77);
     }//GEN-LAST:event_f77MouseClicked
 
     private void f78MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f78MouseClicked
-	    callMove(f78);
+        callMove(f78);
     }//GEN-LAST:event_f78MouseClicked
 
     private void f79MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f79MouseClicked
-	    callMove(f79);
+        callMove(f79);
     }//GEN-LAST:event_f79MouseClicked
 
     private void f80MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f80MouseClicked
-	    callMove(f80);
+        callMove(f80);
     }//GEN-LAST:event_f80MouseClicked
 
     private void f81MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f81MouseClicked
-	    callMove(f81);
+        callMove(f81);
     }//GEN-LAST:event_f81MouseClicked
 
     private void f82MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f82MouseClicked
-	    callMove(f82);
+        callMove(f82);
     }//GEN-LAST:event_f82MouseClicked
 
     private void f83MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f83MouseClicked
-	    callMove(f83);
+        callMove(f83);
     }//GEN-LAST:event_f83MouseClicked
 
     private void f84MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f84MouseClicked
-	    callMove(f84);
+        callMove(f84);
     }//GEN-LAST:event_f84MouseClicked
 
     private void f85MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f85MouseClicked
-	    callMove(f85);
+        callMove(f85);
     }//GEN-LAST:event_f85MouseClicked
 
     private void f86MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f86MouseClicked
-	    callMove(f86);
+        callMove(f86);
     }//GEN-LAST:event_f86MouseClicked
 
     private void f87MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f87MouseClicked
-	    callMove(f87);
+        callMove(f87);
     }//GEN-LAST:event_f87MouseClicked
 
     private void f88MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f88MouseClicked
-	    callMove(f88);
+        callMove(f88);
     }//GEN-LAST:event_f88MouseClicked
 
     private void f89MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f89MouseClicked
-	    callMove(f89);
+        callMove(f89);
     }//GEN-LAST:event_f89MouseClicked
 
     private void f90MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f90MouseClicked
-	    callMove(f90);
+        callMove(f90);
     }//GEN-LAST:event_f90MouseClicked
 
     private void f91MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f91MouseClicked
-	    callMove(f91);
+        callMove(f91);
     }//GEN-LAST:event_f91MouseClicked
 
     private void f92MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f92MouseClicked
-	    callMove(f92);
+        callMove(f92);
     }//GEN-LAST:event_f92MouseClicked
 
     private void f93MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f93MouseClicked
-	    callMove(f93);
+        callMove(f93);
     }//GEN-LAST:event_f93MouseClicked
 
     private void f94MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f94MouseClicked
-	    callMove(f94);
+        callMove(f94);
     }//GEN-LAST:event_f94MouseClicked
 
     private void f95MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f95MouseClicked
-	    callMove(f95);
+        callMove(f95);
     }//GEN-LAST:event_f95MouseClicked
 
     private void f96MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f96MouseClicked
-	    callMove(f96);
+        callMove(f96);
     }//GEN-LAST:event_f96MouseClicked
 
     private void f97MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f97MouseClicked
-	    callMove(f97);
+        callMove(f97);
     }//GEN-LAST:event_f97MouseClicked
 
     private void f98MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f98MouseClicked
-	    callMove(f98);
+        callMove(f98);
     }//GEN-LAST:event_f98MouseClicked
 
     private void f99MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f99MouseClicked
-	    callMove(f99);
+        callMove(f99);
     }//GEN-LAST:event_f99MouseClicked
 //</editor-fold>
 
-	/*
-	 * Restarts game at every time.
-	 */
+    /*
+     * Restarts game at every time.
+     */
     private void buttonRestartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonRestartMouseClicked
 
-	    int confirm = JOptionPane.showConfirmDialog(null, "Wirklich neues Spiel starten?", "Neues Spiel", JOptionPane.YES_NO_OPTION);
-	    if (confirm == JOptionPane.YES_OPTION) {
-		    jstratego.gui.game.StartScreen.main(null);
-		    setVisible(false);
-	    }
+        int confirm = JOptionPane.showConfirmDialog(null, "Wirklich neues Spiel starten?", "Neues Spiel", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            jstratego.gui.game.StartScreen.main(null);
+            setVisible(false);
+        }
     }//GEN-LAST:event_buttonRestartMouseClicked
 
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(Game game) {
-		/*
-		 * Set the Nimbus look and feel
-		 */
-		//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//<editor-fold defaultstate="collapsed" desc=" MouseClickedEvents of all labels in info panel ">
+    private void labelFlagIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelFlagIconMouseClicked
+        callMove(labelFlagIcon);
+    }//GEN-LAST:event_labelFlagIconMouseClicked
+
+    private void labelMarshalIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelMarshalIconMouseClicked
+        callMove(labelMarshalIcon);
+    }//GEN-LAST:event_labelMarshalIconMouseClicked
+
+    private void labelGeneralIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGeneralIconMouseClicked
+        callMove(labelGeneralIcon);
+    }//GEN-LAST:event_labelGeneralIconMouseClicked
+//</editor-fold>
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(Game game) {
         /*
-		 * If Nimbus (introduced in Java SE 6) is not available, stay
-		 * with the default look and feel. For details see
-		 * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-		 */
-		try {
-			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-				if ("Nimbus".equals(info.getName())) {
-					javax.swing.UIManager.setLookAndFeel(info.getClassName());
-					break;
+         * Set the Nimbus look and feel
+         */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /*
+         * If Nimbus (introduced in Java SE 6) is not available, stay with the
+         * default look and feel. For details see
+         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
 
 
 
 
-				}
-			}
-		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-		}
-		//</editor-fold>
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
-		/*
-		 * Create and display the form
-		 */
-		java.awt.EventQueue.invokeLater(new Runnable() {
+        /*
+         * Create and display the form
+         */
+        java.awt.EventQueue.invokeLater(new Runnable() {
 
-			public void run() {
-				new PlayBoard().setVisible(true);
-			}
-		});
-//		currentGame = game;
-		PlayGame();
-	}
+            public void run() {
+                new PlayBoard().setVisible(true);
+            }
+        });
+	currentGame = game;
+        PlayGame();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonRestart;
     private javax.swing.JButton buttonSet;

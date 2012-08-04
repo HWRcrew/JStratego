@@ -164,10 +164,10 @@ public class StartScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBlueKeyTyped
 
     private void buttonStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonStartMouseClicked
-        // TODO add your handling code here:
-        //TODO Namen beider Spieler übergeben
         Game game = new Game(txtRed.getText(), txtBlue.getText());
+        System.out.println("Neues Spiel erstellt.");
         jstratego.gui.game.PlayBoard.main(game);
+        System.out.println("Spiel übergeben.");
         setVisible(false);
     }//GEN-LAST:event_buttonStartMouseClicked
 

@@ -53,6 +53,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f00"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f00MouseClicked"/>
@@ -72,6 +73,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f01"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f01MouseClicked"/>
@@ -91,6 +93,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f02"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f02MouseClicked"/>
@@ -110,7 +113,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="name" type="java.lang.String" value=""/>
+            <Property name="name" type="java.lang.String" value="f03"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f03MouseClicked"/>
@@ -130,6 +133,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f04"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f04MouseClicked"/>
@@ -149,6 +153,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f06"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f06MouseClicked"/>
@@ -168,6 +173,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f07"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f07MouseClicked"/>
@@ -187,6 +193,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f05"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f05MouseClicked"/>
@@ -206,6 +213,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f09"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f09MouseClicked"/>
@@ -225,6 +233,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f08"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f08MouseClicked"/>
@@ -244,6 +253,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f10"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f10MouseClicked"/>
@@ -263,6 +273,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f15"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f15MouseClicked"/>
@@ -282,6 +293,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f14"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f14MouseClicked"/>
@@ -301,6 +313,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f13"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f13MouseClicked"/>
@@ -320,6 +333,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f12"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f12MouseClicked"/>
@@ -339,6 +353,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f11"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f11MouseClicked"/>
@@ -358,6 +373,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f17"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f17MouseClicked"/>
@@ -377,6 +393,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f16"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f16MouseClicked"/>
@@ -396,6 +413,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f19"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f19MouseClicked"/>
@@ -415,6 +433,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f18"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f18MouseClicked"/>
@@ -434,6 +453,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f37"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f37MouseClicked"/>
@@ -453,6 +473,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f38"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f38MouseClicked"/>
@@ -472,6 +493,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f32"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f32MouseClicked"/>
@@ -491,6 +513,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f31"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f31MouseClicked"/>
@@ -510,6 +533,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f34"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f34MouseClicked"/>
@@ -529,6 +553,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f33"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f33MouseClicked"/>
@@ -548,6 +573,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f30"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f30MouseClicked"/>
@@ -567,6 +593,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f35"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f35MouseClicked"/>
@@ -586,6 +613,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f29"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f29MouseClicked"/>
@@ -605,6 +633,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f28"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f28MouseClicked"/>
@@ -624,6 +653,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f39"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f39MouseClicked"/>
@@ -643,6 +673,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f20"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f20MouseClicked"/>
@@ -662,6 +693,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f36"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f36MouseClicked"/>
@@ -681,6 +713,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f25"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f25MouseClicked"/>
@@ -700,6 +733,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f24"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f24MouseClicked"/>
@@ -719,6 +753,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f23"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f23MouseClicked"/>
@@ -738,6 +773,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f22"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f22MouseClicked"/>
@@ -757,6 +793,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f21"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f21MouseClicked"/>
@@ -776,6 +813,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f27"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f27MouseClicked"/>
@@ -795,6 +833,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f26"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f26MouseClicked"/>
@@ -814,6 +853,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f44"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f44MouseClicked"/>
@@ -833,6 +873,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f41"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f41MouseClicked"/>
@@ -891,6 +932,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f54"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f54MouseClicked"/>
@@ -910,6 +952,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f59"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f59MouseClicked"/>
@@ -929,6 +972,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f51"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f51MouseClicked"/>
@@ -961,6 +1005,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f50"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f50MouseClicked"/>
@@ -993,6 +1038,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f45"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f45MouseClicked"/>
@@ -1012,6 +1058,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f58"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f58MouseClicked"/>
@@ -1031,6 +1078,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f48"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f48MouseClicked"/>
@@ -1063,6 +1111,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f40"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f40MouseClicked"/>
@@ -1082,6 +1131,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f55"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f55MouseClicked"/>
@@ -1114,6 +1164,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f49"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f49MouseClicked"/>
@@ -1146,6 +1197,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f76"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f76MouseClicked"/>
@@ -1165,6 +1217,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f65"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f65MouseClicked"/>
@@ -1184,6 +1237,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f79"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f79MouseClicked"/>
@@ -1203,6 +1257,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f60"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f60MouseClicked"/>
@@ -1222,6 +1277,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f62"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f62MouseClicked"/>
@@ -1241,6 +1297,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f64"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f64MouseClicked"/>
@@ -1260,6 +1317,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f63"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f63MouseClicked"/>
@@ -1279,6 +1337,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f84"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f84MouseClicked"/>
@@ -1298,6 +1357,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f66"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f66MouseClicked"/>
@@ -1317,6 +1377,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f67"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f67MouseClicked"/>
@@ -1336,6 +1397,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f61"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f61MouseClicked"/>
@@ -1355,6 +1417,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f77"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f77MouseClicked"/>
@@ -1374,6 +1437,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f78"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f78MouseClicked"/>
@@ -1393,6 +1457,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f72"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f72MouseClicked"/>
@@ -1412,6 +1477,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f71"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f71MouseClicked"/>
@@ -1431,6 +1497,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f74"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f74MouseClicked"/>
@@ -1450,6 +1517,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f73"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f73MouseClicked"/>
@@ -1469,6 +1537,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f70"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f70MouseClicked"/>
@@ -1488,6 +1557,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f75"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f75MouseClicked"/>
@@ -1507,6 +1577,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f68"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f68MouseClicked"/>
@@ -1526,6 +1597,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f69"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f69MouseClicked"/>
@@ -1545,6 +1617,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f95"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f95MouseClicked"/>
@@ -1564,6 +1637,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f80"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f80MouseClicked"/>
@@ -1583,6 +1657,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f92"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f92MouseClicked"/>
@@ -1602,6 +1677,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f88"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f88MouseClicked"/>
@@ -1621,6 +1697,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f98"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f98MouseClicked"/>
@@ -1640,6 +1717,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f83"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f83MouseClicked"/>
@@ -1659,6 +1737,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f93"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f93MouseClicked"/>
@@ -1678,6 +1757,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f89"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f89MouseClicked"/>
@@ -1697,6 +1777,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f99"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f99MouseClicked"/>
@@ -1716,6 +1797,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f94"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f94MouseClicked"/>
@@ -1735,6 +1817,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f87"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f87MouseClicked"/>
@@ -1754,6 +1837,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f81"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f81MouseClicked"/>
@@ -1773,6 +1857,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f96"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f96MouseClicked"/>
@@ -1792,6 +1877,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f82"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f82MouseClicked"/>
@@ -1811,6 +1897,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f97"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f97MouseClicked"/>
@@ -1830,6 +1917,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f90"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f90MouseClicked"/>
@@ -1849,6 +1937,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f86"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f86MouseClicked"/>
@@ -1868,6 +1957,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f85"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f85MouseClicked"/>
@@ -1887,6 +1977,7 @@
               <Image iconType="3" name="/jstratego/gui/img/blank.png"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="name" type="java.lang.String" value="f91"/>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="f91MouseClicked"/>
@@ -2182,6 +2273,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/jstratego/gui/img/sergeant_blue.png"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="sergeant"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelMinerName">
@@ -2211,6 +2303,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/jstratego/gui/img/bomb_blue.png"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="bomb"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelMinerIcon">
@@ -2218,6 +2311,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/jstratego/gui/img/miner_blue.png"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="miner"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelSergeantName">
@@ -2247,6 +2341,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/jstratego/gui/img/scout_blue.png"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="scout"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelLieutenantPlace">
@@ -2276,6 +2371,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/jstratego/gui/img/spy_blue.png"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="spy"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelSpyName">
@@ -2294,6 +2390,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/jstratego/gui/img/lieutenant_blue.png"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="lieutenant"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelLieutenantName">
@@ -2542,7 +2639,11 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/jstratego/gui/img/marshal_blue.png"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="marshal"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelMarshalIconMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelColonelName">
               <Properties>
@@ -2593,13 +2694,18 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/jstratego/gui/img/flag_blue.png"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="flag"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelFlagIconMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelCaptainIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/jstratego/gui/img/captain_blue.png"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="captain"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelFlagPlace">
@@ -2684,13 +2790,18 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/jstratego/gui/img/general_blue.png"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="general"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelGeneralIconMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelColonelIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/jstratego/gui/img/colonel_blue.png"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="colonel"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelColonelPlace">
@@ -2709,6 +2820,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/jstratego/gui/img/major_blue.png"/>
                 </Property>
+                <Property name="name" type="java.lang.String" value="major"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="labelFlagNumber">
