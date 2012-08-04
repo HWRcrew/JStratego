@@ -183,7 +183,7 @@ public class StartScreen extends javax.swing.JFrame {
     private void buttonStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonStartMouseClicked
         // TODO add your handling code here:
         //TODO Namen beider Spieler übergeben
-        Game game = new jstratego.logic.game.Game(txtRed.getText(), txtBlue.getText());
+        Game game = new Game(txtRed.getText(), txtBlue.getText());
         jstratego.gui.game.PlayBoard.main(game);
         setVisible(false);
     }//GEN-LAST:event_buttonStartMouseClicked

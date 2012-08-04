@@ -11,8 +11,10 @@ public class Game {
 
 	public PlayBoard playBoard;
 	public GameState gameState;
+	//TODO offenbar kennt er gameState nicht...
 
 	public Game(String namePlayerRed, String namePlayerBlue) {
+		gameState = new GameState();
 		this.gameState.setPlayerWithMove(new Player(namePlayerRed, Color.RED));
 		this.gameState.setOtherPlayer(new Player(namePlayerBlue, Color.BLUE));
 		this.gameState.setCurrentGamephase(Gamephase.SETUPred);
