@@ -11,15 +11,61 @@ public class Game {
 
 	public PlayBoard playBoard;
 	public GameState gameState;
+	//TODO offenbar kennt er gameState nicht...
 
 	public Game(String namePlayerRed, String namePlayerBlue) {
+		gameState = new GameState();
 		this.gameState.setPlayerWithMove(new Player(namePlayerRed, Color.RED));
 		this.gameState.setOtherPlayer(new Player(namePlayerBlue, Color.BLUE));
 		this.gameState.setCurrentGamephase(Gamephase.SETUPred);
 	}
+	Exception NotAllPiecesSetException = new Exception("Some pieces are left to set!");
 
+	public void endPhase() throws Exception {
+		switch (gameState.getCurrentGamephase()) {
+			case CHANGE:
+
+				break;
+			case SETUPred:
+				if (!gameState.getPlayerWithMove().pieces.isEmpty()) {
+					throw NotAllPiecesSetException;
+				}
+				gameState.setLastGamephase(Gamephase.SETUPred);
+				gameState.setCurrentGamephase(Gamephase.CHANGE);
+				break;
+			case SETUPblue:
+				if (!gameState.getPlayerWithMove().pieces.isEmpty()) {
+					throw NotAllPiecesSetException;
+				}
+				gameState.setLastGamephase(Gamephase.SETUPblue);
+				gameState.setCurrentGamephase(Gamephase.CHANGE);
+				break;
+			case MOVEred:
+				gameState.setLastGamephase(Gamephase.MOVEred);
+				if (this.playBoard.onlyBombsAndFlags()) {
+					gameState.setGameResult(GameResult.INDIFFERENT);
+					gameState.setCurrentGamephase(Gamephase.END);
+					break;
+				}
+				//TODO add other cases
+				break;
+			case MOVEblue:
+				gameState.setLastGamephase(Gamephase.MOVEblue);
+				if (this.playBoard.onlyBombsAndFlags()) {
+					gameState.setGameResult(GameResult.INDIFFERENT);
+					gameState.setCurrentGamephase(Gamephase.END);
+				}
+				gameState.setCurrentGamephase(Gamephase.CHANGE);
+				//TODO add other cases
+				break;
+			default:
+				break;
+
+		}
+	}
 	//TODO Wo findet fightAgainst statt? bei setPiece letzte kämpfer merken!
 	//TODO nextgamestate ist nicht erforderlich brauche extra switchmethode die entscheidet welche die nächste phase ist!
+
 	/**
 	 * Prepares everything for the next Gamephase and includes the check for
 	 * an indifferent ending.
@@ -45,7 +91,7 @@ public class Game {
 			case CHANGE:
 				this.playBoard.coverPiecesForPlayer(gameState.getPlayerWithMove());
 				//TODO Abfrage nach Spielende
-				//TODO Flags für fighters setzen
+				//TODO Flags für fighters setzen 
 				if (this.playBoard.onlyBombsAndFlags() == true) {
 					this.gameState.setLastGamephase(gameState.getCurrentGamephase());
 					this.gameState.setCurrentGamephase(Gamephase.END);

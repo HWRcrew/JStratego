@@ -13,7 +13,7 @@ public class Player {
 
 	public String name;
 	public Color playerColor;
-	List<Piece> pieces = new ArrayList<Piece>();
+	public List<Piece> pieces = new ArrayList<Piece>();
 	public Player(String name, Color playerColor) {
 		this.name = name;
 		this.playerColor = playerColor;

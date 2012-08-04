@@ -13,7 +13,7 @@ import jstratego.logic.pieces.Piece;
  * @author sebastiangrosse
  */
 //TODO versuchen zwischen Datenspeicherung und Datenverarbeitung zu trennen.
-public class GameState {
+public final class GameState {
 
 	private Player playerWithMove;
 	private Player otherPlayer;
@@ -24,6 +24,10 @@ public class GameState {
 	private GameResult gameResult;
 	private Field lastField;
 
+	public GameState() {
+		setCurrentGamephase(Gamephase.SETUPred);
+	}
+	
 	/**
 	 * @return the playerWithMove
 	 */
