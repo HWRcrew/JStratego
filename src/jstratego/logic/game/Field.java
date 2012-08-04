@@ -40,6 +40,7 @@ public class Field {
 			if (!this.piece.alive && !piece.alive) {
 				this.piece = null;
 			}
+			gameState.setLastField(this);
 		}
 	}
 	public Piece getPiece(){
