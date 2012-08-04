@@ -56,6 +56,6 @@ public abstract class Piece {
 			this.alive = false;
 		}
 		gameState.setChallenger(this);
-		gameState.setDefender(defender);
+		gameState.setDefender(defender);    
 	}
 }

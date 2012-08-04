@@ -156,7 +156,7 @@ public class PlayBoard {
 	 * @param field
 	 * @return
 	 */
-	List<Field> reachableFields(Field field) {
+	public List<Field> reachableFields(Field field) {
 		List<Field> fields;
 		fields = new ArrayList<Field>();
 		if (field.getPiece().motion == Motion.MOVABLE) {

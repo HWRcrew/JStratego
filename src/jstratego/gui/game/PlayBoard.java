@@ -39,6 +39,7 @@
  */
 package jstratego.gui.game;
 
+import java.awt.TrayIcon;
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -56,6 +57,9 @@ public class PlayBoard extends javax.swing.JFrame {
     static Game currentGame = null;
     static JLabel[][] fieldArray = new JLabel[10][10];
     static Border highlighted = new LineBorder(java.awt.Color.red, 3, false);
+    static int[] figureCounter = null;
+    static Piece[] pieceTypes = new Piece[12]; //TODO löschen
+    static Piece pieceToPlace = null;
 
     /**
      * Creates new form Board
@@ -161,6 +165,19 @@ public class PlayBoard extends javax.swing.JFrame {
         fieldArray[9][7] = f97;
         fieldArray[9][8] = f98;
         fieldArray[9][9] = f99;
+
+        pieceTypes[0] = new Flag(null, false, false); //TODO löschen!
+        pieceTypes[1] = new Marshal(null, false, false);
+        pieceTypes[2] = new General(null, false, false);
+        pieceTypes[3] = new Colonel(null, false, false);
+        pieceTypes[4] = new Major(null, false, false);
+        pieceTypes[5] = new Captain(null, false, false);
+        pieceTypes[6] = new Lieutenant(null, false, false);
+        pieceTypes[7] = new Sergeant(null, false, false);
+        pieceTypes[8] = new Miner(null, false, false);
+        pieceTypes[9] = new Scout(null, false, false);
+        pieceTypes[10] = new Spy(null, false, false);
+        pieceTypes[11] = new Bomb(null, false, false);
     }
 
     public static void PlayGame() {
@@ -202,30 +219,28 @@ public class PlayBoard extends javax.swing.JFrame {
 
     /**
      * Resets figures-placed-counter and shows information label, using
-     * placementLabelVisible(true). Returns array with allowed numbers of each
-     * piece. Order: Flag, Marshal, General, Colonel, Major, Captain Lieutenant,
-     * Sergeant, Miner, Scout, Spy, Bomb
+     * placementLabelVisible(true). Sets array with allowed numbers of each
+     * piece. Order: Flag, Marshal, General, Colonel, Major, Captain,
+     * Lieutenant, Sergeant, Miner, Scout, Spy, Bomb
      */
-    public int[] preparePlacement() {
+    public void preparePlacement() {
 
-        int[] numberOfPieces = {1, 1, 1, 2, 3, 4, 4, 4, 5, 8, 1, 6};
+        figureCounter = new int[]{1, 1, 1, 2, 3, 4, 4, 4, 5, 8, 1, 6};
 
         placementLabelVisible(true);
 
-        labelFlagNumber.setText(String.valueOf(numberOfPieces[0]));
-        labelMarshalNumber.setText(String.valueOf(numberOfPieces[1]));
-        labelGeneralNumber.setText(String.valueOf(numberOfPieces[2]));
-        labelColonelNumber.setText(String.valueOf(numberOfPieces[3]));
-        labelMajorNumber.setText(String.valueOf(numberOfPieces[4]));
-        labelCaptainNumber.setText(String.valueOf(numberOfPieces[5]));
-        labelLieutenantNumber.setText(String.valueOf(numberOfPieces[6]));
-        labelSergeantNumber.setText(String.valueOf(numberOfPieces[7]));
-        labelMinerNumber.setText(String.valueOf(numberOfPieces[8]));
-        labelScoutNumber.setText(String.valueOf(numberOfPieces[9]));
-        labelSpyNumber.setText(String.valueOf(numberOfPieces[10]));
-        labelBombNumber.setText(String.valueOf(numberOfPieces[11]));
-
-        return numberOfPieces;
+        labelFlagNumber.setText(String.valueOf(figureCounter[0]));
+        labelMarshalNumber.setText(String.valueOf(figureCounter[1]));
+        labelGeneralNumber.setText(String.valueOf(figureCounter[2]));
+        labelColonelNumber.setText(String.valueOf(figureCounter[3]));
+        labelMajorNumber.setText(String.valueOf(figureCounter[4]));
+        labelCaptainNumber.setText(String.valueOf(figureCounter[5]));
+        labelLieutenantNumber.setText(String.valueOf(figureCounter[6]));
+        labelSergeantNumber.setText(String.valueOf(figureCounter[7]));
+        labelMinerNumber.setText(String.valueOf(figureCounter[8]));
+        labelScoutNumber.setText(String.valueOf(figureCounter[9]));
+        labelSpyNumber.setText(String.valueOf(figureCounter[10]));
+        labelBombNumber.setText(String.valueOf(figureCounter[11]));
     }
 
     /**
@@ -277,19 +292,18 @@ public class PlayBoard extends javax.swing.JFrame {
 
     }
 
-    public void resetBorders(){
-        for(int x = 0; x <= 9; x++){
-            for(int y = 0; y <= 9; y++){
+    public void resetBorders() {
+        for (int x = 0; x <= 9; x++) {
+            for (int y = 0; y <= 9; y++) {
                 fieldArray[x][y].setBorder(null);
             }
         }
     }
-    
-    public void figurePlacement(Player player) {
 
-        setInfoIconColor(player.playerColor);
+    public void figurePlacement() {
+
+        setInfoIconColor(currentGame.gameState.getPlayerWithMove().playerColor);
         preparePlacement();
-        //TODO fortsetzen -- Steuerung der Platzierung
 
     }
 
@@ -300,7 +314,7 @@ public class PlayBoard extends javax.swing.JFrame {
 
         List<Field> reachableFields = currentGame.playBoard.reachableFields(start);
         if (reachableFields.isEmpty()) {
-            //TODO msg andere Figur wählen
+            JOptionPane.showMessageDialog(null, "Diese Figur kann nicht bewegt werden. Bitte andere wählen.", "Fehler", ERROR);
         } else {
             for (int i = 0; i < reachableFields.size(); i++) {
                 x = reachableFields.get(i).getX();
@@ -313,12 +327,49 @@ public class PlayBoard extends javax.swing.JFrame {
 
     public void callMove(JLabel field) {
 
-        if (currentGame.gameState.getCurrentGamephase().equals(jstratego.logic.game.Gamephase.SETUPblue)
-                || currentGame.gameState.getCurrentGamephase().equals(jstratego.logic.game.Gamephase.SETUPred)) {
-            //TODO auf Setup-Methode umleiten
+        if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.SETUPblue)
+                || currentGame.gameState.getCurrentGamephase().equals(Gamephase.SETUPred)) {
+            if (!field.getName().startsWith("f") && pieceToPlace == null) {
+                String pieceName = field.getName().substring(5, field.getName().length() - 4);
+                Color tempColor = currentGame.gameState.getPlayerWithMove().playerColor;
+
+                if (pieceName.equalsIgnoreCase("Flag")) {
+                    pieceToPlace = new Flag(tempColor, true, false);
+                } else if (pieceName.equalsIgnoreCase("Marshal")) {
+                    pieceToPlace = new Marshal(tempColor, true, false);
+                } else if (pieceName.equalsIgnoreCase("General")) {
+                    pieceToPlace = new General(tempColor, true, false);
+                } else if (pieceName.equalsIgnoreCase("Colonel")) {
+                    pieceToPlace = new Colonel(tempColor, true, false);
+                } else if (pieceName.equalsIgnoreCase("Major")) {
+                    pieceToPlace = new Major(tempColor, true, false);
+                } else if (pieceName.equalsIgnoreCase("Captain")) {
+                    pieceToPlace = new Captain(tempColor, true, false);
+                } else if (pieceName.equalsIgnoreCase("Lieutenant")) {
+                    pieceToPlace = new Lieutenant(tempColor, true, false);
+                } else if (pieceName.equalsIgnoreCase("Sergeant")) {
+                    pieceToPlace = new Sergeant(tempColor, true, false);
+                } else if (pieceName.equalsIgnoreCase("Miner")) {
+                    pieceToPlace = new Miner(tempColor, true, false);
+                } else if (pieceName.equalsIgnoreCase("Scout")) {
+                    pieceToPlace = new Scout(tempColor, true, false);
+                } else if (pieceName.equalsIgnoreCase("Spy")) {
+                    pieceToPlace = new Spy(tempColor, true, false);
+                } else if (pieceName.equalsIgnoreCase("Bomb")) {
+                    pieceToPlace = new Bomb(tempColor, true, false);
+                }
+            } else {
+                if (field.getName().startsWith("f") && pieceToPlace != null) {
+                    int x = field.getName().charAt(1);
+                    int y = field.getName().charAt(2);
+                    currentGame.playBoard.board[x][y].setPiece(pieceToPlace, null);
+                }
+            }
+
+
         } else {
-            if (currentGame.gameState.getCurrentGamephase().equals(jstratego.logic.game.Gamephase.MOVEblue)
-                    || currentGame.gameState.getCurrentGamephase().equals(jstratego.logic.game.Gamephase.MOVEred)) {
+            if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.MOVEblue)
+                    || currentGame.gameState.getCurrentGamephase().equals(Gamephase.MOVEred)) {
                 {
                     int x = field.getName().charAt(1);
                     int y = field.getName().charAt(2);

@@ -62,19 +62,9 @@ public class StartScreen extends javax.swing.JFrame {
                 buttonStartMouseClicked(evt);
             }
         });
-        buttonStart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonStartActionPerformed(evt);
-            }
-        });
 
         txtRed.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         txtRed.setText("243");
-        txtRed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRedActionPerformed(evt);
-            }
-        });
         txtRed.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtRedKeyTyped(evt);
@@ -142,13 +132,6 @@ public class StartScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStartActionPerformed
-    }//GEN-LAST:event_buttonStartActionPerformed
-
-    private void txtRedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRedActionPerformed
-
     private void txtRedKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRedKeyTyped
         buttonStart.setEnabled(true);
         if (txtRed.getText().length() >= 30) {
@@ -183,7 +166,7 @@ public class StartScreen extends javax.swing.JFrame {
     private void buttonStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonStartMouseClicked
         // TODO add your handling code here:
         //TODO Namen beider Spieler übergeben
-        Game game = new jstratego.logic.game.Game(txtRed.getText(), txtBlue.getText());
+        Game game = new Game(txtRed.getText(), txtBlue.getText());
         jstratego.gui.game.PlayBoard.main(game);
         setVisible(false);
     }//GEN-LAST:event_buttonStartMouseClicked
