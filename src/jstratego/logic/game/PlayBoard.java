@@ -29,14 +29,14 @@ public class PlayBoard {
 		board[4][7] = new Field(null, true, 4, 7);
 		board[5][6] = new Field(null, true, 5, 6);
 		board[5][7] = new Field(null, true, 5, 7);
-		setFields();
+		initialSetFields();
 	}
 
 	/**
 	 * this Method is iterating through the board-Array initializing new
 	 * Field Objects
 	 */
-	final void setFields() {
+	private void initialSetFields() {
 		for (int x = 0; x < 10; x++) {
 			for (int y = 0; y < 10; y++) {
 				if (!board[x][y].isBlocked()) {
@@ -51,7 +51,6 @@ public class PlayBoard {
 	 *
 	 * @return
 	 */
-	//TODO t
 	public boolean onlyBombsAndFlags() {
 		ArrayList<String> movablePieces = new ArrayList<String>();
 		movablePieces.add("Marshal");
@@ -156,7 +155,7 @@ public class PlayBoard {
 	 * @param field
 	 * @return
 	 */
-	List<Field> reachableFields(Field field) {
+	public List<Field> reachableFields(Field field) {
 		List<Field> fields;
 		fields = new ArrayList<Field>();
 		if (field.getPiece().motion == Motion.MOVABLE) {

@@ -25,7 +25,6 @@ public class Game {
 
 				break;
 			case SETUPred:
-				//TODO noch nicht sicher ob die abfrage so sein wird, oder lieber eigene Liste der pieces auf spielfeld?
 				if (!gameState.getPlayerWithMove().pieces.isEmpty()) {
 					throw NotAllPiecesSetException;
 				}
@@ -33,7 +32,6 @@ public class Game {
 				gameState.setCurrentGamephase(Gamephase.CHANGE);
 				break;
 			case SETUPblue:
-				//TODO noch nicht sicher ob die abfrage so sein wird, oder lieber eigene Liste der pieces auf spielfeld?
 				if (!gameState.getPlayerWithMove().pieces.isEmpty()) {
 					throw NotAllPiecesSetException;
 				}
@@ -45,6 +43,7 @@ public class Game {
 				if (this.playBoard.onlyBombsAndFlags()) {
 					gameState.setGameResult(GameResult.INDIFFERENT);
 					gameState.setCurrentGamephase(Gamephase.END);
+					break;
 				}
 				//TODO add other cases
 				break;
@@ -54,6 +53,7 @@ public class Game {
 					gameState.setGameResult(GameResult.INDIFFERENT);
 					gameState.setCurrentGamephase(Gamephase.END);
 				}
+				gameState.setCurrentGamephase(Gamephase.CHANGE);
 				//TODO add other cases
 				break;
 			default:

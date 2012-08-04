@@ -20,35 +20,44 @@ public class Field {
 		this.x = x;
 		this.y = y;
 	}
+	Exception FieldIsBlockedException = new Exception("This field is blocked!");
 
 	/**
-	 * set a Piece-Reference to the Field, if the Field already has a Piece
-	 * fightAgainst is used.
+	 * setting a Piece to a Field
 	 *
 	 * @param piece
 	 */
-	public void setPiece(Piece piece, GameState gameState) {
+	public void setPiece(Piece piece, GameState gameState) throws Exception {
 		if (!this.isBlocked()) {
-			if (this.piece != null) {
-				piece.fightAgainst(this.piece, gameState);
+			Player player = gameState.getPlayerWithMove();
+			Gamephase currentGamephase = gameState.getCurrentGamephase();
+			if (this.piece.color.equals(player.playerColor) && (currentGamephase.equals(Gamephase.SETUPblue) || currentGamephase.equals(Gamephase.SETUPred))) {
+				player.pieces.add(this.piece);
+				this.piece = piece;
+				player.pieces.remove(piece);
+			}
+			if (this.piece == null) {
+				this.piece = piece;
+				player.pieces.remove(piece);
+
 			} else {
-				this.piece = piece;
-			}
-			if (piece.alive) {
-				this.piece = piece;
-			}
-			if (!this.piece.alive && !piece.alive) {
-				this.piece = null;
+				piece.fightAgainst(this.piece, gameState);
+				if (piece.alive) {
+					this.piece = piece;
+				}
+				if (!this.piece.alive && !piece.alive) {
+					this.piece = null;
+				}
 			}
 			gameState.setLastField(this);
+		} else {
+			throw FieldIsBlockedException;
 		}
 	}
-	public Piece getPiece(){
+
+	public Piece getPiece() {
 		return this.piece;
 	}
-	
-	//TODO Piece aus Liste des Spielers entfernen, wenn auf Feld platziert?
-	//TODO Wie erhalte ich eine Piece aus der Liste des Spielers?
 
 	/**
 	 * @return the blocked
