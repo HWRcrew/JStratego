@@ -1995,6 +1995,9 @@
               <Dimension value="[155, 29]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonRestartMouseClicked"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="panelInfoAreaRight">
           <Properties>

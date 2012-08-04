@@ -39,7 +39,11 @@
  */
 package jstratego.gui.game;
 
+import java.util.List;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import jstratego.logic.game.*;
 import jstratego.logic.pieces.*;
 
@@ -50,6 +54,8 @@ import jstratego.logic.pieces.*;
 public class PlayBoard extends javax.swing.JFrame {
 
     static Game currentGame = null;
+    static JLabel[][] fieldArray = new JLabel[10][10];
+    static Border highlighted = new LineBorder(java.awt.Color.red, 3, false);
 
     /**
      * Creates new form Board
@@ -58,14 +64,113 @@ public class PlayBoard extends javax.swing.JFrame {
         this.setContentPane(new BackgroundPanelMain());
         setResizable(false);
         initComponents();
+        fillFieldArray();
         placementLabelVisible(false);
+    }
+
+    public final void fillFieldArray() {
+        fieldArray[0][0] = f00;
+        fieldArray[0][1] = f01;
+        fieldArray[0][2] = f02;
+        fieldArray[0][3] = f03;
+        fieldArray[0][4] = f04;
+        fieldArray[0][5] = f05;
+        fieldArray[0][6] = f06;
+        fieldArray[0][7] = f07;
+        fieldArray[0][8] = f08;
+        fieldArray[0][9] = f09;
+        fieldArray[1][0] = f10;
+        fieldArray[1][1] = f11;
+        fieldArray[1][2] = f12;
+        fieldArray[1][3] = f13;
+        fieldArray[1][4] = f14;
+        fieldArray[1][5] = f15;
+        fieldArray[1][6] = f16;
+        fieldArray[1][7] = f17;
+        fieldArray[1][8] = f18;
+        fieldArray[1][9] = f19;
+        fieldArray[2][0] = f20;
+        fieldArray[2][1] = f21;
+        fieldArray[2][2] = f22;
+        fieldArray[2][3] = f23;
+        fieldArray[2][4] = f24;
+        fieldArray[2][5] = f25;
+        fieldArray[2][6] = f26;
+        fieldArray[2][7] = f27;
+        fieldArray[2][8] = f28;
+        fieldArray[2][9] = f29;
+        fieldArray[3][0] = f30;
+        fieldArray[3][1] = f31;
+        fieldArray[3][2] = f32;
+        fieldArray[3][3] = f33;
+        fieldArray[3][4] = f34;
+        fieldArray[3][5] = f35;
+        fieldArray[3][6] = f36;
+        fieldArray[3][7] = f37;
+        fieldArray[3][8] = f38;
+        fieldArray[3][9] = f39;
+        fieldArray[4][0] = f40;
+        fieldArray[4][1] = f41;//lakes skipped
+        fieldArray[4][4] = f44;
+        fieldArray[4][5] = f45;
+        fieldArray[4][8] = f48;
+        fieldArray[4][9] = f49;
+        fieldArray[5][0] = f50;
+        fieldArray[5][1] = f51;
+        fieldArray[5][4] = f54;
+        fieldArray[5][5] = f55;
+        fieldArray[5][8] = f58;
+        fieldArray[5][9] = f59;
+        fieldArray[6][0] = f60;
+        fieldArray[6][1] = f61;
+        fieldArray[6][2] = f62;
+        fieldArray[6][3] = f63;
+        fieldArray[6][4] = f64;
+        fieldArray[6][5] = f65;
+        fieldArray[6][6] = f66;
+        fieldArray[6][7] = f67;
+        fieldArray[6][8] = f68;
+        fieldArray[6][9] = f69;
+        fieldArray[7][0] = f70;
+        fieldArray[7][1] = f71;
+        fieldArray[7][2] = f72;
+        fieldArray[7][3] = f73;
+        fieldArray[7][4] = f74;
+        fieldArray[7][5] = f75;
+        fieldArray[7][6] = f76;
+        fieldArray[7][7] = f77;
+        fieldArray[7][8] = f78;
+        fieldArray[7][9] = f79;
+        fieldArray[8][0] = f80;
+        fieldArray[8][1] = f81;
+        fieldArray[8][2] = f82;
+        fieldArray[8][3] = f83;
+        fieldArray[8][4] = f84;
+        fieldArray[8][5] = f85;
+        fieldArray[8][6] = f86;
+        fieldArray[8][7] = f87;
+        fieldArray[8][8] = f88;
+        fieldArray[8][9] = f89;
+        fieldArray[9][0] = f90;
+        fieldArray[9][1] = f91;
+        fieldArray[9][2] = f92;
+        fieldArray[9][3] = f93;
+        fieldArray[9][4] = f94;
+        fieldArray[9][5] = f95;
+        fieldArray[9][6] = f96;
+        fieldArray[9][7] = f97;
+        fieldArray[9][8] = f98;
+        fieldArray[9][9] = f99;
     }
 
     public static void PlayGame() {
         //TODO Ablaufsteuerung. Auslesen des GameState, entsprechender Aufruf der anderen Methoden
     }
 
-    //sets additional information labels visible, important during piece placing
+    /**
+     * Sets additional information labels visible or hides them. Important
+     * before and after figure placing.
+     */
     public final void placementLabelVisible(boolean value) {
 
         labelFlagPlace.setVisible(value);
@@ -95,7 +200,12 @@ public class PlayBoard extends javax.swing.JFrame {
         labelBombNumber.setVisible(value);
     }
 
-    //resets piece-counter for placing
+    /**
+     * Resets figures-placed-counter and shows information label, using
+     * placementLabelVisible(true). Returns array with allowed numbers of each
+     * piece. Order: Flag, Marshal, General, Colonel, Major, Captain Lieutenant,
+     * Sergeant, Miner, Scout, Spy, Bomb
+     */
     public int[] preparePlacement() {
 
         int[] numberOfPieces = {1, 1, 1, 2, 3, 4, 4, 4, 5, 8, 1, 6};
@@ -118,8 +228,10 @@ public class PlayBoard extends javax.swing.JFrame {
         return numberOfPieces;
     }
 
-    //changes color of icons in info-area
-    public void setIconColor(Color playerColor) {
+    /**
+     * Changes color of icons in infoarea to fit current player.
+     */
+    public void setInfoIconColor(Color playerColor) {
 
         String path = ("_" + playerColor + ".png");
 
@@ -138,130 +250,65 @@ public class PlayBoard extends javax.swing.JFrame {
 
     }
 
-    public void setFieldIcon(JLabel field) {
+    /**
+     * Reads piece from board in current game and sets icon of corresponding
+     * field.
+     */
+    public void updateIcons() {
         String iconName = "";
         String pieceType = "";
         String pieceColor = "";
-        int x = field.getName().charAt(1);//TODO tauschen, wenn board verdreht ist
-        int y = field.getName().charAt(2);
 
-        if (!currentGame.playBoard.board[x][y].isBlocked()) {
-            if (currentGame.playBoard.board[x][y] == null) {
-                field.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));
-            } else {
-                pieceType = currentGame.playBoard.board[x][y].getPiece().getClass().toString();
-                pieceColor = currentGame.playBoard.board[x][y].getPiece().color.toString();
-                iconName = "/jstratego/gui/img/" + pieceType.toLowerCase() + "_" + pieceColor.toLowerCase() + ".png";
-                field.setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
+        for (int x = 0; x <= 9; x++) {
+            for (int y = 0; y <= 9; y++) {
+                if (!currentGame.playBoard.board[x][y].isBlocked()) {
+                    if (currentGame.playBoard.board[x][y] == null) {
+                        fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));
+                    } else {
+                        pieceType = currentGame.playBoard.board[x][y].getPiece().getClass().toString();
+                        pieceColor = currentGame.playBoard.board[x][y].getPiece().color.toString();
+                        iconName = "/jstratego/gui/img/" + pieceType.toLowerCase() + "_" + pieceColor.toLowerCase() + ".png";
+                        fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    public void resetBorders(){
+        for(int x = 0; x <= 9; x++){
+            for(int y = 0; y <= 9; y++){
+                fieldArray[x][y].setBorder(null);
             }
         }
     }
+    
+    public void figurePlacement(Player player) {
 
-    public void updateGamePanel() {
-        setFieldIcon(f00);
-        setFieldIcon(f01);
-        setFieldIcon(f02);
-        setFieldIcon(f03);
-        setFieldIcon(f04);
-        setFieldIcon(f05);
-        setFieldIcon(f06);
-        setFieldIcon(f07);
-        setFieldIcon(f08);
-        setFieldIcon(f09);
-        setFieldIcon(f10);
-        setFieldIcon(f11);
-        setFieldIcon(f12);
-        setFieldIcon(f13);
-        setFieldIcon(f14);
-        setFieldIcon(f15);
-        setFieldIcon(f16);
-        setFieldIcon(f17);
-        setFieldIcon(f18);
-        setFieldIcon(f19);
-        setFieldIcon(f20);
-        setFieldIcon(f21);
-        setFieldIcon(f22);
-        setFieldIcon(f23);
-        setFieldIcon(f24);
-        setFieldIcon(f25);
-        setFieldIcon(f26);
-        setFieldIcon(f27);
-        setFieldIcon(f28);
-        setFieldIcon(f29);
-        setFieldIcon(f30);
-        setFieldIcon(f31);
-        setFieldIcon(f32);
-        setFieldIcon(f33);
-        setFieldIcon(f34);
-        setFieldIcon(f35);
-        setFieldIcon(f36);
-        setFieldIcon(f37);
-        setFieldIcon(f38);
-        setFieldIcon(f39);
-        setFieldIcon(f40);
-        setFieldIcon(f41);//lakes skipped
-        setFieldIcon(f44);
-        setFieldIcon(f45);
-        setFieldIcon(f48);
-        setFieldIcon(f49);
-        setFieldIcon(f50);
-        setFieldIcon(f51);
-        setFieldIcon(f54);
-        setFieldIcon(f55);
-        setFieldIcon(f58);
-        setFieldIcon(f59);
-        setFieldIcon(f60);
-        setFieldIcon(f61);
-        setFieldIcon(f62);
-        setFieldIcon(f63);
-        setFieldIcon(f64);
-        setFieldIcon(f65);
-        setFieldIcon(f66);
-        setFieldIcon(f67);
-        setFieldIcon(f68);
-        setFieldIcon(f69);
-        setFieldIcon(f70);
-        setFieldIcon(f71);
-        setFieldIcon(f72);
-        setFieldIcon(f73);
-        setFieldIcon(f74);
-        setFieldIcon(f75);
-        setFieldIcon(f76);
-        setFieldIcon(f77);
-        setFieldIcon(f78);
-        setFieldIcon(f79);
-        setFieldIcon(f80);
-        setFieldIcon(f81);
-        setFieldIcon(f82);
-        setFieldIcon(f83);
-        setFieldIcon(f84);
-        setFieldIcon(f85);
-        setFieldIcon(f86);
-        setFieldIcon(f87);
-        setFieldIcon(f88);
-        setFieldIcon(f89);
-        setFieldIcon(f90);
-        setFieldIcon(f91);
-        setFieldIcon(f92);
-        setFieldIcon(f93);
-        setFieldIcon(f94);
-        setFieldIcon(f95);
-        setFieldIcon(f96);
-        setFieldIcon(f97);
-        setFieldIcon(f98);
-        setFieldIcon(f99);
-    }
-
-    public void figurePlacement(Player player, Field[][] field) {
-
-        setIconColor(player.playerColor);
+        setInfoIconColor(player.playerColor);
         preparePlacement();
-        //TODO fortsetzen
+        //TODO fortsetzen -- Steuerung der Platzierung
 
     }
 
-    public void showReachable(boolean value) {
-        //TODO fortsetzen
+    public void showReachable(Field start) {
+
+        int x = 0;
+        int y = 0;
+
+        List<Field> reachableFields = currentGame.playBoard.reachableFields(start);
+        if (reachableFields.isEmpty()) {
+            //TODO msg andere Figur wählen
+        } else {
+            for (int i = 0; i < reachableFields.size(); i++) {
+                x = reachableFields.get(i).getX();
+                y = reachableFields.get(i).getY();
+                fieldArray[x][y].setBorder(highlighted);
+            }
+
+        }
     }
 
     public void callMove(JLabel field) {
@@ -1871,6 +1918,11 @@ public class PlayBoard extends javax.swing.JFrame {
         buttonRestart.setMaximumSize(new java.awt.Dimension(155, 29));
         buttonRestart.setMinimumSize(new java.awt.Dimension(155, 29));
         buttonRestart.setPreferredSize(new java.awt.Dimension(155, 29));
+        buttonRestart.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonRestartMouseClicked(evt);
+            }
+        });
 
         panelInfoAreaRight.setOpaque(false);
 
@@ -2331,9 +2383,6 @@ public class PlayBoard extends javax.swing.JFrame {
 
     private void buttonSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSetActionPerformed
         // TODO add your handling code here:
-        // TODO wieder entfernen!
-        preparePlacement();
-        setIconColor(Color.RED);
     }//GEN-LAST:event_buttonSetActionPerformed
 
 //<editor-fold defaultstate="collapsed" desc=" MouseClickedEvents of all labels in game panel ">
@@ -2705,6 +2754,18 @@ public class PlayBoard extends javax.swing.JFrame {
         callMove(f99);
     }//GEN-LAST:event_f99MouseClicked
 //</editor-fold>
+
+    /*
+     * Restarts game at every time.
+     */
+    private void buttonRestartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonRestartMouseClicked
+
+        int confirm = JOptionPane.showConfirmDialog(null, "Wirklich neues Spiel starten?", "Neues Spiel", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            jstratego.gui.game.StartScreen.main(null);
+            setVisible(false);
+        }
+    }//GEN-LAST:event_buttonRestartMouseClicked
 
     /**
      * @param args the command line arguments
