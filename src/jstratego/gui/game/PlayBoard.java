@@ -39,14 +39,13 @@
 package jstratego.gui.game;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-import jstratego.logic.game.Field;
-import jstratego.logic.game.Game;
-import jstratego.logic.game.Gamephase;
-import jstratego.logic.game.Player;
+import jstratego.logic.game.*;
 
 import jstratego.logic.pieces.*;
 
@@ -65,7 +64,7 @@ public class PlayBoard extends javax.swing.JFrame {
     /**
      * Creates new form Board
      */
-    public PlayBoard() {
+    public PlayBoard() throws Exception {
         this.setContentPane(new BackgroundPanelMain());
         setResizable(false);
         initComponents();
@@ -169,7 +168,7 @@ public class PlayBoard extends javax.swing.JFrame {
         fieldArray[9][9] = f99;
     }
 
-    public final void PlayGame() {
+    public final void PlayGame() throws Exception {
         if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.SETUPred)) {
 
             if (figureCounter == null) {
@@ -179,9 +178,8 @@ public class PlayBoard extends javax.swing.JFrame {
                 buttonSet.setText("Platzierung beenden");
 
             } else {
-//                currentGame.switchGamephase(Gamephase.CHANGE);
+                currentGame.endPhase();
                 updateIcons();
-//                currentGame.switchPlayer();
                 buttonSet.setText("Platzierung beginnen");
                 labelPlayer.setText("Wechsel zu " + currentGame.gameState.getPlayerWithMove().name);
             }
@@ -189,9 +187,20 @@ public class PlayBoard extends javax.swing.JFrame {
             if (currentGame.gameState.getLastGamephase().equals(Gamephase.SETUPred)) {
                 preparePlacement();
                 setInfoIconColor(Color.BLUE);
-//                currentGame.switchGamephase(Gamephase.SETUPblue);
+                currentGame.endPhase();
                 labelPlayer.setText(currentGame.gameState.getPlayerWithMove().name + ", bitte Figuren platzieren.");
                 buttonSet.setText("Platzierung beenden");
+
+            } else if (currentGame.gameState.getLastGamephase().equals(Gamephase.SETUPblue)) {
+                currentGame.endPhase();
+                updateIcons();
+                setInfoIconColor(currentGame.gameState.getPlayerWithMove().playerColor);
+                placementLabelVisible(false);
+                buttonSet.setText("Zug beginnen.");
+                labelPlayer.setText("Wechsel zu " + currentGame.gameState.getPlayerWithMove().name);
+                figureCounter = null;
+
+            } else if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.MOVEblue) || currentGame.gameState.getCurrentGamephase().equals(Gamephase.MOVEred)) {
             }
         }
 
@@ -290,22 +299,27 @@ public class PlayBoard extends javax.swing.JFrame {
         String pieceType = "";
         String pieceColor = "";
 
+
         for (int x = 0; x <= 9; x++) {
             for (int y = 0; y <= 9; y++) {
                 if (!currentGame.playBoard.board[x][y].isBlocked()) {
                     if (currentGame.playBoard.board[x][y].getPiece() == null) {
                         fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));
                     } else {
-                        pieceType = currentGame.playBoard.board[x][y].getPiece().getClass().getSimpleName();
-                        pieceColor = currentGame.playBoard.board[x][y].getPiece().color.toString();
-                        iconName = "/jstratego/gui/img/" + pieceType.toLowerCase() + "_" + pieceColor.toLowerCase() + ".png";
-                        fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
+                        if (currentGame.playBoard.board[x][y].getPiece().covered) {
+                            pieceColor = currentGame.playBoard.board[x][y].getPiece().color.toString();
+                            iconName = "/jstratego/gui/img/" + "blank_" + pieceColor.toLowerCase() + ".png";
+                            fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
+                        } else {
+                            pieceType = currentGame.playBoard.board[x][y].getPiece().getClass().getSimpleName();
+                            pieceColor = currentGame.playBoard.board[x][y].getPiece().color.toString();
+                            iconName = "/jstratego/gui/img/" + pieceType.toLowerCase() + "_" + pieceColor.toLowerCase() + ".png";
+                            fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
+                        }
                     }
                 }
             }
         }
-
-
     }
 
     public void resetBorders() {
@@ -462,8 +476,6 @@ public class PlayBoard extends javax.swing.JFrame {
                         currentGame.gameState.setDefender(currentGame.playBoard.board[x][y].getPiece());
                     }
                 }
-            } else {
-                //TODO Klick auf Feld bei Spielerwechsel abfangen
             }//end if move
 
         }//end if setup
@@ -3071,7 +3083,11 @@ public class PlayBoard extends javax.swing.JFrame {
     }//GEN-LAST:event_labelGeneralIconMouseClicked
 
     private void buttonSetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonSetMouseClicked
-        PlayGame();
+        try {
+            PlayGame();
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }//GEN-LAST:event_buttonSetMouseClicked
 
     private void labelColonelIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelColonelIconMouseClicked
@@ -3137,6 +3153,8 @@ public class PlayBoard extends javax.swing.JFrame {
 
 
 
+
+
                 }
             }
         } catch (ClassNotFoundException ex) {
@@ -3159,7 +3177,12 @@ public class PlayBoard extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new PlayBoard().setVisible(true);
+                try {
+                    new PlayBoard().setVisible(true);
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                    System.out.println("Fehler");
+                }
             }
         });
 
