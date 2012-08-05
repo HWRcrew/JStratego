@@ -31,16 +31,16 @@ public class Field {
 		if (!this.isBlocked()) {
 			Player player = gameState.getPlayerWithMove();
 			Gamephase currentGamephase = gameState.getCurrentGamephase();
-			if (this.piece.color.equals(player.playerColor) && (currentGamephase.equals(Gamephase.SETUPblue) || currentGamephase.equals(Gamephase.SETUPred))) {
-				player.pieces.add(this.piece);
-				this.piece = piece;
-				player.pieces.remove(piece);
-			}
 			if (this.piece == null) {
 				this.piece = piece;
 				player.pieces.remove(piece);
 
 			} else {
+				if (this.piece.color.equals(player.playerColor) && (currentGamephase.equals(Gamephase.SETUPblue) || currentGamephase.equals(Gamephase.SETUPred))) {
+					player.pieces.add(this.piece);
+					this.piece = piece;
+					player.pieces.remove(piece);
+				}
 				piece.fightAgainst(this.piece, gameState);
 				if (piece.alive) {
 					this.piece = piece;
