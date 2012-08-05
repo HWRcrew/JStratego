@@ -15,6 +15,7 @@ public class Game {
 
 	public Game(String namePlayerRed, String namePlayerBlue) {
 		gameState = new GameState();
+		playBoard = new PlayBoard();
 		this.gameState.setPlayerWithMove(new Player(namePlayerRed, Color.RED));
 		this.gameState.setOtherPlayer(new Player(namePlayerBlue, Color.BLUE));
 		this.gameState.setCurrentGamephase(Gamephase.SETUPred);
