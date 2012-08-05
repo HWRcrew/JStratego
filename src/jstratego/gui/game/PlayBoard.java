@@ -270,7 +270,7 @@ public class PlayBoard extends javax.swing.JFrame {
                     if (currentGame.playBoard.board[x][y].getPiece() == null) {
                         fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));
                     } else {
-                        pieceType = currentGame.playBoard.board[x][y].getPiece().name;
+                        pieceType = currentGame.playBoard.board[x][y].getPiece().getClass().getSimpleName();
                         pieceColor = currentGame.playBoard.board[x][y].getPiece().color.toString();
                         iconName = "/jstratego/gui/img/" + pieceType.toLowerCase() + "_" + pieceColor.toLowerCase() + ".png";
                         fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
@@ -325,9 +325,10 @@ public class PlayBoard extends javax.swing.JFrame {
                 Color tempColor = currentGame.gameState.getPlayerWithMove().playerColor;
 
                 if (pieceName.equalsIgnoreCase("Flag")) {
-                    System.out.println("neue Flagge");
+                    System.out.println("neue Flagge");//TODO remove
                     pieceToPlace = new Flag(tempColor, true, false);
                 } else if (pieceName.equalsIgnoreCase("Marshal")) {
+                    System.out.println("neuer Feldmarschall");//TODO remove
                     pieceToPlace = new Marshal(tempColor, true, false);
                 } else if (pieceName.equalsIgnoreCase("General")) {
                     pieceToPlace = new General(tempColor, true, false);
@@ -351,12 +352,13 @@ public class PlayBoard extends javax.swing.JFrame {
                     pieceToPlace = new Bomb(tempColor, true, false);
                 }
             } else {
-                if (field.getName().startsWith("f") && pieceToPlace != null) {
+                if ((field.getName().length() == 3) && pieceToPlace != null) {
                     int x = Integer.parseInt(field.getName().substring(1, 2));
                     int y = Integer.parseInt(field.getName().substring(2));
                     try {
-                        currentGame.playBoard.board[x][y].setPiece(pieceToPlace, null);
+                        currentGame.playBoard.board[x][y].setPiece(pieceToPlace, currentGame.gameState);
                     } catch (Exception ex) {
+                        System.out.println("Platzierung fehlgeschlagen.");
                     }
                     
                     updateIcons();
