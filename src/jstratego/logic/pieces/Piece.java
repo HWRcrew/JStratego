@@ -10,8 +10,8 @@ import jstratego.logic.game.GameState;
  */
 public abstract class Piece {
 
-	public static String name;
-	public static String description;
+	public String name;
+	public String description;
 	public ArrayList<String> beatenby;
 	public Motion motion;
 	public Color color;

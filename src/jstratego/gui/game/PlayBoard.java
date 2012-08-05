@@ -179,7 +179,7 @@ public class PlayBoard extends javax.swing.JFrame {
                 buttonSet.setText("Platzierung beenden");
 
             } else {
-                currentGame.switchGamephase(Gamephase.CHANGE);
+//                currentGame.switchGamephase(Gamephase.CHANGE);
                 updateIcons();
 //                currentGame.switchPlayer();
                 buttonSet.setText("Platzierung beginnen");
@@ -189,7 +189,7 @@ public class PlayBoard extends javax.swing.JFrame {
             if (currentGame.gameState.getLastGamephase().equals(Gamephase.SETUPred)) {
                 preparePlacement();
                 setInfoIconColor(Color.BLUE);
-                currentGame.switchGamephase(Gamephase.SETUPblue);
+//                currentGame.switchGamephase(Gamephase.SETUPblue);
                 labelPlayer.setText(currentGame.gameState.getPlayerWithMove().name + ", bitte Figuren platzieren.");
                 buttonSet.setText("Platzierung beenden");
             }
