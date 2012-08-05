@@ -122,12 +122,15 @@ public class PlayBoard {
 	 * @param player
 	 */
 	//TODO stattdessen liste mit akt figuren?
-	public void coverPiecesForPlayer(Player player) {
+	public void coverPiecesForPlayer(Player player) throws NullPointerException{
 		for (int i = 0; i <= 9; i++) {
 			for (int j = 0; j <= 9; j++) {
-				Piece tmpPiece = board[i][j].getPiece();
-				if (tmpPiece.color.equals(player.playerColor)) {
-					tmpPiece.covered = true;
+				try {
+					Piece tmpPiece = board[i][j].getPiece();
+					if (tmpPiece.color.equals(player.playerColor)) {
+						tmpPiece.covered = true;
+					}
+				} catch (NullPointerException npe) {
 				}
 			}
 		}
@@ -138,12 +141,15 @@ public class PlayBoard {
 	 *
 	 * @param player
 	 */
-	public void uncoverPiecesForPlayer(Player player) {
+	public void uncoverPiecesForPlayer(Player player) throws NullPointerException{
 		for (int i = 0; i <= 9; i++) {
 			for (int j = 0; j <= 9; j++) {
-				Piece tmpPiece = board[i][j].getPiece();
-				if (tmpPiece.color.equals(player.playerColor)) {
-					tmpPiece.covered = false;
+				try {
+					Piece tmpPiece = board[i][j].getPiece();
+					if (tmpPiece.color.equals(player.playerColor)) {
+						tmpPiece.covered = false;
+					}
+				} catch (NullPointerException npe) {
 				}
 			}
 		}
