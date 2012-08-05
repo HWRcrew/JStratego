@@ -165,9 +165,7 @@ public class StartScreen extends javax.swing.JFrame {
 
     private void buttonStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonStartMouseClicked
         Game game = new Game(txtRed.getText(), txtBlue.getText());
-        System.out.println("Neues Spiel erstellt.");
         jstratego.gui.game.PlayBoard.main(game);
-        System.out.println("Spiel übergeben.");
         setVisible(false);
     }//GEN-LAST:event_buttonStartMouseClicked
 

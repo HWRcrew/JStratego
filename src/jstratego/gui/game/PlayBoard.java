@@ -39,8 +39,6 @@
 package jstratego.gui.game;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
@@ -73,6 +71,7 @@ public class PlayBoard extends javax.swing.JFrame {
         initComponents();
         fillFieldArray();
         placementLabelVisible(false);
+        PlayGame();
     }
 
     public final void fillFieldArray() {
@@ -170,8 +169,32 @@ public class PlayBoard extends javax.swing.JFrame {
         fieldArray[9][9] = f99;
     }
 
-    public static void PlayGame() {
-        //TODO Ablaufsteuerung. Auslesen des GameState, entsprechender Aufruf der anderen Methoden
+    public final void PlayGame() {
+        if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.SETUPred)) {
+
+            if (figureCounter == null) {
+                preparePlacement();
+                setInfoIconColor(Color.RED);
+                labelPlayer.setText(currentGame.gameState.getPlayerWithMove().name + ", bitte Figuren platzieren.");
+                buttonSet.setText("Platzierung beenden");
+
+            } else {
+                currentGame.switchGamephase(Gamephase.CHANGE);
+                updateIcons();
+//                currentGame.switchPlayer();
+                buttonSet.setText("Platzierung beginnen");
+                labelPlayer.setText("Wechsel zu " + currentGame.gameState.getPlayerWithMove().name);
+            }
+        } else if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.CHANGE)) {
+            if (currentGame.gameState.getLastGamephase().equals(Gamephase.SETUPred)) {
+                preparePlacement();
+                setInfoIconColor(Color.BLUE);
+                currentGame.switchGamephase(Gamephase.SETUPblue);
+                labelPlayer.setText(currentGame.gameState.getPlayerWithMove().name + ", bitte Figuren platzieren.");
+                buttonSet.setText("Platzierung beenden");
+            }
+        }
+
     }
 
     /**
@@ -218,7 +241,10 @@ public class PlayBoard extends javax.swing.JFrame {
         figureCounter = new int[]{1, 1, 1, 2, 3, 4, 4, 4, 5, 8, 1, 6};
 
         placementLabelVisible(true);
+        updatePlacementLabel();
+    }
 
+    public void updatePlacementLabel() {
         labelFlagNumber.setText(String.valueOf(figureCounter[0]));
         labelMarshalNumber.setText(String.valueOf(figureCounter[1]));
         labelGeneralNumber.setText(String.valueOf(figureCounter[2]));
@@ -290,14 +316,6 @@ public class PlayBoard extends javax.swing.JFrame {
         }
     }
 
-    public void figurePlacement() {
-
-        setInfoIconColor(currentGame.gameState.getPlayerWithMove().playerColor);
-        preparePlacement();
-        //TODO fortsetzen -- Steuerung der Platzierung -- läuft in callMove weiter
-
-    }
-
     public void showReachable(Field start) {
 
         int x = 0;
@@ -316,19 +334,49 @@ public class PlayBoard extends javax.swing.JFrame {
         }
     }
 
+    public boolean placeable() {
+        String pieceName = pieceToPlace.getClass().getSimpleName();
+
+        if (pieceName.equalsIgnoreCase("Flag") && (figureCounter[0] > 0)) {
+            return true;
+        } else if (pieceName.equalsIgnoreCase("Marshal") && (figureCounter[1] > 0)) {
+            return true;
+        } else if (pieceName.equalsIgnoreCase("General") && (figureCounter[2] > 0)) {
+            return true;
+        } else if (pieceName.equalsIgnoreCase("Colonel") && (figureCounter[3] > 0)) {
+            return true;
+        } else if (pieceName.equalsIgnoreCase("Major") && (figureCounter[4] > 0)) {
+            return true;
+        } else if (pieceName.equalsIgnoreCase("Captain") && (figureCounter[5] > 0)) {
+            return true;
+        } else if (pieceName.equalsIgnoreCase("Lieutenant") && (figureCounter[6] > 0)) {
+            return true;
+        } else if (pieceName.equalsIgnoreCase("Sergeant") && (figureCounter[7] > 0)) {
+            return true;
+        } else if (pieceName.equalsIgnoreCase("Miner") && (figureCounter[8] > 0)) {
+            return true;
+        } else if (pieceName.equalsIgnoreCase("Scout") && (figureCounter[9] > 0)) {
+            return true;
+        } else if (pieceName.equalsIgnoreCase("Spy") && (figureCounter[10] > 0)) {
+            return true;
+        } else if (pieceName.equalsIgnoreCase("Bomb") && (figureCounter[11] > 0)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void callMove(JLabel field) {
 
         if ((currentGame.gameState.getCurrentGamephase() == jstratego.logic.game.Gamephase.SETUPblue)
                 || (currentGame.gameState.getCurrentGamephase() == jstratego.logic.game.Gamephase.SETUPred)) {
-            if (!(field.getName().length() == 3) && pieceToPlace == null) {
+            if ((!(field.getName().length() == 3) || (field.getName().startsWith("S"))) && pieceToPlace == null) {
                 String pieceName = field.getName();
                 Color tempColor = currentGame.gameState.getPlayerWithMove().playerColor;
 
                 if (pieceName.equalsIgnoreCase("Flag")) {
-                    System.out.println("neue Flagge");//TODO remove
                     pieceToPlace = new Flag(tempColor, true, false);
                 } else if (pieceName.equalsIgnoreCase("Marshal")) {
-                    System.out.println("neuer Feldmarschall");//TODO remove
                     pieceToPlace = new Marshal(tempColor, true, false);
                 } else if (pieceName.equalsIgnoreCase("General")) {
                     pieceToPlace = new General(tempColor, true, false);
@@ -351,18 +399,52 @@ public class PlayBoard extends javax.swing.JFrame {
                 } else if (pieceName.equalsIgnoreCase("Bomb")) {
                     pieceToPlace = new Bomb(tempColor, true, false);
                 }
+
+                labelPlayer.setText(pieceToPlace.name + " platzieren.");
+
             } else {
-                if ((field.getName().length() == 3) && pieceToPlace != null) {
+                if ((field.getName().length() == 3) && !field.getName().startsWith("S") && pieceToPlace != null) {
                     int x = Integer.parseInt(field.getName().substring(1, 2));
                     int y = Integer.parseInt(field.getName().substring(2));
                     try {
-                        currentGame.playBoard.board[x][y].setPiece(pieceToPlace, currentGame.gameState);
-                        pieceToPlace = null;
+                        if (placeable()) {
+                            currentGame.playBoard.board[x][y].setPiece(pieceToPlace, currentGame.gameState);
+
+                            String pieceName = pieceToPlace.getClass().getSimpleName();
+
+                            if (pieceName.equalsIgnoreCase("Flag")) {
+                                figureCounter[0]--;
+                            } else if (pieceName.equalsIgnoreCase("Marshal")) {
+                                figureCounter[1]--;
+                            } else if (pieceName.equalsIgnoreCase("General")) {
+                                figureCounter[2]--;
+                            } else if (pieceName.equalsIgnoreCase("Colonel")) {
+                                figureCounter[3]--;
+                            } else if (pieceName.equalsIgnoreCase("Major")) {
+                                figureCounter[4]--;
+                            } else if (pieceName.equalsIgnoreCase("Captain")) {
+                                figureCounter[5]--;
+                            } else if (pieceName.equalsIgnoreCase("Lieutenant")) {
+                                figureCounter[6]--;
+                            } else if (pieceName.equalsIgnoreCase("Sergeant")) {
+                                figureCounter[7]--;
+                            } else if (pieceName.equalsIgnoreCase("Miner")) {
+                                figureCounter[8]--;
+                            } else if (pieceName.equalsIgnoreCase("Scout")) {
+                                figureCounter[9]--;
+                            } else if (pieceName.equalsIgnoreCase("Spy")) {
+                                figureCounter[10]--;
+                            } else if (pieceName.equalsIgnoreCase("Bomb")) {
+                                figureCounter[11]--;
+                            }
+                        }
                     } catch (Exception ex) {
-                        System.out.println("Platzierung fehlgeschlagen.");
+                        JOptionPane.showMessageDialog(null, "Platzierung hier nicht möglich.", "Fehler", JOptionPane.ERROR_MESSAGE);
                     }
-                    
+                    pieceToPlace = null;
+                    updatePlacementLabel();
                     updateIcons();
+                    labelPlayer.setText(currentGame.gameState.getPlayerWithMove().name + ", bitte Figuren platzieren.");
                 }
             }
 
@@ -2049,9 +2131,9 @@ public class PlayBoard extends javax.swing.JFrame {
 
         buttonSet.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         buttonSet.setText("Zug ausführen");
-        buttonSet.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSetActionPerformed(evt);
+        buttonSet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonSetMouseClicked(evt);
             }
         });
 
@@ -2082,6 +2164,11 @@ public class PlayBoard extends javax.swing.JFrame {
 
         labelSergeantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/sergeant_blue.png"))); // NOI18N
         labelSergeantIcon.setName("sergeant");
+        labelSergeantIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelSergeantIconMouseClicked(evt);
+            }
+        });
 
         labelMinerName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         labelMinerName.setForeground(new java.awt.Color(255, 255, 0));
@@ -2093,9 +2180,19 @@ public class PlayBoard extends javax.swing.JFrame {
 
         labelBombIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/bomb_blue.png"))); // NOI18N
         labelBombIcon.setName("bomb");
+        labelBombIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelBombIconMouseClicked(evt);
+            }
+        });
 
         labelMinerIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/miner_blue.png"))); // NOI18N
         labelMinerIcon.setName("miner");
+        labelMinerIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelMinerIconMouseClicked(evt);
+            }
+        });
 
         labelSergeantName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         labelSergeantName.setForeground(new java.awt.Color(255, 255, 0));
@@ -2107,6 +2204,11 @@ public class PlayBoard extends javax.swing.JFrame {
 
         labelScoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/scout_blue.png"))); // NOI18N
         labelScoutIcon.setName("scout");
+        labelScoutIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelScoutIconMouseClicked(evt);
+            }
+        });
 
         labelLieutenantPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         labelLieutenantPlace.setForeground(new java.awt.Color(255, 255, 0));
@@ -2117,7 +2219,12 @@ public class PlayBoard extends javax.swing.JFrame {
         labelScoutPlace.setText("zu platzieren:");
 
         labelSpyIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/spy_blue.png"))); // NOI18N
-        labelSpyIcon.setName("spy");
+        labelSpyIcon.setName("Spy");
+        labelSpyIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelSpyIconMouseClicked(evt);
+            }
+        });
 
         labelSpyName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         labelSpyName.setForeground(new java.awt.Color(255, 255, 0));
@@ -2125,6 +2232,11 @@ public class PlayBoard extends javax.swing.JFrame {
 
         labelLieutenantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/lieutenant_blue.png"))); // NOI18N
         labelLieutenantIcon.setName("lieutenant");
+        labelLieutenantIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelLieutenantIconMouseClicked(evt);
+            }
+        });
 
         labelLieutenantName.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         labelLieutenantName.setForeground(new java.awt.Color(255, 255, 0));
@@ -2307,6 +2419,11 @@ public class PlayBoard extends javax.swing.JFrame {
 
         labelCaptainIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/captain_blue.png"))); // NOI18N
         labelCaptainIcon.setName("captain");
+        labelCaptainIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelCaptainIconMouseClicked(evt);
+            }
+        });
 
         labelFlagPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         labelFlagPlace.setForeground(new java.awt.Color(255, 255, 0));
@@ -2346,6 +2463,11 @@ public class PlayBoard extends javax.swing.JFrame {
 
         labelColonelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/colonel_blue.png"))); // NOI18N
         labelColonelIcon.setName("colonel");
+        labelColonelIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelColonelIconMouseClicked(evt);
+            }
+        });
 
         labelColonelPlace.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         labelColonelPlace.setForeground(new java.awt.Color(255, 255, 0));
@@ -2353,6 +2475,11 @@ public class PlayBoard extends javax.swing.JFrame {
 
         labelMajorIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/major_blue.png"))); // NOI18N
         labelMajorIcon.setName("major");
+        labelMajorIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelMajorIconMouseClicked(evt);
+            }
+        });
 
         labelFlagNumber.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         labelFlagNumber.setForeground(new java.awt.Color(255, 255, 0));
@@ -2550,11 +2677,7 @@ public class PlayBoard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonSetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSetActionPerformed
-        System.out.println(f00.getName());
-    }//GEN-LAST:event_buttonSetActionPerformed
-
-//<editor-fold defaultstate="collapsed" desc=" MouseClickedEvents of all labels in game panel ">
+//<editor-fold defaultstate="collapsed" desc=" MouseClickedEvents of all functional items">
     private void f34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f34MouseClicked
         callMove(f34);
     }//GEN-LAST:event_f34MouseClicked
@@ -2922,7 +3045,6 @@ public class PlayBoard extends javax.swing.JFrame {
     private void f99MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f99MouseClicked
         callMove(f99);
     }//GEN-LAST:event_f99MouseClicked
-//</editor-fold>
 
     /*
      * Restarts game at every time.
@@ -2936,7 +3058,6 @@ public class PlayBoard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonRestartMouseClicked
 
-//<editor-fold defaultstate="collapsed" desc=" MouseClickedEvents of all labels in info panel ">
     private void labelFlagIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelFlagIconMouseClicked
         callMove(labelFlagIcon);
     }//GEN-LAST:event_labelFlagIconMouseClicked
@@ -2948,7 +3069,48 @@ public class PlayBoard extends javax.swing.JFrame {
     private void labelGeneralIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGeneralIconMouseClicked
         callMove(labelGeneralIcon);
     }//GEN-LAST:event_labelGeneralIconMouseClicked
+
+    private void buttonSetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonSetMouseClicked
+        PlayGame();
+    }//GEN-LAST:event_buttonSetMouseClicked
+
+    private void labelColonelIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelColonelIconMouseClicked
+        callMove(labelColonelIcon);
+    }//GEN-LAST:event_labelColonelIconMouseClicked
+
+    private void labelMajorIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelMajorIconMouseClicked
+        callMove(labelMajorIcon);
+    }//GEN-LAST:event_labelMajorIconMouseClicked
+
+    private void labelCaptainIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCaptainIconMouseClicked
+        callMove(labelCaptainIcon);
+    }//GEN-LAST:event_labelCaptainIconMouseClicked
+
+    private void labelLieutenantIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLieutenantIconMouseClicked
+        callMove(labelLieutenantIcon);
+    }//GEN-LAST:event_labelLieutenantIconMouseClicked
+
+    private void labelSergeantIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelSergeantIconMouseClicked
+        callMove(labelSergeantIcon);
+    }//GEN-LAST:event_labelSergeantIconMouseClicked
+
+    private void labelMinerIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelMinerIconMouseClicked
+        callMove(labelMinerIcon);
+    }//GEN-LAST:event_labelMinerIconMouseClicked
+
+    private void labelScoutIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelScoutIconMouseClicked
+        callMove(labelScoutIcon);
+    }//GEN-LAST:event_labelScoutIconMouseClicked
+
+    private void labelSpyIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelSpyIconMouseClicked
+        callMove(labelSpyIcon);
+    }//GEN-LAST:event_labelSpyIconMouseClicked
+
+    private void labelBombIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBombIconMouseClicked
+        callMove(labelBombIcon);
+    }//GEN-LAST:event_labelBombIconMouseClicked
 //</editor-fold>
+
     /**
      * @param args the command line arguments
      */
@@ -2971,6 +3133,10 @@ public class PlayBoard extends javax.swing.JFrame {
 
 
 
+
+
+
+
                 }
             }
         } catch (ClassNotFoundException ex) {
@@ -2984,6 +3150,9 @@ public class PlayBoard extends javax.swing.JFrame {
         }
         //</editor-fold>
 
+        currentGame = game;
+        currentGame.gameState.setLastGamephase(null);
+
         /*
          * Create and display the form
          */
@@ -2993,8 +3162,7 @@ public class PlayBoard extends javax.swing.JFrame {
                 new PlayBoard().setVisible(true);
             }
         });
-	currentGame = game;
-        PlayGame();
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonRestart;

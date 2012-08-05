@@ -2067,7 +2067,7 @@
             <Property name="text" type="java.lang.String" value="Zug ausf&#xfc;hren"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSetActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonSetMouseClicked"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonRestart">
@@ -2275,6 +2275,9 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="sergeant"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelSergeantIconMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelMinerName">
               <Properties>
@@ -2305,6 +2308,9 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="bomb"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelBombIconMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelMinerIcon">
               <Properties>
@@ -2313,6 +2319,9 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="miner"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelMinerIconMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelSergeantName">
               <Properties>
@@ -2343,6 +2352,9 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="scout"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelScoutIconMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelLieutenantPlace">
               <Properties>
@@ -2371,8 +2383,11 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/jstratego/gui/img/spy_blue.png"/>
                 </Property>
-                <Property name="name" type="java.lang.String" value="spy"/>
+                <Property name="name" type="java.lang.String" value="Spy"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelSpyIconMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelSpyName">
               <Properties>
@@ -2392,6 +2407,9 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="lieutenant"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelLieutenantIconMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelLieutenantName">
               <Properties>
@@ -2707,6 +2725,9 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="captain"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelCaptainIconMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelFlagPlace">
               <Properties>
@@ -2803,6 +2824,9 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="colonel"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelColonelIconMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelColonelPlace">
               <Properties>
@@ -2822,6 +2846,9 @@
                 </Property>
                 <Property name="name" type="java.lang.String" value="major"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="labelMajorIconMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelFlagNumber">
               <Properties>
