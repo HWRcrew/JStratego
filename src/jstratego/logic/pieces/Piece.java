@@ -60,5 +60,13 @@ public abstract class Piece {
 			gameState.setChallenger(this);
 			gameState.setDefender(defender);
 		}
+		if (defender.isBeatenBy(this)) {
+			defender.alive = false;
+		}
+		if (!defender.isBeatenBy(this)) {
+			this.alive = false;
+		}
+		gameState.setChallenger(this);
+		gameState.setDefender(defender);    
 	}
 }

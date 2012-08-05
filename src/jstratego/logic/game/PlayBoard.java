@@ -39,7 +39,7 @@ public class PlayBoard {
 	private void initialSetFields() {
 		for (int x = 0; x < 10; x++) {
 			for (int y = 0; y < 10; y++) {
-				if (!board[x][y].isBlocked()) {
+				if (board[x][y] == null) {
 					board[x][y] = new Field(null, false, x, y);
 				}
 			}
