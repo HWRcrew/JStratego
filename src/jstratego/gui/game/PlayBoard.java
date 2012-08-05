@@ -357,6 +357,7 @@ public class PlayBoard extends javax.swing.JFrame {
                     int y = Integer.parseInt(field.getName().substring(2));
                     try {
                         currentGame.playBoard.board[x][y].setPiece(pieceToPlace, currentGame.gameState);
+                        pieceToPlace = null;
                     } catch (Exception ex) {
                         System.out.println("Platzierung fehlgeschlagen.");
                     }
