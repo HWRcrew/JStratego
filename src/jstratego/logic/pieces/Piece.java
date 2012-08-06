@@ -4,47 +4,34 @@ import java.util.ArrayList;
 import jstratego.logic.game.GameState;
 
 /**
- * Abstract baseclass for pieces of the Stratego boardgame
+ * abstraction of a piece.
  *
  * @author sebastiangrosse
  */
-public abstract class Piece {
+public abstract class Piece implements PieceInterface {
 
-	public String name;
-	public String description;
-	public ArrayList<String> beatenby;
-	public Motion motion;
-	public Color color;
-	public boolean alive;
-	public boolean covered;
+	private String NAME;
+	private String DESCRIPTION;
+	private Motion MOTION;
+	private ArrayList<String> beatenByList;
+	private Color color;
+	private boolean alive;
+	private boolean covered;
 
 	public Piece(Color color, boolean alive, boolean covered) {
 		this.color = color;
 		this.alive = alive;
 		this.covered = covered;
+		this.beatenByList = new ArrayList<String>();
 	}
 
-	/**
-	 * Method to prove if a piece loses against another piece. This is only
-	 * a one-way solution. it doesn't prove that the other piece will lose
-	 * in the other direction
-	 *
-	 * @param challenger
-	 * @return true if the piece wins the fight against the challenging the
-	 * piece
-	 */
+	@Override
 	public boolean isBeatenBy(Piece challenger) {
 		String c = challenger.getClass().getSimpleName().toString();
-		return beatenby.contains(c);
+		return beatenByList.contains(c);
 	}
 
-	/**
-	 * Method to let pieces fight against each other and set the loser
-	 * !alive
-	 *
-	 * @param defender
-	 * @throws NullPointerException
-	 */
+	@Override
 	public void fightAgainst(Piece defender, GameState gameState) throws NullPointerException {
 		if (!this.color.equals(defender.color)) {
 			if (this.getClass() == defender.getClass()) {
@@ -67,6 +54,51 @@ public abstract class Piece {
 			this.alive = false;
 		}
 		gameState.setChallenger(this);
-		gameState.setDefender(defender);    
+		gameState.setDefender(defender);
+	}
+
+	@Override
+	public String getNAME() {
+		return this.NAME;
+	}
+
+	@Override
+	public String getDESCRIPTION() {
+		return this.DESCRIPTION;
+	}
+
+	@Override
+	public Color getColor() {
+		return this.color;
+	}
+
+	@Override
+	public boolean isCovered() {
+		return this.covered;
+	}
+
+	@Override
+	public boolean isAlive() {
+		return this.alive;
+	}
+
+	@Override
+	public void setAlive(boolean alive) {
+		this.alive = alive;
+	}
+
+	@Override
+	public void setCovered(boolean covered) {
+		this.covered = covered;
+	}
+
+	@Override
+	public Motion getMOTION() {
+		return this.MOTION;
+	}
+
+	@Override
+	public void addToBeatenByPiece(String pieceName) {
+		this.beatenByList.add(pieceName);
 	}
 }

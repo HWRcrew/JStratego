@@ -33,19 +33,19 @@ public class Field {
 			Gamephase currentGamephase = gameState.getCurrentGamephase();
 			if (this.piece == null) {
 				this.piece = piece;
-				player.pieces.remove(piece);
+				player.getPieces().remove(piece);
 
 			} else {
-				if (this.piece.color.equals(player.playerColor) && (currentGamephase.equals(Gamephase.SETUPblue) || currentGamephase.equals(Gamephase.SETUPred))) {
-					player.pieces.add(this.piece);
+				if (this.piece.getColor().equals(player.getPlayerColor()) && (currentGamephase.equals(Gamephase.SETUPblue) || currentGamephase.equals(Gamephase.SETUPred))) {
+					player.getPieces().add(this.piece);
 					this.piece = piece;
-					player.pieces.remove(piece);
+					player.getPieces().remove(piece);
 				}
 				piece.fightAgainst(this.piece, gameState);
-				if (piece.alive) {
+				if (piece.isAlive()) {
 					this.piece = piece;
 				}
-				if (!this.piece.alive && !piece.alive) {
+				if (!this.piece.isAlive() && !piece.isAlive()) {
 					this.piece = null;
 				}
 			}

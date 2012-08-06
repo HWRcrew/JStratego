@@ -39,8 +39,6 @@
 package jstratego.gui.game;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
@@ -174,30 +172,30 @@ public class PlayBoard extends javax.swing.JFrame {
             if (figureCounter == null) {
                 preparePlacement();
                 setInfoIconColor(Color.RED);
-                labelPlayer.setText(currentGame.gameState.getPlayerWithMove().name + ", bitte Figuren platzieren.");
+                labelPlayer.setText(currentGame.gameState.getPlayerWithMove().getName() + ", bitte Figuren platzieren.");
                 buttonSet.setText("Platzierung beenden");
 
             } else {
                 currentGame.endPhase();
                 updateIcons();
                 buttonSet.setText("Platzierung beginnen");
-                labelPlayer.setText("Wechsel zu " + currentGame.gameState.getPlayerWithMove().name);
+                labelPlayer.setText("Wechsel zu " + currentGame.gameState.getPlayerWithMove().getName());
             }
         } else if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.CHANGE)) {
             if (currentGame.gameState.getLastGamephase().equals(Gamephase.SETUPred)) {
                 preparePlacement();
                 setInfoIconColor(Color.BLUE);
                 currentGame.endPhase();
-                labelPlayer.setText(currentGame.gameState.getPlayerWithMove().name + ", bitte Figuren platzieren.");
+                labelPlayer.setText(currentGame.gameState.getPlayerWithMove().getName() + ", bitte Figuren platzieren.");
                 buttonSet.setText("Platzierung beenden");
 
             } else if (currentGame.gameState.getLastGamephase().equals(Gamephase.SETUPblue)) {
                 currentGame.endPhase();
                 updateIcons();
-                setInfoIconColor(currentGame.gameState.getPlayerWithMove().playerColor);
+                setInfoIconColor(currentGame.gameState.getPlayerWithMove().getPlayerColor());
                 placementLabelVisible(false);
                 buttonSet.setText("Zug beginnen.");
-                labelPlayer.setText("Wechsel zu " + currentGame.gameState.getPlayerWithMove().name);
+                labelPlayer.setText("Wechsel zu " + currentGame.gameState.getPlayerWithMove().getName());
                 figureCounter = null;
 
             } else if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.MOVEblue) || currentGame.gameState.getCurrentGamephase().equals(Gamephase.MOVEred)) {
@@ -306,13 +304,13 @@ public class PlayBoard extends javax.swing.JFrame {
                     if (currentGame.playBoard.board[x][y].getPiece() == null) {
                         fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));
                     } else {
-                        if (currentGame.playBoard.board[x][y].getPiece().covered) {
-                            pieceColor = currentGame.playBoard.board[x][y].getPiece().color.toString();
+                        if (currentGame.playBoard.board[x][y].getPiece().isCovered()) {
+                            pieceColor = currentGame.playBoard.board[x][y].getPiece().getColor().toString();
                             iconName = "/jstratego/gui/img/" + "blank_" + pieceColor.toLowerCase() + ".png";
                             fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
                         } else {
                             pieceType = currentGame.playBoard.board[x][y].getPiece().getClass().getSimpleName();
-                            pieceColor = currentGame.playBoard.board[x][y].getPiece().color.toString();
+                            pieceColor = currentGame.playBoard.board[x][y].getPiece().getColor().toString();
                             iconName = "/jstratego/gui/img/" + pieceType.toLowerCase() + "_" + pieceColor.toLowerCase() + ".png";
                             fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
                         }
@@ -386,7 +384,7 @@ public class PlayBoard extends javax.swing.JFrame {
                 || (currentGame.gameState.getCurrentGamephase() == jstratego.logic.game.Gamephase.SETUPred)) {
             if ((!(field.getName().length() == 3) || (field.getName().startsWith("S"))) && pieceToPlace == null) {
                 String pieceName = field.getName();
-                Color tempColor = currentGame.gameState.getPlayerWithMove().playerColor;
+                Color tempColor = currentGame.gameState.getPlayerWithMove().getPlayerColor();
 
                 if (pieceName.equalsIgnoreCase("Flag")) {
                     pieceToPlace = new Flag(tempColor, true, false);
@@ -414,7 +412,7 @@ public class PlayBoard extends javax.swing.JFrame {
                     pieceToPlace = new Bomb(tempColor, true, false);
                 }
 
-                labelPlayer.setText(pieceToPlace.name + " platzieren.");
+                labelPlayer.setText(pieceToPlace.getNAME() + " platzieren.");
 
             } else {
                 if ((field.getName().length() == 3) && !field.getName().startsWith("S") && pieceToPlace != null) {
@@ -458,7 +456,7 @@ public class PlayBoard extends javax.swing.JFrame {
                     pieceToPlace = null;
                     updatePlacementLabel();
                     updateIcons();
-                    labelPlayer.setText(currentGame.gameState.getPlayerWithMove().name + ", bitte Figuren platzieren.");
+                    labelPlayer.setText(currentGame.gameState.getPlayerWithMove().getName() + ", bitte Figuren platzieren.");
                 }
             }
 

@@ -1,28 +1,26 @@
 package jstratego.logic.pieces;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author sebastiangrosse
  */
 public class Scout extends Piece {
 
+	public static final String DESCRIPTION = "Der Aufklärer kann nicht durch seine Stärke überzeugen, dafür aber mehrere Felder weit ziehen.";
+	public static final String NAME = "Aufklärer";
+	public static final Motion MOTION = Motion.SUPERMOVABLE;
+
 	public Scout(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		description = "Der Aufklärer kann nicht durch seine Stärke überzeugen, dafür aber mehrere Felder weit ziehen.";
-		name = "Aufklärer";
-		motion = Motion.SUPERMOVABLE;
-		this.beatenby = new ArrayList<String>();
-		beatenby.add("Marshal");
-		beatenby.add("General");
-		beatenby.add("Colonel");
-		beatenby.add("Major");
-		beatenby.add("Captain");
-		beatenby.add("Lieutenant");
-		beatenby.add("Sergeant");
-		beatenby.add("Miner");
-		beatenby.add("Scout");
-		beatenby.add("Bomb");
+		addToBeatenByPiece("Marshal");
+		addToBeatenByPiece("General");
+		addToBeatenByPiece("Colonel");
+		addToBeatenByPiece("Major");
+		addToBeatenByPiece("Captain");
+		addToBeatenByPiece("Lieutenant");
+		addToBeatenByPiece("Sergeant");
+		addToBeatenByPiece("Miner");
+		addToBeatenByPiece("Scout");
+		addToBeatenByPiece("Bomb");
 	}
 }

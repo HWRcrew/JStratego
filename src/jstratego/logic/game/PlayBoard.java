@@ -2,6 +2,7 @@ package jstratego.logic.game;
 
 import java.util.ArrayList;
 import java.util.List;
+import jstratego.logic.pieces.Color;
 import jstratego.logic.pieces.Motion;
 import jstratego.logic.pieces.Piece;
 
@@ -83,7 +84,7 @@ public class PlayBoard {
 	 * this Method blocks the Fields in the middle to ensure, that there is
 	 * no figure placed on Setup
 	 */
-	public void blockFieldsForSetup() {
+	public void blockFieldsForSetup(Player player) {
 		board[4][0].setBlocked(true);
 		board[4][1].setBlocked(true);
 		board[4][4].setBlocked(true);
@@ -96,12 +97,26 @@ public class PlayBoard {
 		board[5][5].setBlocked(true);
 		board[5][8].setBlocked(true);
 		board[5][9].setBlocked(true);
+		if(player.getPlayerColor().equals(Color.RED)){
+			for(int i=0;i<=3;i++){
+				for(int j=0;j<=9;j++){
+					board[i][j].setBlocked(true);
+				}
+			}
+		}
+		if(player.getPlayerColor().equals(Color.BLUE)){
+			for(int i=6;i<=9;i++){
+				for(int j=0;j<=9;j++){
+					board[i][j].setBlocked(true);
+				}
+			}
+		}
 	}
 
 	/**
 	 * this Method unblocks the Fields in the middle.
 	 */
-	public void unblockFieldsForSetup() {
+	public void unblockFieldsForSetup(Player player) {
 		board[4][0].setBlocked(false);
 		board[4][1].setBlocked(false);
 		board[4][4].setBlocked(false);
@@ -114,6 +129,20 @@ public class PlayBoard {
 		board[5][5].setBlocked(false);
 		board[5][8].setBlocked(false);
 		board[5][9].setBlocked(false);
+		if(player.getPlayerColor().equals(Color.RED)){
+			for(int i=0;i<=3;i++){
+				for(int j=0;j<=9;j++){
+					board[i][j].setBlocked(false);
+				}
+			}
+		}
+		if(player.getPlayerColor().equals(Color.BLUE)){
+			for(int i=6;i<=9;i++){
+				for(int j=0;j<=9;j++){
+					board[i][j].setBlocked(false);
+				}
+			}
+		}
 	}
 
 	/**
@@ -127,8 +156,8 @@ public class PlayBoard {
 			for (int j = 0; j <= 9; j++) {
 				try {
 					Piece tmpPiece = board[i][j].getPiece();
-					if (tmpPiece.color.equals(player.playerColor)) {
-						tmpPiece.covered = true;
+					if (tmpPiece.getColor().equals(player.getPlayerColor())) {
+						tmpPiece.setCovered(true);
 					}
 				} catch (NullPointerException npe) {
 				}
@@ -146,8 +175,8 @@ public class PlayBoard {
 			for (int j = 0; j <= 9; j++) {
 				try {
 					Piece tmpPiece = board[i][j].getPiece();
-					if (tmpPiece.color.equals(player.playerColor)) {
-						tmpPiece.covered = false;
+					if (tmpPiece.getColor().equals(player.getPlayerColor())) {
+						tmpPiece.setCovered(false);
 					}
 				} catch (NullPointerException npe) {
 				}
@@ -164,42 +193,42 @@ public class PlayBoard {
 	public List<Field> reachableFields(Field field) {
 		List<Field> fields;
 		fields = new ArrayList<Field>();
-		if (field.getPiece().motion == Motion.MOVABLE) {
+		if (field.getPiece().getMOTION().equals(Motion.MOVABLE)) {
 			Field tmpField;
 			if (field.getX() + 1 <= 9) {
 				int x = field.getX() + 1;
 				tmpField = this.board[x][field.getY()];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().color.equals(field.getPiece().color))) {
+				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
 					fields.add(tmpField);
 				}
 			}
 			if (field.getX() - 1 >= 0) {
 				int x = field.getX() - 1;
 				tmpField = this.board[x][field.getY()];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().color.equals(field.getPiece().color))) {
+				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
 					fields.add(tmpField);
 				}
 			}
 			if (field.getY() + 1 <= 9) {
 				int y = field.getY() + 1;
 				tmpField = this.board[field.getX()][y];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().color.equals(field.getPiece().color))) {
+				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
 					fields.add(tmpField);
 				}
 			}
 			if (field.getY() - 1 >= 0) {
 				int y = field.getY() - 1;
 				tmpField = this.board[field.getX()][y];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().color.equals(field.getPiece().color))) {
+				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
 					fields.add(tmpField);
 				}
 			}
 		}
-		if (field.getPiece().motion == Motion.SUPERMOVABLE) {
+		if (field.getPiece().getMOTION().equals(Motion.SUPERMOVABLE)) {
 			Field tmpField;
 			for (int x = field.getX() + 1; x <= 9; x++) {
 				tmpField = this.board[x][field.getY()];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().color.equals(field.getPiece().color))) {
+				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
 					fields.add(tmpField);
 				} else {
 					break;
@@ -207,7 +236,7 @@ public class PlayBoard {
 			}
 			for (int x = field.getX() - 1; x >= 0; x--) {
 				tmpField = this.board[x][field.getY()];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().color.equals(field.getPiece().color))) {
+				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
 					fields.add(tmpField);
 				} else {
 					break;
@@ -215,7 +244,7 @@ public class PlayBoard {
 			}
 			for (int y = field.getY() + 1; y <= 9; y++) {
 				tmpField = this.board[field.getX()][y];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().color.equals(field.getPiece().color))) {
+				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
 					fields.add(tmpField);
 				} else {
 					break;
@@ -223,14 +252,14 @@ public class PlayBoard {
 			}
 			for (int y = field.getY() - 1; y >= 0; y--) {
 				tmpField = this.board[field.getX()][y];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().color.equals(field.getPiece().color))) {
+				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
 					fields.add(tmpField);
 				} else {
 					break;
 				}
 			}
 		}
-		if (field.getPiece().motion == Motion.UNMOVABLE) {
+		if (field.getPiece().getMOTION().equals(Motion.UNMOVABLE)) {
 			fields.clear();
 			return fields;
 		}

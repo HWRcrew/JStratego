@@ -1,21 +1,19 @@
 package jstratego.logic.pieces;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author sebastiangrosse
  */
 public class General extends Piece {
 
+	public static final String DESCRIPTION = "Der General ist die zweitstärkste Figur im Spiel.";
+	public static final String NAME = "General";
+	public static final Motion MOTION = Motion.MOVABLE;
+
 	public General(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		description = "Der General ist die zweitstärkste Figur im Spiel.";
-		name = "General";
-		motion = Motion.MOVABLE;
-		this.beatenby = new ArrayList<String>();
-		beatenby.add("Marshal");
-		beatenby.add("General");
-		beatenby.add("Bomb");
+		addToBeatenByPiece("Marshal");
+		addToBeatenByPiece("General");
+		addToBeatenByPiece("Bomb");
 	}
 }

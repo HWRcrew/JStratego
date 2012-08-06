@@ -23,10 +23,10 @@ public class PlayerTest {
 		System.out.println("getPiece"); 
 		String typ = "Flagge";
 		Player instance = new Player("Basti", Color.RED);
-		Piece expResult = instance.pieces.get(5);
-		System.out.println(expResult.name);
+		Piece expResult = instance.getPieces().get(5);
+		System.out.println(expResult.getNAME());
 		Piece result = instance.getPiece(typ);
-		System.out.println(result.name);
+		System.out.println(result.getNAME());
 		assertEquals(expResult, result);
 	}
 }

@@ -1,26 +1,24 @@
 package jstratego.logic.pieces;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author sebastiangrosse
  */
 public class Sergeant extends Piece {
 
+	public static final String DESCRIPTION = "Der Unteroffizier liegt mit seiner Stärke im unteren Drittel der Figuren.";
+	public static final String NAME = "Unteroffizier";
+	public static final Motion MOTION = Motion.MOVABLE;
+
 	public Sergeant(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		description = "Der Unteroffizier liegt mit seiner Stärke im unteren Drittel der Figuren.";
-		name = "Unteroffizier";
-		motion = Motion.MOVABLE;
-		beatenby = new ArrayList<String>();
-		beatenby.add("Marshal");
-		beatenby.add("General");
-		beatenby.add("Colonel");
-		beatenby.add("Major");
-		beatenby.add("Captain");
-		beatenby.add("Lieutenant");
-		beatenby.add("Sergeant");
-		beatenby.add("Bomb");
+		addToBeatenByPiece("Marshal");
+		addToBeatenByPiece("General");
+		addToBeatenByPiece("Colonel");
+		addToBeatenByPiece("Major");
+		addToBeatenByPiece("Captain");
+		addToBeatenByPiece("Lieutenant");
+		addToBeatenByPiece("Sergeant");
+		addToBeatenByPiece("Bomb");
 	}
 }

@@ -4,6 +4,7 @@
  */
 package jstratego.logic.pieces;
 
+import jstratego.logic.game.GameState;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -101,59 +102,60 @@ public class PieceTest {
 		Spy spy = new Spy(Color.RED, true, true);
 		General general = new General(Color.RED, true, true);
 		Bomb bomb = new Bomb(Color.RED, true, true);
+		GameState gameState = new GameState();
 		
 		System.out.println("general fights against bomb!");
 		Piece defender = bomb;
 		Piece instance = general;
-		instance.fightAgainst(defender, null);
+		instance.fightAgainst(defender, gameState);
 		boolean expResult = true;
-		assertEquals(expResult, defender.alive);
+		assertEquals(expResult, defender.isAlive());
 		expResult = false;
-		assertEquals(expResult, instance.alive);
+		assertEquals(expResult, instance.isAlive());
 		
 		System.out.println("major fights against bomb!");
 		defender = bomb;
 		instance = major;
-		instance.fightAgainst(defender, null);
+		instance.fightAgainst(defender, gameState);
 		expResult = true;
-		assertEquals(expResult, defender.alive);
+		assertEquals(expResult, defender.isAlive());
 		expResult = false;
-		assertEquals(expResult, instance.alive);
+		assertEquals(expResult, instance.isAlive());
 		
 		System.out.println("spy fights against marshal!");
 		defender = marshal;
 		instance = spy;
-		instance.fightAgainst(defender, null);
+		instance.fightAgainst(defender, gameState);
 		expResult = false;
-		assertEquals(expResult, defender.alive);
+		assertEquals(expResult, defender.isAlive());
 		expResult = true;
-		assertEquals(expResult, instance.alive);
+		assertEquals(expResult, instance.isAlive());
 		
 		System.out.println("miner fights against bomb!");
 		defender = bomb;
 		instance = miner;
-		instance.fightAgainst(defender, null);
+		instance.fightAgainst(defender, gameState);
 		expResult = false;
-		assertEquals(expResult, defender.alive);
+		assertEquals(expResult, defender.isAlive());
 		expResult = true;
-		assertEquals(expResult, instance.alive);
+		assertEquals(expResult, instance.isAlive());
 		
 		System.out.println("marshal fights against marshal!");
 		defender = marshal;
 		instance = marshal;
-		instance.fightAgainst(defender, null);
+		instance.fightAgainst(defender, gameState);
 		expResult = false;
-		assertEquals(expResult, defender.alive);
+		assertEquals(expResult, defender.isAlive());
 		expResult = false;
-		assertEquals(expResult, instance.alive);
+		assertEquals(expResult, instance.isAlive());
 		
 		System.out.println("miner fights against miner!");
 		defender = miner;
 		instance = miner;
-		instance.fightAgainst(defender, null);
+		instance.fightAgainst(defender, gameState);
 		expResult = false;
-		assertEquals(expResult, defender.alive);
+		assertEquals(expResult, defender.isAlive());
 		expResult = false;
-		assertEquals(expResult, instance.alive);
+		assertEquals(expResult, instance.isAlive());
 	}
 }

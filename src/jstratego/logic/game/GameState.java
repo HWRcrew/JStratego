@@ -13,8 +13,8 @@ import jstratego.logic.pieces.Piece;
  * @author sebastiangrosse
  */
 //TODO versuchen zwischen Datenspeicherung und Datenverarbeitung zu trennen.
-public final class GameState {
-
+//TODO Comparator bauen zum marshal aus liste zu ziehen
+public class GameState {
 	private Player playerWithMove;
 	private Player otherPlayer;
 	private Gamephase currentGamephase;

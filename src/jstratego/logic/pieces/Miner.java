@@ -1,26 +1,24 @@
 package jstratego.logic.pieces;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author sebastiangrosse
  */
 public class Miner extends Piece {
 
+	public static final String DESCRIPTION = "Mineure können als einzige Figuren Bomben aus dem Spiel nehmen.";
+	public static final String NAME = "Mineur";
+	public static final Motion MOTION = Motion.MOVABLE;
+
 	public Miner(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		description = "Mineure können als einzige Figuren Bomben aus dem Spiel nehmen.";
-		name = "Mineur";
-		motion = Motion.UNMOVABLE;
-		this.beatenby = new ArrayList<String>();
-		beatenby.add("Marshal");
-		beatenby.add("General");
-		beatenby.add("Colonel");
-		beatenby.add("Major");
-		beatenby.add("Captain");
-		beatenby.add("Lieutenant");
-		beatenby.add("Sergeant");
-		beatenby.add("Miner");
+		addToBeatenByPiece("Marshal");
+		addToBeatenByPiece("General");
+		addToBeatenByPiece("Colonel");
+		addToBeatenByPiece("Major");
+		addToBeatenByPiece("Captain");
+		addToBeatenByPiece("Lieutenant");
+		addToBeatenByPiece("Sergeant");
+		addToBeatenByPiece("Miner");
 	}
 }

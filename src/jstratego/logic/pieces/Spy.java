@@ -1,29 +1,27 @@
 package jstratego.logic.pieces;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author sebastiangrosse
  */
 public class Spy extends Piece {
 
+	public static final String DESCRIPTION = "Der Spion hat die besondere Eigenschaft, den Feldmarschall zu schlagen, wenn der Spion die angreifende Figur ist.";
+	public static final String NAME = "Spion";
+	public static final Motion MOTION = Motion.MOVABLE;
+
 	public Spy(Color color, boolean alive, boolean covered) {
 		super(color, alive, covered);
-		description = "Der Spion hat die besondere Eigenschaft, den Feldmarschall zu schlagen, wenn der Spion die angreifende Figur ist.";
-		name = "Spion";
-		motion = Motion.MOVABLE;
-		this.beatenby = new ArrayList<String>();
-		beatenby.add("General");
-		beatenby.add("Colonel");
-		beatenby.add("Major");
-		beatenby.add("Marshal");
-		beatenby.add("Captain");
-		beatenby.add("Lieutenant");
-		beatenby.add("Sergeant");
-		beatenby.add("Miner");
-		beatenby.add("Scout");
-		beatenby.add("Spy");
-		beatenby.add("Bomb");
+		addToBeatenByPiece("Marshal");
+		addToBeatenByPiece("General");
+		addToBeatenByPiece("Colonel");
+		addToBeatenByPiece("Major");
+		addToBeatenByPiece("Captain");
+		addToBeatenByPiece("Lieutenant");
+		addToBeatenByPiece("Sergeant");
+		addToBeatenByPiece("Miner");
+		addToBeatenByPiece("Scout");
+		addToBeatenByPiece("Spy");
+		addToBeatenByPiece("Bomb");
 	}
 }
