@@ -8,6 +8,6 @@ package jstratego.logic.game;
  *
  * @author sebastiangrosse
  */
-public enum GameResult {
+public enum GameResultEnum {
 	INDIFFERENT, REDISWINNER, BLUEISWINNER
 }

@@ -1,6 +1,6 @@
 package jstratego.logic.game;
 
-import jstratego.logic.pieces.Color;
+import jstratego.logic.pieces.ColorEnum;
 import jstratego.logic.pieces.Piece;
 
 /**
@@ -8,7 +8,7 @@ import jstratego.logic.pieces.Piece;
  *
  * @author sebastiangrosse
  */
-public class Game {
+public class Game implements GameInterface{
 
 	public PlayBoard playBoard;
 	public GameState gameState;
@@ -17,9 +17,9 @@ public class Game {
 	public Game(String namePlayerRed, String namePlayerBlue) {
 		gameState = new GameState();
 		playBoard = new PlayBoard();
-		gameState.setPlayerWithMove(new Player(namePlayerRed, Color.RED));
-		gameState.setOtherPlayer(new Player(namePlayerBlue, Color.BLUE));
-		gameState.setCurrentGamephase(Gamephase.SETUPred);
+		gameState.setPlayerWithMove(new Player(namePlayerRed, ColorEnum.RED));
+		gameState.setOtherPlayer(new Player(namePlayerBlue, ColorEnum.BLUE));
+		gameState.setCurrentGamephase(GamephaseEnum.SETUPred);
 		playBoard.blockFieldsForSetup(gameState.getPlayerWithMove());
 	}
 	Exception NotAllPiecesSetException = new Exception("Some pieces are left to set!");
@@ -40,20 +40,20 @@ public class Game {
 				this.playBoard.uncoverPiecesForPlayer(plwm);
 				switch (this.gameState.getLastGamephase()) {
 					case SETUPred:
-						this.gameState.setCurrentGamephase(Gamephase.SETUPblue);
+						this.gameState.setCurrentGamephase(GamephaseEnum.SETUPblue);
 						this.playBoard.blockFieldsForSetup(plwm);
 						this.playBoard.uncoverPiecesForPlayer(plwm);
 						break;
 					case SETUPblue:
-						this.gameState.setCurrentGamephase(Gamephase.MOVEred);
+						this.gameState.setCurrentGamephase(GamephaseEnum.MOVEred);
 						this.playBoard.uncoverPiecesForPlayer(plwm);
 						break;
 					case MOVEred:
-						this.gameState.setCurrentGamephase(Gamephase.MOVEblue);
+						this.gameState.setCurrentGamephase(GamephaseEnum.MOVEblue);
 						this.playBoard.uncoverPiecesForPlayer(plwm);
 						break;
 					case MOVEblue:
-						this.gameState.setCurrentGamephase(Gamephase.MOVEred);
+						this.gameState.setCurrentGamephase(GamephaseEnum.MOVEred);
 						this.playBoard.uncoverPiecesForPlayer(plwm);
 						break;
 					default:
@@ -66,8 +66,8 @@ public class Game {
 				}
 				this.playBoard.unblockFieldsForSetup(plwm);
 				this.playBoard.coverPiecesForPlayer(plwm);
-				this.gameState.setLastGamephase(Gamephase.SETUPred);
-				this.gameState.setCurrentGamephase(Gamephase.CHANGE);
+				this.gameState.setLastGamephase(GamephaseEnum.SETUPred);
+				this.gameState.setCurrentGamephase(GamephaseEnum.CHANGE);
 				break;
 			case SETUPblue:
 				if (!this.gameState.getPlayerWithMove().getPieces().isEmpty()) {
@@ -75,47 +75,47 @@ public class Game {
 				}
 				this.playBoard.unblockFieldsForSetup(plwm);
 				this.playBoard.coverPiecesForPlayer(plwm);
-				this.gameState.setLastGamephase(Gamephase.SETUPblue);
-				this.gameState.setCurrentGamephase(Gamephase.CHANGE);
+				this.gameState.setLastGamephase(GamephaseEnum.SETUPblue);
+				this.gameState.setCurrentGamephase(GamephaseEnum.CHANGE);
 				break;
 			case MOVEred:
-				this.gameState.setLastGamephase(Gamephase.MOVEred);
+				this.gameState.setLastGamephase(GamephaseEnum.MOVEred);
 				this.playBoard.coverPiecesForPlayer(plwm);
-				this.gameState.setCurrentGamephase(Gamephase.CHANGE);
+				this.gameState.setCurrentGamephase(GamephaseEnum.CHANGE);
 				if (this.playBoard.onlyBombsAndFlagsLeft()) {
-					this.gameState.setGameResult(GameResult.INDIFFERENT);
-					this.gameState.setCurrentGamephase(Gamephase.END);
+					this.gameState.setGameResult(GameResultEnum.INDIFFERENT);
+					this.gameState.setCurrentGamephase(GamephaseEnum.END);
 					break;
 				}
 				if(this.gameState.getDefender().getClass().getSimpleName().toString().equals("Flag")){
 				}
 				if(flagIsBeaten()){
-					this.gameState.setCurrentGamephase(Gamephase.END);
-					if(plwm.getPlayerColor().equals(Color.BLUE)){
-						this.gameState.setGameResult(GameResult.BLUEISWINNER);
+					this.gameState.setCurrentGamephase(GamephaseEnum.END);
+					if(plwm.getColor().equals(ColorEnum.BLUE)){
+						this.gameState.setGameResult(GameResultEnum.BLUEISWINNER);
 						break;
 					}
-					if(plwm.getPlayerColor().equals(Color.RED)){
-						this.gameState.setGameResult(GameResult.REDISWINNER);
+					if(plwm.getColor().equals(ColorEnum.RED)){
+						this.gameState.setGameResult(GameResultEnum.REDISWINNER);
 						break;
 					}
 				}
 				break;
 			case MOVEblue:
-				this.gameState.setLastGamephase(Gamephase.MOVEblue);
+				this.gameState.setLastGamephase(GamephaseEnum.MOVEblue);
 				this.playBoard.coverPiecesForPlayer(plwm);
-				this.gameState.setCurrentGamephase(Gamephase.CHANGE);
+				this.gameState.setCurrentGamephase(GamephaseEnum.CHANGE);
 				if (this.playBoard.onlyBombsAndFlagsLeft()) {
-					this.gameState.setGameResult(GameResult.INDIFFERENT);
-					this.gameState.setCurrentGamephase(Gamephase.END);
+					this.gameState.setGameResult(GameResultEnum.INDIFFERENT);
+					this.gameState.setCurrentGamephase(GamephaseEnum.END);
 				}
 				if(flagIsBeaten()){
-					this.gameState.setCurrentGamephase(Gamephase.END);
-					if(plwm.getPlayerColor().equals(Color.BLUE)){
-						this.gameState.setGameResult(GameResult.BLUEISWINNER);
+					this.gameState.setCurrentGamephase(GamephaseEnum.END);
+					if(plwm.getColor().equals(ColorEnum.BLUE)){
+						this.gameState.setGameResult(GameResultEnum.BLUEISWINNER);
 					}
-					if(plwm.getPlayerColor().equals(Color.RED)){
-						this.gameState.setGameResult(GameResult.REDISWINNER);
+					if(plwm.getColor().equals(ColorEnum.RED)){
+						this.gameState.setGameResult(GameResultEnum.REDISWINNER);
 					}
 				}
 				break;

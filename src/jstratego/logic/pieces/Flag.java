@@ -8,9 +8,9 @@ public class Flag extends Piece {
 
 	public static final String DESCRIPTION = "Die Flagge muss zum Sieg des Spiels erobert werden. Sie muss bis aufs Letzte verteidigt werden.";
 	public static final String NAME = "Flagge";
-	public static final Motion MOTION = Motion.UNMOVABLE;
+	public static final MotionEnum MOTION = MotionEnum.UNMOVABLE;
 
-	public Flag(Color color, boolean alive, boolean covered) {
+	public Flag(ColorEnum color, boolean alive, boolean covered) {
 		super(color, alive, covered);
 		addToBeatenByPiece("Marshal");
 		addToBeatenByPiece("General");

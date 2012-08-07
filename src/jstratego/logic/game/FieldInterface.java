@@ -5,11 +5,8 @@
 package jstratego.logic.game;
 
 /**
- * Enumeration for the diffrent phases in a game.
  *
  * @author sebastiangrosse
  */
-public enum Gamephase {
-
-	SETUPred, SETUPblue, CHANGE, END, MOVEred, MOVEblue
+public interface FieldInterface {	
 }

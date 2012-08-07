@@ -50,14 +50,14 @@ public interface PieceInterface {
 	 *
 	 * @return
 	 */
-	public Motion getMOTION();
+	public MotionEnum getMOTION();
 
 	/**
 	 * returns the color of a piece.
 	 *
 	 * @return
 	 */
-	public Color getColor();
+	public ColorEnum getColor();
 
 	/**
 	 * returns true if a piece is alive.

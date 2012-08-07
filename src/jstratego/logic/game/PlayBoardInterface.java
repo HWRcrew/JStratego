@@ -20,21 +20,40 @@ public interface PlayBoardInterface {
 	public boolean onlyBombsAndFlagsLeft();
 
 	/**
-	 * blocks the fields on the playboard, where the player is not allowed to
-	 * set Pieces.
+	 * blocks the fields on the playboard, where the current player is not
+	 * allowed to setup pieces.
 	 */
 	public void blockFieldsForSetup(Player player);
-	
+
+	/**
+	 * unblocks the fields on the playboard, where the current player is not
+	 * allowed to setup pieces.
+	 *
+	 * @param player
+	 */
 	public void unblockFieldsForSetup(Player player);
-	
+
+	/**
+	 * covers the pieces on the playboard, that belong to the choosen player.
+	 *
+	 * @param player
+	 * @throws NullPointerException
+	 */
 	public void coverPiecesForPlayer(Player player) throws NullPointerException;
-	
+
+	/**
+	 * uncovers the pieces on the playboard, that belong to the choosen player.
+	 *
+	 * @param player
+	 * @throws NullPointerException
+	 */
 	public void uncoverPiecesForPlayer(Player player) throws NullPointerException;
-	
+
 	/**
 	 * returns a list of reachable fields from one field of a playboard.
+	 *
 	 * @param field
-	 * @return 
+	 * @return
 	 */
 	public ArrayList<Field> listOfReachableFields(Field field);
 }

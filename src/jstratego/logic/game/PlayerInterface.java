@@ -1,5 +1,7 @@
 package jstratego.logic.game;
 
+import java.util.ArrayList;
+import jstratego.logic.pieces.ColorEnum;
 import jstratego.logic.pieces.Piece;
 
 /**
@@ -23,4 +25,36 @@ public interface PlayerInterface {
 	 * @return
 	 */
 	public int getLeftNumberOfPieceInList(Piece piece);
+
+	/**
+	 * adds a piece to a player.
+	 *
+	 * @param piece
+	 */
+	public void addPieceToPlayer(Piece piece);
+
+	/**
+	 * removes a piece from the player.
+	 *
+	 * @param piece
+	 */
+	public void removePieceFromPlayer(Piece piece);
+	
+	/**
+	 * get the name of a player
+	 * @return 
+	 */
+	public String getName();
+
+	/**
+	 * get the color of a player.
+	 * @return 
+	 */
+	public ColorEnum getColor();
+
+	/**
+	 * get the list of pieces the player has left in his hand.
+	 * @return 
+	 */
+	public ArrayList<Piece> getPieces();
 }

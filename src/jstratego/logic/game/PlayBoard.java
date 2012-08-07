@@ -1,8 +1,8 @@
 package jstratego.logic.game;
 
 import java.util.ArrayList;
-import jstratego.logic.pieces.Color;
-import jstratego.logic.pieces.Motion;
+import jstratego.logic.pieces.ColorEnum;
+import jstratego.logic.pieces.MotionEnum;
 import jstratego.logic.pieces.Piece;
 
 /**
@@ -92,14 +92,14 @@ public class PlayBoard implements PlayBoardInterface {
 		board[5][5].setBlocked(true);
 		board[5][8].setBlocked(true);
 		board[5][9].setBlocked(true);
-		if (player.getPlayerColor().equals(Color.RED)) {
+		if (player.getColor().equals(ColorEnum.RED)) {
 			for (int i = 0; i <= 3; i++) {
 				for (int j = 0; j <= 9; j++) {
 					board[i][j].setBlocked(true);
 				}
 			}
 		}
-		if (player.getPlayerColor().equals(Color.BLUE)) {
+		if (player.getColor().equals(ColorEnum.BLUE)) {
 			for (int i = 6; i <= 9; i++) {
 				for (int j = 0; j <= 9; j++) {
 					board[i][j].setBlocked(true);
@@ -108,9 +108,6 @@ public class PlayBoard implements PlayBoardInterface {
 		}
 	}
 
-	/**
-	 * this Method unblocks the Fields in the middle.
-	 */
 	@Override
 	public void unblockFieldsForSetup(Player player) {
 		board[4][0].setBlocked(false);
@@ -125,14 +122,14 @@ public class PlayBoard implements PlayBoardInterface {
 		board[5][5].setBlocked(false);
 		board[5][8].setBlocked(false);
 		board[5][9].setBlocked(false);
-		if (player.getPlayerColor().equals(Color.RED)) {
+		if (player.getColor().equals(ColorEnum.RED)) {
 			for (int i = 0; i <= 3; i++) {
 				for (int j = 0; j <= 9; j++) {
 					board[i][j].setBlocked(false);
 				}
 			}
 		}
-		if (player.getPlayerColor().equals(Color.BLUE)) {
+		if (player.getColor().equals(ColorEnum.BLUE)) {
 			for (int i = 6; i <= 9; i++) {
 				for (int j = 0; j <= 9; j++) {
 					board[i][j].setBlocked(false);
@@ -141,18 +138,13 @@ public class PlayBoard implements PlayBoardInterface {
 		}
 	}
 
-	/**
-	 * covers the pieces of the selected player
-	 *
-	 * @param player
-	 */
 	@Override
 	public void coverPiecesForPlayer(Player player) throws NullPointerException {
 		for (int i = 0; i <= 9; i++) {
 			for (int j = 0; j <= 9; j++) {
 				try {
 					Piece tmpPiece = board[i][j].getPiece();
-					if (tmpPiece.getColor().equals(player.getPlayerColor())) {
+					if (tmpPiece.getColor().equals(player.getColor())) {
 						tmpPiece.setCovered(true);
 					}
 				} catch (NullPointerException npe) {
@@ -161,18 +153,13 @@ public class PlayBoard implements PlayBoardInterface {
 		}
 	}
 
-	/**
-	 * uncovers the pieces of the selected player.
-	 *
-	 * @param player
-	 */
 	@Override
 	public void uncoverPiecesForPlayer(Player player) throws NullPointerException {
 		for (int i = 0; i <= 9; i++) {
 			for (int j = 0; j <= 9; j++) {
 				try {
 					Piece tmpPiece = board[i][j].getPiece();
-					if (tmpPiece.getColor().equals(player.getPlayerColor())) {
+					if (tmpPiece.getColor().equals(player.getColor())) {
 						tmpPiece.setCovered(false);
 					}
 				} catch (NullPointerException npe) {
@@ -185,7 +172,7 @@ public class PlayBoard implements PlayBoardInterface {
 	public ArrayList<Field> listOfReachableFields(Field field) {
 		ArrayList<Field> fields;
 		fields = new ArrayList<Field>();
-		if (field.getPiece().getMOTION().equals(Motion.MOVABLE)) {
+		if (field.getPiece().getMOTION().equals(MotionEnum.MOVABLE)) {
 			Field tmpField;
 			if (field.getX() + 1 <= 9) {
 				int x = field.getX() + 1;
@@ -216,7 +203,7 @@ public class PlayBoard implements PlayBoardInterface {
 				}
 			}
 		}
-		if (field.getPiece().getMOTION().equals(Motion.SUPERMOVABLE)) {
+		if (field.getPiece().getMOTION().equals(MotionEnum.SUPERMOVABLE)) {
 			Field tmpField;
 			for (int x = field.getX() + 1; x <= 9; x++) {
 				tmpField = this.board[x][field.getY()];
@@ -251,7 +238,7 @@ public class PlayBoard implements PlayBoardInterface {
 				}
 			}
 		}
-		if (field.getPiece().getMOTION().equals(Motion.UNMOVABLE)) {
+		if (field.getPiece().getMOTION().equals(MotionEnum.UNMOVABLE)) {
 			fields.clear();
 			return fields;
 		}

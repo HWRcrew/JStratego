@@ -7,7 +7,7 @@ import jstratego.logic.pieces.*;
  *
  * @author sebastiangrosse
  */
-public class Field {
+public class Field implements FieldInterface{
 
 	private Piece piece;
 	private boolean blocked;
@@ -30,13 +30,13 @@ public class Field {
 	public void setPiece(Piece piece, GameState gameState) throws Exception {
 		if (!this.isBlocked()) {
 			Player player = gameState.getPlayerWithMove();
-			Gamephase currentGamephase = gameState.getCurrentGamephase();
+			GamephaseEnum currentGamephase = gameState.getCurrentGamephase();
 			if (this.piece == null) {
 				this.piece = piece;
 				player.getPieces().remove(piece);
 
 			} else {
-				if (this.piece.getColor().equals(player.getPlayerColor()) && (currentGamephase.equals(Gamephase.SETUPblue) || currentGamephase.equals(Gamephase.SETUPred))) {
+				if (this.piece.getColor().equals(player.getColor()) && (currentGamephase.equals(GamephaseEnum.SETUPblue) || currentGamephase.equals(GamephaseEnum.SETUPred))) {
 					player.getPieces().add(this.piece);
 					this.piece = piece;
 					player.getPieces().remove(piece);

@@ -18,13 +18,13 @@ public class PieceTest {
 	 */
 	@Test
 	public void testisBeatenBy() {
-		Major major = new Major(Color.RED, true, true);
-		Marshal marshal = new Marshal(Color.RED, true, true);
-		Scout scout = new Scout(Color.RED, true, true);
-		Miner miner = new Miner(Color.RED, true, true);
-		Spy spy = new Spy(Color.RED, true, true);
-		General general = new General(Color.RED, true, true);
-		Bomb bomb = new Bomb(Color.RED, true, true);
+		Major major = new Major(ColorEnum.RED, true, true);
+		Marshal marshal = new Marshal(ColorEnum.RED, true, true);
+		Scout scout = new Scout(ColorEnum.RED, true, true);
+		Miner miner = new Miner(ColorEnum.RED, true, true);
+		Spy spy = new Spy(ColorEnum.RED, true, true);
+		General general = new General(ColorEnum.RED, true, true);
+		Bomb bomb = new Bomb(ColorEnum.RED, true, true);
 
 		System.out.println("marshal is beaten by marshal?");
 		Piece challenger = marshal;
@@ -95,13 +95,13 @@ public class PieceTest {
 	 */
 	@Test
 	public void testFightAgainst() {
-		Major major = new Major(Color.RED, true, true);
-		Marshal marshal = new Marshal(Color.RED, true, true);
-		Scout scout = new Scout(Color.RED, true, true);
-		Miner miner = new Miner(Color.RED, true, true);
-		Spy spy = new Spy(Color.RED, true, true);
-		General general = new General(Color.RED, true, true);
-		Bomb bomb = new Bomb(Color.RED, true, true);
+		Major major = new Major(ColorEnum.RED, true, true);
+		Marshal marshal = new Marshal(ColorEnum.RED, true, true);
+		Scout scout = new Scout(ColorEnum.RED, true, true);
+		Miner miner = new Miner(ColorEnum.RED, true, true);
+		Spy spy = new Spy(ColorEnum.RED, true, true);
+		General general = new General(ColorEnum.RED, true, true);
+		Bomb bomb = new Bomb(ColorEnum.RED, true, true);
 		GameState gameState = new GameState();
 		
 		System.out.println("general fights against bomb!");

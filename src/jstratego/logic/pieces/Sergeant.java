@@ -8,9 +8,9 @@ public class Sergeant extends Piece {
 
 	public static final String DESCRIPTION = "Der Unteroffizier liegt mit seiner Stärke im unteren Drittel der Figuren.";
 	public static final String NAME = "Unteroffizier";
-	public static final Motion MOTION = Motion.MOVABLE;
+	public static final MotionEnum MOTION = MotionEnum.MOVABLE;
 
-	public Sergeant(Color color, boolean alive, boolean covered) {
+	public Sergeant(ColorEnum color, boolean alive, boolean covered) {
 		super(color, alive, covered);
 		addToBeatenByPiece("Marshal");
 		addToBeatenByPiece("General");

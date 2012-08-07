@@ -12,13 +12,13 @@ public abstract class Piece implements PieceInterface {
 
 	private String NAME;
 	private String DESCRIPTION;
-	private Motion MOTION;
+	private MotionEnum MOTION;
 	private ArrayList<String> beatenByList;
-	private Color color;
+	private ColorEnum color;
 	private boolean alive;
 	private boolean covered;
 
-	public Piece(Color color, boolean alive, boolean covered) {
+	public Piece(ColorEnum color, boolean alive, boolean covered) {
 		this.color = color;
 		this.alive = alive;
 		this.covered = covered;
@@ -68,7 +68,7 @@ public abstract class Piece implements PieceInterface {
 	}
 
 	@Override
-	public Color getColor() {
+	public ColorEnum getColor() {
 		return this.color;
 	}
 
@@ -93,7 +93,7 @@ public abstract class Piece implements PieceInterface {
 	}
 
 	@Override
-	public Motion getMOTION() {
+	public MotionEnum getMOTION() {
 		return this.MOTION;
 	}
 

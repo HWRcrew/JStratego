@@ -4,7 +4,7 @@ package jstratego.logic.pieces;
  *
  * @author sebastiangrosse
  */
-public enum Motion {
+public enum ColorEnum {
 
-	MOVABLE, UNMOVABLE, SUPERMOVABLE
+	RED, BLUE
 }

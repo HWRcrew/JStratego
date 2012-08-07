@@ -1,7 +1,6 @@
 package jstratego.logic.game;
 
 import java.util.ArrayList;
-import java.util.List;
 import jstratego.logic.pieces.*;
 
 /**
@@ -12,24 +11,27 @@ import jstratego.logic.pieces.*;
 public class Player implements PlayerInterface {
 
 	private String name;
-	private Color playerColor;
-	private List<Piece> pieces = new ArrayList<Piece>();
+	private ColorEnum playerColor;
+	private ArrayList<Piece> pieces = new ArrayList<Piece>();
 
-	public Player(String name, Color playerColor) {
+	public Player(String name, ColorEnum playerColor) {
 		this.name = name;
 		this.playerColor = playerColor;
 		handoutPieces();
 	}
 
+	@Override
 	public String getName() {
 		return name;
 	}
 
-	public Color getPlayerColor() {
+	@Override
+	public ColorEnum getColor() {
 		return playerColor;
 	}
 
-	public List<Piece> getPieces() {
+	@Override
+	public ArrayList<Piece> getPieces() {
 		return pieces;
 	}
 
@@ -54,20 +56,12 @@ public class Player implements PlayerInterface {
 		return i;
 	}
 
-	/**
-	 * adds a piece to a player.
-	 *
-	 * @param piece
-	 */
+	@Override
 	public void addPieceToPlayer(Piece piece) {
 		this.pieces.add(piece);
 	}
 
-	/**
-	 * removes a piece from the player.
-	 *
-	 * @param piece
-	 */
+	@Override
 	public void removePieceFromPlayer(Piece piece) {
 		this.pieces.remove(piece);
 	}

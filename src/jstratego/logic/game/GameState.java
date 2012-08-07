@@ -7,27 +7,25 @@ package jstratego.logic.game;
 import jstratego.logic.pieces.Piece;
 
 /**
- * Alle Infos die die GUI braucht. alles was man benötigt um quasi in den
- * nächsten zustand zu kommen und alles was den Zustand beschreibt.
+ * stores important status information of a game.
  *
  * @author sebastiangrosse
  */
-//TODO versuchen zwischen Datenspeicherung und Datenverarbeitung zu trennen.
-//TODO Comparator bauen zum marshal aus liste zu ziehen
-public class GameState {
+public class GameState implements GameStateInterface {
+
 	private Player playerWithMove;
 	private Player otherPlayer;
-	private Gamephase currentGamephase;
-	private Gamephase lastGamephase;
+	private GamephaseEnum currentGamephase;
+	private GamephaseEnum lastGamephase;
 	private Piece challenger;
 	private Piece defender;
-	private GameResult gameResult;
+	private GameResultEnum gameResult;
 	private Field lastField;
 
 	public GameState() {
-		setCurrentGamephase(Gamephase.SETUPred);
+		setCurrentGamephase(GamephaseEnum.SETUPred);
 	}
-	
+
 	/**
 	 * @return the playerWithMove
 	 */
@@ -59,28 +57,28 @@ public class GameState {
 	/**
 	 * @return the currentGamephase
 	 */
-	public Gamephase getCurrentGamephase() {
+	public GamephaseEnum getCurrentGamephase() {
 		return currentGamephase;
 	}
 
 	/**
 	 * @param currentGamephase the currentGamephase to set
 	 */
-	public void setCurrentGamephase(Gamephase currentGamephase) {
+	public void setCurrentGamephase(GamephaseEnum currentGamephase) {
 		this.currentGamephase = currentGamephase;
 	}
 
 	/**
 	 * @return the lastGamephase
 	 */
-	public Gamephase getLastGamephase() {
+	public GamephaseEnum getLastGamephase() {
 		return lastGamephase;
 	}
 
 	/**
 	 * @param lastGamephase the lastGamephase to set
 	 */
-	public void setLastGamephase(Gamephase lastGamephase) {
+	public void setLastGamephase(GamephaseEnum lastGamephase) {
 		this.lastGamephase = lastGamephase;
 	}
 
@@ -115,14 +113,14 @@ public class GameState {
 	/**
 	 * @return the gameResult
 	 */
-	public GameResult getGameResult() {
+	public GameResultEnum getGameResult() {
 		return gameResult;
 	}
 
 	/**
 	 * @param gameResult the gameResult to set
 	 */
-	public void setGameResult(GameResult gameResult) {
+	public void setGameResult(GameResultEnum gameResult) {
 		this.gameResult = gameResult;
 	}
 

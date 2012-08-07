@@ -8,9 +8,9 @@ public class Spy extends Piece {
 
 	public static final String DESCRIPTION = "Der Spion hat die besondere Eigenschaft, den Feldmarschall zu schlagen, wenn der Spion die angreifende Figur ist.";
 	public static final String NAME = "Spion";
-	public static final Motion MOTION = Motion.MOVABLE;
+	public static final MotionEnum MOTION = MotionEnum.MOVABLE;
 
-	public Spy(Color color, boolean alive, boolean covered) {
+	public Spy(ColorEnum color, boolean alive, boolean covered) {
 		super(color, alive, covered);
 		addToBeatenByPiece("Marshal");
 		addToBeatenByPiece("General");

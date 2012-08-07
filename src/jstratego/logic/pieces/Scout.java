@@ -8,9 +8,9 @@ public class Scout extends Piece {
 
 	public static final String DESCRIPTION = "Der Aufklärer kann nicht durch seine Stärke überzeugen, dafür aber mehrere Felder weit ziehen.";
 	public static final String NAME = "Aufklärer";
-	public static final Motion MOTION = Motion.SUPERMOVABLE;
+	public static final MotionEnum MOTION = MotionEnum.SUPERMOVABLE;
 
-	public Scout(Color color, boolean alive, boolean covered) {
+	public Scout(ColorEnum color, boolean alive, boolean covered) {
 		super(color, alive, covered);
 		addToBeatenByPiece("Marshal");
 		addToBeatenByPiece("General");

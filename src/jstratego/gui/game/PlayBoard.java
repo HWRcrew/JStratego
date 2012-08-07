@@ -1,6 +1,6 @@
 //TODO siehe comment
 /**
- * Spiel wird gestartet; -> Gamephase SetupRed; Spieler Rot platziert seine
+ * Spiel wird gestartet; -> GamephaseEnum SetupRed; Spieler Rot platziert seine
  * Figuren (Klick auf Label im Infobereich, danach Auswahl "Standort"); dabei
  * Counter pro Figur runterzählen; Zusatz: Spieler platziert Figur auf bereits
  * belegtem Feld: alte Figur geht zurück; Achtung: Platzierung nur in den 4
@@ -10,14 +10,14 @@
  * dort auch nur alle Figuren verdeckt werden. Figuren von Spieler Rot werden
  * verdeckt; Spieler Blau beginnt durch Klick auf Button Platzierung; Iconfarbe
  * auf blau ändern; Counter zurücksetzen; Platzierung analog Spieler Rot; ->
- * Gamephase Change;
+ * GamephaseEnum Change;
  *
  * Spieler Rot beginnt mit Klick auf Button das eigentliche Spiel; Auswahl
  * Figur, holen von Liste erreichbarer Felder; wenn 0: Fehlermeldung, sonst
  * anzeigen der Felder durch roten Rahmen; Spieler wählt Zielfeld; wenn Zielfeld
  * erreichbar, Setzen der Figur, eventuell Kampf, sonst Fehlermeldung;
  *
- * -> Gamephase Change. Verdecken aller Figuren. Zuletzt bewegte wird mit Rahmen
+ * -> GamephaseEnum Change. Verdecken aller Figuren. Zuletzt bewegte wird mit Rahmen
  * markiert; nach Kampf: beteiligte Figuren, egal ob Angreifer oder Verteidiger,
  * werden aufgedeckt gelassen. Spieler Blau beginnt mit Klick auf Button seinen
  * Spielzug. Erst jetzt "löschen" der unterlegenen Figur. Entfernen des
@@ -167,11 +167,11 @@ public class PlayBoard extends javax.swing.JFrame {
     }
 
     public final void PlayGame() throws Exception {
-        if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.SETUPred)) {
+        if (currentGame.gameState.getCurrentGamephase().equals(GamephaseEnum.SETUPred)) {
 
             if (figureCounter == null) {
                 preparePlacement();
-                setInfoIconColor(Color.RED);
+                setInfoIconColor(ColorEnum.RED);
                 labelPlayer.setText(currentGame.gameState.getPlayerWithMove().getName() + ", bitte Figuren platzieren.");
                 buttonSet.setText("Platzierung beenden");
 
@@ -181,24 +181,24 @@ public class PlayBoard extends javax.swing.JFrame {
                 buttonSet.setText("Platzierung beginnen");
                 labelPlayer.setText("Wechsel zu " + currentGame.gameState.getPlayerWithMove().getName());
             }
-        } else if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.CHANGE)) {
-            if (currentGame.gameState.getLastGamephase().equals(Gamephase.SETUPred)) {
+        } else if (currentGame.gameState.getCurrentGamephase().equals(GamephaseEnum.CHANGE)) {
+            if (currentGame.gameState.getLastGamephase().equals(GamephaseEnum.SETUPred)) {
                 preparePlacement();
-                setInfoIconColor(Color.BLUE);
+                setInfoIconColor(ColorEnum.BLUE);
                 currentGame.endPhase();
                 labelPlayer.setText(currentGame.gameState.getPlayerWithMove().getName() + ", bitte Figuren platzieren.");
                 buttonSet.setText("Platzierung beenden");
 
-            } else if (currentGame.gameState.getLastGamephase().equals(Gamephase.SETUPblue)) {
+            } else if (currentGame.gameState.getLastGamephase().equals(GamephaseEnum.SETUPblue)) {
                 currentGame.endPhase();
                 updateIcons();
-                setInfoIconColor(currentGame.gameState.getPlayerWithMove().getPlayerColor());
+                setInfoIconColor(currentGame.gameState.getPlayerWithMove().getColor());
                 placementLabelVisible(false);
                 buttonSet.setText("Zug beginnen.");
                 labelPlayer.setText("Wechsel zu " + currentGame.gameState.getPlayerWithMove().getName());
                 figureCounter = null;
 
-            } else if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.MOVEblue) || currentGame.gameState.getCurrentGamephase().equals(Gamephase.MOVEred)) {
+            } else if (currentGame.gameState.getCurrentGamephase().equals(GamephaseEnum.MOVEblue) || currentGame.gameState.getCurrentGamephase().equals(GamephaseEnum.MOVEred)) {
             }
         }
 
@@ -269,7 +269,7 @@ public class PlayBoard extends javax.swing.JFrame {
     /**
      * Changes color of icons in infoarea to fit current player.
      */
-    public void setInfoIconColor(Color playerColor) {
+    public void setInfoIconColor(ColorEnum playerColor) {
 
         String path = ("_" + playerColor + ".png");
 
@@ -380,11 +380,11 @@ public class PlayBoard extends javax.swing.JFrame {
 
     public void callMove(JLabel field) {
 
-        if ((currentGame.gameState.getCurrentGamephase() == jstratego.logic.game.Gamephase.SETUPblue)
-                || (currentGame.gameState.getCurrentGamephase() == jstratego.logic.game.Gamephase.SETUPred)) {
+        if ((currentGame.gameState.getCurrentGamephase() == jstratego.logic.game.GamephaseEnum.SETUPblue)
+                || (currentGame.gameState.getCurrentGamephase() == jstratego.logic.game.GamephaseEnum.SETUPred)) {
             if ((!(field.getName().length() == 3) || (field.getName().startsWith("S"))) && pieceToPlace == null) {
                 String pieceName = field.getName();
-                Color tempColor = currentGame.gameState.getPlayerWithMove().getPlayerColor();
+                ColorEnum tempColor = currentGame.gameState.getPlayerWithMove().getColor();
 
                 if (pieceName.equalsIgnoreCase("Flag")) {
                     pieceToPlace = new Flag(tempColor, true, false);
@@ -462,8 +462,8 @@ public class PlayBoard extends javax.swing.JFrame {
 
 
         } else {
-            if (currentGame.gameState.getCurrentGamephase().equals(Gamephase.MOVEblue)
-                    || currentGame.gameState.getCurrentGamephase().equals(Gamephase.MOVEred)) {
+            if (currentGame.gameState.getCurrentGamephase().equals(GamephaseEnum.MOVEblue)
+                    || currentGame.gameState.getCurrentGamephase().equals(GamephaseEnum.MOVEred)) {
                 {
                     int x = field.getName().charAt(1);
                     int y = field.getName().charAt(2);
