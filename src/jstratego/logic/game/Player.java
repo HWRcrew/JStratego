@@ -59,8 +59,17 @@ public class Player implements PlayerInterface {
 	 *
 	 * @param piece
 	 */
-	private void addPieceToPlayer(Piece piece) {
+	public void addPieceToPlayer(Piece piece) {
 		this.pieces.add(piece);
+	}
+
+	/**
+	 * removes a piece from the player.
+	 *
+	 * @param piece
+	 */
+	public void removePieceFromPlayer(Piece piece) {
+		this.pieces.remove(piece);
 	}
 
 	/**

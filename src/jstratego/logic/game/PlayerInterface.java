@@ -9,7 +9,7 @@ import jstratego.logic.pieces.Piece;
 public interface PlayerInterface {
 
 	/**
-	 * gets a piece-object from a list.
+	 * gets the first piece-object from a list with the same classname.
 	 *
 	 * @param className
 	 * @return

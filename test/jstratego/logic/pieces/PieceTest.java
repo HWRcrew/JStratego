@@ -112,6 +112,8 @@ public class PieceTest {
 		assertEquals(expResult, defender.isAlive());
 		expResult = false;
 		assertEquals(expResult, instance.isAlive());
+		assertEquals(bomb, gameState.getDefender());
+		assertEquals(general, gameState.getChallenger());
 		
 		System.out.println("major fights against bomb!");
 		defender = bomb;
@@ -121,6 +123,8 @@ public class PieceTest {
 		assertEquals(expResult, defender.isAlive());
 		expResult = false;
 		assertEquals(expResult, instance.isAlive());
+		assertEquals(bomb, gameState.getDefender());
+		assertEquals(major, gameState.getChallenger());
 		
 		System.out.println("spy fights against marshal!");
 		defender = marshal;

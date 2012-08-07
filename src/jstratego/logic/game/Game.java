@@ -82,7 +82,7 @@ public class Game {
 				this.gameState.setLastGamephase(Gamephase.MOVEred);
 				this.playBoard.coverPiecesForPlayer(plwm);
 				this.gameState.setCurrentGamephase(Gamephase.CHANGE);
-				if (this.playBoard.onlyBombsAndFlags()) {
+				if (this.playBoard.onlyBombsAndFlagsLeft()) {
 					this.gameState.setGameResult(GameResult.INDIFFERENT);
 					this.gameState.setCurrentGamephase(Gamephase.END);
 					break;
@@ -105,7 +105,7 @@ public class Game {
 				this.gameState.setLastGamephase(Gamephase.MOVEblue);
 				this.playBoard.coverPiecesForPlayer(plwm);
 				this.gameState.setCurrentGamephase(Gamephase.CHANGE);
-				if (this.playBoard.onlyBombsAndFlags()) {
+				if (this.playBoard.onlyBombsAndFlagsLeft()) {
 					this.gameState.setGameResult(GameResult.INDIFFERENT);
 					this.gameState.setCurrentGamephase(Gamephase.END);
 				}

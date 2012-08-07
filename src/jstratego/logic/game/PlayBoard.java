@@ -1,7 +1,6 @@
 package jstratego.logic.game;
 
 import java.util.ArrayList;
-import java.util.List;
 import jstratego.logic.pieces.Color;
 import jstratego.logic.pieces.Motion;
 import jstratego.logic.pieces.Piece;
@@ -11,33 +10,36 @@ import jstratego.logic.pieces.Piece;
  *
  * @author sebastiangrosse
  */
-public class PlayBoard {
+public class PlayBoard implements PlayBoardInterface {
 
-	public Field[][] board = new Field[10][10];
+	public Field[][] board;
 
 	public PlayBoard() {
+		board = new Field[10][10];
+		initializeFields();
+	}
+
+	/**
+	 * initializes the Fields for a new board.
+	 */
+	private void initializeFields() {
 		/*
-		 * Water Area 1
+		 * Lake 1
 		 */
 		board[4][2] = new Field(null, true, 4, 2);
 		board[4][3] = new Field(null, true, 4, 3);
 		board[5][2] = new Field(null, true, 5, 2);
 		board[5][3] = new Field(null, true, 5, 3);
 		/*
-		 * Water Area 2
+		 * Lake 2
 		 */
 		board[4][6] = new Field(null, true, 4, 6);
 		board[4][7] = new Field(null, true, 4, 7);
 		board[5][6] = new Field(null, true, 5, 6);
 		board[5][7] = new Field(null, true, 5, 7);
-		initialSetFields();
-	}
-
-	/**
-	 * this Method is iterating through the board-Array initializing new
-	 * Field Objects
-	 */
-	private void initialSetFields() {
+		/*
+		 * Fields for the players
+		 */
 		for (int x = 0; x < 10; x++) {
 			for (int y = 0; y < 10; y++) {
 				if (board[x][y] == null) {
@@ -47,12 +49,8 @@ public class PlayBoard {
 		}
 	}
 
-	/**
-	 * returns true if there are only Flags and Bombs left.
-	 *
-	 * @return
-	 */
-	public boolean onlyBombsAndFlags() {
+	@Override
+	public boolean onlyBombsAndFlagsLeft() {
 		ArrayList<String> movablePieces = new ArrayList<String>();
 		movablePieces.add("Marshal");
 		movablePieces.add("General");
@@ -80,10 +78,7 @@ public class PlayBoard {
 		return true;
 	}
 
-	/**
-	 * this Method blocks the Fields in the middle to ensure, that there is
-	 * no figure placed on Setup
-	 */
+	@Override
 	public void blockFieldsForSetup(Player player) {
 		board[4][0].setBlocked(true);
 		board[4][1].setBlocked(true);
@@ -97,16 +92,16 @@ public class PlayBoard {
 		board[5][5].setBlocked(true);
 		board[5][8].setBlocked(true);
 		board[5][9].setBlocked(true);
-		if(player.getPlayerColor().equals(Color.RED)){
-			for(int i=0;i<=3;i++){
-				for(int j=0;j<=9;j++){
+		if (player.getPlayerColor().equals(Color.RED)) {
+			for (int i = 0; i <= 3; i++) {
+				for (int j = 0; j <= 9; j++) {
 					board[i][j].setBlocked(true);
 				}
 			}
 		}
-		if(player.getPlayerColor().equals(Color.BLUE)){
-			for(int i=6;i<=9;i++){
-				for(int j=0;j<=9;j++){
+		if (player.getPlayerColor().equals(Color.BLUE)) {
+			for (int i = 6; i <= 9; i++) {
+				for (int j = 0; j <= 9; j++) {
 					board[i][j].setBlocked(true);
 				}
 			}
@@ -116,6 +111,7 @@ public class PlayBoard {
 	/**
 	 * this Method unblocks the Fields in the middle.
 	 */
+	@Override
 	public void unblockFieldsForSetup(Player player) {
 		board[4][0].setBlocked(false);
 		board[4][1].setBlocked(false);
@@ -129,16 +125,16 @@ public class PlayBoard {
 		board[5][5].setBlocked(false);
 		board[5][8].setBlocked(false);
 		board[5][9].setBlocked(false);
-		if(player.getPlayerColor().equals(Color.RED)){
-			for(int i=0;i<=3;i++){
-				for(int j=0;j<=9;j++){
+		if (player.getPlayerColor().equals(Color.RED)) {
+			for (int i = 0; i <= 3; i++) {
+				for (int j = 0; j <= 9; j++) {
 					board[i][j].setBlocked(false);
 				}
 			}
 		}
-		if(player.getPlayerColor().equals(Color.BLUE)){
-			for(int i=6;i<=9;i++){
-				for(int j=0;j<=9;j++){
+		if (player.getPlayerColor().equals(Color.BLUE)) {
+			for (int i = 6; i <= 9; i++) {
+				for (int j = 0; j <= 9; j++) {
 					board[i][j].setBlocked(false);
 				}
 			}
@@ -150,8 +146,8 @@ public class PlayBoard {
 	 *
 	 * @param player
 	 */
-	//TODO stattdessen liste mit akt figuren?
-	public void coverPiecesForPlayer(Player player) throws NullPointerException{
+	@Override
+	public void coverPiecesForPlayer(Player player) throws NullPointerException {
 		for (int i = 0; i <= 9; i++) {
 			for (int j = 0; j <= 9; j++) {
 				try {
@@ -166,11 +162,12 @@ public class PlayBoard {
 	}
 
 	/**
-	 * uncovers the pieces of the selected player
+	 * uncovers the pieces of the selected player.
 	 *
 	 * @param player
 	 */
-	public void uncoverPiecesForPlayer(Player player) throws NullPointerException{
+	@Override
+	public void uncoverPiecesForPlayer(Player player) throws NullPointerException {
 		for (int i = 0; i <= 9; i++) {
 			for (int j = 0; j <= 9; j++) {
 				try {
@@ -184,14 +181,9 @@ public class PlayBoard {
 		}
 	}
 
-	/**
-	 * returns a list of all reachable Fields für a piece on a field.
-	 *
-	 * @param field
-	 * @return
-	 */
-	public List<Field> reachableFields(Field field) {
-		List<Field> fields;
+	@Override
+	public ArrayList<Field> listOfReachableFields(Field field) {
+		ArrayList<Field> fields;
 		fields = new ArrayList<Field>();
 		if (field.getPiece().getMOTION().equals(Motion.MOVABLE)) {
 			Field tmpField;

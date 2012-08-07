@@ -333,7 +333,7 @@ public class PlayBoard extends javax.swing.JFrame {
         int x = 0;
         int y = 0;
 
-        List<Field> reachableFields = currentGame.playBoard.reachableFields(start);
+        List<Field> reachableFields = currentGame.playBoard.listOfReachableFields(start);
         if (reachableFields.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Diese Figur kann nicht bewegt werden. Bitte andere wählen.", "Fehler", ERROR);
         } else {
