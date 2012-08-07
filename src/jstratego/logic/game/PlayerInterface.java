@@ -39,22 +39,32 @@ public interface PlayerInterface {
 	 * @param piece
 	 */
 	public void removePieceFromPlayer(Piece piece);
-	
+
 	/**
 	 * get the name of a player
-	 * @return 
+	 *
+	 * @return
 	 */
 	public String getName();
 
 	/**
 	 * get the color of a player.
-	 * @return 
+	 *
+	 * @return
 	 */
 	public ColorEnum getColor();
 
 	/**
 	 * get the list of pieces the player has left in his hand.
-	 * @return 
+	 *
+	 * @return
 	 */
 	public ArrayList<Piece> getPieces();
+
+	/**
+	 * returns if a player has no more pieces in its list.
+	 *
+	 * @return
+	 */
+	public boolean isListOfPiecesEmpty();
 }

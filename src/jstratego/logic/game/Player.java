@@ -21,6 +21,12 @@ public class Player implements PlayerInterface {
 	}
 
 	@Override
+	public boolean isListOfPiecesEmpty() {
+		return this.pieces.isEmpty();
+	}
+	
+
+	@Override
 	public String getName() {
 		return name;
 	}

@@ -8,11 +8,10 @@ import jstratego.logic.pieces.Piece;
  *
  * @author sebastiangrosse
  */
-public class Game implements GameInterface{
+public class Game implements GameInterface {
 
 	public PlayBoard playBoard;
 	public GameState gameState;
-	//TODO offenbar kennt er gameState nicht...
 
 	public Game(String namePlayerRed, String namePlayerBlue) {
 		gameState = new GameState();
@@ -22,13 +21,8 @@ public class Game implements GameInterface{
 		gameState.setCurrentGamephase(GamephaseEnum.SETUPred);
 		playBoard.blockFieldsForSetup(gameState.getPlayerWithMove());
 	}
-	Exception NotAllPiecesSetException = new Exception("Some pieces are left to set!");
 
-	/**
-	 * finishing a gamephase and preparing everything for the next player.
-	 *
-	 * @throws Exception
-	 */
+	@Override
 	public void endPhase() throws Exception {
 		Player plwm = this.gameState.getPlayerWithMove();
 		switch (this.gameState.getCurrentGamephase()) {
@@ -61,7 +55,8 @@ public class Game implements GameInterface{
 				}
 				break;
 			case SETUPred:
-				if (!this.gameState.getPlayerWithMove().getPieces().isEmpty()) {
+				if (!plwm.isListOfPiecesEmpty()) {
+					Exception NotAllPiecesSetException = new Exception("Some pieces are left to set!");
 					throw NotAllPiecesSetException;
 				}
 				this.playBoard.unblockFieldsForSetup(plwm);
@@ -70,7 +65,8 @@ public class Game implements GameInterface{
 				this.gameState.setCurrentGamephase(GamephaseEnum.CHANGE);
 				break;
 			case SETUPblue:
-				if (!this.gameState.getPlayerWithMove().getPieces().isEmpty()) {
+				if (!plwm.isListOfPiecesEmpty()) {
+					Exception NotAllPiecesSetException = new Exception("Some pieces are left to set!");
 					throw NotAllPiecesSetException;
 				}
 				this.playBoard.unblockFieldsForSetup(plwm);
@@ -87,15 +83,15 @@ public class Game implements GameInterface{
 					this.gameState.setCurrentGamephase(GamephaseEnum.END);
 					break;
 				}
-				if(this.gameState.getDefender().getClass().getSimpleName().toString().equals("Flag")){
+				if (this.gameState.getDefender().getClass().getSimpleName().toString().equals("Flag")) {
 				}
-				if(flagIsBeaten()){
+				if (wasFlagBeaten()) {
 					this.gameState.setCurrentGamephase(GamephaseEnum.END);
-					if(plwm.getColor().equals(ColorEnum.BLUE)){
+					if (plwm.getColor().equals(ColorEnum.BLUE)) {
 						this.gameState.setGameResult(GameResultEnum.BLUEISWINNER);
 						break;
 					}
-					if(plwm.getColor().equals(ColorEnum.RED)){
+					if (plwm.getColor().equals(ColorEnum.RED)) {
 						this.gameState.setGameResult(GameResultEnum.REDISWINNER);
 						break;
 					}
@@ -109,12 +105,12 @@ public class Game implements GameInterface{
 					this.gameState.setGameResult(GameResultEnum.INDIFFERENT);
 					this.gameState.setCurrentGamephase(GamephaseEnum.END);
 				}
-				if(flagIsBeaten()){
+				if (wasFlagBeaten()) {
 					this.gameState.setCurrentGamephase(GamephaseEnum.END);
-					if(plwm.getColor().equals(ColorEnum.BLUE)){
+					if (plwm.getColor().equals(ColorEnum.BLUE)) {
 						this.gameState.setGameResult(GameResultEnum.BLUEISWINNER);
 					}
-					if(plwm.getColor().equals(ColorEnum.RED)){
+					if (plwm.getColor().equals(ColorEnum.RED)) {
 						this.gameState.setGameResult(GameResultEnum.REDISWINNER);
 					}
 				}
@@ -133,10 +129,14 @@ public class Game implements GameInterface{
 		gameState.setOtherPlayer(gameState.getPlayerWithMove());
 		gameState.setPlayerWithMove(tmpPlayer);
 	}
-	private boolean flagIsBeaten(){
+	/**
+	 * 
+	 * @return 
+	 */
+	private boolean wasFlagBeaten() {
 		Piece defender = this.gameState.getDefender();
-		if(defender.getClass().getSimpleName().toString().equals("Flag")){
-			if(!defender.isAlive()){
+		if (defender.getClass().getSimpleName().toString().equals("Flag")) {
+			if (!defender.isAlive()) {
 				return true;
 			}
 		}

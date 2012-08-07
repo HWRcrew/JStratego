@@ -7,7 +7,7 @@ package jstratego.logic.game;
 import jstratego.logic.pieces.Piece;
 
 /**
- * stores important status information of a game.
+ * stores important status information for a game.
  *
  * @author sebastiangrosse
  */
@@ -23,117 +23,85 @@ public class GameState implements GameStateInterface {
 	private Field lastField;
 
 	public GameState() {
-		setCurrentGamephase(GamephaseEnum.SETUPred);
+		currentGamephase = GamephaseEnum.SETUPred;
 	}
 
-	/**
-	 * @return the playerWithMove
-	 */
+	@Override
 	public Player getPlayerWithMove() {
 		return playerWithMove;
 	}
 
-	/**
-	 * @param playerWithMove the playerWithMove to set
-	 */
+	@Override
 	public void setPlayerWithMove(Player playerWithMove) {
 		this.playerWithMove = playerWithMove;
 	}
 
-	/**
-	 * @return the otherPlayer
-	 */
+	@Override
 	public Player getOtherPlayer() {
 		return otherPlayer;
 	}
 
-	/**
-	 * @param otherPlayer the otherPlayer to set
-	 */
+	@Override
 	public void setOtherPlayer(Player otherPlayer) {
 		this.otherPlayer = otherPlayer;
 	}
 
-	/**
-	 * @return the currentGamephase
-	 */
+	@Override
 	public GamephaseEnum getCurrentGamephase() {
 		return currentGamephase;
 	}
 
-	/**
-	 * @param currentGamephase the currentGamephase to set
-	 */
+	@Override
 	public void setCurrentGamephase(GamephaseEnum currentGamephase) {
 		this.currentGamephase = currentGamephase;
 	}
 
-	/**
-	 * @return the lastGamephase
-	 */
+	@Override
 	public GamephaseEnum getLastGamephase() {
 		return lastGamephase;
 	}
 
-	/**
-	 * @param lastGamephase the lastGamephase to set
-	 */
+	@Override
 	public void setLastGamephase(GamephaseEnum lastGamephase) {
 		this.lastGamephase = lastGamephase;
 	}
 
-	/**
-	 * @return the challenger
-	 */
+	@Override
 	public Piece getChallenger() {
 		return challenger;
 	}
 
-	/**
-	 * @param challenger the challenger to set
-	 */
+	@Override
 	public void setChallenger(Piece challenger) {
 		this.challenger = challenger;
 	}
 
-	/**
-	 * @return the defender
-	 */
+	@Override
 	public Piece getDefender() {
 		return defender;
 	}
 
-	/**
-	 * @param defender the defender to set
-	 */
+	@Override
 	public void setDefender(Piece defender) {
 		this.defender = defender;
 	}
 
-	/**
-	 * @return the gameResult
-	 */
+	@Override
 	public GameResultEnum getGameResult() {
 		return gameResult;
 	}
 
-	/**
-	 * @param gameResult the gameResult to set
-	 */
+	@Override
 	public void setGameResult(GameResultEnum gameResult) {
 		this.gameResult = gameResult;
 	}
 
-	/**
-	 * @return the lastField
-	 */
+	@Override
 	public Field getLastField() {
 		return lastField;
 	}
 
-	/**
-	 * @param lastField the lastMovedField to set
-	 */
+	@Override
 	public void setLastField(Field lastField) {
 		this.lastField = lastField;
 	}

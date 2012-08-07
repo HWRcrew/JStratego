@@ -7,7 +7,7 @@ import jstratego.logic.pieces.*;
  *
  * @author sebastiangrosse
  */
-public class Field implements FieldInterface{
+public class Field implements FieldInterface {
 
 	private Piece piece;
 	private boolean blocked;
@@ -20,14 +20,9 @@ public class Field implements FieldInterface{
 		this.x = x;
 		this.y = y;
 	}
-	Exception FieldIsBlockedException = new Exception("This field is blocked!");
 
-	/**
-	 * setting a Piece to a Field
-	 *
-	 * @param piece
-	 */
-	public void setPiece(Piece piece, GameState gameState) throws Exception {
+	@Override
+	public void setPiece(Piece piece, GameState gameState) {
 		if (!this.isBlocked()) {
 			Player player = gameState.getPlayerWithMove();
 			GamephaseEnum currentGamephase = gameState.getCurrentGamephase();
@@ -51,52 +46,40 @@ public class Field implements FieldInterface{
 			}
 			gameState.setLastField(this);
 		} else {
-			throw FieldIsBlockedException;
 		}
 	}
 
+	@Override
 	public Piece getPiece() {
 		return this.piece;
 	}
 
-	/**
-	 * @return the blocked
-	 */
+	@Override
 	public boolean isBlocked() {
 		return blocked;
 	}
 
-	/**
-	 * @param blocked the blocked to set
-	 */
+	@Override
 	public void setBlocked(boolean blocked) {
 		this.blocked = blocked;
 	}
 
-	/**
-	 * @return the x
-	 */
+	@Override
 	public int getX() {
 		return x;
 	}
 
-	/**
-	 * @param x the x to set
-	 */
+	@Override
 	public void setX(int x) {
 		this.x = x;
 	}
 
-	/**
-	 * @return the y
-	 */
+	@Override
 	public int getY() {
 		return y;
 	}
 
-	/**
-	 * @param y the y to set
-	 */
+	@Override
 	public void setY(int y) {
 		this.y = y;
 	}

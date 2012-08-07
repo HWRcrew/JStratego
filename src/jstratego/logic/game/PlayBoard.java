@@ -244,4 +244,13 @@ public class PlayBoard implements PlayBoardInterface {
 		}
 		return fields;
 	}
+
+	@Override
+	public void movePiece(Field pieceField, Field destinationField, GameState gameState) {
+		if(pieceField.getPiece()!=null){
+			if(listOfReachableFields(pieceField).contains(destinationField)){
+				destinationField.setPiece(pieceField.getPiece(), gameState);
+			}
+		}
+	}
 }

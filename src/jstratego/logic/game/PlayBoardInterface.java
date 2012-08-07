@@ -56,4 +56,11 @@ public interface PlayBoardInterface {
 	 * @return
 	 */
 	public ArrayList<Field> listOfReachableFields(Field field);
+	
+	/**
+	 * moves a piece from one field to another
+	 * @param pieceField
+	 * @param destinationField 
+	 */
+	public void movePiece(Field pieceField, Field destinationField, GameState gameState);
 }
