@@ -48,10 +48,10 @@ public class StartScreen extends javax.swing.JFrame {
         panelMain.setPreferredSize(new java.awt.Dimension(245, 700));
 
         labelInfo1.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        labelInfo1.setText("Spieler 1 (rot) - Bitte Namen eingeben:");
+        labelInfo1.setText("Spieler Rot:");
 
         labelInfo2.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
-        labelInfo2.setText("Spieler 2 (blau) - Bitte Namen eingeben:");
+        labelInfo2.setText("Spieler Blau:");
 
         buttonStart.setFont(new java.awt.Font("Trebuchet MS", 0, 16)); // NOI18N
         buttonStart.setText("Neues Spiel starten");
@@ -65,6 +65,11 @@ public class StartScreen extends javax.swing.JFrame {
 
         txtRed.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         txtRed.setText("243");
+        txtRed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRedActionPerformed(evt);
+            }
+        });
         txtRed.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtRedKeyTyped(evt);
@@ -73,6 +78,11 @@ public class StartScreen extends javax.swing.JFrame {
 
         txtBlue.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         txtBlue.setText("2342");
+        txtBlue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBlueActionPerformed(evt);
+            }
+        });
         txtBlue.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtBlueKeyTyped(evt);
@@ -80,7 +90,7 @@ public class StartScreen extends javax.swing.JFrame {
         });
 
         labelInfo3.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        labelInfo3.setText("Herzlich Willkommen ");
+        labelInfo3.setText("Herzlich Willkommen!");
 
         javax.swing.GroupLayout panelMainLayout = new javax.swing.GroupLayout(panelMain);
         panelMain.setLayout(panelMainLayout);
@@ -88,45 +98,51 @@ public class StartScreen extends javax.swing.JFrame {
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMainLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtRed, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBlue)
-                    .addComponent(labelInfo2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(labelInfo1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonStart, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelInfo3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(panelMainLayout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(labelInfo2))
+                        .addComponent(buttonStart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtBlue)
+                        .addComponent(txtRed)
+                        .addComponent(labelInfo3))
+                    .addComponent(labelInfo1))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
         panelMainLayout.setVerticalGroup(
             panelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelInfo3)
-                .addGap(238, 238, 238)
+                .addGap(18, 18, 18)
                 .addComponent(labelInfo1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtRed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelInfo2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtBlue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(buttonStart, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(506, 506, 506)
-                .addComponent(panelMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(501, Short.MAX_VALUE)
+                .addComponent(panelMain, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(340, Short.MAX_VALUE)
+                .addComponent(panelMain, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(134, 134, 134))
         );
 
         pack();
@@ -168,6 +184,14 @@ public class StartScreen extends javax.swing.JFrame {
         jstratego.gui.game.PlayBoard.main(game);
         setVisible(false);
     }//GEN-LAST:event_buttonStartMouseClicked
+
+	private void txtRedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRedActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_txtRedActionPerformed
+
+	private void txtBlueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBlueActionPerformed
+		// TODO add your handling code here:
+	}//GEN-LAST:event_txtBlueActionPerformed
 
     /**
      * @param args the command line arguments
