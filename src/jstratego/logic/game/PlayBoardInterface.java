@@ -55,7 +55,7 @@ public interface PlayBoardInterface {
 	 * @param field
 	 * @return
 	 */
-	public ArrayList<Field> listOfReachableFields(Field field);
+	public ArrayList<Field> listOfReachableFields(Field field, GamephaseEnum gamePhase);
 	
 	/**
 	 * moves a piece from one field to another

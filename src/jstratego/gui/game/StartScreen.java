@@ -64,7 +64,6 @@ public class StartScreen extends javax.swing.JFrame {
         });
 
         txtRed.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        txtRed.setText("243");
         txtRed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRedActionPerformed(evt);
@@ -77,7 +76,6 @@ public class StartScreen extends javax.swing.JFrame {
         });
 
         txtBlue.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        txtBlue.setText("2342");
         txtBlue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBlueActionPerformed(evt);

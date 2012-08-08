@@ -169,7 +169,7 @@ public class PlayBoard implements PlayBoardInterface {
 	}
 
 	@Override
-	public ArrayList<Field> listOfReachableFields(Field field) {
+	public ArrayList<Field> listOfReachableFields(Field field, GamephaseEnum gamePhase) {
 		ArrayList<Field> fields;
 		fields = new ArrayList<Field>();
 		if (field.getPiece().getMOTION().equals(MotionEnum.MOVABLE)) {
@@ -248,7 +248,7 @@ public class PlayBoard implements PlayBoardInterface {
 	@Override
 	public void movePiece(Field pieceField, Field destinationField, GameState gameState) {
 		if(pieceField.getPiece()!=null){
-			if(listOfReachableFields(pieceField).contains(destinationField)){
+			if(listOfReachableFields(pieceField, gameState.getCurrentGamephase()).contains(destinationField)){
 				destinationField.setPiece(pieceField.getPiece(), gameState);
 			}
 		}
