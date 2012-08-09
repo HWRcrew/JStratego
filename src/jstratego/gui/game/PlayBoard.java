@@ -17,11 +17,11 @@
  * anzeigen der Felder durch roten Rahmen; Spieler wählt Zielfeld; wenn Zielfeld
  * erreichbar, Setzen der Figur, eventuell Kampf, sonst Fehlermeldung;
  *
- * -> GamePhaseEnum Change. Verdecken aller Figuren. Zuletzt bewegte wird mit Rahmen
- * markiert; nach Kampf: beteiligte Figuren, egal ob Angreifer oder Verteidiger,
- * werden aufgedeckt gelassen. Spieler Blau beginnt mit Klick auf Button seinen
- * Spielzug. Erst jetzt "löschen" der unterlegenen Figur. Entfernen des
- * zuletzt-bewegt-Rahmens. Analog Spieler Rot;
+ * -> GamePhaseEnum Change. Verdecken aller Figuren. Zuletzt bewegte wird mit
+ * Rahmen markiert; nach Kampf: beteiligte Figuren, egal ob Angreifer oder
+ * Verteidiger, werden aufgedeckt gelassen. Spieler Blau beginnt mit Klick auf
+ * Button seinen Spielzug. Erst jetzt "löschen" der unterlegenen Figur.
+ * Entfernen des zuletzt-bewegt-Rahmens. Analog Spieler Rot;
  *
  * Wiederholen, bis Flagge besiegt wird oder nur stationäre Figuren vorhanden
  * sind.
@@ -31,10 +31,6 @@
  *
  * Dauerhaft: Button Neues Spiel: Abfrage durch MsgBox, danach Aufrufen
  * Startbildschirm zwecks Namenseingabe.
- */
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
  */
 package jstratego.gui.game;
 
@@ -53,438 +49,436 @@ import jstratego.logic.pieces.*;
  */
 public class PlayBoard extends javax.swing.JFrame {
 
-    static Game game = null;
-    static JLabel[][] fieldArray = new JLabel[10][10];
-    static Border highlighted = new LineBorder(java.awt.Color.red, 3, false);
-    static int[] figureCounter = null;
-    static Piece pieceToPlace = null;
+	static Game game = null;
+	static JLabel[][] fieldArray = new JLabel[10][10];
+	static Border highlighted = new LineBorder(java.awt.Color.red, 3, false);
+	static int[] figureCounter = null;
+	static Piece pieceToPlace = null;
 
-    /**
-     * Creates new form Board
-     */
-    public PlayBoard() throws Exception {
-        this.setContentPane(new BackgroundPanelMain());
-        setResizable(false);
-        initComponents();
-        fillFieldArray();
-        placementLabelVisible(false);
-        PlayGame();
-    }
+	/**
+	 * Creates new form Board
+	 */
+	public PlayBoard() throws Exception {
+		this.setContentPane(new BackgroundPanelMain());
+		setResizable(false);
+		initComponents();
+		fillFieldArray();
+		placementLabelVisible(false);
+		PlayGame();
+	}
 
-    public final void fillFieldArray() {
-        fieldArray[0][0] = f00;
-        fieldArray[0][1] = f01;
-        fieldArray[0][2] = f02;
-        fieldArray[0][3] = f03;
-        fieldArray[0][4] = f04;
-        fieldArray[0][5] = f05;
-        fieldArray[0][6] = f06;
-        fieldArray[0][7] = f07;
-        fieldArray[0][8] = f08;
-        fieldArray[0][9] = f09;
-        fieldArray[1][0] = f10;
-        fieldArray[1][1] = f11;
-        fieldArray[1][2] = f12;
-        fieldArray[1][3] = f13;
-        fieldArray[1][4] = f14;
-        fieldArray[1][5] = f15;
-        fieldArray[1][6] = f16;
-        fieldArray[1][7] = f17;
-        fieldArray[1][8] = f18;
-        fieldArray[1][9] = f19;
-        fieldArray[2][0] = f20;
-        fieldArray[2][1] = f21;
-        fieldArray[2][2] = f22;
-        fieldArray[2][3] = f23;
-        fieldArray[2][4] = f24;
-        fieldArray[2][5] = f25;
-        fieldArray[2][6] = f26;
-        fieldArray[2][7] = f27;
-        fieldArray[2][8] = f28;
-        fieldArray[2][9] = f29;
-        fieldArray[3][0] = f30;
-        fieldArray[3][1] = f31;
-        fieldArray[3][2] = f32;
-        fieldArray[3][3] = f33;
-        fieldArray[3][4] = f34;
-        fieldArray[3][5] = f35;
-        fieldArray[3][6] = f36;
-        fieldArray[3][7] = f37;
-        fieldArray[3][8] = f38;
-        fieldArray[3][9] = f39;
-        fieldArray[4][0] = f40;
-        fieldArray[4][1] = f41;//lakes skipped
-        fieldArray[4][4] = f44;
-        fieldArray[4][5] = f45;
-        fieldArray[4][8] = f48;
-        fieldArray[4][9] = f49;
-        fieldArray[5][0] = f50;
-        fieldArray[5][1] = f51;
-        fieldArray[5][4] = f54;
-        fieldArray[5][5] = f55;
-        fieldArray[5][8] = f58;
-        fieldArray[5][9] = f59;
-        fieldArray[6][0] = f60;
-        fieldArray[6][1] = f61;
-        fieldArray[6][2] = f62;
-        fieldArray[6][3] = f63;
-        fieldArray[6][4] = f64;
-        fieldArray[6][5] = f65;
-        fieldArray[6][6] = f66;
-        fieldArray[6][7] = f67;
-        fieldArray[6][8] = f68;
-        fieldArray[6][9] = f69;
-        fieldArray[7][0] = f70;
-        fieldArray[7][1] = f71;
-        fieldArray[7][2] = f72;
-        fieldArray[7][3] = f73;
-        fieldArray[7][4] = f74;
-        fieldArray[7][5] = f75;
-        fieldArray[7][6] = f76;
-        fieldArray[7][7] = f77;
-        fieldArray[7][8] = f78;
-        fieldArray[7][9] = f79;
-        fieldArray[8][0] = f80;
-        fieldArray[8][1] = f81;
-        fieldArray[8][2] = f82;
-        fieldArray[8][3] = f83;
-        fieldArray[8][4] = f84;
-        fieldArray[8][5] = f85;
-        fieldArray[8][6] = f86;
-        fieldArray[8][7] = f87;
-        fieldArray[8][8] = f88;
-        fieldArray[8][9] = f89;
-        fieldArray[9][0] = f90;
-        fieldArray[9][1] = f91;
-        fieldArray[9][2] = f92;
-        fieldArray[9][3] = f93;
-        fieldArray[9][4] = f94;
-        fieldArray[9][5] = f95;
-        fieldArray[9][6] = f96;
-        fieldArray[9][7] = f97;
-        fieldArray[9][8] = f98;
-        fieldArray[9][9] = f99;
-    }
+	//TODO braucht man das? Es gibt doch bereits ein Array. (game.playboard.board[][]) sebastiangrosse
+	public final void fillFieldArray() {
+		fieldArray[0][0] = f00;
+		fieldArray[0][1] = f01;
+		fieldArray[0][2] = f02;
+		fieldArray[0][3] = f03;
+		fieldArray[0][4] = f04;
+		fieldArray[0][5] = f05;
+		fieldArray[0][6] = f06;
+		fieldArray[0][7] = f07;
+		fieldArray[0][8] = f08;
+		fieldArray[0][9] = f09;
+		fieldArray[1][0] = f10;
+		fieldArray[1][1] = f11;
+		fieldArray[1][2] = f12;
+		fieldArray[1][3] = f13;
+		fieldArray[1][4] = f14;
+		fieldArray[1][5] = f15;
+		fieldArray[1][6] = f16;
+		fieldArray[1][7] = f17;
+		fieldArray[1][8] = f18;
+		fieldArray[1][9] = f19;
+		fieldArray[2][0] = f20;
+		fieldArray[2][1] = f21;
+		fieldArray[2][2] = f22;
+		fieldArray[2][3] = f23;
+		fieldArray[2][4] = f24;
+		fieldArray[2][5] = f25;
+		fieldArray[2][6] = f26;
+		fieldArray[2][7] = f27;
+		fieldArray[2][8] = f28;
+		fieldArray[2][9] = f29;
+		fieldArray[3][0] = f30;
+		fieldArray[3][1] = f31;
+		fieldArray[3][2] = f32;
+		fieldArray[3][3] = f33;
+		fieldArray[3][4] = f34;
+		fieldArray[3][5] = f35;
+		fieldArray[3][6] = f36;
+		fieldArray[3][7] = f37;
+		fieldArray[3][8] = f38;
+		fieldArray[3][9] = f39;
+		fieldArray[4][0] = f40;
+		fieldArray[4][1] = f41;//lakes skipped
+		fieldArray[4][4] = f44;
+		fieldArray[4][5] = f45;
+		fieldArray[4][8] = f48;
+		fieldArray[4][9] = f49;
+		fieldArray[5][0] = f50;
+		fieldArray[5][1] = f51;
+		fieldArray[5][4] = f54;
+		fieldArray[5][5] = f55;
+		fieldArray[5][8] = f58;
+		fieldArray[5][9] = f59;
+		fieldArray[6][0] = f60;
+		fieldArray[6][1] = f61;
+		fieldArray[6][2] = f62;
+		fieldArray[6][3] = f63;
+		fieldArray[6][4] = f64;
+		fieldArray[6][5] = f65;
+		fieldArray[6][6] = f66;
+		fieldArray[6][7] = f67;
+		fieldArray[6][8] = f68;
+		fieldArray[6][9] = f69;
+		fieldArray[7][0] = f70;
+		fieldArray[7][1] = f71;
+		fieldArray[7][2] = f72;
+		fieldArray[7][3] = f73;
+		fieldArray[7][4] = f74;
+		fieldArray[7][5] = f75;
+		fieldArray[7][6] = f76;
+		fieldArray[7][7] = f77;
+		fieldArray[7][8] = f78;
+		fieldArray[7][9] = f79;
+		fieldArray[8][0] = f80;
+		fieldArray[8][1] = f81;
+		fieldArray[8][2] = f82;
+		fieldArray[8][3] = f83;
+		fieldArray[8][4] = f84;
+		fieldArray[8][5] = f85;
+		fieldArray[8][6] = f86;
+		fieldArray[8][7] = f87;
+		fieldArray[8][8] = f88;
+		fieldArray[8][9] = f89;
+		fieldArray[9][0] = f90;
+		fieldArray[9][1] = f91;
+		fieldArray[9][2] = f92;
+		fieldArray[9][3] = f93;
+		fieldArray[9][4] = f94;
+		fieldArray[9][5] = f95;
+		fieldArray[9][6] = f96;
+		fieldArray[9][7] = f97;
+		fieldArray[9][8] = f98;
+		fieldArray[9][9] = f99;
+	}
 
-    public final void PlayGame() throws Exception {
-        if (game.gameState.getCurrentGamephase().equals(GamephaseEnum.SETUPred)) {
+	public final void PlayGame() throws Exception {
+		if (game.gameState.getCurrentGamephase().equals(GamephaseEnum.SETUPred)) {
 
-            if (figureCounter == null) {
-                preparePlacement();
-                setInfoIconColor(ColorEnum.RED);
-                labelPlayer.setText(game.gameState.getPlayerWithMove().getName() + ", bitte Figuren platzieren.");
-                buttonSet.setText("Platzierung beenden");
+			if (figureCounter == null) {
+				preparePlacement();
+				setInfoIconColor(ColorEnum.RED);
+				labelPlayer.setText(game.gameState.getPlayerWithMove().getName() + ", bitte Figuren platzieren.");
+				buttonSet.setText("Platzierung beenden");
 
-            } else {
-                game.endPhase();
-                updateIcons();
-                buttonSet.setText("Platzierung beginnen");
-                labelPlayer.setText("Wechsel zu " + game.gameState.getPlayerWithMove().getName());
-            }
-        } else if (game.gameState.getCurrentGamephase().equals(GamephaseEnum.CHANGE)) {
-            if (game.gameState.getLastGamephase().equals(GamephaseEnum.SETUPred)) {
-                preparePlacement();
-                setInfoIconColor(ColorEnum.BLUE);
-                game.endPhase();
-                labelPlayer.setText(game.gameState.getPlayerWithMove().getName() + ", bitte Figuren platzieren.");
-                buttonSet.setText("Platzierung beenden");
+			} else {
+				game.endPhase();
+				updateIcons();
+				buttonSet.setText("Platzierung beginnen");
+				labelPlayer.setText("Wechsel zu " + game.gameState.getPlayerWithMove().getName());
+			}
+		} else if (game.gameState.getCurrentGamephase().equals(GamephaseEnum.CHANGE)) {
+			if (game.gameState.getLastGamephase().equals(GamephaseEnum.SETUPred)) {
+				preparePlacement();
+				setInfoIconColor(ColorEnum.BLUE);
+				game.endPhase();
+				labelPlayer.setText(game.gameState.getPlayerWithMove().getName() + ", bitte Figuren platzieren.");
+				buttonSet.setText("Platzierung beenden");
 
-            } else if (game.gameState.getLastGamephase().equals(GamephaseEnum.SETUPblue)) {
-                game.endPhase();
-                updateIcons();
-                setInfoIconColor(game.gameState.getPlayerWithMove().getColor());
-                placementLabelVisible(false);
-                buttonSet.setText("Zug beginnen.");
-                labelPlayer.setText("Wechsel zu " + game.gameState.getPlayerWithMove().getName());
-                figureCounter = null;
+			} else if (game.gameState.getLastGamephase().equals(GamephaseEnum.SETUPblue)) {
+				game.endPhase();
+				updateIcons();
+				setInfoIconColor(game.gameState.getPlayerWithMove().getColor());
+				placementLabelVisible(false);
+				buttonSet.setText("Zug beginnen.");
+				labelPlayer.setText("Wechsel zu " + game.gameState.getPlayerWithMove().getName());
+				figureCounter = null;
 
-            } else if (game.gameState.getCurrentGamephase().equals(GamephaseEnum.MOVEblue) || game.gameState.getCurrentGamephase().equals(GamephaseEnum.MOVEred)) {
-            }
-        }
+			} else if (game.gameState.getCurrentGamephase().equals(GamephaseEnum.MOVEblue) || game.gameState.getCurrentGamephase().equals(GamephaseEnum.MOVEred)) {
+			}
+		}
 
-    }
+	}
 
-    /**
-     * Sets additional information labels visible or hides them. Important
-     * before and after figure placing.
-     */
-    public final void placementLabelVisible(boolean value) {
+	/**
+	 * Sets additional information labels visible or hides them. Important
+	 * before and after figure placing.
+	 */
+	public final void placementLabelVisible(boolean value) {
 
-        labelFlagPlace.setVisible(value);
-        labelMarshalPlace.setVisible(value);
-        labelGeneralPlace.setVisible(value);
-        labelColonelPlace.setVisible(value);
-        labelMajorPlace.setVisible(value);
-        labelCaptainPlace.setVisible(value);
-        labelLieutenantPlace.setVisible(value);
-        labelSergeantPlace.setVisible(value);
-        labelMinerPlace.setVisible(value);
-        labelScoutPlace.setVisible(value);
-        labelSpyPlace.setVisible(value);
-        labelBombPlace.setVisible(value);
+		labelFlagPlace.setVisible(value);
+		labelMarshalPlace.setVisible(value);
+		labelGeneralPlace.setVisible(value);
+		labelColonelPlace.setVisible(value);
+		labelMajorPlace.setVisible(value);
+		labelCaptainPlace.setVisible(value);
+		labelLieutenantPlace.setVisible(value);
+		labelSergeantPlace.setVisible(value);
+		labelMinerPlace.setVisible(value);
+		labelScoutPlace.setVisible(value);
+		labelSpyPlace.setVisible(value);
+		labelBombPlace.setVisible(value);
 
-        labelFlagNumber.setVisible(value);
-        labelMarshalNumber.setVisible(value);
-        labelGeneralNumber.setVisible(value);
-        labelColonelNumber.setVisible(value);
-        labelMajorNumber.setVisible(value);
-        labelCaptainNumber.setVisible(value);
-        labelLieutenantNumber.setVisible(value);
-        labelSergeantNumber.setVisible(value);
-        labelMinerNumber.setVisible(value);
-        labelScoutNumber.setVisible(value);
-        labelSpyNumber.setVisible(value);
-        labelBombNumber.setVisible(value);
-    }
+		labelFlagNumber.setVisible(value);
+		labelMarshalNumber.setVisible(value);
+		labelGeneralNumber.setVisible(value);
+		labelColonelNumber.setVisible(value);
+		labelMajorNumber.setVisible(value);
+		labelCaptainNumber.setVisible(value);
+		labelLieutenantNumber.setVisible(value);
+		labelSergeantNumber.setVisible(value);
+		labelMinerNumber.setVisible(value);
+		labelScoutNumber.setVisible(value);
+		labelSpyNumber.setVisible(value);
+		labelBombNumber.setVisible(value);
+	}
 
-    /**
-     * Resets figures-placed-counter and shows information label, using
-     * placementLabelVisible(true). Sets array with allowed numbers of each
-     * piece. Order: Flag, Marshal, General, Colonel, Major, Captain,
-     * Lieutenant, Sergeant, Miner, Scout, Spy, Bomb
-     */
-    public void preparePlacement() {
+	/**
+	 * Resets figures-placed-counter and shows information label, using
+	 * placementLabelVisible(true). Sets array with allowed numbers of each
+	 * piece. Order: Flag, Marshal, General, Colonel, Major, Captain,
+	 * Lieutenant, Sergeant, Miner, Scout, Spy, Bomb
+	 */
+	public void preparePlacement() {
+		placementLabelVisible(true);
+		updatePlacementLabel();
+	}
 
-        figureCounter = new int[]{1, 1, 1, 2, 3, 4, 4, 4, 5, 8, 1, 6};
+	public void updatePlacementLabel() {
+		labelFlagNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Flag"))));
+		labelMarshalNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Marshal"))));
+		labelGeneralNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("General"))));
+		labelColonelNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Colonel"))));
+		labelMajorNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Major"))));
+		labelCaptainNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Captain"))));
+		labelLieutenantNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Lieutenant"))));
+		labelSergeantNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Sergeant"))));
+		labelMinerNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Miner"))));
+		labelScoutNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Scout"))));
+		labelSpyNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Spy"))));
+		labelBombNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Bomb"))));
+	}
 
-        placementLabelVisible(true);
-        updatePlacementLabel();
-    }
+	/**
+	 * Changes color of icons in infoarea to fit current player.
+	 */
+	public void setInfoIconColor(ColorEnum playerColor) {
 
-    public void updatePlacementLabel() {
-        labelFlagNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Flag"))));
-        labelMarshalNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Marshal"))));
-        labelGeneralNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("General"))));
-        labelColonelNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Colonel"))));
-        labelMajorNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Major"))));
-        labelCaptainNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Captain"))));
-        labelLieutenantNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Lieutenant"))));
-        labelSergeantNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Sergeant"))));
-        labelMinerNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Miner"))));
-        labelScoutNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Scout"))));
-        labelSpyNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Spy"))));
-        labelBombNumber.setText(String.valueOf(game.gameState.getPlayerWithMove().getLeftNumberOfPieceInList(game.gameState.getPlayerWithMove().getPiece("Bomb"))));
-    }
+		String path = ("_" + playerColor + ".png");
 
-    /**
-     * Changes color of icons in infoarea to fit current player.
-     */
-    public void setInfoIconColor(ColorEnum playerColor) {
+		labelFlagIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "flag" + path)));
+		labelMarshalIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "marshal" + path)));
+		labelGeneralIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "general" + path)));
+		labelColonelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "colonel" + path)));
+		labelMajorIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "major" + path)));
+		labelCaptainIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "captain" + path)));
+		labelLieutenantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "lieutenant" + path)));
+		labelSergeantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "sergeant" + path)));
+		labelMinerIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "miner" + path)));
+		labelScoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "scout" + path)));
+		labelSpyIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "spy" + path)));
+		labelBombIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "bomb" + path)));
 
-        String path = ("_" + playerColor + ".png");
+	}
 
-        labelFlagIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "flag" + path)));
-        labelMarshalIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "marshal" + path)));
-        labelGeneralIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "general" + path)));
-        labelColonelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "colonel" + path)));
-        labelMajorIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "major" + path)));
-        labelCaptainIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "captain" + path)));
-        labelLieutenantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "lieutenant" + path)));
-        labelSergeantIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "sergeant" + path)));
-        labelMinerIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "miner" + path)));
-        labelScoutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "scout" + path)));
-        labelSpyIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "spy" + path)));
-        labelBombIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/" + "bomb" + path)));
-
-    }
-
-    /**
-     * Reads piece from board in current game and sets icon of corresponding
-     * field.
-     */
-    public void updateIcons() {
-        String iconName = "";
-        String pieceType = "";
-        String pieceColor = "";
+	/**
+	 * Reads piece from board in current game and sets icon of corresponding
+	 * field.
+	 */
+	public void updateIcons() {
+		String iconName = "";
+		String pieceType = "";
+		String pieceColor = "";
 
 
-        for (int x = 0; x <= 9; x++) {
-            for (int y = 0; y <= 9; y++) {
-                if (!game.playBoard.board[x][y].isBlocked()) {
-                    if (game.playBoard.board[x][y].getPiece() == null) {
-                        fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));
-                    } else {
-                        if (game.playBoard.board[x][y].getPiece().isCovered()) {
-                            pieceColor = game.playBoard.board[x][y].getPiece().getColor().toString();
-                            iconName = "/jstratego/gui/img/" + "blank_" + pieceColor.toLowerCase() + ".png";
-                            fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
-                        } else {
-                            pieceType = game.playBoard.board[x][y].getPiece().getClass().getSimpleName();
-                            pieceColor = game.playBoard.board[x][y].getPiece().getColor().toString();
-                            iconName = "/jstratego/gui/img/" + pieceType.toLowerCase() + "_" + pieceColor.toLowerCase() + ".png";
-                            fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
-                        }
-                    }
-                }
-            }
-        }
-    }
+		for (int x = 0; x <= 9; x++) {
+			for (int y = 0; y <= 9; y++) {
+				if (!game.playBoard.board[x][y].isBlocked()) {
+					if (game.playBoard.board[x][y].getPiece() == null) {
+						fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource("/jstratego/gui/img/blank.png")));
+					} else {
+						if (game.playBoard.board[x][y].getPiece().isCovered()) {
+							pieceColor = game.playBoard.board[x][y].getPiece().getColor().toString();
+							iconName = "/jstratego/gui/img/" + "blank_" + pieceColor.toLowerCase() + ".png";
+							fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
+						} else {
+							pieceType = game.playBoard.board[x][y].getPiece().getClass().getSimpleName();
+							pieceColor = game.playBoard.board[x][y].getPiece().getColor().toString();
+							iconName = "/jstratego/gui/img/" + pieceType.toLowerCase() + "_" + pieceColor.toLowerCase() + ".png";
+							fieldArray[x][y].setIcon(new javax.swing.ImageIcon(getClass().getResource(iconName)));
+						}
+					}
+				}
+			}
+		}
+	}
 
-    public void resetBorders() {
-        for (int x = 0; x <= 9; x++) {
-            for (int y = 0; y <= 9; y++) {
-                fieldArray[x][y].setBorder(null);
-            }
-        }
-    }
+	public void resetBorders() {
+		for (int x = 0; x <= 9; x++) {
+			for (int y = 0; y <= 9; y++) {
+				fieldArray[x][y].setBorder(null);
+			}
+		}
+	}
 
-    public void showReachableFields(Field field) {
+	public void showReachableFields(Field field) {
 
-        int x;
-        int y;
+		int x;
+		int y;
 
-        List<Field> reachableFields = game.playBoard.listOfReachableFields(field, game.gameState.getCurrentGamephase());
-        if (reachableFields.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Diese Figur kann nicht bewegt werden. Bitte andere wählen.", "Fehler", ERROR);
-        } else {
-            for (int i = 0; i < reachableFields.size(); i++) {
-                x = reachableFields.get(i).getX();
-                y = reachableFields.get(i).getY();
-                fieldArray[x][y].setBorder(highlighted);
-            }
+		List<Field> reachableFields = game.playBoard.listOfReachableFields(field, game.gameState.getCurrentGamephase());
+		if (reachableFields.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Diese Figur kann nicht bewegt werden. Bitte andere wählen.", "Fehler", ERROR);
+		} else {
+			for (int i = 0; i < reachableFields.size(); i++) {
+				x = reachableFields.get(i).getX();
+				y = reachableFields.get(i).getY();
+				fieldArray[x][y].setBorder(highlighted);
+			}
 
-        }
-    }
+		}
+	}
 
-    public boolean placeable() {
-        String pieceName = pieceToPlace.getClass().getSimpleName();
+	public boolean placeable() {
+		String pieceName = pieceToPlace.getClass().getSimpleName();
 
-        if (pieceName.equalsIgnoreCase("Flag") && (figureCounter[0] > 0)) {
-            return true;
-        } else if (pieceName.equalsIgnoreCase("Marshal") && (figureCounter[1] > 0)) {
-            return true;
-        } else if (pieceName.equalsIgnoreCase("General") && (figureCounter[2] > 0)) {
-            return true;
-        } else if (pieceName.equalsIgnoreCase("Colonel") && (figureCounter[3] > 0)) {
-            return true;
-        } else if (pieceName.equalsIgnoreCase("Major") && (figureCounter[4] > 0)) {
-            return true;
-        } else if (pieceName.equalsIgnoreCase("Captain") && (figureCounter[5] > 0)) {
-            return true;
-        } else if (pieceName.equalsIgnoreCase("Lieutenant") && (figureCounter[6] > 0)) {
-            return true;
-        } else if (pieceName.equalsIgnoreCase("Sergeant") && (figureCounter[7] > 0)) {
-            return true;
-        } else if (pieceName.equalsIgnoreCase("Miner") && (figureCounter[8] > 0)) {
-            return true;
-        } else if (pieceName.equalsIgnoreCase("Scout") && (figureCounter[9] > 0)) {
-            return true;
-        } else if (pieceName.equalsIgnoreCase("Spy") && (figureCounter[10] > 0)) {
-            return true;
-        } else if (pieceName.equalsIgnoreCase("Bomb") && (figureCounter[11] > 0)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+		if (pieceName.equalsIgnoreCase("Flag") && (figureCounter[0] > 0)) {
+			return true;
+		} else if (pieceName.equalsIgnoreCase("Marshal") && (figureCounter[1] > 0)) {
+			return true;
+		} else if (pieceName.equalsIgnoreCase("General") && (figureCounter[2] > 0)) {
+			return true;
+		} else if (pieceName.equalsIgnoreCase("Colonel") && (figureCounter[3] > 0)) {
+			return true;
+		} else if (pieceName.equalsIgnoreCase("Major") && (figureCounter[4] > 0)) {
+			return true;
+		} else if (pieceName.equalsIgnoreCase("Captain") && (figureCounter[5] > 0)) {
+			return true;
+		} else if (pieceName.equalsIgnoreCase("Lieutenant") && (figureCounter[6] > 0)) {
+			return true;
+		} else if (pieceName.equalsIgnoreCase("Sergeant") && (figureCounter[7] > 0)) {
+			return true;
+		} else if (pieceName.equalsIgnoreCase("Miner") && (figureCounter[8] > 0)) {
+			return true;
+		} else if (pieceName.equalsIgnoreCase("Scout") && (figureCounter[9] > 0)) {
+			return true;
+		} else if (pieceName.equalsIgnoreCase("Spy") && (figureCounter[10] > 0)) {
+			return true;
+		} else if (pieceName.equalsIgnoreCase("Bomb") && (figureCounter[11] > 0)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-    public void callMove(JLabel field) {
+	public void callMove(JLabel field) {
 
-        if ((game.gameState.getCurrentGamephase() == jstratego.logic.game.GamephaseEnum.SETUPblue)
-                || (game.gameState.getCurrentGamephase() == jstratego.logic.game.GamephaseEnum.SETUPred)) {
-            if ((!(field.getName().length() == 3) || (field.getName().startsWith("S"))) && pieceToPlace == null) {
-                String pieceName = field.getName();
-                ColorEnum tempColor = game.gameState.getPlayerWithMove().getColor();
+		if ((game.gameState.getCurrentGamephase() == jstratego.logic.game.GamephaseEnum.SETUPblue)
+				|| (game.gameState.getCurrentGamephase() == jstratego.logic.game.GamephaseEnum.SETUPred)) {
+			if ((!(field.getName().length() == 3) || (field.getName().startsWith("S"))) && pieceToPlace == null) {
+				String pieceName = field.getName();
+				ColorEnum tempColor = game.gameState.getPlayerWithMove().getColor();
 
-                if (pieceName.equalsIgnoreCase("Flag")) {
-                    pieceToPlace = new Flag(tempColor, true, false);
-                } else if (pieceName.equalsIgnoreCase("Marshal")) {
-                    pieceToPlace = new Marshal(tempColor, true, false);
-                } else if (pieceName.equalsIgnoreCase("General")) {
-                    pieceToPlace = new General(tempColor, true, false);
-                } else if (pieceName.equalsIgnoreCase("Colonel")) {
-                    pieceToPlace = new Colonel(tempColor, true, false);
-                } else if (pieceName.equalsIgnoreCase("Major")) {
-                    pieceToPlace = new Major(tempColor, true, false);
-                } else if (pieceName.equalsIgnoreCase("Captain")) {
-                    pieceToPlace = new Captain(tempColor, true, false);
-                } else if (pieceName.equalsIgnoreCase("Lieutenant")) {
-                    pieceToPlace = new Lieutenant(tempColor, true, false);
-                } else if (pieceName.equalsIgnoreCase("Sergeant")) {
-                    pieceToPlace = new Sergeant(tempColor, true, false);
-                } else if (pieceName.equalsIgnoreCase("Miner")) {
-                    pieceToPlace = new Miner(tempColor, true, false);
-                } else if (pieceName.equalsIgnoreCase("Scout")) {
-                    pieceToPlace = new Scout(tempColor, true, false);
-                } else if (pieceName.equalsIgnoreCase("Spy")) {
-                    pieceToPlace = new Spy(tempColor, true, false);
-                } else if (pieceName.equalsIgnoreCase("Bomb")) {
-                    pieceToPlace = new Bomb(tempColor, true, false);
-                }
+				if (pieceName.equalsIgnoreCase("Flag")) {
+					pieceToPlace = new Flag(tempColor, true, false);
+				} else if (pieceName.equalsIgnoreCase("Marshal")) {
+					pieceToPlace = new Marshal(tempColor, true, false);
+				} else if (pieceName.equalsIgnoreCase("General")) {
+					pieceToPlace = new General(tempColor, true, false);
+				} else if (pieceName.equalsIgnoreCase("Colonel")) {
+					pieceToPlace = new Colonel(tempColor, true, false);
+				} else if (pieceName.equalsIgnoreCase("Major")) {
+					pieceToPlace = new Major(tempColor, true, false);
+				} else if (pieceName.equalsIgnoreCase("Captain")) {
+					pieceToPlace = new Captain(tempColor, true, false);
+				} else if (pieceName.equalsIgnoreCase("Lieutenant")) {
+					pieceToPlace = new Lieutenant(tempColor, true, false);
+				} else if (pieceName.equalsIgnoreCase("Sergeant")) {
+					pieceToPlace = new Sergeant(tempColor, true, false);
+				} else if (pieceName.equalsIgnoreCase("Miner")) {
+					pieceToPlace = new Miner(tempColor, true, false);
+				} else if (pieceName.equalsIgnoreCase("Scout")) {
+					pieceToPlace = new Scout(tempColor, true, false);
+				} else if (pieceName.equalsIgnoreCase("Spy")) {
+					pieceToPlace = new Spy(tempColor, true, false);
+				} else if (pieceName.equalsIgnoreCase("Bomb")) {
+					pieceToPlace = new Bomb(tempColor, true, false);
+				}
 
-                labelPlayer.setText(pieceToPlace.getNAME() + " platzieren.");
+				labelPlayer.setText(pieceToPlace.getNAME() + " platzieren.");
 
-            } else {
-                if ((field.getName().length() == 3) && !field.getName().startsWith("S") && pieceToPlace != null) {
-                    int x = Integer.parseInt(field.getName().substring(1, 2));
-                    int y = Integer.parseInt(field.getName().substring(2));
-                    try {
-                        if (placeable()) {
-                            game.playBoard.board[x][y].setPiece(pieceToPlace, game.gameState);
+			} else {
+				if ((field.getName().length() == 3) && !field.getName().startsWith("S") && pieceToPlace != null) {
+					int x = Integer.parseInt(field.getName().substring(1, 2));
+					int y = Integer.parseInt(field.getName().substring(2));
+					try {
+						if (placeable()) {
+							game.playBoard.board[x][y].setPiece(pieceToPlace, game.gameState);
 
-                            String pieceName = pieceToPlace.getClass().getSimpleName();
+							String pieceName = pieceToPlace.getClass().getSimpleName();
 
-                            if (pieceName.equalsIgnoreCase("Flag")) {
-                                figureCounter[0]--;
-                            } else if (pieceName.equalsIgnoreCase("Marshal")) {
-                                figureCounter[1]--;
-                            } else if (pieceName.equalsIgnoreCase("General")) {
-                                figureCounter[2]--;
-                            } else if (pieceName.equalsIgnoreCase("Colonel")) {
-                                figureCounter[3]--;
-                            } else if (pieceName.equalsIgnoreCase("Major")) {
-                                figureCounter[4]--;
-                            } else if (pieceName.equalsIgnoreCase("Captain")) {
-                                figureCounter[5]--;
-                            } else if (pieceName.equalsIgnoreCase("Lieutenant")) {
-                                figureCounter[6]--;
-                            } else if (pieceName.equalsIgnoreCase("Sergeant")) {
-                                figureCounter[7]--;
-                            } else if (pieceName.equalsIgnoreCase("Miner")) {
-                                figureCounter[8]--;
-                            } else if (pieceName.equalsIgnoreCase("Scout")) {
-                                figureCounter[9]--;
-                            } else if (pieceName.equalsIgnoreCase("Spy")) {
-                                figureCounter[10]--;
-                            } else if (pieceName.equalsIgnoreCase("Bomb")) {
-                                figureCounter[11]--;
-                            }
-                        }
-                    } catch (Exception ex) {
-                        JOptionPane.showMessageDialog(null, "Platzierung hier nicht möglich.", "Fehler", JOptionPane.ERROR_MESSAGE);
-                    }
-                    pieceToPlace = null;
-                    updatePlacementLabel();
-                    updateIcons();
-                    labelPlayer.setText(game.gameState.getPlayerWithMove().getName() + ", bitte Figuren platzieren.");
-                }
-            }
+							if (pieceName.equalsIgnoreCase("Flag")) {
+								figureCounter[0]--;
+							} else if (pieceName.equalsIgnoreCase("Marshal")) {
+								figureCounter[1]--;
+							} else if (pieceName.equalsIgnoreCase("General")) {
+								figureCounter[2]--;
+							} else if (pieceName.equalsIgnoreCase("Colonel")) {
+								figureCounter[3]--;
+							} else if (pieceName.equalsIgnoreCase("Major")) {
+								figureCounter[4]--;
+							} else if (pieceName.equalsIgnoreCase("Captain")) {
+								figureCounter[5]--;
+							} else if (pieceName.equalsIgnoreCase("Lieutenant")) {
+								figureCounter[6]--;
+							} else if (pieceName.equalsIgnoreCase("Sergeant")) {
+								figureCounter[7]--;
+							} else if (pieceName.equalsIgnoreCase("Miner")) {
+								figureCounter[8]--;
+							} else if (pieceName.equalsIgnoreCase("Scout")) {
+								figureCounter[9]--;
+							} else if (pieceName.equalsIgnoreCase("Spy")) {
+								figureCounter[10]--;
+							} else if (pieceName.equalsIgnoreCase("Bomb")) {
+								figureCounter[11]--;
+							}
+						}
+					} catch (Exception ex) {
+						JOptionPane.showMessageDialog(null, "Platzierung hier nicht möglich.", "Fehler", JOptionPane.ERROR_MESSAGE);
+					}
+					pieceToPlace = null;
+					updatePlacementLabel();
+					updateIcons();
+					labelPlayer.setText(game.gameState.getPlayerWithMove().getName() + ", bitte Figuren platzieren.");
+				}
+			}
 
 
-        } else {
-            if (game.gameState.getCurrentGamephase().equals(GamephaseEnum.MOVEblue)
-                    || game.gameState.getCurrentGamephase().equals(GamephaseEnum.MOVEred)) {
-                {
-                    int x = field.getName().charAt(1);
-                    int y = field.getName().charAt(2);
+		} else {
+			if (game.gameState.getCurrentGamephase().equals(GamephaseEnum.MOVEblue)
+					|| game.gameState.getCurrentGamephase().equals(GamephaseEnum.MOVEred)) {
+				{
+					int x = field.getName().charAt(1);
+					int y = field.getName().charAt(2);
 
-                    if (game.gameState.getChallenger() == null) {
-                        game.gameState.setChallenger(game.playBoard.board[x][y].getPiece());
-                    } else {
-                        game.gameState.setDefender(game.playBoard.board[x][y].getPiece());
-                    }
-                }
-            }//end if move
+					if (game.gameState.getChallenger() == null) {
+						game.gameState.setChallenger(game.playBoard.board[x][y].getPiece());
+					} else {
+						game.gameState.setDefender(game.playBoard.board[x][y].getPiece());
+					}
+				}
+			}//end if move
 
-        }//end if setup
-    }
+		}//end if setup
+	}
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
-    @SuppressWarnings("unchecked")
+	/**
+	 * This method is called from within the constructor to initialize the form.
+	 * WARNING: Do NOT modify this code. The content of this method is always
+	 * regenerated by the Form Editor.
+	 */
+	@SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
@@ -2689,460 +2683,460 @@ public class PlayBoard extends javax.swing.JFrame {
 
 //<editor-fold defaultstate="collapsed" desc=" MouseClickedEvents of all functional items">
     private void f34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f34MouseClicked
-        callMove(f34);
+		callMove(f34);
     }//GEN-LAST:event_f34MouseClicked
 
     private void f33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f33MouseClicked
-        callMove(f33);
+		callMove(f33);
     }//GEN-LAST:event_f33MouseClicked
 
     private void f00MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f00MouseClicked
-        callMove(f00);
+		callMove(f00);
     }//GEN-LAST:event_f00MouseClicked
 
     private void f01MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f01MouseClicked
-        callMove(f01);
+		callMove(f01);
     }//GEN-LAST:event_f01MouseClicked
 
     private void f02MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f02MouseClicked
-        callMove(f02);
+		callMove(f02);
     }//GEN-LAST:event_f02MouseClicked
 
     private void f03MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f03MouseClicked
-        callMove(f03);
+		callMove(f03);
     }//GEN-LAST:event_f03MouseClicked
 
     private void f04MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f04MouseClicked
-        callMove(f04);
+		callMove(f04);
     }//GEN-LAST:event_f04MouseClicked
 
     private void f05MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f05MouseClicked
-        callMove(f05);
+		callMove(f05);
     }//GEN-LAST:event_f05MouseClicked
 
     private void f06MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f06MouseClicked
-        callMove(f06);
+		callMove(f06);
     }//GEN-LAST:event_f06MouseClicked
 
     private void f07MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f07MouseClicked
-        callMove(f07);
+		callMove(f07);
     }//GEN-LAST:event_f07MouseClicked
 
     private void f08MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f08MouseClicked
-        callMove(f08);
+		callMove(f08);
     }//GEN-LAST:event_f08MouseClicked
 
     private void f09MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f09MouseClicked
-        callMove(f09);
+		callMove(f09);
     }//GEN-LAST:event_f09MouseClicked
 
     private void f10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f10MouseClicked
-        callMove(f10);
+		callMove(f10);
     }//GEN-LAST:event_f10MouseClicked
 
     private void f11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f11MouseClicked
-        callMove(f11);
+		callMove(f11);
     }//GEN-LAST:event_f11MouseClicked
 
     private void f12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f12MouseClicked
-        callMove(f12);
+		callMove(f12);
     }//GEN-LAST:event_f12MouseClicked
 
     private void f13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f13MouseClicked
-        callMove(f13);
+		callMove(f13);
     }//GEN-LAST:event_f13MouseClicked
 
     private void f14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f14MouseClicked
-        callMove(f14);
+		callMove(f14);
     }//GEN-LAST:event_f14MouseClicked
 
     private void f15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f15MouseClicked
-        callMove(f15);
+		callMove(f15);
     }//GEN-LAST:event_f15MouseClicked
 
     private void f16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f16MouseClicked
-        callMove(f16);
+		callMove(f16);
     }//GEN-LAST:event_f16MouseClicked
 
     private void f17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f17MouseClicked
-        callMove(f17);
+		callMove(f17);
     }//GEN-LAST:event_f17MouseClicked
 
     private void f18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f18MouseClicked
-        callMove(f18);
+		callMove(f18);
     }//GEN-LAST:event_f18MouseClicked
 
     private void f19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f19MouseClicked
-        callMove(f19);
+		callMove(f19);
     }//GEN-LAST:event_f19MouseClicked
 
     private void f20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f20MouseClicked
-        callMove(f20);
+		callMove(f20);
     }//GEN-LAST:event_f20MouseClicked
 
     private void f21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f21MouseClicked
-        callMove(f21);
+		callMove(f21);
     }//GEN-LAST:event_f21MouseClicked
 
     private void f22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f22MouseClicked
-        callMove(f22);
+		callMove(f22);
     }//GEN-LAST:event_f22MouseClicked
 
     private void f23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f23MouseClicked
-        callMove(f23);
+		callMove(f23);
     }//GEN-LAST:event_f23MouseClicked
 
     private void f24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f24MouseClicked
-        callMove(f24);
+		callMove(f24);
     }//GEN-LAST:event_f24MouseClicked
 
     private void f25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f25MouseClicked
-        callMove(f25);
+		callMove(f25);
     }//GEN-LAST:event_f25MouseClicked
 
     private void f26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f26MouseClicked
-        callMove(f26);
+		callMove(f26);
     }//GEN-LAST:event_f26MouseClicked
 
     private void f27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f27MouseClicked
-        callMove(f27);
+		callMove(f27);
     }//GEN-LAST:event_f27MouseClicked
 
     private void f28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f28MouseClicked
-        callMove(f28);
+		callMove(f28);
     }//GEN-LAST:event_f28MouseClicked
 
     private void f29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f29MouseClicked
-        callMove(f29);
+		callMove(f29);
     }//GEN-LAST:event_f29MouseClicked
 
     private void f30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f30MouseClicked
-        callMove(f30);
+		callMove(f30);
     }//GEN-LAST:event_f30MouseClicked
 
     private void f31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f31MouseClicked
-        callMove(f31);
+		callMove(f31);
     }//GEN-LAST:event_f31MouseClicked
 
     private void f32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f32MouseClicked
-        callMove(f32);
+		callMove(f32);
     }//GEN-LAST:event_f32MouseClicked
 
     private void f35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f35MouseClicked
-        callMove(f35);
+		callMove(f35);
     }//GEN-LAST:event_f35MouseClicked
 
     private void f36MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f36MouseClicked
-        callMove(f36);
+		callMove(f36);
     }//GEN-LAST:event_f36MouseClicked
 
     private void f37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f37MouseClicked
-        callMove(f37);
+		callMove(f37);
     }//GEN-LAST:event_f37MouseClicked
 
     private void f38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f38MouseClicked
-        callMove(f38);
+		callMove(f38);
     }//GEN-LAST:event_f38MouseClicked
 
     private void f39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f39MouseClicked
-        callMove(f39);
+		callMove(f39);
     }//GEN-LAST:event_f39MouseClicked
 
     private void f40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f40MouseClicked
-        callMove(f40);
+		callMove(f40);
     }//GEN-LAST:event_f40MouseClicked
 
     private void f41MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f41MouseClicked
-        callMove(f41);
+		callMove(f41);
     }//GEN-LAST:event_f41MouseClicked
 
     private void f44MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f44MouseClicked
-        callMove(f44);
+		callMove(f44);
     }//GEN-LAST:event_f44MouseClicked
 
     private void f45MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f45MouseClicked
-        callMove(f45);
+		callMove(f45);
     }//GEN-LAST:event_f45MouseClicked
 
     private void f48MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f48MouseClicked
-        callMove(f48);
+		callMove(f48);
     }//GEN-LAST:event_f48MouseClicked
 
     private void f49MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f49MouseClicked
-        callMove(f49);
+		callMove(f49);
     }//GEN-LAST:event_f49MouseClicked
 
     private void f50MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f50MouseClicked
-        callMove(f50);
+		callMove(f50);
     }//GEN-LAST:event_f50MouseClicked
 
     private void f51MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f51MouseClicked
-        callMove(f51);
+		callMove(f51);
     }//GEN-LAST:event_f51MouseClicked
 
     private void f54MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f54MouseClicked
-        callMove(f54);
+		callMove(f54);
     }//GEN-LAST:event_f54MouseClicked
 
     private void f55MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f55MouseClicked
-        callMove(f55);
+		callMove(f55);
     }//GEN-LAST:event_f55MouseClicked
 
     private void f58MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f58MouseClicked
-        callMove(f58);
+		callMove(f58);
     }//GEN-LAST:event_f58MouseClicked
 
     private void f59MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f59MouseClicked
-        callMove(f59);
+		callMove(f59);
     }//GEN-LAST:event_f59MouseClicked
 
     private void f60MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f60MouseClicked
-        callMove(f60);
+		callMove(f60);
     }//GEN-LAST:event_f60MouseClicked
 
     private void f61MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f61MouseClicked
-        callMove(f61);
+		callMove(f61);
     }//GEN-LAST:event_f61MouseClicked
 
     private void f62MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f62MouseClicked
-        callMove(f62);
+		callMove(f62);
     }//GEN-LAST:event_f62MouseClicked
 
     private void f63MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f63MouseClicked
-        callMove(f63);
+		callMove(f63);
     }//GEN-LAST:event_f63MouseClicked
 
     private void f64MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f64MouseClicked
-        callMove(f64);
+		callMove(f64);
     }//GEN-LAST:event_f64MouseClicked
 
     private void f65MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f65MouseClicked
-        callMove(f65);
+		callMove(f65);
     }//GEN-LAST:event_f65MouseClicked
 
     private void f66MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f66MouseClicked
-        callMove(f66);
+		callMove(f66);
     }//GEN-LAST:event_f66MouseClicked
 
     private void f67MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f67MouseClicked
-        callMove(f67);
+		callMove(f67);
     }//GEN-LAST:event_f67MouseClicked
 
     private void f68MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f68MouseClicked
-        callMove(f68);
+		callMove(f68);
     }//GEN-LAST:event_f68MouseClicked
 
     private void f69MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f69MouseClicked
-        callMove(f69);
+		callMove(f69);
     }//GEN-LAST:event_f69MouseClicked
 
     private void f70MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f70MouseClicked
-        callMove(f70);
+		callMove(f70);
     }//GEN-LAST:event_f70MouseClicked
 
     private void f71MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f71MouseClicked
-        callMove(f71);
+		callMove(f71);
     }//GEN-LAST:event_f71MouseClicked
 
     private void f72MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f72MouseClicked
-        callMove(f72);
+		callMove(f72);
     }//GEN-LAST:event_f72MouseClicked
 
     private void f73MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f73MouseClicked
-        callMove(f73);
+		callMove(f73);
     }//GEN-LAST:event_f73MouseClicked
 
     private void f74MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f74MouseClicked
-        callMove(f74);
+		callMove(f74);
     }//GEN-LAST:event_f74MouseClicked
 
     private void f75MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f75MouseClicked
-        callMove(f75);
+		callMove(f75);
     }//GEN-LAST:event_f75MouseClicked
 
     private void f76MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f76MouseClicked
-        callMove(f76);
+		callMove(f76);
     }//GEN-LAST:event_f76MouseClicked
 
     private void f77MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f77MouseClicked
-        callMove(f77);
+		callMove(f77);
     }//GEN-LAST:event_f77MouseClicked
 
     private void f78MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f78MouseClicked
-        callMove(f78);
+		callMove(f78);
     }//GEN-LAST:event_f78MouseClicked
 
     private void f79MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f79MouseClicked
-        callMove(f79);
+		callMove(f79);
     }//GEN-LAST:event_f79MouseClicked
 
     private void f80MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f80MouseClicked
-        callMove(f80);
+		callMove(f80);
     }//GEN-LAST:event_f80MouseClicked
 
     private void f81MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f81MouseClicked
-        callMove(f81);
+		callMove(f81);
     }//GEN-LAST:event_f81MouseClicked
 
     private void f82MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f82MouseClicked
-        callMove(f82);
+		callMove(f82);
     }//GEN-LAST:event_f82MouseClicked
 
     private void f83MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f83MouseClicked
-        callMove(f83);
+		callMove(f83);
     }//GEN-LAST:event_f83MouseClicked
 
     private void f84MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f84MouseClicked
-        callMove(f84);
+		callMove(f84);
     }//GEN-LAST:event_f84MouseClicked
 
     private void f85MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f85MouseClicked
-        callMove(f85);
+		callMove(f85);
     }//GEN-LAST:event_f85MouseClicked
 
     private void f86MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f86MouseClicked
-        callMove(f86);
+		callMove(f86);
     }//GEN-LAST:event_f86MouseClicked
 
     private void f87MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f87MouseClicked
-        callMove(f87);
+		callMove(f87);
     }//GEN-LAST:event_f87MouseClicked
 
     private void f88MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f88MouseClicked
-        callMove(f88);
+		callMove(f88);
     }//GEN-LAST:event_f88MouseClicked
 
     private void f89MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f89MouseClicked
-        callMove(f89);
+		callMove(f89);
     }//GEN-LAST:event_f89MouseClicked
 
     private void f90MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f90MouseClicked
-        callMove(f90);
+		callMove(f90);
     }//GEN-LAST:event_f90MouseClicked
 
     private void f91MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f91MouseClicked
-        callMove(f91);
+		callMove(f91);
     }//GEN-LAST:event_f91MouseClicked
 
     private void f92MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f92MouseClicked
-        callMove(f92);
+		callMove(f92);
     }//GEN-LAST:event_f92MouseClicked
 
     private void f93MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f93MouseClicked
-        callMove(f93);
+		callMove(f93);
     }//GEN-LAST:event_f93MouseClicked
 
     private void f94MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f94MouseClicked
-        callMove(f94);
+		callMove(f94);
     }//GEN-LAST:event_f94MouseClicked
 
     private void f95MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f95MouseClicked
-        callMove(f95);
+		callMove(f95);
     }//GEN-LAST:event_f95MouseClicked
 
     private void f96MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f96MouseClicked
-        callMove(f96);
+		callMove(f96);
     }//GEN-LAST:event_f96MouseClicked
 
     private void f97MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f97MouseClicked
-        callMove(f97);
+		callMove(f97);
     }//GEN-LAST:event_f97MouseClicked
 
     private void f98MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f98MouseClicked
-        callMove(f98);
+		callMove(f98);
     }//GEN-LAST:event_f98MouseClicked
 
     private void f99MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_f99MouseClicked
-        callMove(f99);
+		callMove(f99);
     }//GEN-LAST:event_f99MouseClicked
 
-    /*
-     * Restarts game at every time.
-     */
+	/*
+	 * Restarts game at every time.
+	 */
     private void buttonRestartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonRestartMouseClicked
 
-        int confirm = JOptionPane.showConfirmDialog(null, "Wirklich neues Spiel starten?", "Neues Spiel", JOptionPane.YES_NO_OPTION);
-        if (confirm == JOptionPane.YES_OPTION) {
-            jstratego.gui.game.StartScreen.main(null);
-            setVisible(false);
-        }
+		int confirm = JOptionPane.showConfirmDialog(null, "Wirklich neues Spiel starten?", "Neues Spiel", JOptionPane.YES_NO_OPTION);
+		if (confirm == JOptionPane.YES_OPTION) {
+			jstratego.gui.game.StartScreen.main(null);
+			setVisible(false);
+		}
     }//GEN-LAST:event_buttonRestartMouseClicked
 
     private void labelFlagIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelFlagIconMouseClicked
-        callMove(labelFlagIcon);
+		callMove(labelFlagIcon);
     }//GEN-LAST:event_labelFlagIconMouseClicked
 
     private void labelMarshalIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelMarshalIconMouseClicked
-        callMove(labelMarshalIcon);
+		callMove(labelMarshalIcon);
     }//GEN-LAST:event_labelMarshalIconMouseClicked
 
     private void labelGeneralIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelGeneralIconMouseClicked
-        callMove(labelGeneralIcon);
+		callMove(labelGeneralIcon);
     }//GEN-LAST:event_labelGeneralIconMouseClicked
 
     private void buttonSetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonSetMouseClicked
-        try {
-            PlayGame();
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
+		try {
+			PlayGame();
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
     }//GEN-LAST:event_buttonSetMouseClicked
 
     private void labelColonelIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelColonelIconMouseClicked
-        callMove(labelColonelIcon);
+		callMove(labelColonelIcon);
     }//GEN-LAST:event_labelColonelIconMouseClicked
 
     private void labelMajorIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelMajorIconMouseClicked
-        callMove(labelMajorIcon);
+		callMove(labelMajorIcon);
     }//GEN-LAST:event_labelMajorIconMouseClicked
 
     private void labelCaptainIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCaptainIconMouseClicked
-        callMove(labelCaptainIcon);
+		callMove(labelCaptainIcon);
     }//GEN-LAST:event_labelCaptainIconMouseClicked
 
     private void labelLieutenantIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLieutenantIconMouseClicked
-        callMove(labelLieutenantIcon);
+		callMove(labelLieutenantIcon);
     }//GEN-LAST:event_labelLieutenantIconMouseClicked
 
     private void labelSergeantIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelSergeantIconMouseClicked
-        callMove(labelSergeantIcon);
+		callMove(labelSergeantIcon);
     }//GEN-LAST:event_labelSergeantIconMouseClicked
 
     private void labelMinerIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelMinerIconMouseClicked
-        callMove(labelMinerIcon);
+		callMove(labelMinerIcon);
     }//GEN-LAST:event_labelMinerIconMouseClicked
 
     private void labelScoutIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelScoutIconMouseClicked
-        callMove(labelScoutIcon);
+		callMove(labelScoutIcon);
     }//GEN-LAST:event_labelScoutIconMouseClicked
 
     private void labelSpyIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelSpyIconMouseClicked
-        callMove(labelSpyIcon);
+		callMove(labelSpyIcon);
     }//GEN-LAST:event_labelSpyIconMouseClicked
 
     private void labelBombIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelBombIconMouseClicked
-        callMove(labelBombIcon);
+		callMove(labelBombIcon);
     }//GEN-LAST:event_labelBombIconMouseClicked
 //</editor-fold>
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(Game game) {
+	/**
+	 * @param args the command line arguments
+	 */
+	public static void main(Game game) {
+		/*
+		 * Set the Nimbus look and feel
+		 */
+		//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /*
-         * Set the Nimbus look and feel
-         */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the
-         * default look and feel. For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+		 * If Nimbus (introduced in Java SE 6) is not available, stay with the
+		 * default look and feel. For details see
+		 * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+		 */
+		try {
+			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+				if ("Nimbus".equals(info.getName())) {
+					javax.swing.UIManager.setLookAndFeel(info.getClassName());
+					break;
 
 
 
@@ -3153,38 +3147,38 @@ public class PlayBoard extends javax.swing.JFrame {
 
 
 
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+				}
+			}
+		} catch (ClassNotFoundException ex) {
+			java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (InstantiationException ex) {
+			java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (IllegalAccessException ex) {
+			java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+			java.util.logging.Logger.getLogger(PlayBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		}
+		//</editor-fold>
 
-        PlayBoard.game = game;
-        PlayBoard.game.gameState.setLastGamephase(null);
+		PlayBoard.game = game;
+		PlayBoard.game.gameState.setLastGamephase(null);
 
-        /*
-         * Create and display the form
-         */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+		/*
+		 * Create and display the form
+		 */
+		java.awt.EventQueue.invokeLater(new Runnable() {
 
-            public void run() {
-                try {
-                    new PlayBoard().setVisible(true);
-                } catch (Exception ex) {
-                    System.out.println(ex);
-                    System.out.println("Fehler");
-                }
-            }
-        });
+			public void run() {
+				try {
+					new PlayBoard().setVisible(true);
+				} catch (Exception ex) {
+					System.out.println(ex);
+					System.out.println("Fehler");
+				}
+			}
+		});
 
-    }
+	}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonRestart;
     private javax.swing.JButton buttonSet;
