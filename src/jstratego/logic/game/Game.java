@@ -117,7 +117,6 @@ public class Game implements GameInterface {
 				break;
 			default:
 				break;
-
 		}
 	}
 

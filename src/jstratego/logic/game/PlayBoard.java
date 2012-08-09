@@ -19,6 +19,17 @@ public class PlayBoard implements PlayBoardInterface {
 		initializeFields();
 	}
 
+	private boolean addReachable(Field tmpField, Field field, ArrayList<Field> fields) {
+		Piece tmpPiece = tmpField.getPiece();
+		//TODO Scout darf keine gegn. Pieces überspringen
+		if (!tmpField.isBlocked() && (tmpPiece == null || !tmpPiece.getColor().equals(field.getPiece().getColor()))) {
+			fields.add(tmpField);
+		} else {
+			return true;
+		}
+		return false;
+	}
+
 	/**
 	 * initializes the Fields for a new board.
 	 */
@@ -177,65 +188,41 @@ public class PlayBoard implements PlayBoardInterface {
 			if (field.getX() + 1 <= 9) {
 				int x = field.getX() + 1;
 				tmpField = this.board[x][field.getY()];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
-					fields.add(tmpField);
-				}
+				addReachable(tmpField, field, fields);
 			}
 			if (field.getX() - 1 >= 0) {
 				int x = field.getX() - 1;
 				tmpField = this.board[x][field.getY()];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
-					fields.add(tmpField);
-				}
+				addReachable(tmpField, field, fields);
 			}
 			if (field.getY() + 1 <= 9) {
 				int y = field.getY() + 1;
 				tmpField = this.board[field.getX()][y];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
-					fields.add(tmpField);
-				}
+				addReachable(tmpField, field, fields);
 			}
 			if (field.getY() - 1 >= 0) {
 				int y = field.getY() - 1;
 				tmpField = this.board[field.getX()][y];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
-					fields.add(tmpField);
-				}
+				addReachable(tmpField, field, fields);
 			}
 		}
 		if (field.getPiece().getMOTION().equals(MotionEnum.SUPERMOVABLE)) {
 			Field tmpField;
 			for (int x = field.getX() + 1; x <= 9; x++) {
 				tmpField = this.board[x][field.getY()];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
-					fields.add(tmpField);
-				} else {
-					break;
-				}
+				addReachable(tmpField, field, fields);
 			}
 			for (int x = field.getX() - 1; x >= 0; x--) {
 				tmpField = this.board[x][field.getY()];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
-					fields.add(tmpField);
-				} else {
-					break;
-				}
+				addReachable(tmpField, field, fields);
 			}
 			for (int y = field.getY() + 1; y <= 9; y++) {
 				tmpField = this.board[field.getX()][y];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
-					fields.add(tmpField);
-				} else {
-					break;
-				}
+				if (addReachable(tmpField, field, fields));
 			}
 			for (int y = field.getY() - 1; y >= 0; y--) {
 				tmpField = this.board[field.getX()][y];
-				if (!tmpField.isBlocked() && (tmpField.getPiece() == null || !tmpField.getPiece().getColor().equals(field.getPiece().getColor()))) {
-					fields.add(tmpField);
-				} else {
-					break;
-				}
+				addReachable(tmpField, field, fields);
 			}
 		}
 		if (field.getPiece().getMOTION().equals(MotionEnum.UNMOVABLE)) {
@@ -250,6 +237,8 @@ public class PlayBoard implements PlayBoardInterface {
 		if(pieceField.getPiece()!=null){
 			if(listOfReachableFields(pieceField, gameState.getCurrentGamephase()).contains(destinationField)){
 				destinationField.setPiece(pieceField.getPiece(), gameState);
+			} else {
+				System.out.println("Cannot move to this field. Field not reachable.");
 			}
 		}
 	}
