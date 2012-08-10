@@ -43,7 +43,7 @@ public class StartScreen extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(750, 700));
         setResizable(false);
 
-        panelMain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0)));
+        panelMain.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         panelMain.setOpaque(false);
         panelMain.setPreferredSize(new java.awt.Dimension(245, 700));
 
