@@ -19,9 +19,8 @@ public class PlayBoard implements PlayBoardInterface {
 		initializeFields();
 	}
 
-	private boolean addReachable(Field tmpField, Field field, ArrayList<Field> fields) {
+	private boolean addIfReachable(Field tmpField, Field field, ArrayList<Field> fields) {
 		Piece tmpPiece = tmpField.getPiece();
-		//TODO Scout darf keine gegn. Pieces überspringen
 		if (!tmpField.isBlocked() && (tmpPiece == null || !tmpPiece.getColor().equals(field.getPiece().getColor()))) {
 			fields.add(tmpField);
 		} else {
@@ -188,41 +187,57 @@ public class PlayBoard implements PlayBoardInterface {
 			if (field.getX() + 1 <= 9) {
 				int x = field.getX() + 1;
 				tmpField = this.board[x][field.getY()];
-				addReachable(tmpField, field, fields);
+				addIfReachable(tmpField, field, fields);
 			}
 			if (field.getX() - 1 >= 0) {
 				int x = field.getX() - 1;
 				tmpField = this.board[x][field.getY()];
-				addReachable(tmpField, field, fields);
+				addIfReachable(tmpField, field, fields);
 			}
 			if (field.getY() + 1 <= 9) {
 				int y = field.getY() + 1;
 				tmpField = this.board[field.getX()][y];
-				addReachable(tmpField, field, fields);
+				addIfReachable(tmpField, field, fields);
 			}
 			if (field.getY() - 1 >= 0) {
 				int y = field.getY() - 1;
 				tmpField = this.board[field.getX()][y];
-				addReachable(tmpField, field, fields);
+				addIfReachable(tmpField, field, fields);
 			}
 		}
 		if (field.getPiece().getMOTION().equals(MotionEnum.SUPERMOVABLE)) {
 			Field tmpField;
 			for (int x = field.getX() + 1; x <= 9; x++) {
 				tmpField = this.board[x][field.getY()];
-				addReachable(tmpField, field, fields);
+				if (addIfReachable(tmpField, field, fields)) {
+					if (tmpField.getPiece() != null) {
+						break;
+					}
+				}
 			}
 			for (int x = field.getX() - 1; x >= 0; x--) {
 				tmpField = this.board[x][field.getY()];
-				addReachable(tmpField, field, fields);
+				if (addIfReachable(tmpField, field, fields)) {
+					if (tmpField.getPiece() != null) {
+						break;
+					}
+				}
 			}
 			for (int y = field.getY() + 1; y <= 9; y++) {
 				tmpField = this.board[field.getX()][y];
-				if (addReachable(tmpField, field, fields));
+				if (addIfReachable(tmpField, field, fields)) {
+					if (tmpField.getPiece() != null) {
+						break;
+					}
+				}
 			}
 			for (int y = field.getY() - 1; y >= 0; y--) {
 				tmpField = this.board[field.getX()][y];
-				addReachable(tmpField, field, fields);
+				if (addIfReachable(tmpField, field, fields)) {
+					if (tmpField.getPiece() != null) {
+						break;
+					}
+				}
 			}
 		}
 		if (field.getPiece().getMOTION().equals(MotionEnum.UNMOVABLE)) {
@@ -234,8 +249,8 @@ public class PlayBoard implements PlayBoardInterface {
 
 	@Override
 	public void movePiece(Field pieceField, Field destinationField, GameState gameState) {
-		if(pieceField.getPiece()!=null){
-			if(listOfReachableFields(pieceField, gameState.getCurrentGamephase()).contains(destinationField)){
+		if (pieceField.getPiece() != null) {
+			if (listOfReachableFields(pieceField, gameState.getCurrentGamephase()).contains(destinationField)) {
 				destinationField.setPiece(pieceField.getPiece(), gameState);
 			} else {
 				System.out.println("Cannot move to this field. Field not reachable.");
