@@ -67,7 +67,7 @@ public class PlayBoard extends javax.swing.JFrame {
 		PlayGame();
 	}
 
-	//TODO braucht man das? Es gibt doch bereits ein Array. (game.playboard.board[][]) sebastiangrosse
+	//TODO braucht man das? Es gibt doch bereits ein Array. Verbindung über die Koordinaten (game.playboard.board[][]) sebastiangrosse
 	public final void fillFieldArray() {
 		fieldArray[0][0] = f00;
 		fieldArray[0][1] = f01;

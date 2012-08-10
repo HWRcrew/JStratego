@@ -15,6 +15,7 @@ public class JStratego {
 		// TODO code application logic here
             StartScreen.main(args);
 	}
+	//TODO Beachten die GUI kann eigentlich nichts und ist "strohdoof" sie soll nur dinge anzeigen und sich einen zug bis zur bestätigung merken
 	//TODO ActionListener (eigene Klasse) für alle Spielphasen merkt sich zwei klicks und agiert entsprechend des letzen klicks
 	//TODO refresher mit Werteübergabe - Element, das erneuert werden soll
 	//TODO abstrakte Klasse für GUI-Elemente die dem refresher übergeben werden kann
